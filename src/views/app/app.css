@@ -1,5 +1,6 @@
 :root {
   --font-size: 1vw;
+  --font-color: #071e3d;
 }
 
 .container {
@@ -11,13 +12,36 @@
 
 .logo-content {
   font-family: "Lato-Bold";
+  color: var(--font-color);
   font-size: 1.5vw;
 }
 
 .main {
+  display: flex;
   height: 75vh;
-  background-color: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
   border-radius: 10px;
+  box-shadow: 4px 4px 18px -1px rgba(0, 0, 0, 0.75);
+}
+
+.main__menu {
+  flex: 1;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 1px solid var(--font-color);
+}
+
+.main__content {
+  flex: 2;
 }
 
 @media (min-width: 320px) and (max-width: 374px) {
@@ -27,6 +51,7 @@
 
   .main {
     height: 80vh;
+    flex-direction: column;
   }
 }
 
@@ -37,6 +62,7 @@
 
   .main {
     height: 75vh;
+    flex-direction: column;
   }
 }
 
@@ -47,5 +73,6 @@
 
   .main {
     height: 80vh;
+    flex-direction: column;
   }
 }

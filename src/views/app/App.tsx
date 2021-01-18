@@ -28,7 +28,10 @@ const App: React.FC = () => {
       <Row>
         <Col xs={1} />
         <Col xs={10}>
-          <div className="main"></div>
+          <div className="main">
+            <div className="main__menu"></div>
+            <div className="main__content"></div>
+          </div>
         </Col>
         <Col xs={1} />
       </Row>
