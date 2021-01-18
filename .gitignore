@@ -9,6 +9,7 @@ package.json
 package-lock.json
 tsconfig.json
 yarn.lock
+react-app-env.d.ts
 
 # testing
 /coverage
