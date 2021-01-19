@@ -31,6 +31,7 @@
 
 .main__menu {
   flex: 1;
+  flex-direction: column;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.7),

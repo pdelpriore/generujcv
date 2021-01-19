@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import MenuItem from "../../components/menu/MenuItem";
+import { menuElements } from "../../shared/menuElements";
+import { capitalize } from "../../methods/capitalize";
 import "./app.css";
 
 const App: React.FC = () => {
@@ -29,7 +32,15 @@ const App: React.FC = () => {
         <Col xs={1} />
         <Col xs={10}>
           <div className="main">
-            <div className="main__menu"></div>
+            <div className="main__menu">
+              {menuElements.map((element, index) => (
+                <MenuItem
+                  icon={element.icon}
+                  content={capitalize(element.content)}
+                  key={index}
+                />
+              ))}
+            </div>
             <div className="main__content"></div>
           </div>
         </Col>

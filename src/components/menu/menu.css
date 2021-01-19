@@ -1,0 +1,18 @@
+.menu {
+  padding: 1.2vw;
+}
+
+.menu__icon {
+  font-size: 2vw;
+}
+
+.menu__content {
+  margin: 20%;
+  font-size: 1vw;
+  color: #071e3d;
+  font-family: "OpenSans-SemiBold";
+}
+
+.menu__content:hover {
+  cursor: pointer;
+}
