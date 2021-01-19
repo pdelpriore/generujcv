@@ -1,6 +1,6 @@
 :root {
-  --font-size: 1vw;
-  --font-color: #071e3d;
+  --color: #071e3d;
+  --size: 1vw;
 }
 
 .container {
@@ -11,20 +11,21 @@
 }
 
 .logo-content {
-  font-family: "Lato-Bold";
-  color: var(--font-color);
+  font-family: "Nunito-Bold";
+  color: var(--color);
   font-size: 1.5vw;
 }
 
 .main {
   display: flex;
   height: 75vh;
+  padding: 0.5vw;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
-  border-radius: 10px;
+  border-radius: var(--size);
   box-shadow: 4px 4px 18px -1px rgba(0, 0, 0, 0.75);
 }
 
@@ -35,9 +36,8 @@
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-right: 1px solid var(--font-color);
+  border-radius: var(--size);
+  border: 1px solid var(--color);
 }
 
 .main__content {
