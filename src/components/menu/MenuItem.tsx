@@ -11,7 +11,9 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ icon, content }) => {
   return (
     <div className="menu">
-      <FontAwesomeIcon className="menu__icon" icon={icon} />
+      <div className="menu__icon">
+        <FontAwesomeIcon className="menu__icon-ico" icon={icon} />
+      </div>
       <span className="menu__content">{content}</span>
     </div>
   );

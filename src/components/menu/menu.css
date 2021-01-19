@@ -1,13 +1,21 @@
 .menu {
-  padding: 1.2vw;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  padding: 1.25vw;
 }
 
 .menu__icon {
+  width: 2.2vw;
+}
+
+.menu__icon-ico {
   font-size: 2vw;
 }
 
 .menu__content {
-  margin: 20%;
+  margin-left: 20%;
+  text-align: left;
   font-size: 1vw;
   color: #071e3d;
   font-family: "OpenSans-SemiBold";
