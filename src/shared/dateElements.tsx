@@ -1,4 +1,4 @@
-const daysFn = () => {
+const daysFn = (): number[] => {
   const dayArray = [];
 
   for (let i = 1; i <= 31; i++) {
@@ -8,9 +8,9 @@ const daysFn = () => {
   return dayArray;
 };
 
-export const days = daysFn();
+export const days: number[] = daysFn();
 
-export const months = [
+export const months: string[] = [
   "styczeń",
   "luty",
   "marzec",
@@ -25,20 +25,33 @@ export const months = [
   "grudzień",
 ];
 
-const yearFn = () => {
+const ExperienceYearFn = (): number[] => {
   const yearNow = new Date().getFullYear();
   const yearArray = [];
 
-  for (let i = yearNow; i >= yearNow - 15; i--) {
+  for (let i = yearNow; i >= yearNow - 20; i--) {
     yearArray.push(i);
   }
 
   return yearArray;
 };
 
-export const year = yearFn();
+export const ExperienceYear: number[] = ExperienceYearFn();
 
-const birthdayYearFn = () => {
+const SchoolYearFn = (): number[] => {
+  const yearNow = new Date().getFullYear();
+  const yearArray = [];
+
+  for (let i = yearNow; i >= yearNow - 20; i--) {
+    yearArray.push(i);
+  }
+
+  return yearArray;
+};
+
+export const SchoolYear: number[] = SchoolYearFn();
+
+const birthdayYearFn = (): number[] => {
   const yearNow = new Date().getFullYear();
   const yearArray = [];
 
@@ -49,4 +62,4 @@ const birthdayYearFn = () => {
   return yearArray;
 };
 
-export const birthdayYear = birthdayYearFn();
+export const birthdayYear: number[] = birthdayYearFn();
