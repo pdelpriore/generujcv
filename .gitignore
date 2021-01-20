@@ -10,6 +10,7 @@ package-lock.json
 tsconfig.json
 yarn.lock
 react-app-env.d.ts
+debug.log
 
 # testing
 /coverage
