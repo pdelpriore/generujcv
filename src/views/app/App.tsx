@@ -3,75 +3,14 @@ import { Row, Col } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
-import CompetenceForm from "../../components/form/competence/CompetenceForm";
-import DiplomaForm from "../../components/form/diploma/DiplomaForm";
-import ExperienceForm from "../../components/form/experience/ExperienceForm";
-import HobbyForm from "../../components/form/hobby/HobbyForm";
-import LanguageForm from "../../components/form/language/LanguageForm";
-import PhotoForm from "../../components/form/photo/PhotoForm";
-import StrengthForm from "../../components/form/strength/StrengthForm";
-import UserDataForm from "../../components/form/userData/UserDataForm";
-import useForm from "../../hooks/form/useForm";
+import getForm from "../../shared/getForm";
 import "./app.css";
 
 const App: React.FC = () => {
   const [viewport, setViewport] = useState<number>(0);
   const [menuItemIndex, setMenuItemIndex] = useState<number>(0);
 
-  const [inputs, handleOnChange] = useForm({
-    photo: { binary: "" },
-    userData: {
-      name: "",
-      surname: "",
-      address: {
-        street: "",
-        streetNumber: "",
-        flatNumber: 0,
-        postCode: "",
-        city: "",
-      },
-      birthday: { day: 0, month: "", year: 0 },
-      citizenship: "",
-      drivingLicence: [],
-      tel: 0,
-      maritalStatus: "",
-    },
-    language: [],
-    strength: [],
-    hobby: [],
-    diploma: {
-      name: "",
-      startMonth: "",
-      startYear: 0,
-      endMonth: "",
-      endYear: 0,
-      schoolName: "",
-      city: "",
-      description: "",
-    },
-    experience: {
-      name: "",
-      startMonth: "",
-      startYear: 0,
-      endMonth: "",
-      endYear: 0,
-      company: "",
-      city: "",
-      description: "",
-    },
-    competence: [],
-  });
-
-  const form = [
-    <PhotoForm />,
-    <UserDataForm />,
-    <LanguageForm />,
-    <StrengthForm />,
-    <HobbyForm />,
-    <DiplomaForm />,
-    <ExperienceForm />,
-    <CompetenceForm />,
-  ];
+  let Form = getForm(menuItemIndex);
 
   const handleMenuItemClick = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
@@ -114,7 +53,7 @@ const App: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="main__content">{form[menuItemIndex]}</div>
+            <div className="main__content">{Form}</div>
           </div>
         </Col>
         <Col xs={1} />
