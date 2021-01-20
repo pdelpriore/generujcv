@@ -37,3 +37,16 @@ const yearFn = () => {
 };
 
 export const year = yearFn();
+
+const birthdayYearFn = () => {
+  const yearNow = new Date().getFullYear();
+  const yearArray = [];
+
+  for (let i = yearNow; i >= yearNow - 60; i--) {
+    yearArray.push(i);
+  }
+
+  return yearArray;
+};
+
+export const birthdayYear = birthdayYearFn();
