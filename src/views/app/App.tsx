@@ -23,11 +23,9 @@ const App: React.FC = () => {
           </div>
         </Col>
       </Row>
-      {viewport > 319 && viewport <= 374 ? (
-        <Row className="mt-3" />
-      ) : (
-        <Row className="mt-5" />
-      )}
+      <Row
+        className={`${viewport > 319 && viewport <= 374 ? "mt-3" : "mt-5"}`}
+      />
       <Row>
         <Col xs={1} />
         <Col xs={10}>
