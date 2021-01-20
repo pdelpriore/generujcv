@@ -17,6 +17,7 @@ import "./app.css";
 const App: React.FC = () => {
   const [viewport, setViewport] = useState<number>(0);
   const [menuItemIndex, setMenuItemIndex] = useState<number>(0);
+
   const [inputs, handleOnChange] = useForm({
     photo: { binary: "" },
     userData: {
@@ -29,7 +30,7 @@ const App: React.FC = () => {
         postCode: "",
         city: "",
       },
-      birthday: { day: 0, month: 0, year: 0 },
+      birthday: { day: 0, month: "", year: 0 },
       citizenship: "",
       drivingLicence: [],
       tel: 0,

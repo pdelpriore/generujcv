@@ -14,7 +14,7 @@ type address = {
 
 type birthday = {
   day: number;
-  month: number;
+  month: string;
   year: number;
 };
 
