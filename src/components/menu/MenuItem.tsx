@@ -26,16 +26,13 @@ const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <div className="menu">
       <div className="menu__icon">
-        <FontAwesomeIcon
-          className={`menu__icon-ico ${active && "--active"}`}
-          icon={icon}
-        />
+        <FontAwesomeIcon className="menu__icon-ico" icon={icon} />
       </div>
       <span
         onClick={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) =>
           onClick(e, index)
         }
-        className={`menu__content ${active && "--active"}`}
+        className={`menu__content ${active && "menu__content--active"}`}
       >
         {content}
       </span>

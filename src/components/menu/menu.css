@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.--active {
+.menu__content--active {
   color: #fc5185;
 }
 
