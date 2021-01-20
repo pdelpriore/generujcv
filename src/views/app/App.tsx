@@ -45,6 +45,7 @@ const App: React.FC = () => {
             <div className="main__menu">
               {menuElements.map((element, index) => (
                 <MenuItem
+                  active={index === menuItemIndex}
                   icon={element.icon}
                   content={capitalize(element.content)}
                   index={index}

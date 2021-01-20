@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.--active {
+  color: #fc5185;
+}
+
 @media (max-width: 414px) {
   .menu__icon {
     width: 3.7vw;
