@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { setViewport } from "../../redux/viewport/thunk/viewportThunk";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/config/Store";
 import { Row, Col } from "react-bootstrap";
-import useViewport from "../../hooks/viewport/useViewport";
 import MenuItem from "../../components/menu/MenuItem";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
@@ -8,7 +10,9 @@ import getForm from "../../shared/getForm";
 import "./app.css";
 
 const App: React.FC = () => {
-  const [viewport, setViewport] = useViewport({ app: { value: 0 } });
+  const dispatch = useDispatch();
+
+  const { viewport } = useSelector((state: RootState) => state.viewportState);
   const [menuItemIndex, setMenuItemIndex] = useState<number>(0);
 
   let Form = getForm(menuItemIndex);
@@ -22,7 +26,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    setViewport("app", window.innerWidth);
+    dispatch(setViewport("app", window.innerWidth));
   }, []);
 
   return (
