@@ -5,7 +5,7 @@ import {
 } from "../type/viewportDispatchType";
 
 type value = {
-  [key: string]: number;
+  value: number;
 };
 
 interface Viewport {
