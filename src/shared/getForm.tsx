@@ -8,7 +8,7 @@ import StrengthForm from "../components/form/strength/StrengthForm";
 import UserDataForm from "../components/form/userData/UserDataForm";
 import useForm from "../hooks/form/useForm";
 
-const getForm = (index: number): JSX.Element => {
+const GetForm = (index: number): JSX.Element => {
   const [inputs, handleOnChange] = useForm({
     photo: { binary: "" },
     userData: {
@@ -67,4 +67,4 @@ const getForm = (index: number): JSX.Element => {
   return formArray[index];
 };
 
-export default getForm;
+export default GetForm;
