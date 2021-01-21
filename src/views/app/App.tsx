@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import useViewport from "../../hooks/viewport/useViewport";
 import MenuItem from "../../components/menu/MenuItem";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
@@ -7,7 +8,7 @@ import getForm from "../../shared/getForm";
 import "./app.css";
 
 const App: React.FC = () => {
-  const [viewport, setViewport] = useState<number>(0);
+  const [viewport, setViewport] = useViewport({ app: { value: 0 } });
   const [menuItemIndex, setMenuItemIndex] = useState<number>(0);
 
   let Form = getForm(menuItemIndex);
@@ -21,7 +22,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    setViewport(window.innerWidth);
+    setViewport("app", window.innerWidth);
   }, []);
 
   return (
@@ -36,7 +37,11 @@ const App: React.FC = () => {
         </Col>
       </Row>
       <Row
-        className={`${viewport > 319 && viewport <= 374 ? "mt-3" : "mt-5"}`}
+        className={`${
+          viewport.app.value > 319 && viewport.app.value <= 374
+            ? "mt-3"
+            : "mt-5"
+        }`}
       />
       <Row>
         <Col xs={1} />
