@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { makeImageBinary } from "../../methods/makeImageBinary";
+import useLoading from "../loading/useLoading";
 
 type photo = {
   binary: string;
@@ -69,13 +71,25 @@ interface InitialState {
 
 const useForm = (initialState: InitialState) => {
   const [inputs, setInputs] = useState(initialState);
+  const [loading, setLoader] = useLoading(false);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     setInputs((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
   };
 
-  return [inputs, handleOnChange] as const;
+  const handlePicture = async (picture: File[]) => {
+    if (picture.length > 0) {
+      setLoader(true);
+      const userPhoto: string = await makeImageBinary(picture);
+      if (userPhoto) {
+        setLoader(false);
+        setInputs((inputs) => ({ ...inputs, photo: { binary: userPhoto } }));
+      }
+    }
+  };
+
+  return { inputs, loading, handleOnChange, handlePicture };
 };
 
 export default useForm;
