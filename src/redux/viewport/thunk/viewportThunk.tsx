@@ -5,12 +5,12 @@ import {
   ViewportDispatchType,
 } from "../type/viewportDispatchType";
 
-export const setViewport = (component: string, value: number) => (
+export const setViewport = (value: number) => (
   dispatch: Dispatch<ViewportDispatchType>
 ) =>
   dispatch({
     type: RETRIEVED,
-    payload: { component: component, value: value },
+    payload: value,
   });
 
 export const clearViewport = () => (dispatch: Dispatch<ViewportDispatchType>) =>

@@ -26,8 +26,8 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(setViewport("app", window.innerWidth));
-  }, []);
+    dispatch(setViewport(window.innerWidth));
+  }, [dispatch]);
 
   return (
     <div className="container">
@@ -41,11 +41,7 @@ const App: React.FC = () => {
         </Col>
       </Row>
       <Row
-        className={`${
-          viewport.app.value > 319 && viewport.app.value <= 374
-            ? "mt-3"
-            : "mt-5"
-        }`}
+        className={`${viewport > 319 && viewport <= 374 ? "mt-3" : "mt-5"}`}
       />
       <Row>
         <Col xs={1} />

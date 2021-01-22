@@ -4,20 +4,12 @@ import {
   ViewportDispatchType,
 } from "../type/viewportDispatchType";
 
-type value = {
-  value: number;
-};
-
-interface Viewport {
-  [key: string]: value;
-}
-
 interface ViewportState {
-  viewport: Viewport;
+  viewport: number;
 }
 
 const initState: ViewportState = {
-  viewport: { app: { value: 0 } },
+  viewport: 0,
 };
 
 const viewportReducer = (
@@ -28,9 +20,7 @@ const viewportReducer = (
     case RETRIEVED:
       return {
         ...state,
-        viewport: {
-          [action.payload.component]: { value: action.payload.value },
-        },
+        viewport: action.payload,
       };
     case CLEAR:
       return (state = initState);
