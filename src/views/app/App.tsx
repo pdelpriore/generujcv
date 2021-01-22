@@ -6,7 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
-import getForm from "../../shared/getForm";
+import getForm from "../../methods/getForm";
 import "./app.css";
 
 const App: React.FC = () => {

@@ -25,11 +25,12 @@ export const months: string[] = [
   "grudzień",
 ];
 
+const yearNow = new Date().getFullYear();
+
 const ExperienceYearFn = (): number[] => {
-  const yearNow = new Date().getFullYear();
   const yearArray = [];
 
-  for (let i = yearNow; i >= yearNow - 20; i--) {
+  for (let i = yearNow; i >= yearNow - 40; i--) {
     yearArray.push(i);
   }
 
@@ -39,10 +40,9 @@ const ExperienceYearFn = (): number[] => {
 export const ExperienceYear: number[] = ExperienceYearFn();
 
 const SchoolYearFn = (): number[] => {
-  const yearNow = new Date().getFullYear();
   const yearArray = [];
 
-  for (let i = yearNow; i >= yearNow - 20; i--) {
+  for (let i = yearNow; i >= yearNow - 40; i--) {
     yearArray.push(i);
   }
 
@@ -52,7 +52,6 @@ const SchoolYearFn = (): number[] => {
 export const SchoolYear: number[] = SchoolYearFn();
 
 const birthdayYearFn = (): number[] => {
-  const yearNow = new Date().getFullYear();
   const yearArray = [];
 
   for (let i = yearNow; i >= yearNow - 60; i--) {
