@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { makeImageBinary } from "../../methods/makeImageBinary";
-import useLoading from "../loading/useLoading";
+import useLoader from "../loading/useLoader";
 
 type photo = {
   binary: string;
@@ -73,7 +73,7 @@ interface InitialState {
 
 const useForm = (initialState: InitialState) => {
   const [inputs, setInputs] = useState(initialState);
-  const [loading, setLoader] = useLoading(false);
+  const [loading, setLoader] = useLoader(false);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();

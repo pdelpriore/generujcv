@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useLoading = (initValue: boolean) => {
+const useLoader = (initValue: boolean) => {
   const [loading, setLoading] = useState(initValue);
 
   const handleLoading = (value: boolean) => setLoading(value);
@@ -8,4 +8,4 @@ const useLoading = (initValue: boolean) => {
   return [loading, handleLoading] as const;
 };
 
-export default useLoading;
+export default useLoader;
