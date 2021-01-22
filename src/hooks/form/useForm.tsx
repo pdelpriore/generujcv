@@ -30,6 +30,7 @@ type userdata = {
   email: string;
   tel: number;
   maritalStatus: string;
+  disability: string;
 };
 
 type language = {

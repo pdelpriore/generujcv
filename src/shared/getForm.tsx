@@ -33,6 +33,7 @@ const GetForm = (index: number): JSX.Element => {
       email: "",
       tel: 0,
       maritalStatus: "",
+      disability: "",
     },
     language: [],
     strength: [],
