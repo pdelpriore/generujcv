@@ -16,13 +16,14 @@
   flex: 4;
 }
 
-.form__uploader-icon {
+.form__uploader-delete {
   flex: 1;
   align-self: center;
   font-size: var(--font-size);
+  color: var(--color);
 }
 
-.form__uploader-icon:hover {
+.form__uploader-delete:hover {
   cursor: pointer;
   color: #e2434b;
 }

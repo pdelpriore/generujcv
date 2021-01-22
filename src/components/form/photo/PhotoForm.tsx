@@ -58,7 +58,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                   onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) =>
                     onDeletePhoto(e)
                   }
-                  className="form__uploader-icon"
+                  className="form__uploader-delete"
                   icon={faTimes}
                 />
               </div>
