@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/config/Store";
 import ImageUploader from "react-images-upload";
 import { Row, Col, Form, Image, Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,6 +24,8 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
   loading,
   photo,
 }) => {
+  const { viewport } = useSelector((state: RootState) => state.viewportState);
+
   return (
     <>
       <Row>
@@ -67,7 +71,9 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
         </Col>
         <Col xs={3} />
       </Row>
-      <Row className="mt-4" />
+      <Row
+        className={`${viewport > 319 && viewport <= 374 ? "mt-1" : "mt-4"}`}
+      />
       <Row>
         <Col xs={3} />
         <Col xs={6}>
