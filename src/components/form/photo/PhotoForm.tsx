@@ -1,7 +1,7 @@
 import React from "react";
 import ImageUploader from "react-images-upload";
 import { Row, Col, Form, Image, Spinner } from "react-bootstrap";
-import { capitalize } from "../../../methods/capitalize";
+import { capitalize, capitalizeFirst } from "../../../methods/capitalize";
 import "./photoForm.css";
 
 type TOnChange = (picture: File[]) => void;
@@ -57,9 +57,17 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
         <Col xs={3} />
         <Col xs={6}>
           {loading && (
-            <Spinner animation="border" role="status">
-              <span className="sr-only">loading...</span>
-            </Spinner>
+            <div className="loading">
+              <Spinner
+                className="loading__spinner"
+                animation="border"
+                size="sm"
+                role="status"
+              ></Spinner>
+              <span className="loading__content">
+                {capitalizeFirst("trwa ładowanie ...")}
+              </span>
+            </div>
           )}
           {photo.length > 0 && (
             <Image className="preview" src={photo} roundedCircle />
