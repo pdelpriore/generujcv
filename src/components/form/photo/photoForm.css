@@ -7,6 +7,26 @@
   height: 5vh;
 }
 
+.form__uploader {
+  display: flex;
+  flex-direction: row;
+}
+
+.form__uploader-uploader {
+  flex: 4;
+}
+
+.form__uploader-icon {
+  flex: 1;
+  align-self: center;
+  font-size: var(--font-size);
+}
+
+.form__uploader-icon:hover {
+  cursor: pointer;
+  color: #e2434b;
+}
+
 .form__label {
   font-size: var(--font-size);
   font-family: "OpenSans-SemiBold";

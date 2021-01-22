@@ -9,7 +9,13 @@ import UserDataForm from "../components/form/userData/UserDataForm";
 import useForm from "../hooks/form/useForm";
 
 const GetForm = (index: number): JSX.Element => {
-  const { inputs, loading, handleOnChange, handlePicture } = useForm({
+  const {
+    inputs,
+    loading,
+    handleOnChange,
+    handlePicture,
+    handleDeletePicture,
+  } = useForm({
     photo: { binary: "" },
     userData: {
       name: "",
@@ -25,6 +31,7 @@ const GetForm = (index: number): JSX.Element => {
       citizenship: "",
       drivingLicence: [],
       tel: 0,
+      email: "",
       maritalStatus: "",
     },
     language: [],
@@ -56,6 +63,7 @@ const GetForm = (index: number): JSX.Element => {
   const formArray = [
     <PhotoForm
       onChangePhoto={handlePicture}
+      onDeletePhoto={handleDeletePicture}
       loading={loading}
       photo={inputs.photo.binary}
     />,

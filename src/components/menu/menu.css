@@ -11,6 +11,7 @@
 
 .menu__icon {
   width: 2.2vw;
+  flex: 1;
 }
 
 .menu__icon-ico {
@@ -19,7 +20,7 @@
 }
 
 .menu__content {
-  margin-left: 20%;
+  flex: 2;
   font-size: 1vw;
   color: var(--color);
   font-family: "OpenSans-SemiBold";
@@ -43,8 +44,8 @@
   }
 
   .menu__content {
+    flex: 3;
     font-size: 3vw;
-    margin-left: 10%;
   }
 }
 
@@ -58,7 +59,7 @@
   }
 
   .menu__content {
+    flex: 3;
     font-size: 3vw;
-    margin-left: 10%;
   }
 }

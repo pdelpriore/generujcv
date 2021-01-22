@@ -28,6 +28,7 @@ type userdata = {
   citizenship: string;
   drivingLicence: string[];
   tel: number;
+  email: string;
   maritalStatus: string;
 };
 
@@ -89,7 +90,20 @@ const useForm = (initialState: InitialState) => {
     }
   };
 
-  return { inputs, loading, handleOnChange, handlePicture };
+  const handleDeletePicture = (
+    e: React.MouseEvent<SVGSVGElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setInputs((inputs) => ({ ...inputs, photo: { binary: "" } }));
+  };
+
+  return {
+    inputs,
+    loading,
+    handleOnChange,
+    handlePicture,
+    handleDeletePicture,
+  };
 };
 
 export default useForm;
