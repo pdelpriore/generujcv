@@ -27,8 +27,8 @@ type userdata = {
   birthday: birthday;
   citizenship: string;
   drivingLicence: string[];
-  tel: number;
   email: string;
+  tel: number;
   maritalStatus: string;
 };
 
