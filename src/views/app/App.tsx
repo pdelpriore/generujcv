@@ -30,6 +30,10 @@ const App: React.FC = () => {
   ) => {
     e.preventDefault();
     setMenuItemIndex(index);
+    setTimeout(
+      () => setVisibility("menuComponent", !isVisible.menuComponent.value),
+      200
+    );
   };
 
   const handleMenuIconClick = (
