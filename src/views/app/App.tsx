@@ -32,7 +32,7 @@ const App: React.FC = () => {
     setMenuItemIndex(index);
     setTimeout(
       () => setVisibility("menuComponent", !isVisible.menuComponent.value),
-      200
+      100
     );
   };
 
