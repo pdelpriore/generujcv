@@ -46,6 +46,10 @@
 }
 
 @media (min-width: 320px) and (max-width: 374px) {
+  .logo {
+    text-align: center;
+  }
+
   .logo-content {
     font-size: 4vw;
   }

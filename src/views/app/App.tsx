@@ -57,8 +57,8 @@ const App: React.FC = () => {
     <div className="container">
       <Row className="mt-4" />
       <Row>
-        <Col xl={1} xs={2} />
-        <Col xl={11} xs={10}>
+        <Col xl={1} />
+        <Col xl={11} xs={12}>
           <div className="logo">
             <span className="logo-content">generujcv</span>
           </div>
