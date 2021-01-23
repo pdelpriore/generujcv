@@ -59,4 +59,9 @@
   .form__uploader-delete {
     font-size: 4vw;
   }
+
+  .preview {
+    width: 35vw;
+    height: 35vw;
+  }
 }
