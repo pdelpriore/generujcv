@@ -133,9 +133,11 @@
   from {
     opacity: 1;
     margin-bottom: 0;
+    visibility: visible;
   }
   to {
     opacity: 0;
     margin-top: -15%;
+    visibility: hidden;
   }
 }
