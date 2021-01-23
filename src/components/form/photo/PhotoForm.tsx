@@ -53,7 +53,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                   buttonStyles={{
                     fontFamily: "OpenSans-Regular",
                     fontSize:
-                      viewport > 319 && viewport <= 374 ? "2.5vw" : "0.8vw",
+                      viewport > 319 && viewport <= 374 ? "2.7vw" : "0.8vw",
                   }}
                   onChange={(picture: File[]) => onChangePhoto(picture)}
                   imgExtension={[".jpg", "jpeg", ".gif", ".png", ".gif"]}
