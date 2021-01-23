@@ -18,8 +18,8 @@ const App: React.FC = () => {
   const { viewport } = useSelector((state: RootState) => state.viewportState);
   const [menuItemIndex, setMenuItemIndex] = useState<number>(0);
   const [isVisible, setVisibility] = useVisibility({
-    menuComponent: { value: false },
-    menuIcon: { value: false },
+    menuComponent: false,
+    menuIcon: false,
   });
 
   let Form = getForm(menuItemIndex);
@@ -31,7 +31,7 @@ const App: React.FC = () => {
     e.preventDefault();
     setMenuItemIndex(index);
     setTimeout(
-      () => setVisibility("menuComponent", !isVisible.menuComponent.value),
+      () => setVisibility("menuComponent", !isVisible.menuComponent),
       100
     );
   };
@@ -40,7 +40,7 @@ const App: React.FC = () => {
     e: React.MouseEvent<SVGSVGElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setVisibility("menuComponent", !isVisible.menuComponent.value);
+    setVisibility("menuComponent", !isVisible.menuComponent);
   };
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <Col xs={1} />
         <Col xs={10}>
           <div className="main">
-            {isVisible.menuIcon.value && (
+            {isVisible.menuIcon && (
               <FontAwesomeIcon
                 onClick={handleMenuIconClick}
                 className="main__nav"
@@ -80,7 +80,7 @@ const App: React.FC = () => {
             )}
             <div
               className={`main__menu ${
-                isVisible.menuComponent.value
+                isVisible.menuComponent
                   ? "main__menu--visible"
                   : "main__menu--hidden"
               }`}

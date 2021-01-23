@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-type component = {
-  value: boolean;
-};
-
 interface InitValue {
-  [key: string]: component;
+  [key: string]: boolean;
 }
 
 const useVisibility = (initValue: InitValue) => {
@@ -14,7 +10,7 @@ const useVisibility = (initValue: InitValue) => {
   const handleVisibility = (component: string, value: boolean) =>
     setVisible((isVisible) => ({
       ...isVisible,
-      [component]: { value: value },
+      [component]: value,
     }));
 
   return [isVisible, handleVisibility] as const;
