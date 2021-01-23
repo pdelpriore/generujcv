@@ -51,13 +51,38 @@
   }
 
   .main {
+    position: relative;
     height: 80vh;
     flex-direction: column;
+    padding: 2.5vw;
+  }
+
+  .main__nav {
+    font-size: 5vw;
+    color: var(--color);
+    align-self: flex-end;
   }
 
   .main__menu {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(to right bottom, #fff, #fff);
+  }
+
+  .main__menu--visible {
+    visibility: visible;
+    animation: fadein ease 500ms;
+  }
+
+  .main__menu--hidden {
+    visibility: hidden;
+    animation: fadeout ease 500ms;
+  }
+
+  .main__content {
+    flex: 1;
   }
 }
 
@@ -90,5 +115,27 @@
   .main__menu {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    margin-top: -15%;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    margin-bottom: 0;
+  }
+  to {
+    opacity: 0;
+    margin-top: -15%;
   }
 }

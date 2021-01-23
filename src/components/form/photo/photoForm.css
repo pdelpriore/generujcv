@@ -46,3 +46,9 @@
   color: var(--color);
   font-family: "OpenSans-Regular";
 }
+
+@media (min-width: 320px) and (max-width: 374px) {
+  .space {
+    height: 1vh;
+  }
+}
