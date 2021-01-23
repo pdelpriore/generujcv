@@ -29,8 +29,8 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
   return (
     <>
       <Row>
-        <Col xs={3} />
-        <Col xs={6}>
+        <Col xl={3} xs={1} />
+        <Col xl={6} xs={10}>
           <div className="space"></div>
           <Form className="form">
             <Form.Group className="form__group" controlId="formBasicPhoto">
@@ -41,7 +41,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                 <ImageUploader
                   className="form__uploader-uploader"
                   fileContainerStyle={{
-                    height: 55,
+                    height: viewport > 319 && viewport <= 374 ? 20 : 55,
                     fontFamily: "OpenSans-Regular",
                     border: "1px solid #CED4DA",
                     backgroundColor: "#e2f3f5",
@@ -52,7 +52,8 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                   buttonText={capitalize("wybierz zdjęcie")}
                   buttonStyles={{
                     fontFamily: "OpenSans-Regular",
-                    fontSize: "0.8vw",
+                    fontSize:
+                      viewport > 319 && viewport <= 374 ? "2.5vw" : "0.8vw",
                   }}
                   onChange={(picture: File[]) => onChangePhoto(picture)}
                   imgExtension={[".jpg", "jpeg", ".gif", ".png", ".gif"]}
@@ -69,14 +70,14 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
             </Form.Group>
           </Form>
         </Col>
-        <Col xs={3} />
+        <Col xl={3} xs={1} />
       </Row>
       <Row
         className={`${viewport > 319 && viewport <= 374 ? "mt-1" : "mt-4"}`}
       />
       <Row>
-        <Col xs={3} />
-        <Col xs={6}>
+        <Col xl={3} xs={1} />
+        <Col xl={6} xs={10}>
           {loading && (
             <div className="loading">
               <Spinner
@@ -94,7 +95,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
             <Image className="preview" src={photo} roundedCircle />
           )}
         </Col>
-        <Col xs={3} />
+        <Col xl={3} xs={1} />
       </Row>
     </>
   );

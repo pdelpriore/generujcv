@@ -51,4 +51,12 @@
   .space {
     height: 1vh;
   }
+
+  .form__label {
+    font-size: 3.8vw;
+  }
+
+  .form__uploader-delete {
+    font-size: 4vw;
+  }
 }
