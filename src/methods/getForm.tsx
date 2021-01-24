@@ -16,7 +16,7 @@ const GetForm = (index: number): JSX.Element => {
     handlePicture,
     handleDeletePicture,
   } = useForm({
-    photo: { binary: "" },
+    photo: "",
     userData: {
       name: "",
       surname: "",
@@ -66,7 +66,7 @@ const GetForm = (index: number): JSX.Element => {
       onChangePhoto={handlePicture}
       onDeletePhoto={handleDeletePicture}
       loading={loading}
-      photo={inputs.photo.binary}
+      photo={inputs.photo}
     />,
     <UserDataForm />,
     <LanguageForm />,

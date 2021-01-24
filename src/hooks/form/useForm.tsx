@@ -2,10 +2,6 @@ import { useState } from "react";
 import { makeImageBinary } from "../../methods/makeImageBinary";
 import useLoader from "../loading/useLoader";
 
-type photo = {
-  binary: string;
-};
-
 type address = {
   street: string;
   streetNumber: string;
@@ -61,7 +57,7 @@ type experience = {
 };
 
 interface InitialState {
-  photo: photo;
+  photo: string;
   userData: userdata;
   language: language[];
   strength: string[];
@@ -86,7 +82,7 @@ const useForm = (initialState: InitialState) => {
       const userPhoto: string = await makeImageBinary(picture);
       if (userPhoto) {
         setLoader(false);
-        setInputs((inputs) => ({ ...inputs, photo: { binary: userPhoto } }));
+        setInputs((inputs) => ({ ...inputs, photo: userPhoto }));
       }
     }
   };
@@ -95,7 +91,7 @@ const useForm = (initialState: InitialState) => {
     e: React.MouseEvent<SVGSVGElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setInputs((inputs) => ({ ...inputs, photo: { binary: "" } }));
+    setInputs((inputs) => ({ ...inputs, photo: "" }));
   };
 
   return {
