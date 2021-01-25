@@ -85,6 +85,35 @@ const useForm = (initialState: InitialState) => {
     setInputs((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
   };
 
+  const handleOnChangeUserData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      ...inputs.userData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleOnChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      ...inputs.userData,
+      ...inputs.userData.address,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleOnChangeBirthday = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      ...inputs.userData,
+      ...inputs.userData.birthday,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -109,6 +138,9 @@ const useForm = (initialState: InitialState) => {
     handleOnChange,
     handlePicture,
     handleDeletePicture,
+    handleOnChangeUserData,
+    handleOnChangeAddress,
+    handleOnChangeBirthday,
   };
 };
 

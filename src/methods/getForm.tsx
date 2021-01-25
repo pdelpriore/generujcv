@@ -16,6 +16,9 @@ const GetForm = (index: number): JSX.Element => {
     handleOnChange,
     handlePicture,
     handleDeletePicture,
+    handleOnChangeUserData,
+    handleOnChangeAddress,
+    handleOnChangeBirthday,
   } = useForm({
     photo: "",
     userData: {
