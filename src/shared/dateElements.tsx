@@ -10,20 +10,17 @@ const daysFn = (): number[] => {
 
 export const days: number[] = daysFn();
 
-export const months: string[] = [
-  "styczeń",
-  "luty",
-  "marzec",
-  "kwiecień",
-  "maj",
-  "czerwiec",
-  "lipiec",
-  "sierpień",
-  "wrzesień",
-  "październik",
-  "listopad",
-  "grudzień",
-];
+const monthsFn = (): number[] => {
+  const monthArray = [];
+
+  for (let i = 1; i <= 12; i++) {
+    monthArray.push(i);
+  }
+
+  return monthArray;
+};
+
+export const months: number[] = monthsFn();
 
 const yearNow = new Date().getFullYear();
 

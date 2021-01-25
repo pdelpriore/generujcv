@@ -1,0 +1,11 @@
+.formUserData {
+  display: grid;
+  padding: 0.5vw;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5vw;
+}
+
+.form__control-wrap {
+  display: flex;
+  flex-direction: row;
+}
