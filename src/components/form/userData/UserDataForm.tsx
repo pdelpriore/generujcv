@@ -55,7 +55,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataStreetNumber">
-        <Form.Label>{capitalize("numer ulicy *")}</Form.Label>
+        <Form.Label>{capitalize("numer budynku *")}</Form.Label>
         <Form.Control
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
@@ -67,7 +67,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataFlatNumber">
-        <Form.Label>{capitalize("numer mieszkania *")}</Form.Label>
+        <Form.Label>{capitalize("numer mieszkania")}</Form.Label>
         <Form.Control
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
