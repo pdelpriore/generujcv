@@ -33,7 +33,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
         <Col xl={6} xs={10}>
           <div className="space"></div>
           <Form className="form">
-            <Form.Group className="form__group" controlId="formBasicPhoto">
+            <Form.Group className="form__group" controlId="formPhoto">
               <Form.Label className="form__label">
                 {capitalize("zdjęcie")}
               </Form.Label>

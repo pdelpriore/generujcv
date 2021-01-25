@@ -89,8 +89,7 @@ const useForm = (initialState: InitialState) => {
     e.persist();
     setInputs((inputs) => ({
       ...inputs,
-      ...inputs.userData,
-      [e.target.name]: e.target.value,
+      userData: { ...inputs.userData, [e.target.name]: e.target.value },
     }));
   };
 
@@ -98,9 +97,13 @@ const useForm = (initialState: InitialState) => {
     e.persist();
     setInputs((inputs) => ({
       ...inputs,
-      ...inputs.userData,
-      ...inputs.userData.address,
-      [e.target.name]: e.target.value,
+      userData: {
+        ...inputs.userData,
+        address: {
+          ...inputs.userData.address,
+          [e.target.name]: e.target.value,
+        },
+      },
     }));
   };
 
@@ -108,9 +111,13 @@ const useForm = (initialState: InitialState) => {
     e.persist();
     setInputs((inputs) => ({
       ...inputs,
-      ...inputs.userData,
-      ...inputs.userData.birthday,
-      [e.target.name]: e.target.value,
+      userData: {
+        ...inputs.userData,
+        birthday: {
+          ...inputs.userData.birthday,
+          [e.target.name]: e.target.value,
+        },
+      },
     }));
   };
 
@@ -131,6 +138,8 @@ const useForm = (initialState: InitialState) => {
     e.preventDefault();
     setInputs((inputs) => ({ ...inputs, photo: "" }));
   };
+
+  console.log(inputs);
 
   return {
     inputs,

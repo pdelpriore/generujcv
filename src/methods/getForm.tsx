@@ -75,7 +75,12 @@ const GetForm = (index: number): JSX.Element => {
       loading={loading}
       photo={inputs.photo}
     />,
-    <UserDataForm />,
+    <UserDataForm
+      inputs={inputs}
+      onchange={handleOnChangeUserData}
+      onchangeAddress={handleOnChangeAddress}
+      onchangeBirthday={handleOnChangeBirthday}
+    />,
     <LanguageForm />,
     <StrengthForm />,
     <HobbyForm />,
