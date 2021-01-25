@@ -87,7 +87,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
           value={inputs.userData.address.postCode || ""}
           name="postCode"
           type="text"
-          placeholder="kod pocztowy"
+          placeholder="00-999"
         />
       </Form.Group>
       <Form.Group controlId="formUserDataCity">
