@@ -25,6 +25,8 @@ type userdata = {
   drivingLicence: string[];
   email: string;
   tel: number;
+  linkedinUrl: string;
+  githubUrl: string;
   maritalStatus: string;
   disability: string;
 };
@@ -56,6 +58,12 @@ type experience = {
   description: string;
 };
 
+type project = {
+  name: string;
+  url: string;
+  description: string;
+};
+
 interface InitialState {
   photo: string;
   userData: userdata;
@@ -65,6 +73,7 @@ interface InitialState {
   diploma: diploma;
   experience: experience;
   competence: string[];
+  project: project[];
 }
 
 const useForm = (initialState: InitialState) => {

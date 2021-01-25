@@ -1,12 +1,13 @@
 :root {
   --color: #071e3d;
+  --size: 1vw;
 }
 
 .menu {
   display: flex;
   align-items: flex-end;
   flex-direction: row;
-  padding: 1.25vw;
+  padding: var(--size);
 }
 
 .menu__icon {
@@ -21,7 +22,7 @@
 
 .menu__content {
   flex: 2;
-  font-size: 1vw;
+  font-size: var(--size);
   color: var(--color);
   font-family: "OpenSans-SemiBold";
 }

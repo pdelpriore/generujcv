@@ -6,6 +6,7 @@ import LanguageForm from "../components/form/language/LanguageForm";
 import PhotoForm from "../components/form/photo/PhotoForm";
 import StrengthForm from "../components/form/strength/StrengthForm";
 import UserDataForm from "../components/form/userData/UserDataForm";
+import ProjectForm from "../components/form/project/ProjectForm";
 import useForm from "../hooks/form/useForm";
 
 const GetForm = (index: number): JSX.Element => {
@@ -32,6 +33,8 @@ const GetForm = (index: number): JSX.Element => {
       drivingLicence: [],
       email: "",
       tel: 0,
+      linkedinUrl: "",
+      githubUrl: "",
       maritalStatus: "",
       disability: "",
     },
@@ -59,6 +62,7 @@ const GetForm = (index: number): JSX.Element => {
       description: "",
     },
     competence: [],
+    project: [],
   });
 
   const formArray = [
@@ -75,6 +79,7 @@ const GetForm = (index: number): JSX.Element => {
     <DiplomaForm />,
     <ExperienceForm />,
     <CompetenceForm />,
+    <ProjectForm />,
   ];
 
   return formArray[index];

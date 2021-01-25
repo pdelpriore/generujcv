@@ -8,6 +8,7 @@ import {
   faUniversity,
   faIndustry,
   faFileWord,
+  faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface MenuElements {
@@ -24,4 +25,5 @@ export const menuElements: MenuElements[] = [
   { icon: faUniversity, content: "dyplomy" },
   { icon: faIndustry, content: "doświadczenie" },
   { icon: faFileWord, content: "kompetencje" },
+  { icon: faWindowMaximize, content: "projekty" },
 ];
