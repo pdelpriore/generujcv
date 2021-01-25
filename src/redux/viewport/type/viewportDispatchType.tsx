@@ -1,12 +1,12 @@
 export const RETRIEVED = "viewport_retrieved";
 export const CLEAR = "viewport_clear";
 
-export interface ViewportRetrieved {
+interface ViewportRetrieved {
   type: typeof RETRIEVED;
   payload: number;
 }
 
-export interface ViewportClear {
+interface ViewportClear {
   type: typeof CLEAR;
 }
 

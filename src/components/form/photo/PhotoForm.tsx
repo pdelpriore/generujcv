@@ -32,14 +32,14 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
         <Col xl={3} xs={1} />
         <Col xl={6} xs={10}>
           <div className="space"></div>
-          <Form className="form">
-            <Form.Group className="form__group" controlId="formPhoto">
-              <Form.Label className="form__label">
+          <Form className="formPhoto">
+            <Form.Group className="formPhoto__group" controlId="formPhoto">
+              <Form.Label className="formPhoto__label">
                 {capitalize("zdjęcie")}
               </Form.Label>
-              <div className="form__uploader">
+              <div className="formPhoto__uploader">
                 <ImageUploader
-                  className="form__uploader-uploader"
+                  className="formPhoto__uploader-uploader"
                   fileContainerStyle={{
                     height: viewport > 319 && viewport <= 374 ? 20 : 55,
                     fontFamily: "OpenSans-Regular",
@@ -63,7 +63,7 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                   onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) =>
                     onDeletePhoto(e)
                   }
-                  className="form__uploader-delete"
+                  className="formPhoto__uploader-delete"
                   icon={faTimes}
                 />
               </div>

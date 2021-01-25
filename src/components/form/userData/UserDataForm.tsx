@@ -1,87 +1,14 @@
 import React from "react";
+import { FormInputTypes } from "../../../hooks/form/useForm";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
 import { days, months, birthdayYear } from "../../../shared/dateElements";
 import "./userDataForm.css";
 
-type address = {
-  street: string;
-  streetNumber: string;
-  flatNumber: number;
-  postCode: string;
-  city: string;
-};
-
-type birthday = {
-  day: number;
-  month: string;
-  year: number;
-};
-
-type userdata = {
-  name: string;
-  surname: string;
-  address: address;
-  birthday: birthday;
-  citizenship: string;
-  drivingLicence: string[];
-  email: string;
-  tel: number;
-  linkedinUrl: string;
-  githubUrl: string;
-  maritalStatus: string;
-  disability: string;
-};
-
-type language = {
-  name: string;
-  level: string;
-};
-
-type diploma = {
-  name: string;
-  startMonth: string;
-  startYear: number;
-  endMonth: string;
-  endYear: number;
-  schoolName: string;
-  city: string;
-  description: string;
-};
-
-type experience = {
-  name: string;
-  startMonth: string;
-  startYear: number;
-  endMonth: string;
-  endYear: number;
-  company: string;
-  city: string;
-  description: string;
-};
-
-type project = {
-  name: string;
-  url: string;
-  description: string;
-};
-
-interface Inputs {
-  photo: string;
-  userData: userdata;
-  language: language[];
-  strength: string[];
-  hobby: string[];
-  diploma: diploma;
-  experience: experience;
-  competence: string[];
-  project: project[];
-}
-
 type THandleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
 
 interface UserDataFormProps {
-  inputs: Inputs;
+  inputs: FormInputTypes;
   onchange: THandleOnchange;
   onchangeAddress: THandleOnchange;
   onchangeBirthday: THandleOnchange;
@@ -202,7 +129,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option disabled={true} value="">
-              miesiąc
+              mies
             </option>
             {months.map((month, index) => (
               <option key={index}>{month}</option>

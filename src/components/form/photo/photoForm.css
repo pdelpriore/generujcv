@@ -7,28 +7,28 @@
   height: 5vh;
 }
 
-.form__uploader {
+.formPhoto__uploader {
   display: flex;
   flex-direction: row;
 }
 
-.form__uploader-uploader {
+.formPhoto__uploader-uploader {
   flex: 4;
 }
 
-.form__uploader-delete {
+.formPhoto__uploader-delete {
   flex: 1;
   align-self: center;
   font-size: var(--font-size);
   color: var(--color);
 }
 
-.form__uploader-delete:hover {
+.formPhoto__uploader-delete:hover {
   cursor: pointer;
   color: #e2434b;
 }
 
-.form__label {
+.formPhoto__label {
   font-size: var(--font-size);
   font-family: "OpenSans-SemiBold";
   color: var(--color);
@@ -52,11 +52,11 @@
     height: 1vh;
   }
 
-  .form__label {
+  .formPhoto__label {
     font-size: 3.8vw;
   }
 
-  .form__uploader-delete {
+  .formPhoto__uploader-delete {
     font-size: 4vw;
   }
 

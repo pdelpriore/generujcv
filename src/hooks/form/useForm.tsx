@@ -76,6 +76,8 @@ interface InitialState {
   project: project[];
 }
 
+export type FormInputTypes = InitialState;
+
 const useForm = (initialState: InitialState) => {
   const [inputs, setInputs] = useState(initialState);
   const [loading, setLoader] = useLoader(false);
