@@ -1,26 +1,26 @@
-const daysFn = (): number[] => {
+const daysFn = (): string[] => {
   const dayArray = [];
 
   for (let i = 1; i <= 31; i++) {
-    dayArray.push(i);
+    dayArray.push(i < 10 ? `0${i}` : i.toString());
   }
 
   return dayArray;
 };
 
-export const days: number[] = daysFn();
+export const days: string[] = daysFn();
 
-const monthsFn = (): number[] => {
+const monthsFn = (): string[] => {
   const monthArray = [];
 
   for (let i = 1; i <= 12; i++) {
-    monthArray.push(i);
+    monthArray.push(i < 10 ? `0${i}` : i.toString());
   }
 
   return monthArray;
 };
 
-export const months: number[] = monthsFn();
+export const months: string[] = monthsFn();
 
 const yearNow = new Date().getFullYear();
 
