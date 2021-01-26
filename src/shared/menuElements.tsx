@@ -19,8 +19,8 @@ interface MenuElements {
 
 export const menuElements: MenuElements[] = [
   { icon: faPortrait, content: "zdjęcie" },
-  { icon: faFileAlt, content: "dane osobowe" },
-  { icon: faAddressCard, content: "dane kontaktowe" },
+  { icon: faAddressCard, content: "dane osobowe" },
+  { icon: faFileAlt, content: "dane kontaktowe" },
   { icon: faLanguage, content: "języki obce" },
   { icon: faFistRaised, content: "mocne strony" },
   { icon: faHiking, content: "hobby" },
@@ -29,3 +29,18 @@ export const menuElements: MenuElements[] = [
   { icon: faFileWord, content: "kompetencje" },
   { icon: faWindowMaximize, content: "projekty" },
 ];
+
+export const maritalStatus: string[] = [
+  "kawaler",
+  "panna",
+  "żonaty",
+  "zamężna",
+  "wdowiec",
+  "wdowa",
+  "rozwiedziony",
+  "rozwiedziona",
+  "separowany",
+  "separowana",
+];
+
+export const disabilityLevel: string[] = ["lekka", "umiarkowana", "znaczna"];

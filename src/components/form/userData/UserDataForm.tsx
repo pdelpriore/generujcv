@@ -3,6 +3,7 @@ import { FormInputTypes } from "../../../hooks/form/useForm";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
 import { days, months, birthdayYear } from "../../../shared/dateElements";
+import { maritalStatus, disabilityLevel } from "../../../shared/menuElements";
 import "./userDataForm.css";
 
 type THandleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -41,7 +42,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataBirthday">
-        <Form.Label>{capitalize("data urodzin *")}</Form.Label>
+        <Form.Label>{capitalize("data urodzenia *")}</Form.Label>
         <div className="form__control-wrap">
           <Form.Control
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -89,6 +90,58 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             ))}
           </Form.Control>
         </div>
+      </Form.Group>
+      <Form.Group controlId="formUserDataCitizenship">
+        <Form.Label>{capitalize("obywatelstwo *")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
+          value={inputs.userData.citizenship || ""}
+          name="citizenship"
+          type="text"
+          placeholder="obywatelstwo"
+        />
+      </Form.Group>
+      <Form.Group controlId="formUserDataDrivingLicence">
+        <Form.Label>{capitalize("prawo jazdy")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
+          value={inputs.userData.drivingLicence || ""}
+          name="drivingLicence"
+          type="text"
+          placeholder="A,B,C+E,..."
+        />
+      </Form.Group>
+      <Form.Group controlId="formUserDataMaritalStatus">
+        <Form.Label>{capitalize("stan cywilny")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
+          value={inputs.userData.maritalStatus || ""}
+          name="maritalStatus"
+          as="select"
+        >
+          <option disabled={true} value="">
+            stan cywilny
+          </option>
+          {maritalStatus.map((status, index) => (
+            <option key={index}>{status}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+      <Form.Group controlId="formUserDataDisability">
+        <Form.Label>{capitalize("niepełnosprawność")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
+          value={inputs.userData.disability || ""}
+          name="disability"
+          as="select"
+        >
+          <option disabled={true} value="">
+            niepełnosprawność
+          </option>
+          {disabilityLevel.map((level, index) => (
+            <option key={index}>{level}</option>
+          ))}
+        </Form.Control>
       </Form.Group>
     </Form>
   );

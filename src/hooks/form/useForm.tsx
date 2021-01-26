@@ -17,7 +17,7 @@ type contact = {
 };
 
 type birthday = {
-  day: number;
+  day: string;
   month: string;
   year: number;
 };
@@ -95,7 +95,13 @@ const useForm = (initialState: InitialState) => {
     e.persist();
     setInputs((inputs) => ({
       ...inputs,
-      userData: { ...inputs.userData, [e.target.name]: e.target.value },
+      userData: {
+        ...inputs.userData,
+        [e.target.name]:
+          e.target.name === "drivingLicence"
+            ? e.target.value.replace(/[^A-Z1-2,+\s]/g, "").split(/\s*,\s*/)
+            : e.target.value,
+      },
     }));
   };
 
@@ -107,6 +113,23 @@ const useForm = (initialState: InitialState) => {
         ...inputs.userData,
         address: {
           ...inputs.userData.address,
+          [e.target.name]:
+            e.target.name === "postCode"
+              ? e.target.value.replace(/[^d{2}-\d{3}]/g, "")
+              : e.target.value,
+        },
+      },
+    }));
+  };
+
+  const handleOnChangeContact = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      userData: {
+        ...inputs.userData,
+        contact: {
+          ...inputs.userData.contact,
           [e.target.name]: e.target.value,
         },
       },
@@ -155,6 +178,7 @@ const useForm = (initialState: InitialState) => {
     handleDeletePicture,
     handleOnChangeUserData,
     handleOnChangeAddress,
+    handleOnChangeContact,
     handleOnChangeBirthday,
   };
 };

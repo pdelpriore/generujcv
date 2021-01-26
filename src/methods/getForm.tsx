@@ -19,6 +19,7 @@ const GetForm = (index: number): JSX.Element => {
     handleDeletePicture,
     handleOnChangeUserData,
     handleOnChangeAddress,
+    handleOnChangeContact,
     handleOnChangeBirthday,
   } = useForm({
     photo: "",
@@ -37,7 +38,7 @@ const GetForm = (index: number): JSX.Element => {
         tel: 0,
         linkedinUrl: "",
       },
-      birthday: { day: 0, month: "", year: 0 },
+      birthday: { day: "", month: "", year: 0 },
       citizenship: "",
       drivingLicence: [],
       maritalStatus: "",
@@ -82,7 +83,11 @@ const GetForm = (index: number): JSX.Element => {
       onchange={handleOnChangeUserData}
       onchangeBirthday={handleOnChangeBirthday}
     />,
-    <ContactForm inputs={inputs} onchangeAddress={handleOnChangeAddress} />,
+    <ContactForm
+      inputs={inputs}
+      onchangeAddress={handleOnChangeAddress}
+      onchangeContact={handleOnChangeContact}
+    />,
     <LanguageForm />,
     <StrengthForm />,
     <HobbyForm />,

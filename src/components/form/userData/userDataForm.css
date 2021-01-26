@@ -1,6 +1,6 @@
 .formUserData {
   display: grid;
-  padding: 0.5vw;
+  padding: 1vw;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
 }

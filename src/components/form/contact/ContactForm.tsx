@@ -9,11 +9,13 @@ type TOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
 interface ContactFormProps {
   inputs: FormInputTypes;
   onchangeAddress: TOnchange;
+  onchangeContact: TOnchange;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
   inputs,
   onchangeAddress,
+  onchangeContact,
 }) => {
   return (
     <Form className="formContact">
@@ -75,6 +77,42 @@ const ContactForm: React.FC<ContactFormProps> = ({
           name="city"
           type="text"
           placeholder="miejscowość"
+        />
+      </Form.Group>
+      <Form.Group controlId="formContactEmail">
+        <Form.Label>{capitalize("email *")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onchangeContact(e)
+          }
+          value={inputs.userData.contact.email || ""}
+          name="email"
+          type="email"
+          placeholder="email"
+        />
+      </Form.Group>
+      <Form.Group controlId="formContactTel">
+        <Form.Label>{capitalize("telefon *")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onchangeContact(e)
+          }
+          value={inputs.userData.contact.tel || ""}
+          name="tel"
+          type="text"
+          placeholder="602001002"
+        />
+      </Form.Group>
+      <Form.Group controlId="formContactLinkedin">
+        <Form.Label>{capitalize("adres linkedin")}</Form.Label>
+        <Form.Control
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onchangeContact(e)
+          }
+          value={inputs.userData.contact.linkedinUrl || ""}
+          name="linkedinUrl"
+          type="text"
+          placeholder="https://linkedin.com/in/jan-kowalski"
         />
       </Form.Group>
     </Form>
