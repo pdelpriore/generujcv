@@ -22,8 +22,11 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
   return (
     <Form className="formUserData">
       <Form.Group controlId="formUserDataName">
-        <Form.Label>{capitalize("imię *")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("imię *")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.name || ""}
           name="name"
@@ -32,8 +35,11 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataSurname">
-        <Form.Label>{capitalize("nazwisko *")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("nazwisko *")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.surname || ""}
           name="surname"
@@ -42,9 +48,12 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataBirthday">
-        <Form.Label>{capitalize("data urodzenia *")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("data urodzenia *")}
+        </Form.Label>
         <div className="form__control-wrap">
           <Form.Control
+            className="formUserData__control"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               onchangeBirthday(e)
             }
@@ -52,14 +61,17 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             name="day"
             as="select"
           >
-            <option disabled={true} value="">
+            <option className="formUserData__option" disabled={true} value="">
               dzień
             </option>
             {days.map((day, index) => (
-              <option key={index}>{day}</option>
+              <option className="formUserData__option" key={index}>
+                {day}
+              </option>
             ))}
           </Form.Control>
           <Form.Control
+            className="formUserData__control"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               onchangeBirthday(e)
             }
@@ -67,14 +79,17 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             name="month"
             as="select"
           >
-            <option disabled={true} value="">
+            <option className="formUserData__option" disabled={true} value="">
               miesiąc
             </option>
             {months.map((month, index) => (
-              <option key={index}>{month}</option>
+              <option className="formUserData__option" key={index}>
+                {month}
+              </option>
             ))}
           </Form.Control>
           <Form.Control
+            className="formUserData__control"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               onchangeBirthday(e)
             }
@@ -82,18 +97,23 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             name="year"
             as="select"
           >
-            <option disabled={true} value="">
+            <option className="formUserData__option" disabled={true} value="">
               rok
             </option>
             {birthdayYear.map((year, index) => (
-              <option key={index}>{year}</option>
+              <option className="formUserData__option" key={index}>
+                {year}
+              </option>
             ))}
           </Form.Control>
         </div>
       </Form.Group>
       <Form.Group controlId="formUserDataCitizenship">
-        <Form.Label>{capitalize("obywatelstwo *")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("obywatelstwo *")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.citizenship || ""}
           name="citizenship"
@@ -102,8 +122,11 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataDrivingLicence">
-        <Form.Label>{capitalize("prawo jazdy")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("prawo jazdy")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.drivingLicence || ""}
           name="drivingLicence"
@@ -112,34 +135,44 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formUserDataMaritalStatus">
-        <Form.Label>{capitalize("stan cywilny")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("stan cywilny")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.maritalStatus || ""}
           name="maritalStatus"
           as="select"
         >
-          <option disabled={true} value="">
+          <option className="formUserData__option" disabled={true} value="">
             stan cywilny
           </option>
           {maritalStatus.map((status, index) => (
-            <option key={index}>{status}</option>
+            <option className="formUserData__option" key={index}>
+              {status}
+            </option>
           ))}
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="formUserDataDisability">
-        <Form.Label>{capitalize("niepełnosprawność")}</Form.Label>
+        <Form.Label className="formUserData__label">
+          {capitalize("niepełnosprawność")}
+        </Form.Label>
         <Form.Control
+          className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
           value={inputs.userData.disability || ""}
           name="disability"
           as="select"
         >
-          <option disabled={true} value="">
+          <option className="formUserData__option" disabled={true} value="">
             niepełnosprawność
           </option>
           {disabilityLevel.map((level, index) => (
-            <option key={index}>{level}</option>
+            <option className="formUserData__option" key={index}>
+              {level}
+            </option>
           ))}
         </Form.Control>
       </Form.Group>

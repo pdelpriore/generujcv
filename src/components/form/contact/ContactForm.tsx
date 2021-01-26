@@ -20,8 +20,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <Form className="formContact">
       <Form.Group controlId="formContactStreet">
-        <Form.Label>{capitalize("ulica *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("ulica *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
           }
@@ -32,8 +35,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactStreetNumber">
-        <Form.Label>{capitalize("numer budynku *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("numer budynku *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
           }
@@ -44,8 +50,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactFlatNumber">
-        <Form.Label>{capitalize("numer mieszkania")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("numer mieszkania")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
           }
@@ -56,8 +65,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactPostCode">
-        <Form.Label>{capitalize("kod pocztowy *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("kod pocztowy *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
           }
@@ -68,8 +80,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactCity">
-        <Form.Label>{capitalize("miejscowość *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("miejscowość *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeAddress(e)
           }
@@ -80,20 +95,26 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactEmail">
-        <Form.Label>{capitalize("email *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("email *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeContact(e)
           }
           value={inputs.userData.contact.email || ""}
           name="email"
           type="email"
-          placeholder="email"
+          placeholder="jankowalski@gmail.com"
         />
       </Form.Group>
       <Form.Group controlId="formContactTel">
-        <Form.Label>{capitalize("telefon *")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("telefon *")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeContact(e)
           }
@@ -104,8 +125,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </Form.Group>
       <Form.Group controlId="formContactLinkedin">
-        <Form.Label>{capitalize("adres linkedin")}</Form.Label>
+        <Form.Label className="formContact__label">
+          {capitalize("adres linkedin")}
+        </Form.Label>
         <Form.Control
+          className="formContact__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onchangeContact(e)
           }

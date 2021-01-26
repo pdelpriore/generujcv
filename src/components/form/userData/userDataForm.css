@@ -1,8 +1,32 @@
+:root {
+  --size: 1vw;
+  --color: #071e3d;
+  --font-family: "OpenSans-Regular";
+}
+
 .formUserData {
   display: grid;
   padding: 1vw;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
+}
+
+.formUserData__label {
+  font-size: var(--size);
+  color: var(--color);
+  font-family: "OpenSans-SemiBold";
+}
+
+.formUserData__control {
+  font-size: var(--size);
+  color: var(--color);
+  font-family: var(--font-family);
+}
+
+.formUserData__option {
+  font-size: var(--size);
+  color: var(--color);
+  font-family: var(--font-family);
 }
 
 .form__control-wrap {
