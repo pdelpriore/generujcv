@@ -115,7 +115,7 @@ const useForm = (initialState: InitialState) => {
           ...inputs.userData.address,
           [e.target.name]:
             e.target.name === "postCode"
-              ? e.target.value.replace(/[^d{2}-\d{3}]/g, "")
+              ? e.target.value.replace(/[^\d{2}-\d{3}]/g, "")
               : e.target.value,
         },
       },
