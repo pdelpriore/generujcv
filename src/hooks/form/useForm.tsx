@@ -10,6 +10,12 @@ type address = {
   city: string;
 };
 
+type contact = {
+  email: string;
+  tel: number;
+  linkedinUrl: string;
+};
+
 type birthday = {
   day: number;
   month: string;
@@ -20,13 +26,10 @@ type userdata = {
   name: string;
   surname: string;
   address: address;
+  contact: contact;
   birthday: birthday;
   citizenship: string;
   drivingLicence: string[];
-  email: string;
-  tel: number;
-  linkedinUrl: string;
-  githubUrl: string;
   maritalStatus: string;
   disability: string;
 };
@@ -62,6 +65,7 @@ type project = {
   name: string;
   url: string;
   description: string;
+  githubUrl: string;
 };
 
 interface InitialState {
