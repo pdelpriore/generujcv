@@ -71,13 +71,13 @@ type project = {
 interface InitialState {
   photo: string;
   userData: userdata;
-  language: language[];
+  language: language;
   strength: string[];
   hobby: string[];
   diploma: diploma;
   experience: experience;
   competence: string[];
-  project: project[];
+  project: project;
 }
 
 export type FormInputTypes = InitialState;

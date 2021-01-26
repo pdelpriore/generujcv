@@ -44,7 +44,10 @@ const GetForm = (index: number): JSX.Element => {
       maritalStatus: "",
       disability: "",
     },
-    language: [],
+    language: {
+      name: "",
+      level: "",
+    },
     strength: [],
     hobby: [],
     diploma: {
@@ -68,7 +71,12 @@ const GetForm = (index: number): JSX.Element => {
       description: "",
     },
     competence: [],
-    project: [],
+    project: {
+      name: "",
+      url: "",
+      description: "",
+      githubUrl: "",
+    },
   });
 
   const formArray = [
