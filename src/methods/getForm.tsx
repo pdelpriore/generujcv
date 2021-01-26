@@ -7,6 +7,7 @@ import PhotoForm from "../components/form/photo/PhotoForm";
 import StrengthForm from "../components/form/strength/StrengthForm";
 import UserDataForm from "../components/form/userData/UserDataForm";
 import ProjectForm from "../components/form/project/ProjectForm";
+import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
 
 const GetForm = (index: number): JSX.Element => {
@@ -79,9 +80,9 @@ const GetForm = (index: number): JSX.Element => {
     <UserDataForm
       inputs={inputs}
       onchange={handleOnChangeUserData}
-      onchangeAddress={handleOnChangeAddress}
       onchangeBirthday={handleOnChangeBirthday}
     />,
+    <ContactForm inputs={inputs} onchangeAddress={handleOnChangeAddress} />,
     <LanguageForm />,
     <StrengthForm />,
     <HobbyForm />,

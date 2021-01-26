@@ -9,6 +9,7 @@ import {
   faIndustry,
   faFileWord,
   faWindowMaximize,
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface MenuElements {
@@ -18,7 +19,8 @@ interface MenuElements {
 
 export const menuElements: MenuElements[] = [
   { icon: faPortrait, content: "zdjęcie" },
-  { icon: faFileAlt, content: "dane personalne" },
+  { icon: faFileAlt, content: "dane osobowe" },
+  { icon: faAddressCard, content: "dane kontaktowe" },
   { icon: faLanguage, content: "języki obce" },
   { icon: faFistRaised, content: "mocne strony" },
   { icon: faHiking, content: "hobby" },

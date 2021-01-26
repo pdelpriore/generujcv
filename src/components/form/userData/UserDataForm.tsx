@@ -10,14 +10,12 @@ type THandleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
 interface UserDataFormProps {
   inputs: FormInputTypes;
   onchange: THandleOnchange;
-  onchangeAddress: THandleOnchange;
   onchangeBirthday: THandleOnchange;
 }
 
 const UserDataForm: React.FC<UserDataFormProps> = ({
   inputs,
   onchange,
-  onchangeAddress,
   onchangeBirthday,
 }) => {
   return (
@@ -40,66 +38,6 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
           name="surname"
           type="text"
           placeholder="nazwisko"
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataStreet">
-        <Form.Label>{capitalize("ulica *")}</Form.Label>
-        <Form.Control
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onchangeAddress(e)
-          }
-          value={inputs.userData.address.street || ""}
-          name="street"
-          type="text"
-          placeholder="ulica"
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataStreetNumber">
-        <Form.Label>{capitalize("numer budynku *")}</Form.Label>
-        <Form.Control
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onchangeAddress(e)
-          }
-          value={inputs.userData.address.streetNumber || ""}
-          name="streetNumber"
-          type="text"
-          placeholder="numer ulicy"
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataFlatNumber">
-        <Form.Label>{capitalize("numer mieszkania")}</Form.Label>
-        <Form.Control
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onchangeAddress(e)
-          }
-          value={inputs.userData.address.flatNumber || ""}
-          name="flatNumber"
-          type="text"
-          placeholder="numer mieszkania"
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataPostCode">
-        <Form.Label>{capitalize("kod pocztowy *")}</Form.Label>
-        <Form.Control
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onchangeAddress(e)
-          }
-          value={inputs.userData.address.postCode || ""}
-          name="postCode"
-          type="text"
-          placeholder="00-999"
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataCity">
-        <Form.Label>{capitalize("miejscowość *")}</Form.Label>
-        <Form.Control
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onchangeAddress(e)
-          }
-          value={inputs.userData.address.city || ""}
-          name="city"
-          type="text"
-          placeholder="miejscowość"
         />
       </Form.Group>
       <Form.Group controlId="formUserDataBirthday">
@@ -129,7 +67,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option disabled={true} value="">
-              mies
+              miesiąc
             </option>
             {months.map((month, index) => (
               <option key={index}>{month}</option>
