@@ -1,4 +1,34 @@
+:root {
+  --font-size: 1vw;
+  --font-color: #071e3d;
+  --font-family: "OpenSans-Regular";
+}
+
 .formLanguage__group {
   display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.formLanguage__group-wrap {
   flex-direction: column;
+  flex: 2;
+}
+
+.formLanguage__label {
+  font-size: var(--font-size);
+  font-family: "OpenSans-SemiBold";
+  color: var(--font-color);
+}
+
+.formLanguage__control,
+.formLanguage__option {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--font-color);
+}
+
+.form__btn {
+  flex: 1;
+  margin-left: 1%;
 }

@@ -17,8 +17,8 @@ type buttonType = {
 };
 
 const buttonTypes: buttonType = {
-  add: "primary",
-  cancel: "info",
+  add: "info",
+  cancel: "light",
 };
 
 const TButton: React.FC<TButtonProps> = ({

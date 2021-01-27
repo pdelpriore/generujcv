@@ -17,12 +17,7 @@
   font-family: "OpenSans-SemiBold";
 }
 
-.formUserData__control {
-  font-size: var(--size);
-  color: var(--color);
-  font-family: var(--font-family);
-}
-
+.formUserData__control,
 .formUserData__option {
   font-size: var(--size);
   color: var(--color);
