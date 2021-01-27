@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/config/Store";
 import { FormInputTypes } from "../../../hooks/form/useForm";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
@@ -19,6 +21,8 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
   onchange,
   onchangeBirthday,
 }) => {
+  const { viewport } = useSelector((state: RootState) => state.viewportState);
+
   return (
     <Form className="formUserData">
       <Form.Group controlId="formUserDataName">
@@ -80,7 +84,11 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option className="formUserData__option" disabled={true} value="">
-              miesiąc
+              {(viewport > 319 && viewport <= 374) ||
+              (viewport > 374 && viewport <= 414) ||
+              (viewport > 414 && viewport < 1024)
+                ? "mies."
+                : "miesiąc"}
             </option>
             {months.map((month, index) => (
               <option className="formUserData__option" key={index}>

@@ -46,7 +46,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           value={inputs.userData.address.streetNumber || ""}
           name="streetNumber"
           type="text"
-          placeholder="numer ulicy"
+          placeholder="numer budynku"
         />
       </Form.Group>
       <Form.Group controlId="formContactFlatNumber">

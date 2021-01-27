@@ -41,7 +41,14 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                 <ImageUploader
                   className="formPhoto__uploader-uploader"
                   fileContainerStyle={{
-                    height: viewport > 319 && viewport <= 374 ? 20 : 55,
+                    height:
+                      viewport > 319 && viewport <= 374
+                        ? 20
+                        : viewport > 374 && viewport <= 414
+                        ? 35
+                        : viewport > 414 && viewport < 1024
+                        ? 45
+                        : 55,
                     fontFamily: "OpenSans-Regular",
                     border: "1px solid #CED4DA",
                     backgroundColor: "#e2f3f5",
@@ -53,7 +60,13 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
                   buttonStyles={{
                     fontFamily: "OpenSans-Regular",
                     fontSize:
-                      viewport > 319 && viewport <= 374 ? "2.7vw" : "0.8vw",
+                      viewport > 319 && viewport <= 374
+                        ? "2.7vw"
+                        : viewport > 374 && viewport <= 414
+                        ? "2.5vw"
+                        : viewport > 414 && viewport <= 1024
+                        ? "1.9vw"
+                        : "0.8vw",
                   }}
                   onChange={(picture: File[]) => onChangePhoto(picture)}
                   imgExtension={[".jpg", "jpeg", ".gif", ".png", ".gif"]}
@@ -73,7 +86,15 @@ const PhotoForm: React.FC<PhotoFormProps> = ({
         <Col xl={3} xs={1} />
       </Row>
       <Row
-        className={`${viewport > 319 && viewport <= 374 ? "mt-1" : "mt-4"}`}
+        className={`${
+          viewport > 319 && viewport <= 374
+            ? "mt-1"
+            : viewport > 374 && viewport <= 414
+            ? "mt-2"
+            : viewport > 414 && viewport <= 1024
+            ? "mt-3"
+            : "mt-4"
+        }`}
       />
       <Row>
         <Col xl={3} xs={1} />

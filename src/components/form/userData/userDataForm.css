@@ -33,3 +33,27 @@
   display: flex;
   flex-direction: row;
 }
+
+@media (min-width: 320px) and (max-width: 374px) {
+  .formUserData__label,
+  .formUserData__control,
+  .formUserData__option {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 414px) {
+  .formUserData__label,
+  .formUserData__control,
+  .formUserData__option {
+    font-size: 2.7vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formUserData__label,
+  .formUserData__control,
+  .formUserData__option {
+    font-size: 2.8vw;
+  }
+}

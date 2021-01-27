@@ -21,3 +21,27 @@
   color: var(--color);
   font-family: "OpenSans-Regular";
 }
+
+@media (min-width: 320px) and (max-width: 374px) {
+  .formContact__label,
+  .formContact__control,
+  .formContact__option {
+    font-size: 3.3vw;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 414px) {
+  .formContact__label,
+  .formContact__control,
+  .formContact__option {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formContact__label,
+  .formContact__control,
+  .formContact__option {
+    font-size: 2.8vw;
+  }
+}

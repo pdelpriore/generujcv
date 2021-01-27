@@ -69,3 +69,49 @@
     font-size: 3.5vw;
   }
 }
+
+@media (min-width: 375px) and (max-width: 414px) {
+  .space {
+    height: 3vh;
+  }
+
+  .formPhoto__label {
+    font-size: 3.8vw;
+  }
+
+  .formPhoto__uploader-delete {
+    font-size: 4vw;
+  }
+
+  .preview {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .loading__content {
+    font-size: 3.5vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .space {
+    height: 4vh;
+  }
+
+  .formPhoto__label {
+    font-size: 3.3vw;
+  }
+
+  .formPhoto__uploader-delete {
+    font-size: 4vw;
+  }
+
+  .preview {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .loading__content {
+    font-size: 3.3vw;
+  }
+}
