@@ -80,10 +80,32 @@ interface InitialState {
   project: project;
 }
 
+interface InputList {
+  languages: language[];
+  strengths: string[];
+  hobbies: string[];
+  diplomas: diploma[];
+  experiences: experience[];
+  competences: string[];
+  projects: project[];
+}
+
 export type FormInputTypes = InitialState;
+export type FormInputListType = InputList;
 
 const useForm = (initialState: InitialState) => {
   const [inputs, setInputs] = useState(initialState);
+
+  const [inputList, setInputList] = useState<InputList>({
+    languages: [],
+    strengths: [],
+    hobbies: [],
+    diplomas: [],
+    experiences: [],
+    competences: [],
+    projects: [],
+  });
+
   const [loading, setLoader] = useLoader(false);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,6 +180,17 @@ const useForm = (initialState: InitialState) => {
     }));
   };
 
+  const handleAddLanguage = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setInputList((inputList) => ({
+      ...inputList,
+      languages: [...inputList.languages, inputs.language],
+    }));
+    setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -177,6 +210,7 @@ const useForm = (initialState: InitialState) => {
   };
 
   console.log(inputs);
+  console.log(inputList);
 
   return {
     inputs,
@@ -189,6 +223,7 @@ const useForm = (initialState: InitialState) => {
     handleOnChangeContact,
     handleOnChangeBirthday,
     handleOnChangeLanguage,
+    handleAddLanguage,
   };
 };
 

@@ -22,6 +22,7 @@ const GetForm = (index: number): JSX.Element => {
     handleOnChangeContact,
     handleOnChangeBirthday,
     handleOnChangeLanguage,
+    handleAddLanguage,
   } = useForm({
     photo: "",
     userData: {
@@ -97,7 +98,11 @@ const GetForm = (index: number): JSX.Element => {
       onchangeAddress={handleOnChangeAddress}
       onchangeContact={handleOnChangeContact}
     />,
-    <LanguageForm inputs={inputs} onChangeLanguage={handleOnChangeLanguage} />,
+    <LanguageForm
+      inputs={inputs}
+      onChangeLanguage={handleOnChangeLanguage}
+      addClick={handleAddLanguage}
+    />,
     <StrengthForm />,
     <HobbyForm />,
     <DiplomaForm />,
