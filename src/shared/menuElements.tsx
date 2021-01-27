@@ -23,7 +23,7 @@ export const menuElements: MenuElements[] = [
   { icon: faFileAlt, content: "dane kontaktowe" },
   { icon: faLanguage, content: "języki obce" },
   { icon: faFistRaised, content: "mocne strony" },
-  { icon: faHiking, content: "hobby" },
+  { icon: faHiking, content: "zainteresowania" },
   { icon: faUniversity, content: "dyplomy" },
   { icon: faIndustry, content: "doświadczenie" },
   { icon: faFileWord, content: "kompetencje" },
