@@ -9,7 +9,7 @@ interface TButtonProps {
   disabled?: boolean;
   type: string;
   content: string;
-  onClick: TOnclick;
+  onClick?: TOnclick;
 }
 
 type buttonType = {
@@ -32,9 +32,9 @@ const TButton: React.FC<TButtonProps> = ({
       className="button"
       disabled={disabled}
       variant={buttonTypes[type]}
-      onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-        onClick(e)
-      }
+      //   onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+      //     onClick(e)
+      //   }
     >
       {capitalizeFirst(content)}
     </Button>

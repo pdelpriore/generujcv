@@ -150,6 +150,14 @@ const useForm = (initialState: InitialState) => {
     }));
   };
 
+  const handleOnChangeLanguage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      language: { ...inputs.language, [e.target.name]: e.target.value },
+    }));
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -180,6 +188,7 @@ const useForm = (initialState: InitialState) => {
     handleOnChangeAddress,
     handleOnChangeContact,
     handleOnChangeBirthday,
+    handleOnChangeLanguage,
   };
 };
 
