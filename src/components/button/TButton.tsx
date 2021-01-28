@@ -20,6 +20,8 @@ type buttonType = {
 const buttonTypes: buttonType = {
   add: "info",
   cancel: "light",
+  edit: "success",
+  delete: "danger",
 };
 
 const TButton: React.FC<TButtonProps> = ({
