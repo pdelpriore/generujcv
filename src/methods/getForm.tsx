@@ -105,7 +105,7 @@ const GetForm = (index: number): JSX.Element => {
       inputs={inputs}
       onChangeLanguage={handleOnChangeLanguage}
       addClick={renderButton(
-        "form__btn",
+        "formLanguage__btn",
         inputs.language.name.length === 0 || inputs.language.level.length === 0,
         "add",
         "dodaj",

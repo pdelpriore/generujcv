@@ -28,7 +28,7 @@
   color: var(--font-color);
 }
 
-.form__btn {
+.formLanguage__btn {
   flex: 1;
   margin-left: 1%;
 }
