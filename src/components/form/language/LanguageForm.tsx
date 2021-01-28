@@ -7,7 +7,7 @@ import { capitalizeFirst } from "../../../methods/capitalize";
 import "./languageForm.css";
 
 const LanguageForm: React.FC = () => {
-  const { inputs, onChangeLanguage, addClick } = useContext(
+  const { inputs, onChangeLanguage, addLanguage } = useContext(
     LanguageFormContext
   );
 
@@ -67,7 +67,7 @@ const LanguageForm: React.FC = () => {
               }
               type="add"
               content="dodaj"
-              onClick={addClick}
+              onClick={addLanguage}
             />
           </Form.Group>
         </Form>

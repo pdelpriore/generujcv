@@ -104,7 +104,7 @@ const GetForm = (index: number): JSX.Element => {
       value={{
         inputs: inputs,
         onChangeLanguage: handleOnChangeLanguage,
-        addClick: handleAddLanguage,
+        addLanguage: handleAddLanguage,
       }}
     >
       <LanguageForm />
