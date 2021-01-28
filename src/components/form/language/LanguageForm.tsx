@@ -1,17 +1,16 @@
 import React from "react";
 import { FormInputTypes } from "../../../hooks/form/useForm";
-import { Col, Row, Form, Button } from "react-bootstrap";
+import { Col, Row, Form } from "react-bootstrap";
 import { languagelevels } from "../../../shared/menuElements";
 import { capitalizeFirst } from "../../../methods/capitalize";
 import "./languageForm.css";
 
 type TOnchangeLanguage = (e: React.ChangeEvent<HTMLInputElement>) => void;
-type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
 interface LanguageFormProps {
   inputs: FormInputTypes;
   onChangeLanguage: TOnchangeLanguage;
-  addClick: TOnclick;
+  addClick: JSX.Element;
 }
 
 const LanguageForm: React.FC<LanguageFormProps> = ({
@@ -67,19 +66,7 @@ const LanguageForm: React.FC<LanguageFormProps> = ({
                 ))}
               </Form.Control>
             </div>
-            <Button
-              disabled={
-                inputs.language.name.length === 0 ||
-                inputs.language.level.length === 0
-              }
-              className="form__btn"
-              variant="info"
-              onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-                addClick(e)
-              }
-            >
-              {capitalizeFirst("dodaj")}
-            </Button>
+            {addClick}
           </Form.Group>
         </Form>
       </Col>

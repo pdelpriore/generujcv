@@ -6,10 +6,11 @@ import "./tButton.css";
 type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
 interface TButtonProps {
-  disabled?: boolean;
+  className: string;
+  disabled: boolean;
   type: string;
   content: string;
-  onClick?: TOnclick;
+  onClick: TOnclick;
 }
 
 type buttonType = {
@@ -22,6 +23,7 @@ const buttonTypes: buttonType = {
 };
 
 const TButton: React.FC<TButtonProps> = ({
+  className,
   disabled,
   type,
   content,
@@ -29,12 +31,12 @@ const TButton: React.FC<TButtonProps> = ({
 }) => {
   return (
     <Button
-      className="button"
+      className={className.length > 0 ? className : "button"}
       disabled={disabled}
       variant={buttonTypes[type]}
-      //   onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-      //     onClick(e)
-      //   }
+      onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+        onClick(e)
+      }
     >
       {capitalizeFirst(content)}
     </Button>

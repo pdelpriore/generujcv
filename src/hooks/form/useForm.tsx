@@ -214,6 +214,7 @@ const useForm = (initialState: InitialState) => {
 
   return {
     inputs,
+    inputList,
     loading,
     handleOnChange,
     handlePicture,

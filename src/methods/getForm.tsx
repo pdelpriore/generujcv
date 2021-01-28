@@ -9,10 +9,13 @@ import UserDataForm from "../components/form/userData/UserDataForm";
 import ProjectForm from "../components/form/project/ProjectForm";
 import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
+import { renderButton } from "../render/button/renderButton";
+import "../components/form/language/languageForm.css";
 
 const GetForm = (index: number): JSX.Element => {
   const {
     inputs,
+    inputList,
     loading,
     handleOnChange,
     handlePicture,
@@ -101,7 +104,13 @@ const GetForm = (index: number): JSX.Element => {
     <LanguageForm
       inputs={inputs}
       onChangeLanguage={handleOnChangeLanguage}
-      addClick={handleAddLanguage}
+      addClick={renderButton(
+        "form__btn",
+        inputs.language.name.length === 0 || inputs.language.level.length === 0,
+        "add",
+        "dodaj",
+        handleAddLanguage
+      )}
     />,
     <StrengthForm />,
     <HobbyForm />,
