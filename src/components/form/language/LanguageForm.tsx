@@ -1,23 +1,16 @@
-import React from "react";
-import { FormInputTypes } from "../../../hooks/form/useForm";
+import React, { useContext } from "react";
+import { LanguageFormContext } from "../../../context/languageForm/LanguageFormContext";
 import { Col, Row, Form } from "react-bootstrap";
+import TButton from "../../button/TButton";
 import { languagelevels } from "../../../shared/menuElements";
 import { capitalizeFirst } from "../../../methods/capitalize";
 import "./languageForm.css";
 
-type TOnchangeLanguage = (e: React.ChangeEvent<HTMLInputElement>) => void;
+const LanguageForm: React.FC = () => {
+  const { inputs, onChangeLanguage, addClick } = useContext(
+    LanguageFormContext
+  );
 
-interface LanguageFormProps {
-  inputs: FormInputTypes;
-  onChangeLanguage: TOnchangeLanguage;
-  addClick: JSX.Element;
-}
-
-const LanguageForm: React.FC<LanguageFormProps> = ({
-  inputs,
-  onChangeLanguage,
-  addClick,
-}) => {
   return (
     <Row>
       <Col xs={1} />
@@ -66,7 +59,16 @@ const LanguageForm: React.FC<LanguageFormProps> = ({
                 ))}
               </Form.Control>
             </div>
-            {addClick}
+            <TButton
+              className="formLanguage__btn"
+              disabled={
+                inputs.language.name.length === 0 ||
+                inputs.language.level.length === 0
+              }
+              type="add"
+              content="dodaj"
+              onClick={addClick}
+            />
           </Form.Group>
         </Form>
       </Col>

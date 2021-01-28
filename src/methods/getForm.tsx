@@ -9,8 +9,7 @@ import UserDataForm from "../components/form/userData/UserDataForm";
 import ProjectForm from "../components/form/project/ProjectForm";
 import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
-import { renderButton } from "../render/button/renderButton";
-import "../components/form/language/languageForm.css";
+import { LanguageFormContext } from "../context/languageForm/LanguageFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -101,17 +100,15 @@ const GetForm = (index: number): JSX.Element => {
       onchangeAddress={handleOnChangeAddress}
       onchangeContact={handleOnChangeContact}
     />,
-    <LanguageForm
-      inputs={inputs}
-      onChangeLanguage={handleOnChangeLanguage}
-      addClick={renderButton(
-        "formLanguage__btn",
-        inputs.language.name.length === 0 || inputs.language.level.length === 0,
-        "add",
-        "dodaj",
-        handleAddLanguage
-      )}
-    />,
+    <LanguageFormContext.Provider
+      value={{
+        inputs: inputs,
+        onChangeLanguage: handleOnChangeLanguage,
+        addClick: handleAddLanguage,
+      }}
+    >
+      <LanguageForm />
+    </LanguageFormContext.Provider>,
     <StrengthForm />,
     <HobbyForm />,
     <DiplomaForm />,
