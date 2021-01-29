@@ -31,4 +31,6 @@
 .formLanguage__btn {
   flex: 1;
   margin-left: 1%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
 }
