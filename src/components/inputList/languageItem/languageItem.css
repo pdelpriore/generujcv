@@ -4,12 +4,20 @@
 
 .languageItem-item {
   display: flex;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 .languageItem-item__content {
-  flex: 1;
+  flex: 3;
   font-size: 1.1vw;
-  font-family: "OpenSans-Regular";
+  font-family: "Nunito-Regular";
   color: #071e3d;
+}
+
+.languageItem-item__btn {
+  flex: 1;
+  font-size: 0.9vw;
+  font-family: "OpenSans-Regular";
+  margin-left: 2%;
 }
