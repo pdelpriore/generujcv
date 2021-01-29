@@ -103,6 +103,7 @@ const GetForm = (index: number): JSX.Element => {
     <LanguageFormContext.Provider
       value={{
         inputs: inputs,
+        inputList: inputList,
         onChangeLanguage: handleOnChangeLanguage,
         addLanguage: handleAddLanguage,
       }}

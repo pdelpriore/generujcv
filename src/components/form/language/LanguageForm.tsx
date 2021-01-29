@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { LanguageFormContext } from "../../../context/languageForm/LanguageFormContext";
-import { Col, Row, Form } from "react-bootstrap";
+import { Col, Row, Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import { languagelevels } from "../../../shared/menuElements";
 import { capitalizeFirst } from "../../../methods/capitalize";
 import "./languageForm.css";
 
 const LanguageForm: React.FC = () => {
-  const { inputs, onChangeLanguage, addLanguage } = useContext(
+  const { inputs, inputList, onChangeLanguage, addLanguage } = useContext(
     LanguageFormContext
   );
 
