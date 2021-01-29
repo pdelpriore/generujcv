@@ -232,7 +232,7 @@ const useForm = (initialState: InitialState) => {
     e.preventDefault();
     setInputList((inputList) => ({
       ...inputList,
-      languages: [...inputList.languages.splice(index, 1)],
+      languages: [...inputList.languages.filter((language, i) => i !== index)],
     }));
   };
 
