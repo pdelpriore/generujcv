@@ -3,7 +3,10 @@ import { Button } from "react-bootstrap";
 import { capitalizeFirst } from "../../methods/capitalize";
 import "./tButton.css";
 
-type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+type TOnclick = (
+  e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  index: number
+) => void;
 
 interface TButtonProps {
   className?: string;
@@ -11,6 +14,7 @@ interface TButtonProps {
   type: string;
   content: string;
   onClick: TOnclick;
+  index?: number;
 }
 
 type buttonType = {
@@ -30,6 +34,7 @@ const TButton: React.FC<TButtonProps> = ({
   type,
   content,
   onClick,
+  index,
 }) => {
   return (
     <Button
@@ -37,7 +42,7 @@ const TButton: React.FC<TButtonProps> = ({
       disabled={disabled ? disabled : false}
       variant={buttonTypes[type]}
       onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-        onClick(e)
+        onClick(e, index as number)
       }
     >
       {capitalizeFirst(content)}

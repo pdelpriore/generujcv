@@ -7,9 +7,10 @@ import "./languageItem.css";
 interface LanguageItemProps {
   name: string;
   level: string;
+  index: number;
 }
 
-const LanguageItem: React.FC<LanguageItemProps> = ({ name, level }) => {
+const LanguageItem: React.FC<LanguageItemProps> = ({ name, level, index }) => {
   const { editLanguage, deleteLanguage } = useContext(LanguageFormContext);
 
   return (
@@ -22,12 +23,14 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ name, level }) => {
           type="edit"
           content="edytuj"
           onClick={editLanguage}
+          index={index}
         />
         <TButton
           className="languageItem-item__btn"
           type="delete"
           content="usuń"
           onClick={deleteLanguage}
+          index={index}
         />
       </ListGroup.Item>
     </div>

@@ -91,6 +91,7 @@ const LanguageForm: React.FC = () => {
                   name={language.name}
                   level={language.level}
                   key={index}
+                  index={index}
                 />
               ))}
             </ListGroup>

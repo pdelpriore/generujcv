@@ -192,17 +192,19 @@ const useForm = (initialState: InitialState) => {
   };
 
   const handleEditLanguage = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
   ) => {
     e.preventDefault();
-    console.log("edit");
+    console.log("edit", index);
   };
 
   const handleDeleteLanguage = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
   ) => {
     e.preventDefault();
-    console.log("delete");
+    console.log("delete", index);
   };
 
   const handlePicture = async (picture: File[]) => {
