@@ -9,6 +9,8 @@ interface LanguageFormContext {
   inputList: FormInputListType;
   onChangeLanguage: TOnchange;
   addLanguage: TOnclick;
+  editLanguage: TOnclick;
+  deleteLanguage: TOnclick;
 }
 
 export const LanguageFormContext = createContext({} as LanguageFormContext);

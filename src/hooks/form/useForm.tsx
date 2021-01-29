@@ -191,6 +191,20 @@ const useForm = (initialState: InitialState) => {
     setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
   };
 
+  const handleEditLanguage = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log("edit");
+  };
+
+  const handleDeleteLanguage = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log("delete");
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -225,6 +239,8 @@ const useForm = (initialState: InitialState) => {
     handleOnChangeBirthday,
     handleOnChangeLanguage,
     handleAddLanguage,
+    handleEditLanguage,
+    handleDeleteLanguage,
   };
 };
 
