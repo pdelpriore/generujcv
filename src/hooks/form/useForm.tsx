@@ -108,6 +108,9 @@ const useForm = (initialState: InitialState) => {
 
   const [loading, setLoader] = useLoader(false);
 
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [itemIndex, setItemIndex] = useState<number>(0);
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     setInputs((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
@@ -196,7 +199,30 @@ const useForm = (initialState: InitialState) => {
     index: number
   ) => {
     e.preventDefault();
-    console.log("edit", index);
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: language } = inputList.languages;
+    setInputs((inputs) => ({
+      ...inputs,
+      language: { name: language.name, level: language.level },
+    }));
+  };
+
+  const handleEditLanguageState = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setInputList((inputList) => ({
+      ...inputList,
+      languages: [
+        ...inputList.languages.map((language, i) =>
+          i === itemIndex ? inputs.language : language
+        ),
+      ],
+    }));
+    setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
+    setIsEditing(false);
+    setItemIndex(0);
   };
 
   const handleDeleteLanguage = (
@@ -204,7 +230,10 @@ const useForm = (initialState: InitialState) => {
     index: number
   ) => {
     e.preventDefault();
-    console.log("delete", index);
+    setInputList((inputList) => ({
+      ...inputList,
+      languages: [...inputList.languages.splice(index, 1)],
+    }));
   };
 
   const handlePicture = async (picture: File[]) => {
@@ -232,6 +261,7 @@ const useForm = (initialState: InitialState) => {
     inputs,
     inputList,
     loading,
+    isEditing,
     handleOnChange,
     handlePicture,
     handleDeletePicture,
@@ -242,6 +272,7 @@ const useForm = (initialState: InitialState) => {
     handleOnChangeLanguage,
     handleAddLanguage,
     handleEditLanguage,
+    handleEditLanguageState,
     handleDeleteLanguage,
   };
 };

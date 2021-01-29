@@ -8,9 +8,14 @@ import LanguageItem from "../../inputList/languageItem/LanguageItem";
 import "./languageForm.css";
 
 const LanguageForm: React.FC = () => {
-  const { inputs, inputList, onChangeLanguage, addLanguage } = useContext(
-    LanguageFormContext
-  );
+  const {
+    inputs,
+    inputList,
+    isLanguageEditing,
+    onChangeLanguage,
+    addLanguage,
+    editLanguageState,
+  } = useContext(LanguageFormContext);
 
   return (
     <>
@@ -64,17 +69,26 @@ const LanguageForm: React.FC = () => {
                   ))}
                 </Form.Control>
               </div>
-              <TButton
-                className="formLanguage__btn"
-                disabled={
-                  inputs.language.name.length === 0 ||
-                  inputs.language.level.length === 0 ||
-                  inputList.languages.length === 5
-                }
-                type="add"
-                content="dodaj"
-                onClick={addLanguage}
-              />
+              {isLanguageEditing ? (
+                <TButton
+                  className="formLanguage__btn"
+                  type="add"
+                  content="popraw"
+                  onClick={editLanguageState}
+                />
+              ) : (
+                <TButton
+                  className="formLanguage__btn"
+                  disabled={
+                    inputs.language.name.length === 0 ||
+                    inputs.language.level.length === 0 ||
+                    inputList.languages.length === 5
+                  }
+                  type="add"
+                  content="dodaj"
+                  onClick={addLanguage}
+                />
+              )}
             </Form.Group>
           </Form>
         </Col>

@@ -11,9 +11,11 @@ type TOnclickWithIndex = (
 interface LanguageFormContextInterface {
   inputs: FormInputTypes;
   inputList: FormInputListType;
+  isLanguageEditing: boolean;
   onChangeLanguage: TOnchange;
   addLanguage: TOnclick;
   editLanguage: TOnclickWithIndex;
+  editLanguageState: TOnclick;
   deleteLanguage: TOnclickWithIndex;
 }
 

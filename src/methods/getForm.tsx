@@ -16,6 +16,7 @@ const GetForm = (index: number): JSX.Element => {
     inputs,
     inputList,
     loading,
+    isEditing,
     handleOnChange,
     handlePicture,
     handleDeletePicture,
@@ -26,6 +27,7 @@ const GetForm = (index: number): JSX.Element => {
     handleOnChangeLanguage,
     handleAddLanguage,
     handleEditLanguage,
+    handleEditLanguageState,
     handleDeleteLanguage,
   } = useForm({
     photo: "",
@@ -106,9 +108,11 @@ const GetForm = (index: number): JSX.Element => {
       value={{
         inputs: inputs,
         inputList: inputList,
+        isLanguageEditing: isEditing,
         onChangeLanguage: handleOnChangeLanguage,
         addLanguage: handleAddLanguage,
         editLanguage: handleEditLanguage,
+        editLanguageState: handleEditLanguageState,
         deleteLanguage: handleDeleteLanguage,
       }}
     >
