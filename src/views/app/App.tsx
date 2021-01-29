@@ -48,6 +48,14 @@ const App: React.FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    const updateWindowSize = () => {
+      dispatch(setViewport(window.innerWidth));
+    };
+    window.addEventListener("resize", updateWindowSize);
+    return () => window.removeEventListener("resize", updateWindowSize);
+  }, [dispatch]);
+
+  useEffect(() => {
     viewport < 374
       ? setVisibility("menuIcon", true)
       : setVisibility("menuIcon", false);
