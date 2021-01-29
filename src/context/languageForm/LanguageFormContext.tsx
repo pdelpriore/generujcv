@@ -8,7 +8,7 @@ type TOnclickWithIndex = (
   index: number
 ) => void;
 
-interface LanguageFormContext {
+interface LanguageFormContextInterface {
   inputs: FormInputTypes;
   inputList: FormInputListType;
   onChangeLanguage: TOnchange;
@@ -17,4 +17,6 @@ interface LanguageFormContext {
   deleteLanguage: TOnclickWithIndex;
 }
 
-export const LanguageFormContext = createContext({} as LanguageFormContext);
+export const LanguageFormContext = createContext(
+  {} as LanguageFormContextInterface
+);
