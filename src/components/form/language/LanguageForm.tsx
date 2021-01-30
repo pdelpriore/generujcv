@@ -14,7 +14,7 @@ const LanguageForm: React.FC = () => {
     isLanguageEditing,
     onChangeLanguage,
     addLanguage,
-    editLanguageState,
+    editLanguage,
   } = useContext(LanguageFormContext);
 
   return (
@@ -74,7 +74,7 @@ const LanguageForm: React.FC = () => {
                   className="formLanguage__btn"
                   type="add"
                   content="popraw"
-                  onClick={editLanguageState}
+                  onClick={editLanguage}
                 />
               ) : (
                 <TButton

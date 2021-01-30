@@ -26,8 +26,8 @@ const GetForm = (index: number): JSX.Element => {
     handleOnChangeBirthday,
     handleOnChangeLanguage,
     handleAddLanguage,
+    handleSendLanguageToEdit,
     handleEditLanguage,
-    handleEditLanguageState,
     handleDeleteLanguage,
   } = useForm({
     photo: "",
@@ -111,8 +111,8 @@ const GetForm = (index: number): JSX.Element => {
         isLanguageEditing: isEditing,
         onChangeLanguage: handleOnChangeLanguage,
         addLanguage: handleAddLanguage,
+        sendLanguageToEdit: handleSendLanguageToEdit,
         editLanguage: handleEditLanguage,
-        editLanguageState: handleEditLanguageState,
         deleteLanguage: handleDeleteLanguage,
       }}
     >

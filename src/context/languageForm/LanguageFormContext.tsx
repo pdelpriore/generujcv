@@ -14,8 +14,8 @@ interface LanguageFormContextInterface {
   isLanguageEditing: boolean;
   onChangeLanguage: TOnchange;
   addLanguage: TOnclick;
-  editLanguage: TOnclickWithIndex;
-  editLanguageState: TOnclick;
+  sendLanguageToEdit: TOnclickWithIndex;
+  editLanguage: TOnclick;
   deleteLanguage: TOnclickWithIndex;
 }
 

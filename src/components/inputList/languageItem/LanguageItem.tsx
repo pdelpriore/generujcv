@@ -11,7 +11,9 @@ interface LanguageItemProps {
 }
 
 const LanguageItem: React.FC<LanguageItemProps> = ({ name, level, index }) => {
-  const { editLanguage, deleteLanguage } = useContext(LanguageFormContext);
+  const { sendLanguageToEdit, deleteLanguage } = useContext(
+    LanguageFormContext
+  );
 
   return (
     <div className="languageItem">
@@ -22,7 +24,7 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ name, level, index }) => {
           className="languageItem-item__btn"
           type="edit"
           content="edytuj"
-          onClick={editLanguage}
+          onClick={sendLanguageToEdit}
           index={index}
         />
         <TButton

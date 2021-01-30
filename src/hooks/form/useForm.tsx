@@ -194,7 +194,7 @@ const useForm = (initialState: InitialState) => {
     setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
   };
 
-  const handleEditLanguage = (
+  const handleSendLanguageToEdit = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
   ) => {
@@ -208,7 +208,7 @@ const useForm = (initialState: InitialState) => {
     }));
   };
 
-  const handleEditLanguageState = (
+  const handleEditLanguage = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
@@ -221,8 +221,8 @@ const useForm = (initialState: InitialState) => {
       ],
     }));
     setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
-    setIsEditing(false);
     setItemIndex(0);
+    setIsEditing(false);
   };
 
   const handleDeleteLanguage = (
@@ -271,8 +271,8 @@ const useForm = (initialState: InitialState) => {
     handleOnChangeBirthday,
     handleOnChangeLanguage,
     handleAddLanguage,
+    handleSendLanguageToEdit,
     handleEditLanguage,
-    handleEditLanguageState,
     handleDeleteLanguage,
   };
 };
