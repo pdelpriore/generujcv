@@ -4,7 +4,7 @@ import {
   DELETE_LANGUAGE,
   InputListFormActions,
 } from "./inputListActionTypes";
-import { FormInputListType } from "../../hooks/form/useForm";
+import { FormInputListType } from "../../hooks/form/formTypes";
 
 const inputListReducer = (
   inputList: FormInputListType,

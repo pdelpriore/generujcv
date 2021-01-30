@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/config/Store";
-import { FormInputTypes } from "../../../hooks/form/useForm";
+import { FormInputTypes } from "../../../hooks/form/formTypes";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
 import { days, months, birthdayYear } from "../../../shared/dateElements";

@@ -1,5 +1,5 @@
 import React from "react";
-import { FormInputTypes } from "../../../hooks/form/useForm";
+import { FormInputTypes } from "../../../hooks/form/formTypes";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
 import "./contactForm.css";

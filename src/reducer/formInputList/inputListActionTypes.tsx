@@ -1,4 +1,4 @@
-import { language } from "../../hooks/form/useForm";
+import { language } from "../../hooks/form/formTypes";
 
 export const ADD_LANGUAGE = "add_language";
 export const EDIT_LANGUAGE = "edit_language";
