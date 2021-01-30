@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import { makeImageBinary } from "../../methods/makeImageBinary";
 import useLoader from "../loading/useLoader";
+import inputListReducer from "../../reducer/formInputList/inputListReducer";
+import {
+  ADD_LANGUAGE,
+  EDIT_LANGUAGE,
+  DELETE_LANGUAGE,
+} from "../../reducer/formInputList/inputListActionTypes";
 
 type address = {
   street: string;
@@ -34,7 +40,7 @@ type userdata = {
   disability: string;
 };
 
-type language = {
+export type language = {
   name: string;
   level: string;
 };
@@ -96,7 +102,7 @@ export type FormInputListType = InputList;
 const useForm = (initialState: InitialState) => {
   const [inputs, setInputs] = useState(initialState);
 
-  const [inputList, setInputList] = useState<InputList>({
+  const [inputList, dispatch] = useReducer(inputListReducer, {
     languages: [],
     strengths: [],
     hobbies: [],
@@ -187,10 +193,7 @@ const useForm = (initialState: InitialState) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setInputList((inputList) => ({
-      ...inputList,
-      languages: [...inputList.languages, inputs.language],
-    }));
+    dispatch({ type: ADD_LANGUAGE, payload: inputs.language });
     setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
   };
 
@@ -212,14 +215,10 @@ const useForm = (initialState: InitialState) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setInputList((inputList) => ({
-      ...inputList,
-      languages: [
-        ...inputList.languages.map((language, i) =>
-          i === itemIndex ? inputs.language : language
-        ),
-      ],
-    }));
+    dispatch({
+      type: EDIT_LANGUAGE,
+      payload: { itemIndex: itemIndex, language: inputs.language },
+    });
     setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
     setItemIndex(0);
     setIsEditing(false);
@@ -239,10 +238,7 @@ const useForm = (initialState: InitialState) => {
     index: number
   ) => {
     e.preventDefault();
-    setInputList((inputList) => ({
-      ...inputList,
-      languages: [...inputList.languages.filter((_, i) => i !== index)],
-    }));
+    dispatch({ type: DELETE_LANGUAGE, payload: index });
   };
 
   const handlePicture = async (picture: File[]) => {
