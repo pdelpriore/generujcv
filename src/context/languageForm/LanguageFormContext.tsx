@@ -16,6 +16,7 @@ interface LanguageFormContextInterface {
   addLanguage: TOnclick;
   sendLanguageToEdit: TOnclickWithIndex;
   editLanguage: TOnclick;
+  cancelEditLanguage: TOnclick;
   deleteLanguage: TOnclickWithIndex;
 }
 

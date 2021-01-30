@@ -225,6 +225,15 @@ const useForm = (initialState: InitialState) => {
     setIsEditing(false);
   };
 
+  const handleCancelEditLanguage = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setInputs((inputs) => ({ ...inputs, language: { name: "", level: "" } }));
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handleDeleteLanguage = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
@@ -273,6 +282,7 @@ const useForm = (initialState: InitialState) => {
     handleAddLanguage,
     handleSendLanguageToEdit,
     handleEditLanguage,
+    handleCancelEditLanguage,
     handleDeleteLanguage,
   };
 };

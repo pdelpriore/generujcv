@@ -15,6 +15,7 @@ const LanguageForm: React.FC = () => {
     onChangeLanguage,
     addLanguage,
     editLanguage,
+    cancelEditLanguage,
   } = useContext(LanguageFormContext);
 
   return (
@@ -70,12 +71,20 @@ const LanguageForm: React.FC = () => {
                 </Form.Control>
               </div>
               {isLanguageEditing ? (
-                <TButton
-                  className="formLanguage__btn"
-                  type="add"
-                  content="popraw"
-                  onClick={editLanguage}
-                />
+                <>
+                  <TButton
+                    className="formLanguage__btn"
+                    type="add"
+                    content="popraw"
+                    onClick={editLanguage}
+                  />
+                  <TButton
+                    className="formLanguage__btn"
+                    type="cancel"
+                    content="anuluj"
+                    onClick={cancelEditLanguage}
+                  />
+                </>
               ) : (
                 <TButton
                   className="formLanguage__btn"
