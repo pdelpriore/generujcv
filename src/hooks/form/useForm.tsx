@@ -117,11 +117,6 @@ const useForm = (initialState: InitialState) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [itemIndex, setItemIndex] = useState<number>(0);
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.persist();
-    setInputs((inputs) => ({ ...inputs, [e.target.name]: e.target.value }));
-  };
-
   const handleOnChangeUserData = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     setInputs((inputs) => ({
@@ -267,7 +262,6 @@ const useForm = (initialState: InitialState) => {
     inputList,
     loading,
     isEditing,
-    handleOnChange,
     handlePicture,
     handleDeletePicture,
     handleOnChangeUserData,

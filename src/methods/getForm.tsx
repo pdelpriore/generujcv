@@ -17,7 +17,6 @@ const GetForm = (index: number): JSX.Element => {
     inputList,
     loading,
     isEditing,
-    handleOnChange,
     handlePicture,
     handleDeletePicture,
     handleOnChangeUserData,
