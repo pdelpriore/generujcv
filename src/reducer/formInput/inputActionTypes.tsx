@@ -7,7 +7,7 @@ export const CHANGE_ADDRESS = "change_address";
 export const CHANGE_CONTACT = "change_contact";
 export const CHANGE_BIRTHDAY = "change_birthday";
 export const CHANGE_LANGUAGE = "change_language";
-export const DELETE_USER_LANGUAGE = "add_language";
+export const CLEAR_LANGUAGE = "add_language";
 export const SEND_LANGUAGE = "send_language";
 
 type TChange = {
@@ -50,8 +50,8 @@ interface ChangeUserLanguageAction {
   payload: TChange;
 }
 
-interface DeleteUserLanguageAction {
-  type: typeof DELETE_USER_LANGUAGE;
+interface ClearLanguageAction {
+  type: typeof CLEAR_LANGUAGE;
   payload: language;
 }
 
@@ -68,5 +68,5 @@ export type InputFormActions =
   | ChangeUserContactAction
   | ChangeUserBirthdayAction
   | ChangeUserLanguageAction
-  | DeleteUserLanguageAction
+  | ClearLanguageAction
   | SendUserLanguageAction;

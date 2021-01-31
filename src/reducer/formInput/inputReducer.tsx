@@ -6,7 +6,7 @@ import {
   CHANGE_CONTACT,
   CHANGE_BIRTHDAY,
   CHANGE_LANGUAGE,
-  DELETE_USER_LANGUAGE,
+  CLEAR_LANGUAGE,
   SEND_LANGUAGE,
   InputFormActions,
 } from "./inputActionTypes";
@@ -81,7 +81,7 @@ const inputReducer = (
           [action.payload.targetName]: action.payload.targetValue,
         },
       };
-    case DELETE_USER_LANGUAGE:
+    case CLEAR_LANGUAGE:
       return {
         ...inputs,
         language: { name: action.payload.name, level: action.payload.level },

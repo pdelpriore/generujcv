@@ -17,7 +17,7 @@ import {
   CHANGE_CONTACT,
   CHANGE_BIRTHDAY,
   CHANGE_LANGUAGE,
-  DELETE_USER_LANGUAGE,
+  CLEAR_LANGUAGE,
   SEND_LANGUAGE,
 } from "../../reducer/formInput/inputActionTypes";
 
@@ -85,7 +85,7 @@ const useForm = (initialState: FormInputTypes) => {
     e.preventDefault();
     dispatchInputList({ type: ADD_LANGUAGE, payload: inputs.language });
     dispatchInput({
-      type: DELETE_USER_LANGUAGE,
+      type: CLEAR_LANGUAGE,
       payload: { name: "", level: "" },
     });
   };
@@ -113,7 +113,7 @@ const useForm = (initialState: FormInputTypes) => {
       payload: { itemIndex: itemIndex, language: inputs.language },
     });
     dispatchInput({
-      type: DELETE_USER_LANGUAGE,
+      type: CLEAR_LANGUAGE,
       payload: { name: "", level: "" },
     });
     setItemIndex(0);
@@ -125,7 +125,7 @@ const useForm = (initialState: FormInputTypes) => {
   ) => {
     e.preventDefault();
     dispatchInput({
-      type: DELETE_USER_LANGUAGE,
+      type: CLEAR_LANGUAGE,
       payload: { name: "", level: "" },
     });
     setItemIndex(0);
