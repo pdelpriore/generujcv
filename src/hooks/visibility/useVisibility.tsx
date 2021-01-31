@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 interface InitValue {
   [key: string]: boolean;
@@ -7,11 +7,14 @@ interface InitValue {
 const useVisibility = (initValue: InitValue) => {
   const [isVisible, setVisible] = useState(initValue);
 
-  const handleVisibility = (component: string, value: boolean) =>
-    setVisible((isVisible) => ({
-      ...isVisible,
-      [component]: value,
-    }));
+  const handleVisibility = useCallback(
+    (component: string, value: boolean) =>
+      setVisible((isVis) => ({
+        ...isVis,
+        [component]: value,
+      })),
+    [setVisible]
+  );
 
   return [isVisible, handleVisibility] as const;
 };

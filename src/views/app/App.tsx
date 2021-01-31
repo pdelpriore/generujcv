@@ -59,7 +59,7 @@ const App: React.FC = () => {
     viewport < 374
       ? setVisibility("menuIcon", true)
       : setVisibility("menuIcon", false);
-  }, [viewport]);
+  }, [viewport, setVisibility]);
 
   return (
     <div className="container">
