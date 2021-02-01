@@ -51,7 +51,7 @@ export const disabilityLevel: string[] = ["lekka", "umiarkowana", "znaczna"];
 
 export const languagelevels: string[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-export let languageLevelValue: LanguageLevelValue = languagelevels.reduce(
+export const languageLevelValue: LanguageLevelValue = languagelevels.reduce(
   (acc, curr, index) => ({ ...acc, [curr]: index + 1 }),
   {}
 );
