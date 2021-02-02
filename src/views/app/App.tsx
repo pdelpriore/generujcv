@@ -56,7 +56,7 @@ const App: React.FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    viewport < 374
+    viewport < 1025
       ? setVisibility("menuIcon", true)
       : setVisibility("menuIcon", false);
   }, [viewport, setVisibility]);

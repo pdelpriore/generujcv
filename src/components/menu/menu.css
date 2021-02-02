@@ -35,7 +35,7 @@
   color: #e2434b;
 }
 
-@media (max-width: 414px) {
+@media (min-width: 320px) and (max-width: 374px) {
   .menu__icon {
     width: 3.7vw;
   }
@@ -50,6 +50,21 @@
   }
 }
 
+@media (min-width: 375px) and (max-width: 414px) {
+  .menu__icon {
+    width: 3.7vw;
+  }
+
+  .menu__icon-ico {
+    font-size: 3.5vw;
+  }
+
+  .menu__content {
+    flex: 3;
+    font-size: 3.1vw;
+  }
+}
+
 @media (min-width: 415px) and (max-width: 1024px) {
   .menu__icon {
     width: 3.7vw;
@@ -61,6 +76,6 @@
 
   .menu__content {
     flex: 3;
-    font-size: 3vw;
+    font-size: 3.2vw;
   }
 }

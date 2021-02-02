@@ -21,3 +21,40 @@
   font-family: "OpenSans-Regular";
   margin-left: 2%;
 }
+
+@media (max-width: 414px) {
+  .languageItem {
+    border-radius: 1vw;
+  }
+
+  .languageItem-item {
+    padding: 1vw;
+  }
+
+  .languageItem-item__content {
+    font-size: 3vw;
+  }
+
+  .languageItem-item__btn {
+    font-size: 2vw;
+    margin-left: 1%;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .languageItem {
+    border-radius: 0.8vw;
+  }
+
+  .languageItem-item {
+    padding: 1.5vw;
+  }
+
+  .languageItem-item__content {
+    font-size: 3vw;
+  }
+
+  .languageItem-item__btn {
+    font-size: 2vw;
+  }
+}
