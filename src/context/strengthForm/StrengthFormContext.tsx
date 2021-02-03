@@ -11,8 +11,13 @@ type TOnclickWithIndex = (
 interface StrengthFormContextInterface {
   inputs: FormInputTypes;
   inputList: FormInputListType;
+  isStrengthEditing: boolean;
   onChangeStrength: TOnchange;
   addStrength: TOnclick;
+  sendStrengthToEdit: TOnclickWithIndex;
+  editStrength: TOnclick;
+  cancelEditStrength: TOnclick;
+  deleteStrength: TOnclickWithIndex;
 }
 
 export const StrengthFormContext = createContext(

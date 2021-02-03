@@ -9,6 +9,8 @@ import {
   EDIT_LANGUAGE,
   DELETE_LANGUAGE,
   ADD_STRENGTH,
+  EDIT_STRENGTH,
+  DELETE_STRENGTH,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -22,6 +24,7 @@ import {
   SEND_LANGUAGE,
   CHANGE_STRENGTH,
   CLEAR_STRENGTH,
+  SEND_STRENGTH,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -135,6 +138,14 @@ const useForm = (initialState: FormInputTypes) => {
     setIsEditing(false);
   };
 
+  const handleDeleteLanguage = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_LANGUAGE, payload: index });
+  };
+
   const handleOnChangeStrength = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     dispatchInput({
@@ -151,12 +162,54 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInput({ type: CLEAR_STRENGTH, payload: "" });
   };
 
-  const handleDeleteLanguage = (
+  const handleSendStrengthToEdit = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
   ) => {
     e.preventDefault();
-    dispatchInputList({ type: DELETE_LANGUAGE, payload: index });
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: strength } = inputList.strengths;
+    dispatchInput({
+      type: SEND_STRENGTH,
+      payload: strength,
+    });
+  };
+
+  const handleEditStrength = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_STRENGTH,
+      payload: { itemIndex: itemIndex, strength: inputs.strength },
+    });
+    dispatchInput({
+      type: CLEAR_STRENGTH,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditStrength = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_STRENGTH,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteStrength = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_STRENGTH, payload: index });
   };
 
   const handlePicture = async (picture: File[]) => {
@@ -199,6 +252,10 @@ const useForm = (initialState: FormInputTypes) => {
     handleDeleteLanguage,
     handleOnChangeStrength,
     handleAddStrength,
+    handleSendStrengthToEdit,
+    handleEditStrength,
+    handleCancelEditStrength,
+    handleDeleteStrength,
   };
 };
 

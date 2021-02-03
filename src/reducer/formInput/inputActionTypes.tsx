@@ -7,12 +7,14 @@ export const CHANGE_USER_DATA = "change_user_data";
 export const CHANGE_ADDRESS = "change_address";
 export const CHANGE_CONTACT = "change_contact";
 export const CHANGE_BIRTHDAY = "change_birthday";
+
 export const CHANGE_LANGUAGE = "change_language";
 export const CLEAR_LANGUAGE = "add_language";
 export const SEND_LANGUAGE = "send_language";
 
 export const CHANGE_STRENGTH = "change_strength";
 export const CLEAR_STRENGTH = "clear_strength";
+export const SEND_STRENGTH = "send_strength";
 
 type TChange = {
   targetName: string;
@@ -74,6 +76,11 @@ interface ClearStrengthAction {
   payload: string;
 }
 
+interface SendStrengthAction {
+  type: typeof SEND_STRENGTH;
+  payload: string;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -85,4 +92,5 @@ export type InputFormActions =
   | ClearLanguageAction
   | SendUserLanguageAction
   | ChangeStrengthAction
-  | ClearStrengthAction;
+  | ClearStrengthAction
+  | SendStrengthAction;

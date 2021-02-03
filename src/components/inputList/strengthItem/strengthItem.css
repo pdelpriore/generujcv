@@ -1,0 +1,23 @@
+.strengthItem {
+  border-radius: 0.4vw;
+}
+
+.strengthItem-item {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.strengthItem-item__content {
+  flex: 4;
+  font-size: 1.1vw;
+  font-family: "Nunito-Regular";
+  color: #071e3d;
+}
+
+.strengthItem-item__btn {
+  flex: 1;
+  font-size: 0.9vw;
+  font-family: "OpenSans-Regular";
+  margin-left: 2%;
+}

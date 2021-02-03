@@ -10,6 +10,7 @@ import {
   SEND_LANGUAGE,
   CHANGE_STRENGTH,
   CLEAR_STRENGTH,
+  SEND_STRENGTH,
   InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
@@ -102,6 +103,8 @@ const inputReducer = (
         ),
       };
     case CLEAR_STRENGTH:
+      return { ...inputs, strength: action.payload };
+    case SEND_STRENGTH:
       return { ...inputs, strength: action.payload };
     default:
       return inputs;

@@ -5,10 +5,17 @@ export const EDIT_LANGUAGE = "edit_language";
 export const DELETE_LANGUAGE = "delete_language";
 
 export const ADD_STRENGTH = "add_strength";
+export const EDIT_STRENGTH = "edit_strength";
+export const DELETE_STRENGTH = "delete_strength";
 
 type editLanguage = {
   itemIndex: number;
   language: language;
+};
+
+type editStrength = {
+  itemIndex: number;
+  strength: string;
 };
 
 interface AddLanguageAction {
@@ -31,8 +38,20 @@ interface AddStrengthAction {
   payload: string;
 }
 
+interface EditStrengthAction {
+  type: typeof EDIT_STRENGTH;
+  payload: editStrength;
+}
+
+interface DeleteStrengthAction {
+  type: typeof DELETE_STRENGTH;
+  payload: number;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
   | DeleteLanguageAction
-  | AddStrengthAction;
+  | AddStrengthAction
+  | EditStrengthAction
+  | DeleteStrengthAction;

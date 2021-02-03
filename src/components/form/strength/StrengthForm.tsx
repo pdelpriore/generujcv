@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
 import { StrengthFormContext } from "../../../context/strengthForm/StrengthFormContext";
+import StrengthItem from "../../inputList/strengthItem/StrengthItem";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import { capitalize } from "../../../methods/capitalize";
 import "./strengthForm.css";
 
 const StrengthForm: React.FC = () => {
-  const { inputs, inputList, onChangeStrength, addStrength } = useContext(
-    StrengthFormContext
-  );
+  const {
+    inputs,
+    inputList,
+    isStrengthEditing,
+    onChangeStrength,
+    addStrength,
+    editStrength,
+    cancelEditStrength,
+  } = useContext(StrengthFormContext);
 
   return (
     <>
@@ -35,19 +42,19 @@ const StrengthForm: React.FC = () => {
                   placeholder="mocna strona"
                 />
               </div>
-              {false ? (
+              {isStrengthEditing ? (
                 <>
                   <TButton
                     className="formStrength__btn"
                     type="add"
                     content="popraw"
-                    onClick={() => console.log("ok")}
+                    onClick={editStrength}
                   />
                   <TButton
                     className="formStrength__btn"
                     type="cancel"
                     content="anuluj"
-                    onClick={() => console.log("ok")}
+                    onClick={cancelEditStrength}
                   />
                 </>
               ) : (
@@ -68,23 +75,19 @@ const StrengthForm: React.FC = () => {
         <Col xl={3} />
       </Row>
       <Row className="mt-4" />
-      {/* <Row>
+      <Row>
         <Col xl={3} />
         <Col xl={6}>
           {inputList.strengths.length > 0 && (
             <ListGroup variant="flush">
               {inputList.strengths.map((strength, index) => (
-                <StrengthItem
-                  strength={strength}
-                  key={index}
-                  index={index}
-                />
+                <StrengthItem strength={strength} key={index} index={index} />
               ))}
             </ListGroup>
           )}
         </Col>
         <Col xl={3} />
-      </Row> */}
+      </Row>
     </>
   );
 };

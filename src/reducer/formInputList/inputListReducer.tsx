@@ -3,6 +3,8 @@ import {
   EDIT_LANGUAGE,
   DELETE_LANGUAGE,
   ADD_STRENGTH,
+  EDIT_STRENGTH,
+  DELETE_STRENGTH,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -37,6 +39,22 @@ const inputListReducer = (
       return {
         ...inputList,
         strengths: [...inputList.strengths, action.payload],
+      };
+    case EDIT_STRENGTH:
+      return {
+        ...inputList,
+        strengths: [
+          ...inputList.strengths.map((strength, i) =>
+            i === action.payload.itemIndex ? action.payload.strength : strength
+          ),
+        ],
+      };
+    case DELETE_STRENGTH:
+      return {
+        ...inputList,
+        strengths: [
+          ...inputList.strengths.filter((_, i) => i !== action.payload),
+        ],
       };
     default:
       return inputList;
