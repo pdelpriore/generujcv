@@ -11,6 +11,7 @@ type TOnclickWithIndex = (
 interface StrengthFormContextInterface {
   inputs: FormInputTypes;
   inputList: FormInputListType;
+  onChangeStrength: TOnchange;
 }
 
 export const StrengthFormContext = createContext(

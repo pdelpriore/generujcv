@@ -19,6 +19,7 @@ import {
   CHANGE_LANGUAGE,
   CLEAR_LANGUAGE,
   SEND_LANGUAGE,
+  CHANGE_STRENGTH,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -132,6 +133,14 @@ const useForm = (initialState: FormInputTypes) => {
     setIsEditing(false);
   };
 
+  const handleOnChangeStrength = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_STRENGTH,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
   const handleDeleteLanguage = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
@@ -178,6 +187,7 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditLanguage,
     handleCancelEditLanguage,
     handleDeleteLanguage,
+    handleOnChangeStrength,
   };
 };
 

@@ -8,6 +8,7 @@ import {
   CHANGE_LANGUAGE,
   CLEAR_LANGUAGE,
   SEND_LANGUAGE,
+  CHANGE_STRENGTH,
   InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
@@ -90,6 +91,14 @@ const inputReducer = (
       return {
         ...inputs,
         language: { name: action.payload.name, level: action.payload.level },
+      };
+    case CHANGE_STRENGTH:
+      return {
+        ...inputs,
+        [action.payload.targetName]: action.payload.targetValue.replace(
+          /[^a-z\s]/g,
+          ""
+        ),
       };
     default:
       return inputs;

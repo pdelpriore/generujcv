@@ -68,7 +68,7 @@ interface Input {
   photo: string;
   userData: userdata;
   language: language;
-  strength: string[];
+  strength: string;
   hobby: string[];
   diploma: diploma;
   experience: experience;

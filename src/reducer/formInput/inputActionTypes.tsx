@@ -2,6 +2,7 @@ import { language } from "../../hooks/form/formTypes";
 
 export const ADD_PHOTO = "add_photo";
 export const DELETE_PHOTO = "delete_photo";
+
 export const CHANGE_USER_DATA = "change_user_data";
 export const CHANGE_ADDRESS = "change_address";
 export const CHANGE_CONTACT = "change_contact";
@@ -9,6 +10,8 @@ export const CHANGE_BIRTHDAY = "change_birthday";
 export const CHANGE_LANGUAGE = "change_language";
 export const CLEAR_LANGUAGE = "add_language";
 export const SEND_LANGUAGE = "send_language";
+
+export const CHANGE_STRENGTH = "change_strength";
 
 type TChange = {
   targetName: string;
@@ -60,6 +63,11 @@ interface SendUserLanguageAction {
   payload: language;
 }
 
+interface ChangeStrengthAction {
+  type: typeof CHANGE_STRENGTH;
+  payload: TChange;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -69,4 +77,5 @@ export type InputFormActions =
   | ChangeUserBirthdayAction
   | ChangeUserLanguageAction
   | ClearLanguageAction
-  | SendUserLanguageAction;
+  | SendUserLanguageAction
+  | ChangeStrengthAction;

@@ -30,6 +30,7 @@ const GetForm = (index: number): JSX.Element => {
     handleEditLanguage,
     handleCancelEditLanguage,
     handleDeleteLanguage,
+    handleOnChangeStrength,
   } = useForm({
     photo: "",
     userData: {
@@ -57,7 +58,7 @@ const GetForm = (index: number): JSX.Element => {
       name: "",
       level: "",
     },
-    strength: [],
+    strength: "",
     hobby: [],
     diploma: {
       name: "",
@@ -121,7 +122,11 @@ const GetForm = (index: number): JSX.Element => {
       <LanguageForm />
     </LanguageFormContext.Provider>,
     <StrengthFormContext.Provider
-      value={{ inputs: inputs, inputList: inputList }}
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        onChangeStrength: handleOnChangeStrength,
+      }}
     >
       <StrengthForm />
     </StrengthFormContext.Provider>,

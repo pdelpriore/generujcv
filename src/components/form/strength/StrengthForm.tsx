@@ -6,7 +6,9 @@ import { capitalize } from "../../../methods/capitalize";
 import "./strengthForm.css";
 
 const StrengthForm: React.FC = () => {
-  const { inputs, inputList } = useContext(StrengthFormContext);
+  const { inputs, inputList, onChangeStrength } = useContext(
+    StrengthFormContext
+  );
 
   return (
     <>
@@ -24,13 +26,13 @@ const StrengthForm: React.FC = () => {
                 </Form.Label>
                 <Form.Control
                   className="formStrength__control"
-                  // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  //   onChangeStrength(e)
-                  // }
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    onChangeStrength(e)
+                  }
                   value={inputs.strength || ""}
-                  name="name"
+                  name="strength"
                   type="text"
-                  placeholder="mocne strony"
+                  placeholder="mocna strona"
                 />
               </div>
               {false ? (
