@@ -1,0 +1,15 @@
+.formStrength__group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.formStrength__group-wrap {
+  flex-direction: column;
+  flex: 4;
+}
+
+.formStrength__btn {
+  flex: 1;
+  margin-left: 1%;
+}

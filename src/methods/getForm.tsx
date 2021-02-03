@@ -10,6 +10,7 @@ import ProjectForm from "../components/form/project/ProjectForm";
 import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
 import { LanguageFormContext } from "../context/languageForm/LanguageFormContext";
+import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -119,7 +120,11 @@ const GetForm = (index: number): JSX.Element => {
     >
       <LanguageForm />
     </LanguageFormContext.Provider>,
-    <StrengthForm />,
+    <StrengthFormContext.Provider
+      value={{ inputs: inputs, inputList: inputList }}
+    >
+      <StrengthForm />
+    </StrengthFormContext.Provider>,
     <HobbyForm />,
     <DiplomaForm />,
     <ExperienceForm />,
