@@ -6,7 +6,7 @@ import { capitalize } from "../../../methods/capitalize";
 import "./strengthForm.css";
 
 const StrengthForm: React.FC = () => {
-  const { inputs, inputList, onChangeStrength } = useContext(
+  const { inputs, inputList, onChangeStrength, addStrength } = useContext(
     StrengthFormContext
   );
 
@@ -53,13 +53,13 @@ const StrengthForm: React.FC = () => {
               ) : (
                 <TButton
                   className="formStrength__btn"
-                  // disabled={
-                  //   inputs.strength.length === 0 ||
-                  //   inputList.strengths.length === 5
-                  // }
+                  disabled={
+                    inputs.strength.length === 0 ||
+                    inputList.strengths.length === 5
+                  }
                   type="add"
                   content="dodaj"
-                  onClick={() => console.log("ok")}
+                  onClick={addStrength}
                 />
               )}
             </Form.Group>

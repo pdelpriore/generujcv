@@ -4,6 +4,8 @@ export const ADD_LANGUAGE = "add_language";
 export const EDIT_LANGUAGE = "edit_language";
 export const DELETE_LANGUAGE = "delete_language";
 
+export const ADD_STRENGTH = "add_strength";
+
 type editLanguage = {
   itemIndex: number;
   language: language;
@@ -24,7 +26,13 @@ interface DeleteLanguageAction {
   payload: number;
 }
 
+interface AddStrengthAction {
+  type: typeof ADD_STRENGTH;
+  payload: string;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
-  | DeleteLanguageAction;
+  | DeleteLanguageAction
+  | AddStrengthAction;

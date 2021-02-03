@@ -31,6 +31,7 @@ const GetForm = (index: number): JSX.Element => {
     handleCancelEditLanguage,
     handleDeleteLanguage,
     handleOnChangeStrength,
+    handleAddStrength,
   } = useForm({
     photo: "",
     userData: {
@@ -126,6 +127,7 @@ const GetForm = (index: number): JSX.Element => {
         inputs: inputs,
         inputList: inputList,
         onChangeStrength: handleOnChangeStrength,
+        addStrength: handleAddStrength,
       }}
     >
       <StrengthForm />

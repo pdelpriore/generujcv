@@ -8,6 +8,7 @@ import {
   ADD_LANGUAGE,
   EDIT_LANGUAGE,
   DELETE_LANGUAGE,
+  ADD_STRENGTH,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -20,6 +21,7 @@ import {
   CLEAR_LANGUAGE,
   SEND_LANGUAGE,
   CHANGE_STRENGTH,
+  CLEAR_STRENGTH,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -141,6 +143,14 @@ const useForm = (initialState: FormInputTypes) => {
     });
   };
 
+  const handleAddStrength = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_STRENGTH, payload: inputs.strength });
+    dispatchInput({ type: CLEAR_STRENGTH, payload: "" });
+  };
+
   const handleDeleteLanguage = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     index: number
@@ -188,6 +198,7 @@ const useForm = (initialState: FormInputTypes) => {
     handleCancelEditLanguage,
     handleDeleteLanguage,
     handleOnChangeStrength,
+    handleAddStrength,
   };
 };
 

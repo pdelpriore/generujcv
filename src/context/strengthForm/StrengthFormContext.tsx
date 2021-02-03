@@ -12,6 +12,7 @@ interface StrengthFormContextInterface {
   inputs: FormInputTypes;
   inputList: FormInputListType;
   onChangeStrength: TOnchange;
+  addStrength: TOnclick;
 }
 
 export const StrengthFormContext = createContext(

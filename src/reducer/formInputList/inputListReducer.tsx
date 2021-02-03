@@ -2,6 +2,7 @@ import {
   ADD_LANGUAGE,
   EDIT_LANGUAGE,
   DELETE_LANGUAGE,
+  ADD_STRENGTH,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -31,6 +32,11 @@ const inputListReducer = (
         languages: [
           ...inputList.languages.filter((_, i) => i !== action.payload),
         ],
+      };
+    case ADD_STRENGTH:
+      return {
+        ...inputList,
+        strengths: [...inputList.strengths, action.payload],
       };
     default:
       return inputList;
