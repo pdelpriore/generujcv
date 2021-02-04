@@ -20,8 +20,8 @@ const StrengthForm: React.FC = () => {
   return (
     <>
       <Row>
-        <Col xl={3} />
-        <Col xl={6}>
+        <Col xl={3} xs={1} />
+        <Col xl={6} xs={10}>
           <Form className="formStrength">
             <Form.Group
               className="formStrength__group"
@@ -72,12 +72,12 @@ const StrengthForm: React.FC = () => {
             </Form.Group>
           </Form>
         </Col>
-        <Col xl={3} />
+        <Col xl={3} xs={1} />
       </Row>
       <Row className="mt-4" />
       <Row>
-        <Col xl={3} />
-        <Col xl={6}>
+        <Col xl={3} xs={1} />
+        <Col xl={6} xs={10}>
           {inputList.strengths.length > 0 && (
             <ListGroup variant="flush">
               {inputList.strengths.map((strength, index) => (
@@ -86,7 +86,7 @@ const StrengthForm: React.FC = () => {
             </ListGroup>
           )}
         </Col>
-        <Col xl={3} />
+        <Col xl={3} xs={1} />
       </Row>
     </>
   );
