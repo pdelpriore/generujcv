@@ -39,7 +39,7 @@ const StrengthForm: React.FC = () => {
                   value={inputs.strength || ""}
                   name="strength"
                   type="text"
-                  placeholder="mocna strona"
+                  placeholder="twoja mocna strona"
                 />
               </div>
               {isStrengthEditing ? (
