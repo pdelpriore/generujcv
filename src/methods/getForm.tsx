@@ -11,6 +11,7 @@ import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
 import { LanguageFormContext } from "../context/languageForm/LanguageFormContext";
 import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext";
+import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -36,6 +37,12 @@ const GetForm = (index: number): JSX.Element => {
     handleEditStrength,
     handleCancelEditStrength,
     handleDeleteStrength,
+    handleOnChangeHobby,
+    handleAddHobby,
+    handleSendHobbyToEdit,
+    handleEditHobby,
+    handleCancelEditHobby,
+    handleDeleteHobby,
   } = useForm({
     photo: "",
     userData: {
@@ -64,7 +71,7 @@ const GetForm = (index: number): JSX.Element => {
       level: "",
     },
     strength: "",
-    hobby: [],
+    hobby: "",
     diploma: {
       name: "",
       startMonth: "",
@@ -141,7 +148,21 @@ const GetForm = (index: number): JSX.Element => {
     >
       <StrengthForm />
     </StrengthFormContext.Provider>,
-    <HobbyForm />,
+    <HobbyFormContext.Provider
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        isHobbyEditing: isEditing,
+        onChangeHobby: handleOnChangeHobby,
+        addHobby: handleAddHobby,
+        sendHobbyToEdit: handleSendHobbyToEdit,
+        editHobby: handleEditHobby,
+        cancelEditHobby: handleCancelEditHobby,
+        deleteHobby: handleDeleteHobby,
+      }}
+    >
+      <HobbyForm />
+    </HobbyFormContext.Provider>,
     <DiplomaForm />,
     <ExperienceForm />,
     <CompetenceForm />,

@@ -1,0 +1,54 @@
+:root {
+  --font-size: 1vw;
+  --font-color: #071e3d;
+  --font-family: "OpenSans-Regular";
+}
+
+.formHobby__group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.formHobby__group-wrap {
+  flex-direction: column;
+  flex: 5;
+}
+
+.formHobby__label {
+  font-size: var(--font-size);
+  font-family: "OpenSans-SemiBold";
+  color: var(--font-color);
+}
+
+.formHobby__control {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--font-color);
+}
+
+.formHobby__btn {
+  flex: 1;
+  margin-left: 1%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+@media (max-width: 414px) {
+  .formHobby__label {
+    font-size: 3vw;
+  }
+
+  .formHobby__control,
+  .formHobby__btn {
+    font-size: 2.7vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formHobby__label,
+  .formHobby__control,
+  .formHobby__btn {
+    font-size: 3vw;
+  }
+}

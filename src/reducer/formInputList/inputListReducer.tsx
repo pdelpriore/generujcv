@@ -5,6 +5,9 @@ import {
   ADD_STRENGTH,
   EDIT_STRENGTH,
   DELETE_STRENGTH,
+  ADD_HOBBY,
+  EDIT_HOBBY,
+  DELETE_HOBBY,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -55,6 +58,22 @@ const inputListReducer = (
         strengths: [
           ...inputList.strengths.filter((_, i) => i !== action.payload),
         ],
+      };
+    case ADD_HOBBY:
+      return { ...inputList, hobbies: [...inputList.hobbies, action.payload] };
+    case EDIT_HOBBY:
+      return {
+        ...inputList,
+        hobbies: [
+          ...inputList.hobbies.map((hobby, i) =>
+            i === action.payload.itemIndex ? action.payload.hobby : hobby
+          ),
+        ],
+      };
+    case DELETE_HOBBY:
+      return {
+        ...inputList,
+        hobbies: [...inputList.hobbies.filter((_, i) => i !== action.payload)],
       };
     default:
       return inputList;

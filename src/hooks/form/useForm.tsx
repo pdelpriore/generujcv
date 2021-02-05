@@ -11,6 +11,9 @@ import {
   ADD_STRENGTH,
   EDIT_STRENGTH,
   DELETE_STRENGTH,
+  ADD_HOBBY,
+  EDIT_HOBBY,
+  DELETE_HOBBY,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -25,6 +28,9 @@ import {
   CHANGE_STRENGTH,
   CLEAR_STRENGTH,
   SEND_STRENGTH,
+  CHANGE_HOBBY,
+  CLEAR_HOBBY,
+  SEND_HOBBY,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -212,6 +218,72 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_STRENGTH, payload: index });
   };
 
+  const handleOnChangeHobby = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_HOBBY,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleAddHobby = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_HOBBY, payload: inputs.hobby });
+    dispatchInput({ type: CLEAR_HOBBY, payload: "" });
+  };
+
+  const handleSendHobbyToEdit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: hobby } = inputList.hobbies;
+    dispatchInput({
+      type: SEND_HOBBY,
+      payload: hobby,
+    });
+  };
+
+  const handleEditHobby = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_HOBBY,
+      payload: { itemIndex: itemIndex, hobby: inputs.hobby },
+    });
+    dispatchInput({
+      type: CLEAR_HOBBY,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditHobby = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_HOBBY,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteHobby = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_HOBBY, payload: index });
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -256,6 +328,12 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditStrength,
     handleCancelEditStrength,
     handleDeleteStrength,
+    handleOnChangeHobby,
+    handleAddHobby,
+    handleSendHobbyToEdit,
+    handleEditHobby,
+    handleCancelEditHobby,
+    handleDeleteHobby,
   };
 };
 

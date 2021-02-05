@@ -8,6 +8,10 @@ export const ADD_STRENGTH = "add_strength";
 export const EDIT_STRENGTH = "edit_strength";
 export const DELETE_STRENGTH = "delete_strength";
 
+export const ADD_HOBBY = "add_hobby";
+export const EDIT_HOBBY = "edit_hobby";
+export const DELETE_HOBBY = "delete_hobby";
+
 type editLanguage = {
   itemIndex: number;
   language: language;
@@ -16,6 +20,11 @@ type editLanguage = {
 type editStrength = {
   itemIndex: number;
   strength: string;
+};
+
+type editHobby = {
+  itemIndex: number;
+  hobby: string;
 };
 
 interface AddLanguageAction {
@@ -48,10 +57,28 @@ interface DeleteStrengthAction {
   payload: number;
 }
 
+interface AddHobbyAction {
+  type: typeof ADD_HOBBY;
+  payload: string;
+}
+
+interface EditHobbyAction {
+  type: typeof EDIT_HOBBY;
+  payload: editHobby;
+}
+
+interface DeleteHobbyAction {
+  type: typeof DELETE_HOBBY;
+  payload: number;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
   | DeleteLanguageAction
   | AddStrengthAction
   | EditStrengthAction
-  | DeleteStrengthAction;
+  | DeleteStrengthAction
+  | AddHobbyAction
+  | EditHobbyAction
+  | DeleteHobbyAction;

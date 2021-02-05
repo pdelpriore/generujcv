@@ -69,7 +69,7 @@ interface Input {
   userData: userdata;
   language: language;
   strength: string;
-  hobby: string[];
+  hobby: string;
   diploma: diploma;
   experience: experience;
   competence: string[];

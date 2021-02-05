@@ -11,6 +11,9 @@ import {
   CHANGE_STRENGTH,
   CLEAR_STRENGTH,
   SEND_STRENGTH,
+  CHANGE_HOBBY,
+  CLEAR_HOBBY,
+  SEND_HOBBY,
   InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
@@ -106,6 +109,18 @@ const inputReducer = (
       return { ...inputs, strength: action.payload };
     case SEND_STRENGTH:
       return { ...inputs, strength: action.payload };
+    case CHANGE_HOBBY:
+      return {
+        ...inputs,
+        [action.payload.targetName]: action.payload.targetValue.replace(
+          /[^a-z\s]/g,
+          ""
+        ),
+      };
+    case CLEAR_HOBBY:
+      return { ...inputs, hobby: action.payload };
+    case SEND_HOBBY:
+      return { ...inputs, hobby: action.payload };
     default:
       return inputs;
   }

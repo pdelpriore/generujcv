@@ -16,6 +16,10 @@ export const CHANGE_STRENGTH = "change_strength";
 export const CLEAR_STRENGTH = "clear_strength";
 export const SEND_STRENGTH = "send_strength";
 
+export const CHANGE_HOBBY = "change_hobby";
+export const CLEAR_HOBBY = "clear_hobby";
+export const SEND_HOBBY = "send_hobby";
+
 type TChange = {
   targetName: string;
   targetValue: string;
@@ -81,6 +85,21 @@ interface SendStrengthAction {
   payload: string;
 }
 
+interface ChangeHobbyAction {
+  type: typeof CHANGE_HOBBY;
+  payload: TChange;
+}
+
+interface ClearHobbyAction {
+  type: typeof CLEAR_HOBBY;
+  payload: string;
+}
+
+interface SendHobbyAction {
+  type: typeof SEND_HOBBY;
+  payload: string;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -93,4 +112,7 @@ export type InputFormActions =
   | SendUserLanguageAction
   | ChangeStrengthAction
   | ClearStrengthAction
-  | SendStrengthAction;
+  | SendStrengthAction
+  | ChangeHobbyAction
+  | ClearHobbyAction
+  | SendHobbyAction;
