@@ -24,7 +24,7 @@ export const months: string[] = monthsFn();
 
 const yearNow = new Date().getFullYear();
 
-const ExperienceYearFn = (): number[] => {
+const experienceYearFn = (): number[] => {
   const yearArray = [];
 
   for (let i = yearNow; i >= yearNow - 40; i--) {
@@ -34,9 +34,9 @@ const ExperienceYearFn = (): number[] => {
   return yearArray;
 };
 
-export const ExperienceYear: number[] = ExperienceYearFn();
+export const experienceYear: number[] = experienceYearFn();
 
-const SchoolYearFn = (): number[] => {
+const schoolYearFn = (): number[] => {
   const yearArray = [];
 
   for (let i = yearNow; i >= yearNow - 40; i--) {
@@ -46,7 +46,7 @@ const SchoolYearFn = (): number[] => {
   return yearArray;
 };
 
-export const SchoolYear: number[] = SchoolYearFn();
+export const schoolYear: number[] = schoolYearFn();
 
 const birthdayYearFn = (): number[] => {
   const yearArray = [];

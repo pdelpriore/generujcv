@@ -24,7 +24,7 @@
   font-family: var(--font-family);
 }
 
-.form__control-wrap {
+.formUserData__control-wrap {
   display: flex;
   flex-direction: row;
 }

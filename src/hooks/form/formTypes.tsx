@@ -36,13 +36,13 @@ export type language = {
 };
 
 type diploma = {
-  name: string;
   startMonth: string;
   startYear: number;
   endMonth: string;
   endYear: number;
   schoolName: string;
-  city: string;
+  faculty: string;
+  degree: string;
   description: string;
 };
 

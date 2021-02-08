@@ -55,7 +55,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
         <Form.Label className="formUserData__label">
           {capitalize("data urodzenia *")}
         </Form.Label>
-        <div className="form__control-wrap">
+        <div className="formUserData__control-wrap">
           <Form.Control
             className="formUserData__control"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

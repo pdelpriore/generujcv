@@ -73,13 +73,13 @@ const GetForm = (index: number): JSX.Element => {
     strength: "",
     hobby: "",
     diploma: {
-      name: "",
       startMonth: "",
       startYear: 0,
       endMonth: "",
       endYear: 0,
       schoolName: "",
-      city: "",
+      faculty: "",
+      degree: "",
       description: "",
     },
     experience: {
