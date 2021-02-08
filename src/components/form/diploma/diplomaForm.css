@@ -1,0 +1,11 @@
+.formDiploma {
+  display: grid;
+  padding: 1vw;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5vw;
+}
+
+.formDiploma__control-wrap {
+  display: flex;
+  flex-direction: row;
+}
