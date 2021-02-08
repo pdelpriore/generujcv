@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import TButton from "../../button/TButton";
 import { capitalize } from "../../../methods/capitalize";
 import { months, schoolYear } from "../../../shared/dateElements";
 import "./diplomaForm.css";
@@ -19,7 +20,7 @@ const DiplomaForm: React.FC = () => {
         <div className="formDiploma__control-wrap">
           <Form.Control
             className="formDiploma__control"
-            name="startMonth"
+            name="month"
             as="select"
           >
             <option className="formDiploma__option" disabled={true} value="">
@@ -33,7 +34,7 @@ const DiplomaForm: React.FC = () => {
           </Form.Control>
           <Form.Control
             className="formDiploma__control"
-            name="startYear"
+            name="year"
             as="select"
           >
             <option className="formDiploma__option" disabled={true} value="">
@@ -54,7 +55,7 @@ const DiplomaForm: React.FC = () => {
         <div className="formDiploma__control-wrap">
           <Form.Control
             className="formDiploma__control"
-            name="endMonth"
+            name="month"
             as="select"
             disabled={isStillAtSchool}
           >
@@ -69,7 +70,7 @@ const DiplomaForm: React.FC = () => {
           </Form.Control>
           <Form.Control
             className="formDiploma__control"
-            name="endYear"
+            name="year"
             as="select"
             disabled={isStillAtSchool}
           >
@@ -134,6 +135,33 @@ const DiplomaForm: React.FC = () => {
           type="text"
           placeholder="opis"
         />
+        <div className="formDiploma__btn-space" />
+        {false ? (
+          <>
+            <TButton
+              className="formDiploma__btn"
+              type="add"
+              content="popraw"
+              onClick={() => console.log("ok")}
+            />
+            <TButton
+              className="formDiploma__btn"
+              type="cancel"
+              content="anuluj"
+              onClick={() => console.log("ok")}
+            />
+          </>
+        ) : (
+          <TButton
+            className="formDiploma__btn"
+            // disabled={
+            //   inputs.hobby.length === 0 || inputList.hobbies.length === 5
+            // }
+            type="add"
+            content="dodaj"
+            onClick={() => console.log("ok")}
+          />
+        )}
       </Form.Group>
     </Form>
   );
