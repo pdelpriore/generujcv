@@ -73,10 +73,8 @@ const GetForm = (index: number): JSX.Element => {
     strength: "",
     hobby: "",
     diploma: {
-      startMonth: "",
-      startYear: 0,
-      endMonth: "",
-      endYear: 0,
+      startPeriod: { month: "", year: 0 },
+      endPeriod: { month: "", year: 0 },
       schoolName: "",
       faculty: "",
       degree: "",

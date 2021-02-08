@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScrollArea from "react-scrollbar";
 import { setViewport } from "../../redux/viewport/thunk/viewportThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/config/Store";
@@ -104,7 +105,11 @@ const App: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="main__content">{Form}</div>
+            <div className="main__content">
+              <ScrollArea smoothScrolling={true} horizontal={false}>
+                {Form}
+              </ScrollArea>
+            </div>
           </div>
         </Col>
         <Col xs={1} />

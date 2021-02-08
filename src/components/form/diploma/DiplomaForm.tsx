@@ -130,7 +130,7 @@ const DiplomaForm: React.FC = () => {
           className="formDiploma__control"
           name="description"
           as="textarea"
-          rows={2}
+          rows={3}
           type="text"
           placeholder="opis"
         />

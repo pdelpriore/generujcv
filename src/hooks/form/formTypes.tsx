@@ -18,6 +18,11 @@ type birthday = {
   year: number;
 };
 
+type period = {
+  month: string;
+  year: number;
+};
+
 type userdata = {
   name: string;
   surname: string;
@@ -36,10 +41,8 @@ export type language = {
 };
 
 type diploma = {
-  startMonth: string;
-  startYear: number;
-  endMonth: string;
-  endYear: number;
+  startPeriod: period;
+  endPeriod: period;
   schoolName: string;
   faculty: string;
   degree: string;
