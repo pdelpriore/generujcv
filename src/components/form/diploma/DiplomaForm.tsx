@@ -7,9 +7,8 @@ import "./diplomaForm.css";
 const DiplomaForm: React.FC = () => {
   const [isStillAtSchool, setStillAtSchool] = useState<boolean>(false);
 
-  const handleSetStillAtSchool = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetStillAtSchool = (e: React.ChangeEvent<HTMLInputElement>) =>
     setStillAtSchool(e.target.checked);
-  };
 
   return (
     <Form className="formDiploma">
