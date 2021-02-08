@@ -5,10 +5,10 @@ import { months, schoolYear } from "../../../shared/dateElements";
 import "./diplomaForm.css";
 
 const DiplomaForm: React.FC = () => {
-  const [stillInSchool, setStillInSchool] = useState<boolean>(false);
+  const [isStillAtSchool, setStillAtSchool] = useState<boolean>(false);
 
-  const handleSetStillInSchool = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setStillInSchool(e.target.checked);
+  const handleSetStillAtSchool = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setStillAtSchool(e.target.checked);
   };
 
   return (
@@ -57,7 +57,7 @@ const DiplomaForm: React.FC = () => {
             className="formDiploma__control"
             name="endMonth"
             as="select"
-            disabled={stillInSchool}
+            disabled={isStillAtSchool}
           >
             <option className="formDiploma__option" disabled={true} value="">
               miesiąc
@@ -72,7 +72,7 @@ const DiplomaForm: React.FC = () => {
             className="formDiploma__control"
             name="endYear"
             as="select"
-            disabled={stillInSchool}
+            disabled={isStillAtSchool}
           >
             <option className="formDiploma__option" disabled={true} value="">
               rok
@@ -87,7 +87,7 @@ const DiplomaForm: React.FC = () => {
         <Form.Check
           type="checkbox"
           label="jeszcze się uczę"
-          onChange={handleSetStillInSchool}
+          onChange={handleSetStillAtSchool}
         />
       </Form.Group>
       <Form.Group controlId="formDiplomaSchoolName">
