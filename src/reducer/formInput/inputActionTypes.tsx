@@ -1,4 +1,4 @@
-import { language } from "../../hooks/form/formTypes";
+import { language, diploma } from "../../hooks/form/formTypes";
 
 export const ADD_PHOTO = "add_photo";
 export const DELETE_PHOTO = "delete_photo";
@@ -19,6 +19,12 @@ export const SEND_STRENGTH = "send_strength";
 export const CHANGE_HOBBY = "change_hobby";
 export const CLEAR_HOBBY = "clear_hobby";
 export const SEND_HOBBY = "send_hobby";
+
+export const CHANGE_SCHOOL_START = "change_school_start";
+export const CHANGE_SCHOOL_END = "change_school_end";
+export const CHANGE_DIPLOMA = "change_diploma";
+export const CLEAR_DIPLOMA = "clear_diploma";
+export const SEND_DIPLOMA = "send_diploma";
 
 type TChange = {
   targetName: string;
@@ -100,6 +106,31 @@ interface SendHobbyAction {
   payload: string;
 }
 
+interface ChangeSchoolStartAction {
+  type: typeof CHANGE_SCHOOL_START;
+  payload: TChange;
+}
+
+interface ChangeSchoolEndAction {
+  type: typeof CHANGE_SCHOOL_END;
+  payload: TChange;
+}
+
+interface ChangeDiplomaAction {
+  type: typeof CHANGE_DIPLOMA;
+  payload: TChange;
+}
+
+interface ClearDiplomaAction {
+  type: typeof CLEAR_DIPLOMA;
+  payload: diploma;
+}
+
+interface SendDiplomaAction {
+  type: typeof SEND_DIPLOMA;
+  payload: diploma;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -115,4 +146,9 @@ export type InputFormActions =
   | SendStrengthAction
   | ChangeHobbyAction
   | ClearHobbyAction
-  | SendHobbyAction;
+  | SendHobbyAction
+  | ChangeSchoolStartAction
+  | ChangeSchoolEndAction
+  | ChangeDiplomaAction
+  | ClearDiplomaAction
+  | SendDiplomaAction;

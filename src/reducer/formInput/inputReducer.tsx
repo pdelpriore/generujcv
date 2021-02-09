@@ -14,7 +14,12 @@ import {
   CHANGE_HOBBY,
   CLEAR_HOBBY,
   SEND_HOBBY,
+  CHANGE_SCHOOL_START,
+  CHANGE_SCHOOL_END,
   InputFormActions,
+  CHANGE_DIPLOMA,
+  CLEAR_DIPLOMA,
+  SEND_DIPLOMA,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
 
@@ -121,6 +126,40 @@ const inputReducer = (
       return { ...inputs, hobby: action.payload };
     case SEND_HOBBY:
       return { ...inputs, hobby: action.payload };
+    case CHANGE_SCHOOL_START:
+      return {
+        ...inputs,
+        diploma: {
+          ...inputs.diploma,
+          startPeriod: {
+            ...inputs.diploma.startPeriod,
+            [action.payload.targetName]: action.payload.targetValue,
+          },
+        },
+      };
+    case CHANGE_SCHOOL_END:
+      return {
+        ...inputs,
+        diploma: {
+          ...inputs.diploma,
+          endPeriod: {
+            ...inputs.diploma.endPeriod,
+            [action.payload.targetName]: action.payload.targetValue,
+          },
+        },
+      };
+    case CHANGE_DIPLOMA:
+      return {
+        ...inputs,
+        diploma: {
+          ...inputs.diploma,
+          [action.payload.targetName]: action.payload.targetValue,
+        },
+      };
+    case CLEAR_DIPLOMA:
+      return { ...inputs, diploma: action.payload };
+    case SEND_DIPLOMA:
+      return { ...inputs, diploma: action.payload };
     default:
       return inputs;
   }

@@ -40,7 +40,7 @@ export type language = {
   level: string;
 };
 
-type diploma = {
+export type diploma = {
   startPeriod: period;
   endPeriod: period;
   schoolName: string;

@@ -14,6 +14,9 @@ import {
   ADD_HOBBY,
   EDIT_HOBBY,
   DELETE_HOBBY,
+  ADD_DIPLOMA,
+  EDIT_DIPLOMA,
+  DELETE_DIPLOMA,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -31,6 +34,11 @@ import {
   CHANGE_HOBBY,
   CLEAR_HOBBY,
   SEND_HOBBY,
+  CHANGE_SCHOOL_START,
+  CHANGE_SCHOOL_END,
+  CHANGE_DIPLOMA,
+  CLEAR_DIPLOMA,
+  SEND_DIPLOMA,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -50,6 +58,7 @@ const useForm = (initialState: FormInputTypes) => {
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [itemIndex, setItemIndex] = useState<number>(0);
+  const [isFieldChecked, setFieldChecked] = useState<boolean>(false);
 
   const handleOnChangeUserData = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -282,6 +291,122 @@ const useForm = (initialState: FormInputTypes) => {
   ) => {
     e.preventDefault();
     dispatchInputList({ type: DELETE_HOBBY, payload: index });
+  };
+
+  const handleCheckingField = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setFieldChecked(e.target.checked);
+
+  const handleOnChangeStartSchool = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_SCHOOL_START,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleOnChangeEndSchool = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_SCHOOL_END,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleOnChangeDiploma = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_DIPLOMA,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleAddDiploma = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_DIPLOMA, payload: inputs.diploma });
+    dispatchInput({
+      type: CLEAR_DIPLOMA,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        schoolName: "",
+        faculty: "",
+        degree: "",
+        description: "",
+      },
+    });
+  };
+
+  const handleSendDiplomaToEdit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: diploma } = inputList.diplomas;
+    diploma.endPeriod.month.length === 0 &&
+      diploma.endPeriod.year === 0 &&
+      setFieldChecked(true);
+    dispatchInput({
+      type: SEND_DIPLOMA,
+      payload: diploma,
+    });
+  };
+
+  const handleEditDiploma = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_DIPLOMA,
+      payload: { itemIndex: itemIndex, diploma: inputs.diploma },
+    });
+    dispatchInput({
+      type: CLEAR_DIPLOMA,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        schoolName: "",
+        faculty: "",
+        degree: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditDiploma = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_DIPLOMA,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        schoolName: "",
+        faculty: "",
+        degree: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteDiploma = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_DIPLOMA, payload: index });
   };
 
   const handlePicture = async (picture: File[]) => {

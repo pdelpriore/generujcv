@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import { capitalize } from "../../../methods/capitalize";
@@ -6,11 +6,6 @@ import { months, schoolYear } from "../../../shared/dateElements";
 import "./diplomaForm.css";
 
 const DiplomaForm: React.FC = () => {
-  const [isStillAtSchool, setStillAtSchool] = useState<boolean>(false);
-
-  const handleSetStillAtSchool = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setStillAtSchool(e.target.checked);
-
   return (
     <Form className="formDiploma">
       <Form.Group controlId="formDiplomaSchoolStart">
@@ -57,7 +52,7 @@ const DiplomaForm: React.FC = () => {
             className="formDiploma__control"
             name="month"
             as="select"
-            disabled={isStillAtSchool}
+            disabled={false}
           >
             <option className="formDiploma__option" disabled={true} value="">
               miesiąc
@@ -72,7 +67,7 @@ const DiplomaForm: React.FC = () => {
             className="formDiploma__control"
             name="year"
             as="select"
-            disabled={isStillAtSchool}
+            disabled={false}
           >
             <option className="formDiploma__option" disabled={true} value="">
               rok
@@ -87,7 +82,7 @@ const DiplomaForm: React.FC = () => {
         <Form.Check
           type="checkbox"
           label="jeszcze się uczę"
-          onChange={handleSetStillAtSchool}
+          onChange={() => console.log("checked")}
         />
       </Form.Group>
       <Form.Group controlId="formDiplomaSchoolName">

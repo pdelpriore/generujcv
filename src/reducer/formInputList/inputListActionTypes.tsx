@@ -1,4 +1,4 @@
-import { language } from "../../hooks/form/formTypes";
+import { language, diploma } from "../../hooks/form/formTypes";
 
 export const ADD_LANGUAGE = "add_language";
 export const EDIT_LANGUAGE = "edit_language";
@@ -11,6 +11,10 @@ export const DELETE_STRENGTH = "delete_strength";
 export const ADD_HOBBY = "add_hobby";
 export const EDIT_HOBBY = "edit_hobby";
 export const DELETE_HOBBY = "delete_hobby";
+
+export const ADD_DIPLOMA = "add_diploma";
+export const EDIT_DIPLOMA = "edit_diploma";
+export const DELETE_DIPLOMA = "delete_diploma";
 
 type editLanguage = {
   itemIndex: number;
@@ -25,6 +29,11 @@ type editStrength = {
 type editHobby = {
   itemIndex: number;
   hobby: string;
+};
+
+type editDiploma = {
+  itemIndex: number;
+  diploma: diploma;
 };
 
 interface AddLanguageAction {
@@ -72,6 +81,21 @@ interface DeleteHobbyAction {
   payload: number;
 }
 
+interface AddDiplomaAction {
+  type: typeof ADD_DIPLOMA;
+  payload: diploma;
+}
+
+interface EditDiplomaAction {
+  type: typeof EDIT_DIPLOMA;
+  payload: editDiploma;
+}
+
+interface DeleteDiplomaAction {
+  type: typeof DELETE_DIPLOMA;
+  payload: number;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
@@ -81,4 +105,7 @@ export type InputListFormActions =
   | DeleteStrengthAction
   | AddHobbyAction
   | EditHobbyAction
-  | DeleteHobbyAction;
+  | DeleteHobbyAction
+  | AddDiplomaAction
+  | EditDiplomaAction
+  | DeleteDiplomaAction;

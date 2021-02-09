@@ -8,6 +8,9 @@ import {
   ADD_HOBBY,
   EDIT_HOBBY,
   DELETE_HOBBY,
+  ADD_DIPLOMA,
+  EDIT_DIPLOMA,
+  DELETE_DIPLOMA,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -74,6 +77,27 @@ const inputListReducer = (
       return {
         ...inputList,
         hobbies: [...inputList.hobbies.filter((_, i) => i !== action.payload)],
+      };
+    case ADD_DIPLOMA:
+      return {
+        ...inputList,
+        diplomas: [...inputList.diplomas, action.payload],
+      };
+    case EDIT_DIPLOMA:
+      return {
+        ...inputList,
+        diplomas: [
+          ...inputList.diplomas.map((diploma, i) =>
+            i === action.payload.itemIndex ? action.payload.diploma : diploma
+          ),
+        ],
+      };
+    case DELETE_DIPLOMA:
+      return {
+        ...inputList,
+        diplomas: [
+          ...inputList.diplomas.filter((_, i) => i !== action.payload),
+        ],
       };
     default:
       return inputList;
