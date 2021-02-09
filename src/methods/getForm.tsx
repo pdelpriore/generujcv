@@ -12,6 +12,7 @@ import useForm from "../hooks/form/useForm";
 import { LanguageFormContext } from "../context/languageForm/LanguageFormContext";
 import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext";
 import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
+import { DiplomaFormContext } from "../context/diplomaForm/DiplomaFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -19,6 +20,7 @@ const GetForm = (index: number): JSX.Element => {
     inputList,
     loading,
     isEditing,
+    isFieldChecked,
     handlePicture,
     handleDeletePicture,
     handleOnChangeUserData,
@@ -43,6 +45,15 @@ const GetForm = (index: number): JSX.Element => {
     handleEditHobby,
     handleCancelEditHobby,
     handleDeleteHobby,
+    handleCheckingField,
+    handleOnChangeStartSchool,
+    handleOnChangeEndSchool,
+    handleOnChangeDiploma,
+    handleAddDiploma,
+    handleSendDiplomaToEdit,
+    handleEditDiploma,
+    handleCancelEditDiploma,
+    handleDeleteDiploma,
   } = useForm({
     photo: "",
     userData: {
@@ -161,7 +172,25 @@ const GetForm = (index: number): JSX.Element => {
     >
       <HobbyForm />
     </HobbyFormContext.Provider>,
-    <DiplomaForm />,
+    <DiplomaFormContext.Provider
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        isDiplomaEditing: isEditing,
+        isFieldChecked: isFieldChecked,
+        onChangeCheckingField: handleCheckingField,
+        onChangeSchoolStart: handleOnChangeStartSchool,
+        onChangeSchoolEnd: handleOnChangeEndSchool,
+        onChangeDiploma: handleOnChangeDiploma,
+        addDiploma: handleAddDiploma,
+        sendDiplomaToEdit: handleSendDiplomaToEdit,
+        editDiploma: handleEditDiploma,
+        cancelEditDiploma: handleCancelEditDiploma,
+        deleteDiploma: handleDeleteDiploma,
+      }}
+    >
+      <DiplomaForm />
+    </DiplomaFormContext.Provider>,
     <ExperienceForm />,
     <CompetenceForm />,
     <ProjectForm />,

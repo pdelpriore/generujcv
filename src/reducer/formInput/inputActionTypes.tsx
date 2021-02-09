@@ -1,4 +1,4 @@
-import { language, diploma } from "../../hooks/form/formTypes";
+import { language, diploma, period } from "../../hooks/form/formTypes";
 
 export const ADD_PHOTO = "add_photo";
 export const DELETE_PHOTO = "delete_photo";
@@ -24,6 +24,7 @@ export const CHANGE_SCHOOL_START = "change_school_start";
 export const CHANGE_SCHOOL_END = "change_school_end";
 export const CHANGE_DIPLOMA = "change_diploma";
 export const CLEAR_DIPLOMA = "clear_diploma";
+export const CLEAR_END_PERIOD = "clear_end_period";
 export const SEND_DIPLOMA = "send_diploma";
 
 type TChange = {
@@ -126,6 +127,11 @@ interface ClearDiplomaAction {
   payload: diploma;
 }
 
+interface ClearEndPeriodAction {
+  type: typeof CLEAR_END_PERIOD;
+  payload: period;
+}
+
 interface SendDiplomaAction {
   type: typeof SEND_DIPLOMA;
   payload: diploma;
@@ -151,4 +157,5 @@ export type InputFormActions =
   | ChangeSchoolEndAction
   | ChangeDiplomaAction
   | ClearDiplomaAction
+  | ClearEndPeriodAction
   | SendDiplomaAction;

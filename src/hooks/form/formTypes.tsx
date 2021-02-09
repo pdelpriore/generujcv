@@ -18,7 +18,7 @@ type birthday = {
   year: number;
 };
 
-type period = {
+export type period = {
   month: string;
   year: number;
 };

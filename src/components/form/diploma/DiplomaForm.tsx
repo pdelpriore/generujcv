@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
 import { Form } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import { capitalize } from "../../../methods/capitalize";
@@ -6,6 +7,20 @@ import { months, schoolYear } from "../../../shared/dateElements";
 import "./diplomaForm.css";
 
 const DiplomaForm: React.FC = () => {
+  const {
+    inputs,
+    inputList,
+    isDiplomaEditing,
+    isFieldChecked,
+    onChangeSchoolStart,
+    onChangeSchoolEnd,
+    onChangeDiploma,
+    onChangeCheckingField,
+    sendDiplomaToEdit,
+    cancelEditDiploma,
+    addDiploma,
+  } = useContext(DiplomaFormContext);
+
   return (
     <Form className="formDiploma">
       <Form.Group controlId="formDiplomaSchoolStart">
@@ -15,6 +30,10 @@ const DiplomaForm: React.FC = () => {
         <div className="formDiploma__control-wrap">
           <Form.Control
             className="formDiploma__control"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeSchoolStart(e)
+            }
+            value={inputs.diploma.startPeriod.month || ""}
             name="month"
             as="select"
           >
@@ -29,6 +48,10 @@ const DiplomaForm: React.FC = () => {
           </Form.Control>
           <Form.Control
             className="formDiploma__control"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeSchoolStart(e)
+            }
+            value={inputs.diploma.startPeriod.year || ""}
             name="year"
             as="select"
           >
@@ -50,9 +73,13 @@ const DiplomaForm: React.FC = () => {
         <div className="formDiploma__control-wrap">
           <Form.Control
             className="formDiploma__control"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeSchoolEnd(e)
+            }
+            value={inputs.diploma.endPeriod.month || ""}
             name="month"
             as="select"
-            disabled={false}
+            disabled={isFieldChecked}
           >
             <option className="formDiploma__option" disabled={true} value="">
               miesiąc
@@ -65,9 +92,13 @@ const DiplomaForm: React.FC = () => {
           </Form.Control>
           <Form.Control
             className="formDiploma__control"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeSchoolEnd(e)
+            }
+            value={inputs.diploma.endPeriod.year || ""}
             name="year"
             as="select"
-            disabled={false}
+            disabled={isFieldChecked}
           >
             <option className="formDiploma__option" disabled={true} value="">
               rok
@@ -82,7 +113,7 @@ const DiplomaForm: React.FC = () => {
         <Form.Check
           type="checkbox"
           label="jeszcze się uczę"
-          onChange={() => console.log("checked")}
+          onChange={onChangeCheckingField}
         />
       </Form.Group>
       <Form.Group controlId="formDiplomaSchoolName">
@@ -91,6 +122,10 @@ const DiplomaForm: React.FC = () => {
         </Form.Label>
         <Form.Control
           className="formDiploma__control"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeDiploma(e)
+          }
+          value={inputs.diploma.schoolName || ""}
           name="schoolName"
           type="text"
           placeholder="nazwa szkoły"
@@ -102,6 +137,10 @@ const DiplomaForm: React.FC = () => {
         </Form.Label>
         <Form.Control
           className="formDiploma__control"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeDiploma(e)
+          }
+          value={inputs.diploma.faculty || ""}
           name="faculty"
           type="text"
           placeholder="nazwa kierunku"
@@ -113,6 +152,10 @@ const DiplomaForm: React.FC = () => {
         </Form.Label>
         <Form.Control
           className="formDiploma__control"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeDiploma(e)
+          }
+          value={inputs.diploma.degree || ""}
           name="degree"
           type="text"
           placeholder="technik informatyk, sprzedawca, inżynier, doktor, itd."
@@ -124,6 +167,10 @@ const DiplomaForm: React.FC = () => {
         </Form.Label>
         <Form.Control
           className="formDiploma__control"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeDiploma(e)
+          }
+          value={inputs.diploma.description || ""}
           name="description"
           as="textarea"
           rows={3}
@@ -131,30 +178,39 @@ const DiplomaForm: React.FC = () => {
           placeholder="opis"
         />
         <div className="formDiploma__btn-space" />
-        {false ? (
+        {isDiplomaEditing ? (
           <>
             <TButton
               className="formDiploma__btn"
               type="add"
               content="popraw"
-              onClick={() => console.log("ok")}
+              onClick={sendDiplomaToEdit}
             />
             <TButton
               className="formDiploma__btn"
               type="cancel"
               content="anuluj"
-              onClick={() => console.log("ok")}
+              onClick={cancelEditDiploma}
             />
           </>
         ) : (
           <TButton
             className="formDiploma__btn"
-            // disabled={
-            //   inputs.hobby.length === 0 || inputList.hobbies.length === 5
-            // }
+            disabled={
+              inputs.diploma.startPeriod.month.length === 0 ||
+              inputs.diploma.startPeriod.year === 0 ||
+              ((inputs.diploma.endPeriod.month.length === 0 ||
+                inputs.diploma.endPeriod.year === 0) &&
+                !isFieldChecked) ||
+              inputs.diploma.schoolName.length === 0 ||
+              inputs.diploma.faculty.length === 0 ||
+              inputs.diploma.degree.length === 0 ||
+              inputs.diploma.description.length === 0 ||
+              inputList.diplomas.length === 5
+            }
             type="add"
             content="dodaj"
-            onClick={() => console.log("ok")}
+            onClick={addDiploma}
           />
         )}
       </Form.Group>
