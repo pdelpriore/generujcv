@@ -341,6 +341,7 @@ const useForm = (initialState: FormInputTypes) => {
         description: "",
       },
     });
+    isFieldChecked && setFieldChecked(false);
   };
 
   const handleSendDiplomaToEdit = (
