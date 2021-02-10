@@ -218,7 +218,7 @@ const DiplomaForm: React.FC = () => {
           )}
         </Form.Group>
       </Form>
-      <Row className="mt-4" />
+      <Row className="mt-1" />
       <Row>
         <Col xs={1} />
         <Col xs={10}>
