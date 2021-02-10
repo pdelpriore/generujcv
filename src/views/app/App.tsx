@@ -105,11 +105,13 @@ const App: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="main__content">
-              <ScrollArea smoothScrolling={true} horizontal={false}>
-                {Form}
-              </ScrollArea>
-            </div>
+            <ScrollArea
+              className="main__content"
+              smoothScrolling={true}
+              horizontal={false}
+            >
+              {Form}
+            </ScrollArea>
           </div>
         </Col>
         <Col xs={1} />
