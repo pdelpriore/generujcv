@@ -33,11 +33,11 @@ const DiplomaItem: React.FC<DiplomaItemProps> = ({
     <div className="diplomaItem">
       <ListGroup.Item className="diplomaItem-item">
         <div className="diplomaItem-item__wrapper">
-          <span className="diplomaItem-item__content">{`${
-            schoolStart.month
-          } / ${schoolStart.year} - ${
+          <span className="diplomaItem-item__content">{`${schoolStart.month}/${
+            schoolStart.year
+          } - ${
             schoolEnd.month.length > 0 && schoolEnd.year > 0
-              ? `${schoolEnd.month} / ${schoolEnd.year}`
+              ? `${schoolEnd.month}/${schoolEnd.year}`
               : "nadal studiuję"
           }`}</span>
           <span className="diplomaItem-item__content">{schoolName}</span>
