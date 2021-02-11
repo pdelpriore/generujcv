@@ -113,6 +113,7 @@ const DiplomaForm: React.FC = () => {
             </Form.Control>
           </div>
           <Form.Check
+            className="formDiploma__checkbox"
             type="checkbox"
             label="jeszcze studiuję"
             onChange={onChangeCheckingField}
@@ -182,7 +183,7 @@ const DiplomaForm: React.FC = () => {
           />
           <div className="formDiploma__btn-space" />
           {isDiplomaEditing ? (
-            <>
+            <div className="formDiploma__btn-wrapper">
               <TButton
                 className="formDiploma__btn"
                 type="add"
@@ -195,26 +196,28 @@ const DiplomaForm: React.FC = () => {
                 content="anuluj"
                 onClick={cancelEditDiploma}
               />
-            </>
+            </div>
           ) : (
-            <TButton
-              className="formDiploma__btn"
-              disabled={
-                inputs.diploma.startPeriod.month.length === 0 ||
-                inputs.diploma.startPeriod.year === 0 ||
-                ((inputs.diploma.endPeriod.month.length === 0 ||
-                  inputs.diploma.endPeriod.year === 0) &&
-                  !isFieldChecked) ||
-                inputs.diploma.schoolName.length === 0 ||
-                inputs.diploma.faculty.length === 0 ||
-                inputs.diploma.degree.length === 0 ||
-                inputs.diploma.description.length === 0 ||
-                inputList.diplomas.length === 5
-              }
-              type="add"
-              content="dodaj"
-              onClick={addDiploma}
-            />
+            <div className="formDiploma__btn-wrapper">
+              <TButton
+                className="formDiploma__btn"
+                disabled={
+                  inputs.diploma.startPeriod.month.length === 0 ||
+                  inputs.diploma.startPeriod.year === 0 ||
+                  ((inputs.diploma.endPeriod.month.length === 0 ||
+                    inputs.diploma.endPeriod.year === 0) &&
+                    !isFieldChecked) ||
+                  inputs.diploma.schoolName.length === 0 ||
+                  inputs.diploma.faculty.length === 0 ||
+                  inputs.diploma.degree.length === 0 ||
+                  inputs.diploma.description.length === 0 ||
+                  inputList.diplomas.length === 5
+                }
+                type="add"
+                content="dodaj"
+                onClick={addDiploma}
+              />
+            </div>
           )}
         </Form.Group>
       </Form>

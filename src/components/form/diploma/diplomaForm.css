@@ -1,5 +1,7 @@
 :root {
   --size: 1vw;
+  --font-color: #071e3d;
+  --font-family: "OpenSans-Regular";
 }
 
 .formDiploma {
@@ -7,6 +9,30 @@
   padding: var(--size);
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
+}
+
+.formDiploma__label {
+  font-size: var(--size);
+  font-family: "OpenSans-SemiBold";
+  color: var(--font-color);
+}
+
+.formDiploma__option,
+.formDiploma__control,
+.formDiploma__checkbox {
+  font-size: var(--size);
+  font-family: var(--font-family);
+  color: var(--font-color);
+}
+
+.formDiploma__btn-wrapper {
+  text-align: right;
+}
+
+.formDiploma__btn {
+  font-size: var(--size);
+  font-family: var(--font-family);
+  margin-left: 1%;
 }
 
 .formDiploma__control-wrap {
