@@ -2,6 +2,8 @@ import moment from "moment";
 import { diploma } from "../hooks/form/formTypes";
 
 export const sortList = (elementA: diploma, elementB: diploma): number => {
+  const now = new Date();
+
   let startElementA = moment([
     elementA.startPeriod.year,
     parseInt(
@@ -13,7 +15,7 @@ export const sortList = (elementA: diploma, elementB: diploma): number => {
   ]);
   let endElementA = moment(
     elementA.endPeriod.month.length === 0 && elementA.endPeriod.year === 0
-      ? new Date()
+      ? now
       : [
           elementA.endPeriod.year,
           parseInt(
@@ -36,7 +38,7 @@ export const sortList = (elementA: diploma, elementB: diploma): number => {
   ]);
   let endElementB = moment(
     elementB.endPeriod.month.length === 0 && elementB.endPeriod.year === 0
-      ? new Date()
+      ? now
       : [
           elementB.endPeriod.year,
           parseInt(
@@ -48,8 +50,16 @@ export const sortList = (elementA: diploma, elementB: diploma): number => {
         ]
   );
 
-  let differenceInDaysElementA = endElementA.diff(startElementA, "days");
-  let differenceInDaysElementB = endElementB.diff(startElementB, "days");
+  let differenceElementAFromNow = endElementA.isSame(now)
+    ? endElementA.diff(startElementA, "days")
+    : moment(endElementA.diff(startElementA, "days")).add(
+        moment(now).diff(endElementA, "days")
+      );
+  let differenceElementBFromNow = endElementB.isSame(now)
+    ? endElementB.diff(startElementB, "days")
+    : moment(endElementB.diff(startElementB, "days")).add(
+        moment(now).diff(endElementB, "days")
+      );
 
-  return differenceInDaysElementA > differenceInDaysElementB ? -1 : 1;
+  return differenceElementAFromNow > differenceElementBFromNow ? -1 : 1;
 };
