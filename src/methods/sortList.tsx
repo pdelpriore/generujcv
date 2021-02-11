@@ -61,5 +61,5 @@ export const sortList = (elementA: diploma, elementB: diploma): number => {
         moment(now).diff(endElementB, "days")
       );
 
-  return differenceElementAFromNow > differenceElementBFromNow ? -1 : 1;
+  return differenceElementAFromNow < differenceElementBFromNow ? -1 : 1;
 };
