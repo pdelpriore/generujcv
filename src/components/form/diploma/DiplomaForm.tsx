@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
-import { Form, ListGroup, Row, Col } from "react-bootstrap";
+import { Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import DiplomaItem from "../../inputList/diplomaItem/DiplomaItem";
 import { capitalize } from "../../../methods/capitalize";
@@ -17,7 +17,7 @@ const DiplomaForm: React.FC = () => {
     onChangeSchoolEnd,
     onChangeDiploma,
     onChangeCheckingField,
-    sendDiplomaToEdit,
+    editDiploma,
     cancelEditDiploma,
     addDiploma,
   } = useContext(DiplomaFormContext);
@@ -114,7 +114,7 @@ const DiplomaForm: React.FC = () => {
           </div>
           <Form.Check
             type="checkbox"
-            label="jeszcze się uczę"
+            label="jeszcze studiuję"
             onChange={onChangeCheckingField}
             checked={isFieldChecked}
           />
@@ -187,7 +187,7 @@ const DiplomaForm: React.FC = () => {
                 className="formDiploma__btn"
                 type="add"
                 content="popraw"
-                onClick={sendDiplomaToEdit}
+                onClick={editDiploma}
               />
               <TButton
                 className="formDiploma__btn"
@@ -218,20 +218,24 @@ const DiplomaForm: React.FC = () => {
           )}
         </Form.Group>
       </Form>
-      <Row className="mt-1" />
-      <Row>
-        <Col xs={1} />
-        <Col xs={10}>
-          {inputList.diplomas.length > 0 && (
-            <ListGroup variant="flush">
-              {inputList.diplomas.map((diploma, index) => (
-                <DiplomaItem key={index} index={index} />
-              ))}
-            </ListGroup>
-          )}
-        </Col>
-        <Col xs={1} />
-      </Row>
+      <div className="formDiploma__inputList">
+        {inputList.diplomas.length > 0 && (
+          <ListGroup variant="flush">
+            {inputList.diplomas.map((diploma, index) => (
+              <DiplomaItem
+                key={index}
+                schoolStart={diploma.startPeriod}
+                schoolEnd={diploma.endPeriod}
+                schoolName={diploma.schoolName}
+                faculty={diploma.faculty}
+                degree={diploma.degree}
+                description={diploma.description}
+                index={index}
+              />
+            ))}
+          </ListGroup>
+        )}
+      </div>
     </>
   );
 };

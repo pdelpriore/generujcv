@@ -1,6 +1,10 @@
+:root {
+  --size: 1vw;
+}
+
 .formDiploma {
   display: grid;
-  padding: 1vw;
+  padding: var(--size);
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
 }
@@ -12,4 +16,8 @@
 
 .formDiploma__btn-space {
   height: 2vh;
+}
+
+.formDiploma__inputList {
+  padding: var(--size);
 }
