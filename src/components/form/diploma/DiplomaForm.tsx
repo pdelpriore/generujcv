@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import moment from "moment";
 import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
 import { Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
@@ -224,18 +225,81 @@ const DiplomaForm: React.FC = () => {
       <div className="formDiploma__inputList">
         {inputList.diplomas.length > 0 && (
           <ListGroup variant="flush">
-            {inputList.diplomas.map((diploma, index) => (
-              <DiplomaItem
-                key={index}
-                schoolStart={diploma.startPeriod}
-                schoolEnd={diploma.endPeriod}
-                schoolName={diploma.schoolName}
-                faculty={diploma.faculty}
-                degree={diploma.degree}
-                description={diploma.description}
-                index={index}
-              />
-            ))}
+            {inputList.diplomas
+              .sort((schoolA, schoolB) => {
+                let startSchoolA = moment([
+                  schoolA.startPeriod.year,
+                  parseInt(
+                    schoolA.startPeriod.month.startsWith("0")
+                      ? schoolA.startPeriod.month.substr(1)
+                      : schoolA.startPeriod.month
+                  ),
+                  1,
+                ]);
+                let endSchoolA = moment(
+                  schoolA.endPeriod.month.length === 0 &&
+                    schoolA.endPeriod.year === 0
+                    ? new Date()
+                    : [
+                        schoolA.endPeriod.year,
+                        parseInt(
+                          schoolA.endPeriod.month.startsWith("0")
+                            ? schoolA.endPeriod.month.substr(1)
+                            : schoolA.endPeriod.month
+                        ),
+                        1,
+                      ]
+                );
+
+                let startSchoolB = moment([
+                  schoolB.startPeriod.year,
+                  parseInt(
+                    schoolB.startPeriod.month.startsWith("0")
+                      ? schoolB.startPeriod.month.substr(1)
+                      : schoolB.startPeriod.month
+                  ),
+                  1,
+                ]);
+                let endSchoolB = moment(
+                  schoolB.endPeriod.month.length === 0 &&
+                    schoolB.endPeriod.year === 0
+                    ? new Date()
+                    : [
+                        schoolB.endPeriod.year,
+                        parseInt(
+                          schoolB.endPeriod.month.startsWith("0")
+                            ? schoolB.endPeriod.month.substr(1)
+                            : schoolB.endPeriod.month
+                        ),
+                        1,
+                      ]
+                );
+
+                let differenceInDaysSchoolA = endSchoolA.diff(
+                  startSchoolA,
+                  "days"
+                );
+                let differenceInDaysSchoolB = endSchoolB.diff(
+                  startSchoolB,
+                  "days"
+                );
+
+                return differenceInDaysSchoolA > differenceInDaysSchoolB
+                  ? -1
+                  : 1;
+              })
+              .map((diploma, index) => (
+                <DiplomaItem
+                  key={index}
+                  schoolStart={diploma.startPeriod}
+                  schoolEnd={diploma.endPeriod}
+                  schoolName={diploma.schoolName}
+                  faculty={diploma.faculty}
+                  degree={diploma.degree}
+                  description={diploma.description}
+                  index={index}
+                />
+              ))}
           </ListGroup>
         )}
       </div>
