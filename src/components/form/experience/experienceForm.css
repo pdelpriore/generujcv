@@ -1,0 +1,74 @@
+:root {
+  --size: 1vw;
+  --font-color: #071e3d;
+  --font-family: "OpenSans-Regular";
+}
+
+.formExperience {
+  display: grid;
+  padding: var(--size);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5vw;
+}
+
+.formExperience__label {
+  font-size: var(--size);
+  font-family: "OpenSans-SemiBold";
+  color: var(--font-color);
+}
+
+.formExperience__option,
+.formExperience__control,
+.formExperience__checkbox {
+  font-size: var(--size);
+  font-family: var(--font-family);
+  color: var(--font-color);
+}
+
+.formExperience__btn-wrapper {
+  text-align: right;
+}
+
+.formExperience__btn {
+  font-size: var(--size);
+  font-family: var(--font-family);
+  margin-left: 1%;
+}
+
+.formExperience__control-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.formExperience__btn-space {
+  height: 2vh;
+}
+
+.formExperience__inputList {
+  padding: var(--size);
+}
+
+@media (max-width: 414px) {
+  .formExperience__label {
+    font-size: 3vw;
+  }
+
+  .formExperience__control {
+    font-size: 2.7vw;
+    padding: 1vw;
+  }
+
+  .formExperience__checkbox,
+  .formExperience__btn {
+    font-size: 2.7vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formExperience__label,
+  .formExperience__control,
+  .formExperience__checkbox,
+  .formExperience__btn {
+    font-size: 3vw;
+  }
+}
