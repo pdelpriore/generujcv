@@ -1,13 +1,9 @@
 import React, { useContext } from "react";
 import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
 import { ListGroup } from "react-bootstrap";
+import { period } from "../../../hooks/form/formTypes";
 import TButton from "../../button/TButton";
 import "./diplomaItem.css";
-
-type period = {
-  month: string;
-  year: number;
-};
 
 interface DiplomaItemProps {
   schoolStart: period;
