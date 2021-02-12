@@ -14,13 +14,19 @@ import {
   CHANGE_HOBBY,
   CLEAR_HOBBY,
   SEND_HOBBY,
+  CLEAR_END_SCHOOL_PERIOD,
   CHANGE_SCHOOL_START,
   CHANGE_SCHOOL_END,
   InputFormActions,
   CHANGE_DIPLOMA,
   CLEAR_DIPLOMA,
-  CLEAR_END_SCHOOL_PERIOD,
   SEND_DIPLOMA,
+  CLEAR_END_COMPANY_PERIOD,
+  CHANGE_COMPANY_START,
+  CHANGE_COMPANY_END,
+  CHANGE_EXPERIENCE,
+  CLEAR_EXPERIENCE,
+  SEND_EXPERIENCE,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
 
@@ -127,6 +133,11 @@ const inputReducer = (
       return { ...inputs, hobby: action.payload };
     case SEND_HOBBY:
       return { ...inputs, hobby: action.payload };
+    case CLEAR_END_SCHOOL_PERIOD:
+      return {
+        ...inputs,
+        diploma: { ...inputs.diploma, endPeriod: action.payload },
+      };
     case CHANGE_SCHOOL_START:
       return {
         ...inputs,
@@ -159,13 +170,47 @@ const inputReducer = (
       };
     case CLEAR_DIPLOMA:
       return { ...inputs, diploma: action.payload };
-    case CLEAR_END_SCHOOL_PERIOD:
-      return {
-        ...inputs,
-        diploma: { ...inputs.diploma, endPeriod: action.payload },
-      };
     case SEND_DIPLOMA:
       return { ...inputs, diploma: action.payload };
+    case CLEAR_END_COMPANY_PERIOD:
+      return {
+        ...inputs,
+        experience: { ...inputs.experience, endPeriod: action.payload },
+      };
+    case CHANGE_COMPANY_START:
+      return {
+        ...inputs,
+        experience: {
+          ...inputs.experience,
+          startPeriod: {
+            ...inputs.experience.startPeriod,
+            [action.payload.targetName]: action.payload.targetValue,
+          },
+        },
+      };
+    case CHANGE_COMPANY_END:
+      return {
+        ...inputs,
+        experience: {
+          ...inputs.experience,
+          endPeriod: {
+            ...inputs.experience.endPeriod,
+            [action.payload.targetName]: action.payload.targetValue,
+          },
+        },
+      };
+    case CHANGE_EXPERIENCE:
+      return {
+        ...inputs,
+        experience: {
+          ...inputs.experience,
+          [action.payload.targetName]: action.payload.targetValue,
+        },
+      };
+    case CLEAR_EXPERIENCE:
+      return { ...inputs, experience: action.payload };
+    case SEND_EXPERIENCE:
+      return { ...inputs, experience: action.payload };
     default:
       return inputs;
   }

@@ -17,6 +17,9 @@ import {
   ADD_DIPLOMA,
   EDIT_DIPLOMA,
   DELETE_DIPLOMA,
+  ADD_EXPERIENCE,
+  EDIT_EXPERIENCE,
+  DELETE_EXPERIENCE,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -34,12 +37,18 @@ import {
   CHANGE_HOBBY,
   CLEAR_HOBBY,
   SEND_HOBBY,
+  CLEAR_END_SCHOOL_PERIOD,
   CHANGE_SCHOOL_START,
   CHANGE_SCHOOL_END,
   CHANGE_DIPLOMA,
   CLEAR_DIPLOMA,
-  CLEAR_END_SCHOOL_PERIOD,
   SEND_DIPLOMA,
+  CLEAR_END_COMPANY_PERIOD,
+  CHANGE_COMPANY_START,
+  CHANGE_COMPANY_END,
+  CHANGE_EXPERIENCE,
+  CLEAR_EXPERIENCE,
+  SEND_EXPERIENCE,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -416,6 +425,130 @@ const useForm = (initialState: FormInputTypes) => {
   ) => {
     e.preventDefault();
     dispatchInputList({ type: DELETE_DIPLOMA, payload: index });
+  };
+
+  const handleCheckingCompanyField = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFieldChecked(e.target.checked);
+    dispatchInput({
+      type: CLEAR_END_COMPANY_PERIOD,
+      payload: { month: "", year: 0 },
+    });
+  };
+
+  const handleOnChangeStartCompany = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_COMPANY_START,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleOnChangeEndCompany = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_COMPANY_END,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleOnChangeExperience = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_EXPERIENCE,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleAddExperience = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_EXPERIENCE, payload: inputs.experience });
+    dispatchInput({
+      type: CLEAR_EXPERIENCE,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        workplace: "",
+        company: "",
+        city: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+  };
+
+  const handleSendExperienceToEdit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: experience } = inputList.experiences;
+    experience.endPeriod.month.length === 0 &&
+      experience.endPeriod.year === 0 &&
+      setFieldChecked(true);
+    dispatchInput({
+      type: SEND_EXPERIENCE,
+      payload: experience,
+    });
+  };
+
+  const handleEditExperience = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_EXPERIENCE,
+      payload: { itemIndex: itemIndex, experience: inputs.experience },
+    });
+    dispatchInput({
+      type: CLEAR_EXPERIENCE,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        workplace: "",
+        company: "",
+        city: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditExperience = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_EXPERIENCE,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        workplace: "",
+        company: "",
+        city: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteExperience = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_EXPERIENCE, payload: index });
   };
 
   const handlePicture = async (picture: File[]) => {

@@ -1,4 +1,9 @@
-import { language, diploma, period } from "../../hooks/form/formTypes";
+import {
+  language,
+  diploma,
+  experience,
+  period,
+} from "../../hooks/form/formTypes";
 
 export const ADD_PHOTO = "add_photo";
 export const DELETE_PHOTO = "delete_photo";
@@ -20,12 +25,19 @@ export const CHANGE_HOBBY = "change_hobby";
 export const CLEAR_HOBBY = "clear_hobby";
 export const SEND_HOBBY = "send_hobby";
 
+export const CLEAR_END_SCHOOL_PERIOD = "clear_end_school_period";
 export const CHANGE_SCHOOL_START = "change_school_start";
 export const CHANGE_SCHOOL_END = "change_school_end";
 export const CHANGE_DIPLOMA = "change_diploma";
 export const CLEAR_DIPLOMA = "clear_diploma";
-export const CLEAR_END_SCHOOL_PERIOD = "clear_end_school_period";
 export const SEND_DIPLOMA = "send_diploma";
+
+export const CLEAR_END_COMPANY_PERIOD = "clear_end_company_period";
+export const CHANGE_COMPANY_START = "change_company_start";
+export const CHANGE_COMPANY_END = "change_company_end";
+export const CHANGE_EXPERIENCE = "change_experience";
+export const CLEAR_EXPERIENCE = "clear_experience";
+export const SEND_EXPERIENCE = "send_experience";
 
 type TChange = {
   targetName: string;
@@ -107,6 +119,11 @@ interface SendHobbyAction {
   payload: string;
 }
 
+interface ClearEndSchoolPeriodAction {
+  type: typeof CLEAR_END_SCHOOL_PERIOD;
+  payload: period;
+}
+
 interface ChangeSchoolStartAction {
   type: typeof CHANGE_SCHOOL_START;
   payload: TChange;
@@ -127,14 +144,39 @@ interface ClearDiplomaAction {
   payload: diploma;
 }
 
-interface ClearEndSchoolPeriodAction {
-  type: typeof CLEAR_END_SCHOOL_PERIOD;
-  payload: period;
-}
-
 interface SendDiplomaAction {
   type: typeof SEND_DIPLOMA;
   payload: diploma;
+}
+
+interface ClearEndCompanyPeriod {
+  type: typeof CLEAR_END_COMPANY_PERIOD;
+  payload: period;
+}
+
+interface ChangeCompanyStartAction {
+  type: typeof CHANGE_COMPANY_START;
+  payload: TChange;
+}
+
+interface ChangeCompanyEndAction {
+  type: typeof CHANGE_COMPANY_END;
+  payload: TChange;
+}
+
+interface ChangeExperienceAction {
+  type: typeof CHANGE_EXPERIENCE;
+  payload: TChange;
+}
+
+interface ClearExperienceAction {
+  type: typeof CLEAR_EXPERIENCE;
+  payload: experience;
+}
+
+interface SendExperienceAction {
+  type: typeof SEND_EXPERIENCE;
+  payload: experience;
 }
 
 export type InputFormActions =
@@ -153,9 +195,15 @@ export type InputFormActions =
   | ChangeHobbyAction
   | ClearHobbyAction
   | SendHobbyAction
+  | ClearEndSchoolPeriodAction
   | ChangeSchoolStartAction
   | ChangeSchoolEndAction
   | ChangeDiplomaAction
   | ClearDiplomaAction
-  | ClearEndSchoolPeriodAction
-  | SendDiplomaAction;
+  | SendDiplomaAction
+  | ClearEndCompanyPeriod
+  | ChangeCompanyStartAction
+  | ChangeCompanyEndAction
+  | ChangeExperienceAction
+  | ClearExperienceAction
+  | SendExperienceAction;
