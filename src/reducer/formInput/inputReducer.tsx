@@ -19,7 +19,7 @@ import {
   InputFormActions,
   CHANGE_DIPLOMA,
   CLEAR_DIPLOMA,
-  CLEAR_END_PERIOD,
+  CLEAR_END_SCHOOL_PERIOD,
   SEND_DIPLOMA,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
@@ -159,7 +159,7 @@ const inputReducer = (
       };
     case CLEAR_DIPLOMA:
       return { ...inputs, diploma: action.payload };
-    case CLEAR_END_PERIOD:
+    case CLEAR_END_SCHOOL_PERIOD:
       return {
         ...inputs,
         diploma: { ...inputs.diploma, endPeriod: action.payload },

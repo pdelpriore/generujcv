@@ -24,7 +24,7 @@ export const CHANGE_SCHOOL_START = "change_school_start";
 export const CHANGE_SCHOOL_END = "change_school_end";
 export const CHANGE_DIPLOMA = "change_diploma";
 export const CLEAR_DIPLOMA = "clear_diploma";
-export const CLEAR_END_PERIOD = "clear_end_period";
+export const CLEAR_END_SCHOOL_PERIOD = "clear_end_school_period";
 export const SEND_DIPLOMA = "send_diploma";
 
 type TChange = {
@@ -127,8 +127,8 @@ interface ClearDiplomaAction {
   payload: diploma;
 }
 
-interface ClearEndPeriodAction {
-  type: typeof CLEAR_END_PERIOD;
+interface ClearEndSchoolPeriodAction {
+  type: typeof CLEAR_END_SCHOOL_PERIOD;
   payload: period;
 }
 
@@ -157,5 +157,5 @@ export type InputFormActions =
   | ChangeSchoolEndAction
   | ChangeDiplomaAction
   | ClearDiplomaAction
-  | ClearEndPeriodAction
+  | ClearEndSchoolPeriodAction
   | SendDiplomaAction;

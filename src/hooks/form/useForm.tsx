@@ -38,7 +38,7 @@ import {
   CHANGE_SCHOOL_END,
   CHANGE_DIPLOMA,
   CLEAR_DIPLOMA,
-  CLEAR_END_PERIOD,
+  CLEAR_END_SCHOOL_PERIOD,
   SEND_DIPLOMA,
 } from "../../reducer/formInput/inputActionTypes";
 
@@ -294,9 +294,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_HOBBY, payload: index });
   };
 
-  const handleCheckingField = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckingSchoolField = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setFieldChecked(e.target.checked);
-    dispatchInput({ type: CLEAR_END_PERIOD, payload: { month: "", year: 0 } });
+    dispatchInput({
+      type: CLEAR_END_SCHOOL_PERIOD,
+      payload: { month: "", year: 0 },
+    });
   };
 
   const handleOnChangeStartSchool = (
@@ -464,7 +469,7 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditHobby,
     handleCancelEditHobby,
     handleDeleteHobby,
-    handleCheckingField,
+    handleCheckingSchoolField,
     handleOnChangeStartSchool,
     handleOnChangeEndSchool,
     handleOnChangeDiploma,
