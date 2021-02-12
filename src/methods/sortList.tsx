@@ -1,7 +1,10 @@
 import moment from "moment";
-import { diploma } from "../hooks/form/formTypes";
+import { diploma, experience } from "../hooks/form/formTypes";
 
-export const sortList = (elementA: diploma, elementB: diploma): number => {
+export const sortList = (
+  elementA: diploma | experience,
+  elementB: diploma | experience
+): number => {
   const now = new Date();
 
   let startElementA = moment([

@@ -49,7 +49,7 @@ export type diploma = {
   description: string;
 };
 
-type experience = {
+export type experience = {
   startPeriod: period;
   endPeriod: period;
   workplace: string;
