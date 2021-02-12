@@ -50,11 +50,9 @@ export type diploma = {
 };
 
 type experience = {
-  name: string;
-  startMonth: string;
-  startYear: number;
-  endMonth: string;
-  endYear: number;
+  startPeriod: period;
+  endPeriod: period;
+  workplace: string;
   company: string;
   city: string;
   description: string;
