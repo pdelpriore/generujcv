@@ -47,3 +47,28 @@
 .formDiploma__inputList {
   padding: var(--size);
 }
+
+@media (max-width: 414px) {
+  .formDiploma__label {
+    font-size: 3vw;
+  }
+
+  .formDiploma__control {
+    font-size: 2.7vw;
+    padding: 1vw;
+  }
+
+  .formDiploma__checkbox,
+  .formDiploma__btn {
+    font-size: 2.7vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formDiploma__label,
+  .formDiploma__control,
+  .formDiploma__checkbox,
+  .formDiploma__btn {
+    font-size: 3vw;
+  }
+}

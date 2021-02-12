@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/config/Store";
 import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
 import { Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
@@ -23,6 +25,8 @@ const DiplomaForm: React.FC = () => {
     addDiploma,
   } = useContext(DiplomaFormContext);
 
+  const { viewport } = useSelector((state: RootState) => state.viewportState);
+
   return (
     <>
       <Form className="formDiploma">
@@ -41,7 +45,7 @@ const DiplomaForm: React.FC = () => {
               as="select"
             >
               <option className="formDiploma__option" disabled={true} value="">
-                miesiąc
+                {viewport <= 414 ? "m." : "miesiąc"}
               </option>
               {months.map((month, index) => (
                 <option className="formDiploma__option" key={index}>
@@ -85,7 +89,7 @@ const DiplomaForm: React.FC = () => {
               disabled={isFieldChecked}
             >
               <option className="formDiploma__option" disabled={true} value="">
-                miesiąc
+                {viewport <= 414 ? "m." : "miesiąc"}
               </option>
               {months.map((month, index) => (
                 <option className="formDiploma__option" key={index}>

@@ -66,7 +66,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option className="formUserData__option" disabled={true} value="">
-              dzień
+              {viewport <= 768 ? "d." : "dzień"}
             </option>
             {days.map((day, index) => (
               <option className="formUserData__option" key={index}>
@@ -84,9 +84,9 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option className="formUserData__option" disabled={true} value="">
-              {(viewport > 319 && viewport <= 374) ||
-              (viewport > 374 && viewport <= 414) ||
-              (viewport > 414 && viewport < 1024)
+              {viewport <= 768
+                ? "m."
+                : viewport > 769 && viewport < 1024
                 ? "mies."
                 : "miesiąc"}
             </option>
@@ -106,7 +106,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
             as="select"
           >
             <option className="formUserData__option" disabled={true} value="">
-              rok
+              {viewport < 768 ? "r." : "rok"}
             </option>
             {birthdayYear.map((year, index) => (
               <option className="formUserData__option" key={index}>
@@ -175,7 +175,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
           as="select"
         >
           <option className="formUserData__option" disabled={true} value="">
-            niepełnosprawność
+            {viewport < 414 ? "niepełnosprawn." : "niepełnosprawność"}
           </option>
           {disabilityLevel.map((level, index) => (
             <option className="formUserData__option" key={index}>
