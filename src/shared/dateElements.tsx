@@ -2,7 +2,7 @@ const daysFn = (): string[] => {
   const dayArray: string[] = [];
 
   for (let i = 1; i <= 31; i++) {
-    dayArray.concat(i < 10 ? `0${i}` : i.toString());
+    dayArray.push(i < 10 ? `0${i}` : i.toString());
   }
 
   return dayArray;
@@ -14,7 +14,7 @@ const monthsFn = (): string[] => {
   const monthArray: string[] = [];
 
   for (let i = 1; i <= 12; i++) {
-    monthArray.concat(i < 10 ? `0${i}` : i.toString());
+    monthArray.push(i < 10 ? `0${i}` : i.toString());
   }
 
   return monthArray;
@@ -28,7 +28,7 @@ const experienceYearFn = (): number[] => {
   const yearArray: number[] = [];
 
   for (let i = yearNow; i >= yearNow - 40; i--) {
-    yearArray.concat(i);
+    yearArray.push(i);
   }
 
   return yearArray;
@@ -40,7 +40,7 @@ const schoolYearFn = (): number[] => {
   const yearArray: number[] = [];
 
   for (let i = yearNow; i >= yearNow - 40; i--) {
-    yearArray.concat(i);
+    yearArray.push(i);
   }
 
   return yearArray;
@@ -52,7 +52,7 @@ const birthdayYearFn = (): number[] => {
   const yearArray: number[] = [];
 
   for (let i = yearNow; i >= yearNow - 60; i--) {
-    yearArray.concat(i);
+    yearArray.push(i);
   }
 
   return yearArray;
