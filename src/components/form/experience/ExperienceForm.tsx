@@ -7,7 +7,7 @@ import TButton from "../../button/TButton";
 import ExperienceItem from "../../inputList/experienceItem/ExperienceItem";
 import { sortList } from "../../../methods/sortList";
 import { capitalize } from "../../../methods/capitalize";
-import { months, schoolYear } from "../../../shared/dateElements";
+import { months, experienceYear } from "../../../shared/dateElements";
 import "./experienceForm.css";
 
 const ExperienceForm: React.FC = () => {
@@ -73,7 +73,7 @@ const ExperienceForm: React.FC = () => {
               >
                 rok
               </option>
-              {schoolYear.map((year, index) => (
+              {experienceYear.map((year, index) => (
                 <option className="formExperience__option" key={index}>
                   {year}
                 </option>
@@ -126,7 +126,7 @@ const ExperienceForm: React.FC = () => {
               >
                 rok
               </option>
-              {schoolYear.map((year, index) => (
+              {experienceYear.map((year, index) => (
                 <option className="formExperience__option" key={index}>
                   {year}
                 </option>
