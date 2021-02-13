@@ -1,29 +1,29 @@
 import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/config/Store";
-import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
+import { ExperienceFormContext } from "../../../context/experienceForm/ExperienceFormContext";
 import { Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
-import DiplomaItem from "../../inputList/diplomaItem/DiplomaItem";
+import ExperienceItem from "../../inputList/experienceItem/ExperienceItem";
 import { sortList } from "../../../methods/sortList";
 import { capitalize } from "../../../methods/capitalize";
 import { months, schoolYear } from "../../../shared/dateElements";
 import "./experienceForm.css";
 
 const ExperienceForm: React.FC = () => {
-  // const {
-  //   inputs,
-  //   inputList,
-  //   isDiplomaEditing,
-  //   isFieldChecked,
-  //   onChangeSchoolStart,
-  //   onChangeSchoolEnd,
-  //   onChangeDiploma,
-  //   onChangeCheckingField,
-  //   editDiploma,
-  //   cancelEditDiploma,
-  //   addDiploma,
-  // } = useContext(DiplomaFormContext);
+  const {
+    inputs,
+    inputList,
+    isExperienceEditing,
+    isFieldChecked,
+    onChangeCompanyStart,
+    onChangeCompanyEnd,
+    onChangeExperience,
+    onChangeCheckingField,
+    editExperience,
+    cancelEditExperience,
+    addExperience,
+  } = useContext(ExperienceFormContext);
 
   const { viewport } = useSelector((state: RootState) => state.viewportState);
 
@@ -37,10 +37,10 @@ const ExperienceForm: React.FC = () => {
           <div className="formExperience__control-wrap">
             <Form.Control
               className="formExperience__control"
-              // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              //   onChangeSchoolStart(e)
-              // }
-              // value={inputs.diploma.startPeriod.month || ""}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeCompanyStart(e)
+              }
+              value={inputs.experience.startPeriod.month || ""}
               name="month"
               as="select"
             >
@@ -59,10 +59,10 @@ const ExperienceForm: React.FC = () => {
             </Form.Control>
             <Form.Control
               className="formExperience__control"
-              // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              //   onChangeSchoolStart(e)
-              // }
-              // value={inputs.diploma.startPeriod.year || ""}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeCompanyStart(e)
+              }
+              value={inputs.experience.startPeriod.year || ""}
               name="year"
               as="select"
             >
@@ -88,13 +88,13 @@ const ExperienceForm: React.FC = () => {
           <div className="formExperience__control-wrap">
             <Form.Control
               className="formExperience__control"
-              // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              //   onChangeSchoolEnd(e)
-              // }
-              // value={inputs.diploma.endPeriod.month || ""}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeCompanyEnd(e)
+              }
+              value={inputs.experience.endPeriod.month || ""}
               name="month"
               as="select"
-              //disabled={isFieldChecked}
+              disabled={isFieldChecked}
             >
               <option
                 className="formExperience__option"
@@ -111,13 +111,13 @@ const ExperienceForm: React.FC = () => {
             </Form.Control>
             <Form.Control
               className="formExperience__control"
-              // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              //   onChangeSchoolEnd(e)
-              // }
-              // value={inputs.diploma.endPeriod.year || ""}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeCompanyEnd(e)
+              }
+              value={inputs.experience.endPeriod.year || ""}
               name="year"
               as="select"
-              //disabled={isFieldChecked}
+              disabled={isFieldChecked}
             >
               <option
                 className="formExperience__option"
@@ -137,8 +137,8 @@ const ExperienceForm: React.FC = () => {
             className="formExperience__checkbox"
             type="checkbox"
             label="nadal pracuję"
-            // onChange={onChangeCheckingField}
-            // checked={isFieldChecked}
+            onChange={onChangeCheckingField}
+            checked={isFieldChecked}
           />
         </Form.Group>
         <Form.Group controlId="formExperienceWorkplace">
@@ -147,10 +147,10 @@ const ExperienceForm: React.FC = () => {
           </Form.Label>
           <Form.Control
             className="formExperience__control"
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            //   onChangeDiploma(e)
-            // }
-            // value={inputs.diploma.schoolName || ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeExperience(e)
+            }
+            value={inputs.experience.workplace || ""}
             name="workplace"
             type="text"
             placeholder="stanowisko"
@@ -162,10 +162,10 @@ const ExperienceForm: React.FC = () => {
           </Form.Label>
           <Form.Control
             className="formExperience__control"
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            //   onChangeDiploma(e)
-            // }
-            // value={inputs.diploma.faculty || ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeExperience(e)
+            }
+            value={inputs.experience.company || ""}
             name="company"
             type="text"
             placeholder="nazwa firmy"
@@ -177,10 +177,10 @@ const ExperienceForm: React.FC = () => {
           </Form.Label>
           <Form.Control
             className="formExperience__control"
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            //   onChangeDiploma(e)
-            // }
-            // value={inputs.diploma.degree || ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeExperience(e)
+            }
+            value={inputs.experience.city || ""}
             name="city"
             type="text"
             placeholder="miejscowość"
@@ -192,10 +192,10 @@ const ExperienceForm: React.FC = () => {
           </Form.Label>
           <Form.Control
             className="formExperience__control"
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            //   onChangeDiploma(e)
-            // }
-            // value={inputs.diploma.description || ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChangeExperience(e)
+            }
+            value={inputs.experience.description || ""}
             name="description"
             as="textarea"
             rows={3}
@@ -203,63 +203,63 @@ const ExperienceForm: React.FC = () => {
             placeholder="opis"
           />
           <div className="formExperience__btn-space" />
-          {false ? (
+          {isExperienceEditing ? (
             <div className="formExperience__btn-wrapper">
               <TButton
                 className="formExperience__btn"
                 type="add"
                 content="popraw"
-                onClick={() => console.log("ok")}
+                onClick={editExperience}
               />
               <TButton
                 className="formExperience__btn"
                 type="cancel"
                 content="anuluj"
-                onClick={() => console.log("ok")}
+                onClick={cancelEditExperience}
               />
             </div>
           ) : (
             <div className="formExperience__btn-wrapper">
               <TButton
                 className="formExperience__btn"
-                // disabled={
-                //   inputs.diploma.startPeriod.month.length === 0 ||
-                //   inputs.diploma.startPeriod.year === 0 ||
-                //   ((inputs.diploma.endPeriod.month.length === 0 ||
-                //     inputs.diploma.endPeriod.year === 0) &&
-                //     !isFieldChecked) ||
-                //   inputs.diploma.schoolName.length === 0 ||
-                //   inputs.diploma.faculty.length === 0 ||
-                //   inputs.diploma.degree.length === 0 ||
-                //   inputs.diploma.description.length === 0 ||
-                //   inputList.diplomas.length === 5
-                // }
+                disabled={
+                  inputs.experience.startPeriod.month.length === 0 ||
+                  inputs.experience.startPeriod.year === 0 ||
+                  ((inputs.experience.endPeriod.month.length === 0 ||
+                    inputs.experience.endPeriod.year === 0) &&
+                    !isFieldChecked) ||
+                  inputs.experience.workplace.length === 0 ||
+                  inputs.experience.company.length === 0 ||
+                  inputs.experience.city.length === 0 ||
+                  inputs.experience.description.length === 0 ||
+                  inputList.diplomas.length === 5
+                }
                 type="add"
                 content="dodaj"
-                onClick={() => console.log("ok")}
+                onClick={addExperience}
               />
             </div>
           )}
         </Form.Group>
       </Form>
-      {/* <div className="formDiploma__inputList">
-        {inputList.diplomas.length > 0 && (
+      <div className="formExperience__inputList">
+        {inputList.experiences.length > 0 && (
           <ListGroup variant="flush">
-            {inputList.diplomas.sort(sortList).map((diploma, index) => (
-              <DiplomaItem
+            {inputList.experiences.sort(sortList).map((experience, index) => (
+              <ExperienceItem
                 key={index}
-                schoolStart={diploma.startPeriod}
-                schoolEnd={diploma.endPeriod}
-                schoolName={diploma.schoolName}
-                faculty={diploma.faculty}
-                degree={diploma.degree}
-                description={diploma.description}
+                companyStart={experience.startPeriod}
+                companyEnd={experience.endPeriod}
+                workplace={experience.workplace}
+                company={experience.company}
+                city={experience.city}
+                description={experience.description}
                 index={index}
               />
             ))}
           </ListGroup>
         )}
-      </div> */}
+      </div>
     </>
   );
 };

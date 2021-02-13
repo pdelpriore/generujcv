@@ -611,6 +611,15 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditDiploma,
     handleCancelEditDiploma,
     handleDeleteDiploma,
+    handleCheckingCompanyField,
+    handleOnChangeStartCompany,
+    handleOnChangeEndCompany,
+    handleOnChangeExperience,
+    handleAddExperience,
+    handleSendExperienceToEdit,
+    handleEditExperience,
+    handleCancelEditExperience,
+    handleDeleteExperience,
   };
 };
 

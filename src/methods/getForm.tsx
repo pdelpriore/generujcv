@@ -13,6 +13,7 @@ import { LanguageFormContext } from "../context/languageForm/LanguageFormContext
 import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext";
 import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
 import { DiplomaFormContext } from "../context/diplomaForm/DiplomaFormContext";
+import { ExperienceFormContext } from "../context/experienceForm/ExperienceFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -54,6 +55,15 @@ const GetForm = (index: number): JSX.Element => {
     handleEditDiploma,
     handleCancelEditDiploma,
     handleDeleteDiploma,
+    handleCheckingCompanyField,
+    handleOnChangeStartCompany,
+    handleOnChangeEndCompany,
+    handleOnChangeExperience,
+    handleAddExperience,
+    handleSendExperienceToEdit,
+    handleEditExperience,
+    handleCancelEditExperience,
+    handleDeleteExperience,
   } = useForm({
     photo: "",
     userData: {
@@ -189,7 +199,25 @@ const GetForm = (index: number): JSX.Element => {
     >
       <DiplomaForm />
     </DiplomaFormContext.Provider>,
-    <ExperienceForm />,
+    <ExperienceFormContext.Provider
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        isExperienceEditing: isEditing,
+        isFieldChecked: isFieldChecked,
+        onChangeCheckingField: handleCheckingCompanyField,
+        onChangeCompanyStart: handleOnChangeStartCompany,
+        onChangeCompanyEnd: handleOnChangeEndCompany,
+        onChangeExperience: handleOnChangeExperience,
+        addExperience: handleAddExperience,
+        sendExperienceToEdit: handleSendExperienceToEdit,
+        editExperience: handleEditExperience,
+        cancelEditExperience: handleCancelEditExperience,
+        deleteExperience: handleDeleteExperience,
+      }}
+    >
+      <ExperienceForm />
+    </ExperienceFormContext.Provider>,
     <CompetenceForm />,
     <ProjectForm />,
   ];
