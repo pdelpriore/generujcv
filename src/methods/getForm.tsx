@@ -109,7 +109,7 @@ const GetForm = (index: number): JSX.Element => {
       city: "",
       description: "",
     },
-    competence: [],
+    competence: "",
     project: {
       name: "",
       url: "",

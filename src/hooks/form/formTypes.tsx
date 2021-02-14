@@ -73,7 +73,7 @@ interface Input {
   hobby: string;
   diploma: diploma;
   experience: experience;
-  competence: string[];
+  competence: string;
   project: project;
 }
 
