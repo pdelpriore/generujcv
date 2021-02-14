@@ -20,6 +20,9 @@ import {
   ADD_EXPERIENCE,
   EDIT_EXPERIENCE,
   DELETE_EXPERIENCE,
+  ADD_COMPETENCE,
+  EDIT_COMPETENCE,
+  DELETE_COMPETENCE,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -49,6 +52,9 @@ import {
   CHANGE_EXPERIENCE,
   CLEAR_EXPERIENCE,
   SEND_EXPERIENCE,
+  CHANGE_COMPETENCE,
+  CLEAR_COMPETENCE,
+  SEND_COMPETENCE,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -551,6 +557,72 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_EXPERIENCE, payload: index });
   };
 
+  const handleOnChangeCompetence = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_COMPETENCE,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleAddCompetence = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_COMPETENCE, payload: inputs.competence });
+    dispatchInput({ type: CLEAR_COMPETENCE, payload: "" });
+  };
+
+  const handleSendCompetenceToEdit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: competence } = inputList.competences;
+    dispatchInput({
+      type: SEND_COMPETENCE,
+      payload: competence,
+    });
+  };
+
+  const handleEditCompetence = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_COMPETENCE,
+      payload: { itemIndex: itemIndex, competence: inputs.competence },
+    });
+    dispatchInput({
+      type: CLEAR_COMPETENCE,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditCompetence = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_COMPETENCE,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteCompetence = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_COMPETENCE, payload: index });
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -620,6 +692,12 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditExperience,
     handleCancelEditExperience,
     handleDeleteExperience,
+    handleOnChangeCompetence,
+    handleAddCompetence,
+    handleSendCompetenceToEdit,
+    handleEditCompetence,
+    handleCancelEditCompetence,
+    handleDeleteCompetence,
   };
 };
 

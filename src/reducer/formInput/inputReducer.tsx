@@ -17,7 +17,6 @@ import {
   CLEAR_END_SCHOOL_PERIOD,
   CHANGE_SCHOOL_START,
   CHANGE_SCHOOL_END,
-  InputFormActions,
   CHANGE_DIPLOMA,
   CLEAR_DIPLOMA,
   SEND_DIPLOMA,
@@ -27,6 +26,10 @@ import {
   CHANGE_EXPERIENCE,
   CLEAR_EXPERIENCE,
   SEND_EXPERIENCE,
+  CHANGE_COMPETENCE,
+  CLEAR_COMPETENCE,
+  SEND_COMPETENCE,
+  InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
 
@@ -211,6 +214,18 @@ const inputReducer = (
       return { ...inputs, experience: action.payload };
     case SEND_EXPERIENCE:
       return { ...inputs, experience: action.payload };
+    case CHANGE_COMPETENCE:
+      return {
+        ...inputs,
+        [action.payload.targetName]: action.payload.targetValue.replace(
+          /[^a-z\s]/g,
+          ""
+        ),
+      };
+    case CLEAR_COMPETENCE:
+      return { ...inputs, competence: action.payload };
+    case SEND_COMPETENCE:
+      return { ...inputs, competence: action.payload };
     default:
       return inputs;
   }

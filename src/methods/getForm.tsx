@@ -64,6 +64,12 @@ const GetForm = (index: number): JSX.Element => {
     handleEditExperience,
     handleCancelEditExperience,
     handleDeleteExperience,
+    handleOnChangeCompetence,
+    handleAddCompetence,
+    handleSendCompetenceToEdit,
+    handleEditCompetence,
+    handleCancelEditCompetence,
+    handleDeleteCompetence,
   } = useForm({
     photo: "",
     userData: {

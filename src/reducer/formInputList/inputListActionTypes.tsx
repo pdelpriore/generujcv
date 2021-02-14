@@ -20,6 +20,10 @@ export const ADD_EXPERIENCE = "add_experience";
 export const EDIT_EXPERIENCE = "edit_experience";
 export const DELETE_EXPERIENCE = "delete_experience";
 
+export const ADD_COMPETENCE = "add_competence";
+export const EDIT_COMPETENCE = "edit_competence";
+export const DELETE_COMPETENCE = "delete_competence";
+
 type editLanguage = {
   itemIndex: number;
   language: language;
@@ -43,6 +47,11 @@ type editDiploma = {
 type editExperience = {
   itemIndex: number;
   experience: experience;
+};
+
+type editCompetence = {
+  itemIndex: number;
+  competence: string;
 };
 
 interface AddLanguageAction {
@@ -120,6 +129,21 @@ interface DeleteExperienceAction {
   payload: number;
 }
 
+interface AddCompetenceAction {
+  type: typeof ADD_COMPETENCE;
+  payload: string;
+}
+
+interface EditCompetenceAction {
+  type: typeof EDIT_COMPETENCE;
+  payload: editCompetence;
+}
+
+interface DeleteCompetenceAction {
+  type: typeof DELETE_COMPETENCE;
+  payload: number;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
@@ -135,4 +159,7 @@ export type InputListFormActions =
   | DeleteDiplomaAction
   | AddExperienceAction
   | EditExperienceAction
-  | DeleteExperienceAction;
+  | DeleteExperienceAction
+  | AddCompetenceAction
+  | EditCompetenceAction
+  | DeleteCompetenceAction;

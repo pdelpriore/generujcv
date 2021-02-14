@@ -14,6 +14,9 @@ import {
   ADD_EXPERIENCE,
   EDIT_EXPERIENCE,
   DELETE_EXPERIENCE,
+  ADD_COMPETENCE,
+  EDIT_COMPETENCE,
+  DELETE_COMPETENCE,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -123,6 +126,29 @@ const inputListReducer = (
         ...inputList,
         experiences: [
           ...inputList.experiences.filter((_, i) => i !== action.payload),
+        ],
+      };
+    case ADD_COMPETENCE:
+      return {
+        ...inputList,
+        competences: [...inputList.competences, action.payload],
+      };
+    case EDIT_COMPETENCE:
+      return {
+        ...inputList,
+        competences: [
+          ...inputList.competences.map((competence, i) =>
+            i === action.payload.itemIndex
+              ? action.payload.competence
+              : competence
+          ),
+        ],
+      };
+    case DELETE_COMPETENCE:
+      return {
+        ...inputList,
+        competences: [
+          ...inputList.competences.filter((_, i) => i !== action.payload),
         ],
       };
     default:

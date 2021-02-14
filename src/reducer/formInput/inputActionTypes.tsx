@@ -39,6 +39,10 @@ export const CHANGE_EXPERIENCE = "change_experience";
 export const CLEAR_EXPERIENCE = "clear_experience";
 export const SEND_EXPERIENCE = "send_experience";
 
+export const CHANGE_COMPETENCE = "change_competence";
+export const CLEAR_COMPETENCE = "clear_competence";
+export const SEND_COMPETENCE = "send_competence";
+
 type TChange = {
   targetName: string;
   targetValue: string;
@@ -179,6 +183,21 @@ interface SendExperienceAction {
   payload: experience;
 }
 
+interface ChangeCompetenceAction {
+  type: typeof CHANGE_COMPETENCE;
+  payload: TChange;
+}
+
+interface ClearCompetenceAction {
+  type: typeof CLEAR_COMPETENCE;
+  payload: string;
+}
+
+interface SendCompetenceAction {
+  type: typeof SEND_COMPETENCE;
+  payload: string;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -206,4 +225,7 @@ export type InputFormActions =
   | ChangeCompanyEndAction
   | ChangeExperienceAction
   | ClearExperienceAction
-  | SendExperienceAction;
+  | SendExperienceAction
+  | ChangeCompetenceAction
+  | ClearCompetenceAction
+  | SendCompetenceAction;
