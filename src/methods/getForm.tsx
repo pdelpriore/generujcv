@@ -14,6 +14,7 @@ import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext
 import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
 import { DiplomaFormContext } from "../context/diplomaForm/DiplomaFormContext";
 import { ExperienceFormContext } from "../context/experienceForm/ExperienceFormContext";
+import { CompetenceFormContext } from "../context/competenceForm/CompetenceFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -224,7 +225,21 @@ const GetForm = (index: number): JSX.Element => {
     >
       <ExperienceForm />
     </ExperienceFormContext.Provider>,
-    <CompetenceForm />,
+    <CompetenceFormContext.Provider
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        isCompetenceEditing: isEditing,
+        onChangeCompetence: handleOnChangeCompetence,
+        addCompetence: handleAddCompetence,
+        sendCompetenceToEdit: handleSendCompetenceToEdit,
+        editCompetence: handleEditCompetence,
+        cancelEditCompetence: handleCancelEditCompetence,
+        deleteCompetence: handleDeleteCompetence,
+      }}
+    >
+      <CompetenceForm />
+    </CompetenceFormContext.Provider>,
     <ProjectForm />,
   ];
 

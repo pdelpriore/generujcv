@@ -1,21 +1,21 @@
 import React, { useContext } from "react";
-import { HobbyFormContext } from "../../../context/hobbyForm/HobbyFormContext";
-import HobbyItem from "../../inputList/hobbyItem/HobbyItem";
+import { CompetenceFormContext } from "../../../context/competenceForm/CompetenceFormContext";
+import CompetenceItem from "../../inputList/competenceItem/CompetenceItem";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
 import { capitalizeFirst } from "../../../methods/capitalize";
 import "./competenceForm.css";
 
 const CompetenceForm: React.FC = () => {
-  // const {
-  //   inputs,
-  //   inputList,
-  //   isHobbyEditing,
-  //   onChangeHobby,
-  //   addHobby,
-  //   editHobby,
-  //   cancelEditHobby,
-  // } = useContext(HobbyFormContext);
+  const {
+    inputs,
+    inputList,
+    isCompetenceEditing,
+    onChangeCompetence,
+    addCompetence,
+    editCompetence,
+    cancelEditCompetence,
+  } = useContext(CompetenceFormContext);
 
   return (
     <>
@@ -33,39 +33,40 @@ const CompetenceForm: React.FC = () => {
                 </Form.Label>
                 <Form.Control
                   className="formCompetence__control"
-                  // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  //   onChangeHobby(e)
-                  // }
-                  // value={inputs.hobby || ""}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    onChangeCompetence(e)
+                  }
+                  value={inputs.competence || ""}
                   name="competence"
                   type="text"
                   placeholder="kompetencja"
                 />
               </div>
-              {false ? (
+              {isCompetenceEditing ? (
                 <>
                   <TButton
                     className="formCompetence__btn"
                     type="add"
                     content="popraw"
-                    onClick={() => console.log("ok")}
+                    onClick={editCompetence}
                   />
                   <TButton
                     className="formCompetence__btn"
                     type="cancel"
                     content="anuluj"
-                    onClick={() => console.log("ok")}
+                    onClick={cancelEditCompetence}
                   />
                 </>
               ) : (
                 <TButton
                   className="formCompetence__btn"
-                  // disabled={
-                  //   inputs.hobby.length === 0 || inputList.hobbies.length === 5
-                  // }
+                  disabled={
+                    inputs.competence.length === 0 ||
+                    inputList.competences.length === 10
+                  }
                   type="add"
                   content="dodaj"
-                  onClick={() => console.log("ok")}
+                  onClick={addCompetence}
                 />
               )}
             </Form.Group>
@@ -74,19 +75,23 @@ const CompetenceForm: React.FC = () => {
         <Col xl={3} xs={1} />
       </Row>
       <Row className="mt-4" />
-      {/* <Row>
+      <Row>
         <Col xl={3} xs={1} />
         <Col xl={6} xs={10}>
-          {inputList.hobbies.length > 0 && (
+          {inputList.competences.length > 0 && (
             <ListGroup variant="flush">
-              {inputList.hobbies.map((hobby, index) => (
-                <HobbyItem hobby={hobby} key={index} index={index} />
+              {inputList.competences.map((competence, index) => (
+                <CompetenceItem
+                  competence={competence}
+                  key={index}
+                  index={index}
+                />
               ))}
             </ListGroup>
           )}
         </Col>
         <Col xl={3} xs={1} />
-      </Row> */}
+      </Row>
     </>
   );
 };
