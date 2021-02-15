@@ -50,7 +50,10 @@ const inputReducer = (
           [action.payload.targetName]:
             action.payload.targetName === "drivingLicence"
               ? action.payload.targetValue
-                  .replace(/[^A-Z1-2,+\s]/g, "")
+                  .replace(
+                    /[^ABCDEMTTramwaj12,+]|(A{2,})|(B{2,})|(C{2,})|(D{2,})|(E{2,})|(M{2,})|(T{2,})|(Tramwaj{2,})|(1{2,})|(2{2,})|(,{2,})|(\+){2,}/g,
+                    ""
+                  )
                   .split(/\s*,\s*/)
               : action.payload.targetValue,
         },
@@ -65,7 +68,7 @@ const inputReducer = (
             [action.payload.targetName]:
               action.payload.targetName === "postCode"
                 ? action.payload.targetValue.replace(
-                    /[^\d-]|[\d]{2}[^-]{1}[\d]{1}/g,
+                    /[^\d-]|^(\d{3,})|(-{2,})|(\d{4,})$/g,
                     ""
                   )
                 : action.payload.targetValue,
