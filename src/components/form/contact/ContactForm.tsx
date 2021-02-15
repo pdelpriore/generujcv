@@ -74,6 +74,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             onchangeAddress(e)
           }
           value={inputs.userData.address.postCode || ""}
+          maxLength={6}
           name="postCode"
           type="text"
           placeholder="00-999"

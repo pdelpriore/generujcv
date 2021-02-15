@@ -68,7 +68,7 @@ const inputReducer = (
             [action.payload.targetName]:
               action.payload.targetName === "postCode"
                 ? action.payload.targetValue.replace(
-                    /^[^\d]|[(\d{3,})|(-{2,})|(\d{4,})]{7,}$/g,
+                    /[^\d-]|^([^\d]|\d{3,})|(-{2,})|(\d{4,})$/g,
                     ""
                   )
                 : action.payload.targetValue,
