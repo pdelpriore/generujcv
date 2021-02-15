@@ -51,7 +51,7 @@ const inputReducer = (
             action.payload.targetName === "drivingLicence"
               ? action.payload.targetValue
                   .replace(
-                    /[^ABCDEMTTramwaj12,+]|(A{2,})|(B{2,})|(C{2,})|(D{2,})|(E{2,})|(M{2,})|(T{2,})|(Tramwaj{2,})|(1{2,})|(2{2,})|(,{2,})|(\+){2,}/g,
+                    /[^ABCDEMT12,+]|(A{2,})|(B{2,})|(C{2,})|(D{2,})|(E{2,})|(M{2,})|(T{2,})|(1{2,})|(2{2,})|(,{2,})|(\+){2,}/g,
                     ""
                   )
                   .split(/\s*,\s*/)
