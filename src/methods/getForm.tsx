@@ -15,6 +15,7 @@ import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
 import { DiplomaFormContext } from "../context/diplomaForm/DiplomaFormContext";
 import { ExperienceFormContext } from "../context/experienceForm/ExperienceFormContext";
 import { CompetenceFormContext } from "../context/competenceForm/CompetenceFormContext";
+import { ProjectFormContext } from "../context/projectForm/ProjectFormContext";
 
 const GetForm = (index: number): JSX.Element => {
   const {
@@ -260,7 +261,23 @@ const GetForm = (index: number): JSX.Element => {
     >
       <CompetenceForm />
     </CompetenceFormContext.Provider>,
-    <ProjectForm />,
+    <ProjectFormContext.Provider
+      value={{
+        inputs: inputs,
+        inputList: inputList,
+        isProjectEditing: isEditing,
+        onChangeGithub: handleOnChangeGithub,
+        onChangeProject: handleOnChangeProject,
+        addProject: handleAddProject,
+        sendProjectToEdit: handleSendProjectToEdit,
+        editProject: handleEditProject,
+        cancelEditProject: handleCancelEditProject,
+        deleteProject: handleDeleteProject,
+        clearForm: clearProjectForm,
+      }}
+    >
+      <ProjectForm />
+    </ProjectFormContext.Provider>,
   ];
 
   return formArray[index];
