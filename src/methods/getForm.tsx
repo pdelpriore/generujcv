@@ -9,6 +9,7 @@ import UserDataForm from "../components/form/userData/UserDataForm";
 import ProjectForm from "../components/form/project/ProjectForm";
 import ContactForm from "../components/form/contact/ContactForm";
 import useForm from "../hooks/form/useForm";
+import { FormInputTypes, FormInputListType } from "../hooks/form/formTypes";
 import { LanguageFormContext } from "../context/languageForm/LanguageFormContext";
 import { StrengthFormContext } from "../context/strengthForm/StrengthFormContext";
 import { HobbyFormContext } from "../context/hobbyForm/HobbyFormContext";
@@ -17,7 +18,13 @@ import { ExperienceFormContext } from "../context/experienceForm/ExperienceFormC
 import { CompetenceFormContext } from "../context/competenceForm/CompetenceFormContext";
 import { ProjectFormContext } from "../context/projectForm/ProjectFormContext";
 
-const GetForm = (index: number): JSX.Element => {
+const GetForm = (
+  index: number
+): {
+  form: JSX.Element;
+  inputs: FormInputTypes;
+  inputList: FormInputListType;
+} => {
   const {
     inputs,
     inputList,
@@ -280,7 +287,7 @@ const GetForm = (index: number): JSX.Element => {
     </ProjectFormContext.Provider>,
   ];
 
-  return formArray[index];
+  return { form: formArray[index], inputs: inputs, inputList: inputList };
 };
 
 export default GetForm;

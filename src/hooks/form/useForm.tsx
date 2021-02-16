@@ -804,9 +804,6 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInput({ type: DELETE_PHOTO, payload: "" });
   };
 
-  console.log(inputs);
-  console.log(inputList);
-
   return {
     inputs,
     inputList,
