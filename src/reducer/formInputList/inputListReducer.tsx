@@ -17,6 +17,9 @@ import {
   ADD_COMPETENCE,
   EDIT_COMPETENCE,
   DELETE_COMPETENCE,
+  ADD_PROJECT,
+  EDIT_PROJECT,
+  DELETE_PROJECT,
   InputListFormActions,
 } from "./inputListActionTypes";
 import { FormInputListType } from "../../hooks/form/formTypes";
@@ -149,6 +152,27 @@ const inputListReducer = (
         ...inputList,
         competences: [
           ...inputList.competences.filter((_, i) => i !== action.payload),
+        ],
+      };
+    case ADD_PROJECT:
+      return {
+        ...inputList,
+        projects: [...inputList.projects, action.payload],
+      };
+    case EDIT_PROJECT:
+      return {
+        ...inputList,
+        projects: [
+          ...inputList.projects.map((project, i) =>
+            i === action.payload.itemIndex ? action.payload.project : project
+          ),
+        ],
+      };
+    case DELETE_PROJECT:
+      return {
+        ...inputList,
+        projects: [
+          ...inputList.projects.filter((_, i) => i !== action.payload),
         ],
       };
     default:

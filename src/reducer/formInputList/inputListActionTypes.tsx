@@ -1,4 +1,9 @@
-import { language, diploma, experience } from "../../hooks/form/formTypes";
+import {
+  language,
+  diploma,
+  experience,
+  project,
+} from "../../hooks/form/formTypes";
 
 export const ADD_LANGUAGE = "add_language";
 export const EDIT_LANGUAGE = "edit_language";
@@ -23,6 +28,10 @@ export const DELETE_EXPERIENCE = "delete_experience";
 export const ADD_COMPETENCE = "add_competence";
 export const EDIT_COMPETENCE = "edit_competence";
 export const DELETE_COMPETENCE = "delete_competence";
+
+export const ADD_PROJECT = "add_project";
+export const EDIT_PROJECT = "edit_project";
+export const DELETE_PROJECT = "delete_project";
 
 type editLanguage = {
   itemIndex: number;
@@ -52,6 +61,11 @@ type editExperience = {
 type editCompetence = {
   itemIndex: number;
   competence: string;
+};
+
+type editProject = {
+  itemIndex: number;
+  project: project;
 };
 
 interface AddLanguageAction {
@@ -144,6 +158,21 @@ interface DeleteCompetenceAction {
   payload: number;
 }
 
+interface AddProjectAction {
+  type: typeof ADD_PROJECT;
+  payload: project;
+}
+
+interface EditProjectAction {
+  type: typeof EDIT_PROJECT;
+  payload: editProject;
+}
+
+interface DeleteProjectAction {
+  type: typeof DELETE_PROJECT;
+  payload: number;
+}
+
 export type InputListFormActions =
   | AddLanguageAction
   | EditLanguageAction
@@ -162,4 +191,7 @@ export type InputListFormActions =
   | DeleteExperienceAction
   | AddCompetenceAction
   | EditCompetenceAction
-  | DeleteCompetenceAction;
+  | DeleteCompetenceAction
+  | AddProjectAction
+  | EditProjectAction
+  | DeleteProjectAction;

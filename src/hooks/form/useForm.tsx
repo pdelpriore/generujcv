@@ -23,6 +23,9 @@ import {
   ADD_COMPETENCE,
   EDIT_COMPETENCE,
   DELETE_COMPETENCE,
+  ADD_PROJECT,
+  EDIT_PROJECT,
+  DELETE_PROJECT,
 } from "../../reducer/formInputList/inputListActionTypes";
 import {
   ADD_PHOTO,
@@ -55,6 +58,10 @@ import {
   CHANGE_COMPETENCE,
   CLEAR_COMPETENCE,
   SEND_COMPETENCE,
+  CHANGE_GITHUB,
+  CHANGE_PROJECT,
+  CLEAR_PROJECT,
+  SEND_PROJECT,
 } from "../../reducer/formInput/inputActionTypes";
 
 const useForm = (initialState: FormInputTypes) => {
@@ -693,6 +700,92 @@ const useForm = (initialState: FormInputTypes) => {
     setIsEditing(false);
   };
 
+  const handleOnChangeGithub = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_GITHUB,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleOnChangeProject = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    dispatchInput({
+      type: CHANGE_PROJECT,
+      payload: { targetName: e.target.name, targetValue: e.target.value },
+    });
+  };
+
+  const handleAddProject = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: ADD_PROJECT, payload: inputs.project });
+    dispatchInput({
+      type: CLEAR_PROJECT,
+      payload: { name: "", url: "", description: "" },
+    });
+  };
+
+  const handleSendProjectToEdit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    setIsEditing(true);
+    setItemIndex(index);
+    const { [index]: project } = inputList.projects;
+    dispatchInput({
+      type: SEND_PROJECT,
+      payload: project,
+    });
+  };
+
+  const handleEditProject = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInputList({
+      type: EDIT_PROJECT,
+      payload: { itemIndex: itemIndex, project: inputs.project },
+    });
+    dispatchInput({
+      type: CLEAR_PROJECT,
+      payload: { name: "", url: "", description: "" },
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleCancelEditProject = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    dispatchInput({
+      type: CLEAR_PROJECT,
+      payload: { name: "", url: "", description: "" },
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
+  const handleDeleteProject = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+    dispatchInputList({ type: DELETE_PROJECT, payload: index });
+  };
+
+  const clearProjectForm = () => {
+    dispatchInput({
+      type: CLEAR_PROJECT,
+      payload: { name: "", url: "", description: "" },
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -774,6 +867,14 @@ const useForm = (initialState: FormInputTypes) => {
     handleCancelEditCompetence,
     handleDeleteCompetence,
     clearCompetenceForm,
+    handleOnChangeGithub,
+    handleOnChangeProject,
+    handleAddProject,
+    handleSendProjectToEdit,
+    handleEditProject,
+    handleCancelEditProject,
+    handleDeleteProject,
+    clearProjectForm,
   };
 };
 

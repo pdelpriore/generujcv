@@ -58,7 +58,7 @@ export type experience = {
   description: string;
 };
 
-type project = {
+export type project = {
   name: string;
   url: string;
   description: string;

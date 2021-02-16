@@ -77,6 +77,14 @@ const GetForm = (index: number): JSX.Element => {
     handleCancelEditCompetence,
     handleDeleteCompetence,
     clearCompetenceForm,
+    handleOnChangeGithub,
+    handleOnChangeProject,
+    handleAddProject,
+    handleSendProjectToEdit,
+    handleEditProject,
+    handleCancelEditProject,
+    handleDeleteProject,
+    clearProjectForm,
   } = useForm({
     photo: "",
     userData: {

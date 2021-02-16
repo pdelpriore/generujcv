@@ -29,6 +29,10 @@ import {
   CHANGE_COMPETENCE,
   CLEAR_COMPETENCE,
   SEND_COMPETENCE,
+  CHANGE_GITHUB,
+  CHANGE_PROJECT,
+  CLEAR_PROJECT,
+  SEND_PROJECT,
   InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
@@ -229,6 +233,23 @@ const inputReducer = (
       return { ...inputs, competence: action.payload };
     case SEND_COMPETENCE:
       return { ...inputs, competence: action.payload };
+    case CHANGE_GITHUB:
+      return {
+        ...inputs,
+        [action.payload.targetName]: action.payload.targetValue,
+      };
+    case CHANGE_PROJECT:
+      return {
+        ...inputs,
+        project: {
+          ...inputs.project,
+          [action.payload.targetName]: action.payload.targetValue,
+        },
+      };
+    case CLEAR_PROJECT:
+      return { ...inputs, project: action.payload };
+    case SEND_PROJECT:
+      return { ...inputs, project: action.payload };
     default:
       return inputs;
   }

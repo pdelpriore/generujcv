@@ -3,6 +3,7 @@ import {
   diploma,
   experience,
   period,
+  project,
 } from "../../hooks/form/formTypes";
 
 export const ADD_PHOTO = "add_photo";
@@ -42,6 +43,11 @@ export const SEND_EXPERIENCE = "send_experience";
 export const CHANGE_COMPETENCE = "change_competence";
 export const CLEAR_COMPETENCE = "clear_competence";
 export const SEND_COMPETENCE = "send_competence";
+
+export const CHANGE_GITHUB = "change_github";
+export const CHANGE_PROJECT = "change_project";
+export const CLEAR_PROJECT = "clear_project";
+export const SEND_PROJECT = "send_project";
 
 type TChange = {
   targetName: string;
@@ -198,6 +204,26 @@ interface SendCompetenceAction {
   payload: string;
 }
 
+interface ChangeGithubAction {
+  type: typeof CHANGE_GITHUB;
+  payload: TChange;
+}
+
+interface ChangeProjectAction {
+  type: typeof CHANGE_PROJECT;
+  payload: TChange;
+}
+
+interface ClearProjectAction {
+  type: typeof CLEAR_PROJECT;
+  payload: project;
+}
+
+interface SendProjectAction {
+  type: typeof SEND_PROJECT;
+  payload: project;
+}
+
 export type InputFormActions =
   | AddPhotoAction
   | DeletePhotoAction
@@ -228,4 +254,8 @@ export type InputFormActions =
   | SendExperienceAction
   | ChangeCompetenceAction
   | ClearCompetenceAction
-  | SendCompetenceAction;
+  | SendCompetenceAction
+  | ChangeGithubAction
+  | ChangeProjectAction
+  | ClearProjectAction
+  | SendProjectAction;
