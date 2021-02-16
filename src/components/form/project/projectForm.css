@@ -1,6 +1,40 @@
+:root {
+  --font-size: 1vw;
+  --font-color: #071e3d;
+}
+
+.formProject__label {
+  font-size: var(--font-size);
+  color: var(--font-color);
+  font-family: "OpenSans-SemiBold";
+}
+
+.formProject__control {
+  font-size: var(--font-size);
+  color: var(--font-color);
+  font-family: "OpenSans-Regular";
+}
+
 .formProject__group-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
   padding: 0.5vw;
+}
+
+@media (max-width: 414px) {
+  .formProject__label {
+    font-size: 3vw;
+  }
+
+  .formProject__control {
+    font-size: 2.7vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .formProject__label,
+  .formProject__control {
+    font-size: 3vw;
+  }
 }

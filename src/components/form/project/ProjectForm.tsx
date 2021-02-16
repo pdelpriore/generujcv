@@ -10,8 +10,11 @@ const ProjectForm: React.FC = () => {
         <Col xl={3} xs={1} />
         <Col xl={6} xs={10}>
           <Form.Group controlId="formProjectGithubUrl">
-            <Form.Label>{capitalize("repozytorium github")}</Form.Label>
+            <Form.Label className="formProject__label">
+              {capitalize("repozytorium github")}
+            </Form.Label>
             <Form.Control
+              className="formProject__control"
               name="githubUrl"
               type="text"
               placeholder="https://github.com/jankowalski"
@@ -22,16 +25,33 @@ const ProjectForm: React.FC = () => {
       </Row>
       <div className="formProject__group-wrapper">
         <Form.Group controlId="formProjectName">
-          <Form.Label>{capitalize("nazwa projektu")}</Form.Label>
-          <Form.Control name="name" type="text" placeholder="nazwa projektu" />
+          <Form.Label className="formProject__label">
+            {capitalize("nazwa projektu")}
+          </Form.Label>
+          <Form.Control
+            className="formProject__control"
+            name="name"
+            type="text"
+            placeholder="nazwa projektu"
+          />
         </Form.Group>
         <Form.Group controlId="formProjectUrl">
-          <Form.Label>{capitalize("link do projektu")}</Form.Label>
-          <Form.Control name="url" type="text" placeholder="link do projektu" />
+          <Form.Label className="formProject__label">
+            {capitalize("link do projektu")}
+          </Form.Label>
+          <Form.Control
+            className="formProject__control"
+            name="url"
+            type="text"
+            placeholder="link do projektu"
+          />
         </Form.Group>
         <Form.Group controlId="formProjectDescription">
-          <Form.Label>{capitalize("opis projektu")}</Form.Label>
+          <Form.Label className="formProject__label">
+            {capitalize("opis projektu")}
+          </Form.Label>
           <Form.Control
+            className="formProject__control"
             as="textarea"
             rows={4}
             name="description"
