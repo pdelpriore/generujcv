@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { ProjectFormContext } from "../../../context/projectForm/ProjectFormContext";
 import { Row, Col, Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
 import "./projectForm.css";
 
 const ProjectForm: React.FC = () => {
+  const {
+    inputs,
+    inputList,
+    isProjectEditing,
+    onChangeGithub,
+    onChangeProject,
+    addProject,
+    editProject,
+    cancelEditProject,
+    clearForm,
+  } = useContext(ProjectFormContext);
+
   return (
     <Form className="formProject">
       <Row>
