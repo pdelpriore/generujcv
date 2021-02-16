@@ -20,7 +20,7 @@ const ProjectForm: React.FC = () => {
         </Col>
         <Col xl={3} xs={1} />
       </Row>
-      <div className="formProject__wrapper">
+      <div className="formProject__group-wrapper">
         <Form.Group controlId="formProjectName">
           <Form.Label>{capitalize("nazwa projektu")}</Form.Label>
           <Form.Control name="name" type="text" placeholder="nazwa projektu" />

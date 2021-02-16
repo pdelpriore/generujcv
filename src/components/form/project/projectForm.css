@@ -1,4 +1,4 @@
-.formProject__wrapper {
+.formProject__group-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5vw;
