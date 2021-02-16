@@ -62,7 +62,6 @@ type project = {
   name: string;
   url: string;
   description: string;
-  githubUrl: string;
 };
 
 interface Input {
@@ -74,6 +73,7 @@ interface Input {
   diploma: diploma;
   experience: experience;
   competence: string;
+  githubUrl: string;
   project: project;
 }
 

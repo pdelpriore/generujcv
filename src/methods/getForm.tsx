@@ -117,11 +117,11 @@ const GetForm = (index: number): JSX.Element => {
       description: "",
     },
     competence: "",
+    githubUrl: "",
     project: {
       name: "",
       url: "",
       description: "",
-      githubUrl: "",
     },
   });
 
