@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { CompetenceFormContext } from "../../../context/competenceForm/CompetenceFormContext";
 import CompetenceItem from "../../inputList/competenceItem/CompetenceItem";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
@@ -15,7 +15,14 @@ const CompetenceForm: React.FC = () => {
     addCompetence,
     editCompetence,
     cancelEditCompetence,
+    clearForm,
   } = useContext(CompetenceFormContext);
+
+  useEffect(() => {
+    return () => {
+      if (isCompetenceEditing) clearForm();
+    };
+  }, [isCompetenceEditing, clearForm]);
 
   return (
     <>

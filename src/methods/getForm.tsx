@@ -35,18 +35,21 @@ const GetForm = (index: number): JSX.Element => {
     handleEditLanguage,
     handleCancelEditLanguage,
     handleDeleteLanguage,
+    clearLanguageForm,
     handleOnChangeStrength,
     handleAddStrength,
     handleSendStrengthToEdit,
     handleEditStrength,
     handleCancelEditStrength,
     handleDeleteStrength,
+    clearStrengthForm,
     handleOnChangeHobby,
     handleAddHobby,
     handleSendHobbyToEdit,
     handleEditHobby,
     handleCancelEditHobby,
     handleDeleteHobby,
+    clearHobbyForm,
     handleCheckingSchoolField,
     handleOnChangeStartSchool,
     handleOnChangeEndSchool,
@@ -56,6 +59,7 @@ const GetForm = (index: number): JSX.Element => {
     handleEditDiploma,
     handleCancelEditDiploma,
     handleDeleteDiploma,
+    clearDiplomaForm,
     handleCheckingCompanyField,
     handleOnChangeStartCompany,
     handleOnChangeEndCompany,
@@ -65,12 +69,14 @@ const GetForm = (index: number): JSX.Element => {
     handleEditExperience,
     handleCancelEditExperience,
     handleDeleteExperience,
+    clearExperienceForm,
     handleOnChangeCompetence,
     handleAddCompetence,
     handleSendCompetenceToEdit,
     handleEditCompetence,
     handleCancelEditCompetence,
     handleDeleteCompetence,
+    clearCompetenceForm,
   } = useForm({
     photo: "",
     userData: {
@@ -153,6 +159,7 @@ const GetForm = (index: number): JSX.Element => {
         editLanguage: handleEditLanguage,
         cancelEditLanguage: handleCancelEditLanguage,
         deleteLanguage: handleDeleteLanguage,
+        clearForm: clearLanguageForm,
       }}
     >
       <LanguageForm />
@@ -168,6 +175,7 @@ const GetForm = (index: number): JSX.Element => {
         editStrength: handleEditStrength,
         cancelEditStrength: handleCancelEditStrength,
         deleteStrength: handleDeleteStrength,
+        clearForm: clearStrengthForm,
       }}
     >
       <StrengthForm />
@@ -183,6 +191,7 @@ const GetForm = (index: number): JSX.Element => {
         editHobby: handleEditHobby,
         cancelEditHobby: handleCancelEditHobby,
         deleteHobby: handleDeleteHobby,
+        clearForm: clearHobbyForm,
       }}
     >
       <HobbyForm />
@@ -202,6 +211,7 @@ const GetForm = (index: number): JSX.Element => {
         editDiploma: handleEditDiploma,
         cancelEditDiploma: handleCancelEditDiploma,
         deleteDiploma: handleDeleteDiploma,
+        clearForm: clearDiplomaForm,
       }}
     >
       <DiplomaForm />
@@ -221,6 +231,7 @@ const GetForm = (index: number): JSX.Element => {
         editExperience: handleEditExperience,
         cancelEditExperience: handleCancelEditExperience,
         deleteExperience: handleDeleteExperience,
+        clearForm: clearExperienceForm,
       }}
     >
       <ExperienceForm />
@@ -236,6 +247,7 @@ const GetForm = (index: number): JSX.Element => {
         editCompetence: handleEditCompetence,
         cancelEditCompetence: handleCancelEditCompetence,
         deleteCompetence: handleDeleteCompetence,
+        clearForm: clearCompetenceForm,
       }}
     >
       <CompetenceForm />

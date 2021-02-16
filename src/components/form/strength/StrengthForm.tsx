@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { StrengthFormContext } from "../../../context/strengthForm/StrengthFormContext";
 import StrengthItem from "../../inputList/strengthItem/StrengthItem";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
@@ -15,7 +15,14 @@ const StrengthForm: React.FC = () => {
     addStrength,
     editStrength,
     cancelEditStrength,
+    clearForm,
   } = useContext(StrengthFormContext);
+
+  useEffect(() => {
+    return () => {
+      if (isStrengthEditing) clearForm();
+    };
+  }, [isStrengthEditing, clearForm]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/config/Store";
 import { ExperienceFormContext } from "../../../context/experienceForm/ExperienceFormContext";
@@ -23,9 +23,16 @@ const ExperienceForm: React.FC = () => {
     editExperience,
     cancelEditExperience,
     addExperience,
+    clearForm,
   } = useContext(ExperienceFormContext);
 
   const { viewport } = useSelector((state: RootState) => state.viewportState);
+
+  useEffect(() => {
+    return () => {
+      if (isExperienceEditing) clearForm();
+    };
+  }, [isExperienceEditing, clearForm]);
 
   return (
     <>

@@ -7,6 +7,7 @@ type TOnclickWithIndex = (
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   index: number
 ) => void;
+type TClear = () => void;
 
 interface LanguageFormContextInterface {
   inputs: FormInputTypes;
@@ -18,6 +19,7 @@ interface LanguageFormContextInterface {
   editLanguage: TOnclick;
   cancelEditLanguage: TOnclick;
   deleteLanguage: TOnclickWithIndex;
+  clearForm: TClear;
 }
 
 export const LanguageFormContext = createContext(

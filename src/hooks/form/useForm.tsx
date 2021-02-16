@@ -177,6 +177,15 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_LANGUAGE, payload: index });
   };
 
+  const clearLanguageForm = () => {
+    dispatchInput({
+      type: CLEAR_LANGUAGE,
+      payload: { name: "", level: "" },
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handleOnChangeStrength = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     dispatchInput({
@@ -243,6 +252,15 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_STRENGTH, payload: index });
   };
 
+  const clearStrengthForm = () => {
+    dispatchInput({
+      type: CLEAR_STRENGTH,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handleOnChangeHobby = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     dispatchInput({
@@ -307,6 +325,15 @@ const useForm = (initialState: FormInputTypes) => {
   ) => {
     e.preventDefault();
     dispatchInputList({ type: DELETE_HOBBY, payload: index });
+  };
+
+  const clearHobbyForm = () => {
+    dispatchInput({
+      type: CLEAR_HOBBY,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
   };
 
   const handleCheckingSchoolField = (
@@ -433,6 +460,23 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_DIPLOMA, payload: index });
   };
 
+  const clearDiplomaForm = () => {
+    dispatchInput({
+      type: CLEAR_DIPLOMA,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        schoolName: "",
+        faculty: "",
+        degree: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handleCheckingCompanyField = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -557,6 +601,23 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_EXPERIENCE, payload: index });
   };
 
+  const clearExperienceForm = () => {
+    dispatchInput({
+      type: CLEAR_EXPERIENCE,
+      payload: {
+        startPeriod: { month: "", year: 0 },
+        endPeriod: { month: "", year: 0 },
+        workplace: "",
+        company: "",
+        city: "",
+        description: "",
+      },
+    });
+    isFieldChecked && setFieldChecked(false);
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handleOnChangeCompetence = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
     dispatchInput({
@@ -623,6 +684,15 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_COMPETENCE, payload: index });
   };
 
+  const clearCompetenceForm = () => {
+    dispatchInput({
+      type: CLEAR_COMPETENCE,
+      payload: "",
+    });
+    setItemIndex(0);
+    setIsEditing(false);
+  };
+
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {
       setLoader(true);
@@ -662,18 +732,21 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditLanguage,
     handleCancelEditLanguage,
     handleDeleteLanguage,
+    clearLanguageForm,
     handleOnChangeStrength,
     handleAddStrength,
     handleSendStrengthToEdit,
     handleEditStrength,
     handleCancelEditStrength,
     handleDeleteStrength,
+    clearStrengthForm,
     handleOnChangeHobby,
     handleAddHobby,
     handleSendHobbyToEdit,
     handleEditHobby,
     handleCancelEditHobby,
     handleDeleteHobby,
+    clearHobbyForm,
     handleCheckingSchoolField,
     handleOnChangeStartSchool,
     handleOnChangeEndSchool,
@@ -683,6 +756,7 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditDiploma,
     handleCancelEditDiploma,
     handleDeleteDiploma,
+    clearDiplomaForm,
     handleCheckingCompanyField,
     handleOnChangeStartCompany,
     handleOnChangeEndCompany,
@@ -692,12 +766,14 @@ const useForm = (initialState: FormInputTypes) => {
     handleEditExperience,
     handleCancelEditExperience,
     handleDeleteExperience,
+    clearExperienceForm,
     handleOnChangeCompetence,
     handleAddCompetence,
     handleSendCompetenceToEdit,
     handleEditCompetence,
     handleCancelEditCompetence,
     handleDeleteCompetence,
+    clearCompetenceForm,
   };
 };
 

@@ -7,6 +7,7 @@ type TOnclickWithIndex = (
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   index: number
 ) => void;
+type TClear = () => void;
 
 interface StrengthFormContextInterface {
   inputs: FormInputTypes;
@@ -18,6 +19,7 @@ interface StrengthFormContextInterface {
   editStrength: TOnclick;
   cancelEditStrength: TOnclick;
   deleteStrength: TOnclickWithIndex;
+  clearForm: TClear;
 }
 
 export const StrengthFormContext = createContext(

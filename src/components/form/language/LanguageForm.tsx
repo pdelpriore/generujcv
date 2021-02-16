@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { LanguageFormContext } from "../../../context/languageForm/LanguageFormContext";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
 import TButton from "../../button/TButton";
@@ -16,7 +16,14 @@ const LanguageForm: React.FC = () => {
     addLanguage,
     editLanguage,
     cancelEditLanguage,
+    clearForm,
   } = useContext(LanguageFormContext);
+
+  useEffect(() => {
+    return () => {
+      if (isLanguageEditing) clearForm();
+    };
+  }, [isLanguageEditing, clearForm]);
 
   return (
     <>

@@ -7,6 +7,7 @@ type TOnclickWithIndex = (
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   index: number
 ) => void;
+type TClear = () => void;
 
 interface DiplomaFormContextInterface {
   inputs: FormInputTypes;
@@ -22,6 +23,7 @@ interface DiplomaFormContextInterface {
   editDiploma: TOnclick;
   cancelEditDiploma: TOnclick;
   deleteDiploma: TOnclickWithIndex;
+  clearForm: TClear;
 }
 
 export const DiplomaFormContext = createContext(

@@ -7,6 +7,7 @@ type TOnclickWithIndex = (
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   index: number
 ) => void;
+type TClear = () => void;
 
 interface HobbyFormContextInterface {
   inputs: FormInputTypes;
@@ -18,6 +19,7 @@ interface HobbyFormContextInterface {
   editHobby: TOnclick;
   cancelEditHobby: TOnclick;
   deleteHobby: TOnclickWithIndex;
+  clearForm: TClear;
 }
 
 export const HobbyFormContext = createContext({} as HobbyFormContextInterface);

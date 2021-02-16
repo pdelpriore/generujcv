@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { HobbyFormContext } from "../../../context/hobbyForm/HobbyFormContext";
 import HobbyItem from "../../inputList/hobbyItem/HobbyItem";
 import { Col, Row, Form, ListGroup } from "react-bootstrap";
@@ -15,7 +15,14 @@ const HobbyForm: React.FC = () => {
     addHobby,
     editHobby,
     cancelEditHobby,
+    clearForm,
   } = useContext(HobbyFormContext);
+
+  useEffect(() => {
+    return () => {
+      if (isHobbyEditing) clearForm();
+    };
+  }, [isHobbyEditing, clearForm]);
 
   return (
     <>

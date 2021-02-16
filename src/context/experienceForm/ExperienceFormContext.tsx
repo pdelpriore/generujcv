@@ -7,6 +7,7 @@ type TOnclickWithIndex = (
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   index: number
 ) => void;
+type TClear = () => void;
 
 interface ExperienceFormContextInterface {
   inputs: FormInputTypes;
@@ -22,6 +23,7 @@ interface ExperienceFormContextInterface {
   editExperience: TOnclick;
   cancelEditExperience: TOnclick;
   deleteExperience: TOnclickWithIndex;
+  clearForm: TClear;
 }
 
 export const ExperienceFormContext = createContext(

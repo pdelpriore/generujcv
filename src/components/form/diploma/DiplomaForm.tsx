@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/config/Store";
 import { DiplomaFormContext } from "../../../context/diplomaForm/DiplomaFormContext";
@@ -23,9 +23,16 @@ const DiplomaForm: React.FC = () => {
     editDiploma,
     cancelEditDiploma,
     addDiploma,
+    clearForm,
   } = useContext(DiplomaFormContext);
 
   const { viewport } = useSelector((state: RootState) => state.viewportState);
+
+  useEffect(() => {
+    return () => {
+      if (isDiplomaEditing) clearForm();
+    };
+  }, [isDiplomaEditing, clearForm]);
 
   return (
     <>
