@@ -23,7 +23,7 @@ const App: React.FC = () => {
     menuIcon: false,
   });
 
-  let Form = getForm(menuItemIndex);
+  let Form: JSX.Element = getForm(menuItemIndex);
 
   const handleMenuItemClick = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
