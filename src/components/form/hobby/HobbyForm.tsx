@@ -16,13 +16,14 @@ const HobbyForm: React.FC = () => {
     editHobby,
     cancelEditHobby,
     clearForm,
+    formIndex,
   } = useContext(HobbyFormContext);
 
   useEffect(() => {
     return () => {
       if (isHobbyEditing) clearForm();
     };
-  }, [isHobbyEditing, clearForm]);
+  }, [isHobbyEditing, formIndex, clearForm]);
 
   return (
     <>

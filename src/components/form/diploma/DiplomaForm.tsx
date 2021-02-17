@@ -24,6 +24,7 @@ const DiplomaForm: React.FC = () => {
     cancelEditDiploma,
     addDiploma,
     clearForm,
+    formIndex,
   } = useContext(DiplomaFormContext);
 
   const { viewport } = useSelector((state: RootState) => state.viewportState);
@@ -32,7 +33,7 @@ const DiplomaForm: React.FC = () => {
     return () => {
       if (isDiplomaEditing) clearForm();
     };
-  }, [isDiplomaEditing, clearForm]);
+  }, [isDiplomaEditing, formIndex, clearForm]);
 
   return (
     <>

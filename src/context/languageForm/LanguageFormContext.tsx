@@ -20,6 +20,7 @@ interface LanguageFormContextInterface {
   cancelEditLanguage: TOnclick;
   deleteLanguage: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const LanguageFormContext = createContext(

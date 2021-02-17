@@ -16,13 +16,14 @@ const CompetenceForm: React.FC = () => {
     editCompetence,
     cancelEditCompetence,
     clearForm,
+    formIndex,
   } = useContext(CompetenceFormContext);
 
   useEffect(() => {
     return () => {
       if (isCompetenceEditing) clearForm();
     };
-  }, [isCompetenceEditing, clearForm]);
+  }, [isCompetenceEditing, formIndex, clearForm]);
 
   return (
     <>

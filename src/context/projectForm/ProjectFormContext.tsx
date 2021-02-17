@@ -21,6 +21,7 @@ interface ProjectFormContextInterface {
   cancelEditProject: TOnclick;
   deleteProject: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const ProjectFormContext = createContext(

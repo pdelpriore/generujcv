@@ -16,13 +16,14 @@ const StrengthForm: React.FC = () => {
     editStrength,
     cancelEditStrength,
     clearForm,
+    formIndex,
   } = useContext(StrengthFormContext);
 
   useEffect(() => {
     return () => {
       if (isStrengthEditing) clearForm();
     };
-  }, [isStrengthEditing, clearForm]);
+  }, [isStrengthEditing, formIndex, clearForm]);
 
   return (
     <>

@@ -24,6 +24,7 @@ interface ExperienceFormContextInterface {
   cancelEditExperience: TOnclick;
   deleteExperience: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const ExperienceFormContext = createContext(

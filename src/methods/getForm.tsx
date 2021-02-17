@@ -176,6 +176,7 @@ const GetForm = (
         cancelEditLanguage: handleCancelEditLanguage,
         deleteLanguage: handleDeleteLanguage,
         clearForm: clearLanguageForm,
+        formIndex: index,
       }}
     >
       <LanguageForm />
@@ -192,6 +193,7 @@ const GetForm = (
         cancelEditStrength: handleCancelEditStrength,
         deleteStrength: handleDeleteStrength,
         clearForm: clearStrengthForm,
+        formIndex: index,
       }}
     >
       <StrengthForm />
@@ -208,6 +210,7 @@ const GetForm = (
         cancelEditHobby: handleCancelEditHobby,
         deleteHobby: handleDeleteHobby,
         clearForm: clearHobbyForm,
+        formIndex: index,
       }}
     >
       <HobbyForm />
@@ -228,6 +231,7 @@ const GetForm = (
         cancelEditDiploma: handleCancelEditDiploma,
         deleteDiploma: handleDeleteDiploma,
         clearForm: clearDiplomaForm,
+        formIndex: index,
       }}
     >
       <DiplomaForm />
@@ -248,6 +252,7 @@ const GetForm = (
         cancelEditExperience: handleCancelEditExperience,
         deleteExperience: handleDeleteExperience,
         clearForm: clearExperienceForm,
+        formIndex: index,
       }}
     >
       <ExperienceForm />
@@ -264,6 +269,7 @@ const GetForm = (
         cancelEditCompetence: handleCancelEditCompetence,
         deleteCompetence: handleDeleteCompetence,
         clearForm: clearCompetenceForm,
+        formIndex: index,
       }}
     >
       <CompetenceForm />
@@ -281,6 +287,7 @@ const GetForm = (
         cancelEditProject: handleCancelEditProject,
         deleteProject: handleDeleteProject,
         clearForm: clearProjectForm,
+        formIndex: index,
       }}
     >
       <ProjectForm />

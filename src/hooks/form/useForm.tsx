@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useCallback } from "react";
 import { makeImageBinary } from "../../methods/makeImageBinary";
 import useLoader from "../loading/useLoader";
 import inputListReducer from "../../reducer/formInputList/inputListReducer";
@@ -184,14 +184,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_LANGUAGE, payload: index });
   };
 
-  const clearLanguageForm = () => {
+  const clearLanguageForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_LANGUAGE,
       payload: { name: "", level: "" },
     });
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleOnChangeStrength = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -259,14 +259,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_STRENGTH, payload: index });
   };
 
-  const clearStrengthForm = () => {
+  const clearStrengthForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_STRENGTH,
       payload: "",
     });
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleOnChangeHobby = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -334,14 +334,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_HOBBY, payload: index });
   };
 
-  const clearHobbyForm = () => {
+  const clearHobbyForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_HOBBY,
       payload: "",
     });
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleCheckingSchoolField = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -467,7 +467,7 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_DIPLOMA, payload: index });
   };
 
-  const clearDiplomaForm = () => {
+  const clearDiplomaForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_DIPLOMA,
       payload: {
@@ -479,10 +479,10 @@ const useForm = (initialState: FormInputTypes) => {
         description: "",
       },
     });
-    isFieldChecked && setFieldChecked(false);
+    setFieldChecked(false);
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleCheckingCompanyField = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -608,7 +608,7 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_EXPERIENCE, payload: index });
   };
 
-  const clearExperienceForm = () => {
+  const clearExperienceForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_EXPERIENCE,
       payload: {
@@ -620,10 +620,10 @@ const useForm = (initialState: FormInputTypes) => {
         description: "",
       },
     });
-    isFieldChecked && setFieldChecked(false);
+    setFieldChecked(false);
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleOnChangeCompetence = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -691,14 +691,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_COMPETENCE, payload: index });
   };
 
-  const clearCompetenceForm = () => {
+  const clearCompetenceForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_COMPETENCE,
       payload: "",
     });
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handleOnChangeGithub = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -777,14 +777,14 @@ const useForm = (initialState: FormInputTypes) => {
     dispatchInputList({ type: DELETE_PROJECT, payload: index });
   };
 
-  const clearProjectForm = () => {
+  const clearProjectForm = useCallback(() => {
     dispatchInput({
       type: CLEAR_PROJECT,
       payload: { name: "", url: "", description: "" },
     });
     setItemIndex(0);
     setIsEditing(false);
-  };
+  }, []);
 
   const handlePicture = async (picture: File[]) => {
     if (picture.length > 0) {

@@ -20,6 +20,7 @@ interface CompetenceFormContextInterface {
   cancelEditCompetence: TOnclick;
   deleteCompetence: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const CompetenceFormContext = createContext(

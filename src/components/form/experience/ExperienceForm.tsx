@@ -24,6 +24,7 @@ const ExperienceForm: React.FC = () => {
     cancelEditExperience,
     addExperience,
     clearForm,
+    formIndex,
   } = useContext(ExperienceFormContext);
 
   const { viewport } = useSelector((state: RootState) => state.viewportState);
@@ -32,7 +33,7 @@ const ExperienceForm: React.FC = () => {
     return () => {
       if (isExperienceEditing) clearForm();
     };
-  }, [isExperienceEditing, clearForm]);
+  }, [isExperienceEditing, formIndex, clearForm]);
 
   return (
     <>

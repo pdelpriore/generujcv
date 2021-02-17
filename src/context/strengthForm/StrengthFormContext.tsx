@@ -20,6 +20,7 @@ interface StrengthFormContextInterface {
   cancelEditStrength: TOnclick;
   deleteStrength: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const StrengthFormContext = createContext(

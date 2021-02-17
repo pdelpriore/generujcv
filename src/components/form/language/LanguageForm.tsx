@@ -17,13 +17,14 @@ const LanguageForm: React.FC = () => {
     editLanguage,
     cancelEditLanguage,
     clearForm,
+    formIndex,
   } = useContext(LanguageFormContext);
 
   useEffect(() => {
     return () => {
       if (isLanguageEditing) clearForm();
     };
-  }, [isLanguageEditing, clearForm]);
+  }, [isLanguageEditing, formIndex, clearForm]);
 
   return (
     <>

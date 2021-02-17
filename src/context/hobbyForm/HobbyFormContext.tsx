@@ -20,6 +20,7 @@ interface HobbyFormContextInterface {
   cancelEditHobby: TOnclick;
   deleteHobby: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const HobbyFormContext = createContext({} as HobbyFormContextInterface);

@@ -24,6 +24,7 @@ interface DiplomaFormContextInterface {
   cancelEditDiploma: TOnclick;
   deleteDiploma: TOnclickWithIndex;
   clearForm: TClear;
+  formIndex: number;
 }
 
 export const DiplomaFormContext = createContext(

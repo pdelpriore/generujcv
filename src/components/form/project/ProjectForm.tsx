@@ -17,13 +17,14 @@ const ProjectForm: React.FC = () => {
     editProject,
     cancelEditProject,
     clearForm,
+    formIndex,
   } = useContext(ProjectFormContext);
 
   useEffect(() => {
     return () => {
       if (isProjectEditing) clearForm();
     };
-  }, [isProjectEditing, clearForm]);
+  }, [isProjectEditing, formIndex, clearForm]);
 
   return (
     <>
