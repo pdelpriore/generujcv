@@ -22,19 +22,33 @@
   padding: 0.5vw;
 }
 
+.formProject__btn-wrapper {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.formProject__btn {
+  margin-left: 1%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
 @media (max-width: 414px) {
   .formProject__label {
     font-size: 3vw;
   }
 
-  .formProject__control {
+  .formProject__control,
+  .formProject__btn {
     font-size: 2.7vw;
   }
 }
 
 @media (min-width: 415px) and (max-width: 1024px) {
   .formProject__label,
-  .formProject__control {
+  .formProject__control,
+  .formProject__btn {
     font-size: 3vw;
   }
 }
