@@ -1,0 +1,64 @@
+.projectItem {
+  border-radius: 0.4vw;
+}
+
+.projectItem-item {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.projectItem-item__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.projectItem-item__content {
+  flex: 1;
+  margin-left: 1%;
+  font-size: 1.1vw;
+  font-family: "Nunito-Regular";
+  color: #071e3d;
+}
+
+.projectItem-item__btn {
+  font-size: 0.9vw;
+  font-family: "OpenSans-Regular";
+  margin-left: 2%;
+}
+
+@media (max-width: 414px) {
+  .projectItem {
+    border-radius: 1vw;
+  }
+
+  .projectItem-item {
+    padding: 1vw;
+  }
+
+  .projectItem-item__content {
+    font-size: 3vw;
+  }
+
+  .projectItem-item__btn {
+    font-size: 2.3vw;
+    margin-left: 1%;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 1024px) {
+  .projectItem {
+    border-radius: 0.8vw;
+  }
+
+  .projectItem-item {
+    padding: 1.5vw;
+  }
+
+  .projectItem-item__content {
+    font-size: 3vw;
+  }
+
+  .projectItem-item__btn {
+    font-size: 2.3vw;
+  }
+}

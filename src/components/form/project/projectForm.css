@@ -1,16 +1,16 @@
 :root {
-  --font-size: 1vw;
+  --size: 1vw;
   --font-color: #071e3d;
 }
 
 .formProject__label {
-  font-size: var(--font-size);
+  font-size: var(--size);
   color: var(--font-color);
   font-family: "OpenSans-SemiBold";
 }
 
 .formProject__control {
-  font-size: var(--font-size);
+  font-size: var(--size);
   color: var(--font-color);
   font-family: "OpenSans-Regular";
 }
@@ -30,8 +30,12 @@
 
 .formProject__btn {
   margin-left: 1%;
-  font-size: var(--font-size);
+  font-size: var(--size);
   font-family: var(--font-family);
+}
+
+.formProject__inputList {
+  padding: var(--size);
 }
 
 @media (max-width: 414px) {
