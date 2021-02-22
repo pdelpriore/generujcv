@@ -20,11 +20,7 @@ import { ProjectFormContext } from "../context/projectForm/ProjectFormContext";
 
 const GetForm = (
   index: number
-): {
-  form: JSX.Element;
-  inputs: FormInputTypes;
-  inputList: FormInputListType;
-} => {
+): [JSX.Element, FormInputTypes, FormInputListType] => {
   const {
     inputs,
     inputList,
@@ -294,7 +290,7 @@ const GetForm = (
     </ProjectFormContext.Provider>,
   ];
 
-  return { form: formArray[index], inputs: inputs, inputList: inputList };
+  return [formArray[index], inputs, inputList];
 };
 
 export default GetForm;
