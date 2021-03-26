@@ -47,6 +47,10 @@ const App: React.FC = () => {
     setVisibility("menuComponent", !isVisible.menuComponent);
   };
 
+  const handleOpenPreview = () => setVisibility("preview", true);
+
+  const handleClosePreview = () => setVisibility("preview", !isVisible.preview);
+
   useEffect(() => {
     dispatch(setViewport(window.innerWidth));
   }, [dispatch]);
@@ -150,7 +154,7 @@ const App: React.FC = () => {
             }
             type="preview"
             content="podgląd"
-            onClick={() => setVisibility("preview", true)}
+            onClick={handleOpenPreview}
           />
         </Col>
         <Col xl={1} xs={4} />
@@ -160,7 +164,7 @@ const App: React.FC = () => {
     <Preview
       inputs={inputs}
       inputList={inputList}
-      closePreview={() => setVisibility("preview", !isVisible.preview)}
+      closePreview={handleClosePreview}
     />
   );
 };
