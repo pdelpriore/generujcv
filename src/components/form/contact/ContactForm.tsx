@@ -122,6 +122,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           value={inputs.userData.contact.tel || ""}
           name="tel"
           type="text"
+          maxLength={9}
           placeholder="602001002"
         />
       </Form.Group>

@@ -23,6 +23,7 @@ type buttonType = {
 
 const buttonTypes: buttonType = {
   add: "info",
+  preview: "dark",
   cancel: "light",
   edit: "success",
   delete: "danger",

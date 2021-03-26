@@ -86,7 +86,10 @@ const inputReducer = (
           ...inputs.userData,
           contact: {
             ...inputs.userData.contact,
-            [action.payload.targetName]: action.payload.targetValue,
+            [action.payload.targetName]:
+              action.payload.targetName === "tel"
+                ? action.payload.targetValue.replace(/[^\d]/g, "")
+                : action.payload.targetValue,
           },
         },
       };

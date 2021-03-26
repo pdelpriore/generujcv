@@ -103,7 +103,7 @@ const GetForm = (
       },
       contact: {
         email: "",
-        tel: 0,
+        tel: "",
         linkedinUrl: "",
       },
       birthday: { day: "", month: "", year: 0 },

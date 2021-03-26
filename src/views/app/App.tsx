@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/config/Store";
 import { Row, Col } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
+import TButton from "../../components/button/TButton";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
 import getForm from "../../methods/getForm";
@@ -118,6 +119,30 @@ const App: React.FC = () => {
           </div>
         </Col>
         <Col xs={1} />
+      </Row>
+      <Row className="mt-3" />
+      <Row>
+        <Col xl={8} xs={4} />
+        <Col xl={3} xs={4}>
+          <TButton
+            disabled={
+              inputs.userData.name.length === 0 ||
+              inputs.userData.surname.length === 0 ||
+              Object.values(inputs.userData.birthday).includes("") ||
+              inputs.userData.citizenship.length === 0 ||
+              inputs.userData.address.street.length === 0 ||
+              inputs.userData.address.streetNumber.length === 0 ||
+              inputs.userData.address.postCode.length === 0 ||
+              inputs.userData.address.city.length === 0 ||
+              inputs.userData.contact.email.length === 0 ||
+              inputs.userData.contact.tel.length === 0
+            }
+            type="preview"
+            content="podgląd"
+            onClick={() => console.log("clicked")}
+          />
+        </Col>
+        <Col xl={1} xs={4} />
       </Row>
     </div>
   );

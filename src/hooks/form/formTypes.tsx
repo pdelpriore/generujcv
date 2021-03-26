@@ -8,7 +8,7 @@ type address = {
 
 type contact = {
   email: string;
-  tel: number;
+  tel: string;
   linkedinUrl: string;
 };
 
