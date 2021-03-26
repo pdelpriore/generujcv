@@ -120,10 +120,10 @@ const App: React.FC = () => {
         </Col>
         <Col xs={1} />
       </Row>
-      <Row className="mt-3" />
+      <Row className={`${viewport < 768 ? "mt-2" : "mt-4"}`} />
       <Row>
         <Col xl={8} xs={4} />
-        <Col xl={3} xs={4}>
+        <Col xl={3} xs={4} className="justify-center">
           <TButton
             disabled={
               inputs.userData.name.length === 0 ||
