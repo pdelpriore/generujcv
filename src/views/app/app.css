@@ -49,6 +49,11 @@
   text-align: center;
 }
 
+.preview-btn {
+  font-size: var(--size);
+  font-family: "OpenSans-Regular";
+}
+
 @media (max-width: 1024px) {
   .logo-content {
     font-size: 4vw;
@@ -87,6 +92,10 @@
 
   .main__content {
     flex: 1;
+  }
+
+  .preview-btn {
+    font-size: 3vw;
   }
 }
 

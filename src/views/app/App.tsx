@@ -78,7 +78,7 @@ const App: React.FC = () => {
         </Col>
       </Row>
       <Row
-        className={`${viewport > 319 && viewport <= 374 ? "mt-3" : "mt-5"}`}
+        className={`${viewport > 319 && viewport <= 414 ? "mt-3" : "mt-5"}`}
       />
       <Row>
         <Col xs={1} />
@@ -120,11 +120,20 @@ const App: React.FC = () => {
         </Col>
         <Col xs={1} />
       </Row>
-      <Row className={`${viewport < 768 ? "mt-2" : "mt-4"}`} />
+      <Row
+        className={`${
+          viewport <= 320
+            ? "mt-2"
+            : viewport > 320 && viewport < 768
+            ? "mt-3"
+            : "mt-4"
+        }`}
+      />
       <Row>
         <Col xl={8} xs={4} />
         <Col xl={3} xs={4} className="justify-center">
           <TButton
+            className="preview-btn"
             disabled={
               inputs.userData.name.length === 0 ||
               inputs.userData.surname.length === 0 ||
