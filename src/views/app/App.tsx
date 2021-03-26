@@ -6,6 +6,7 @@ import { RootState } from "../../redux/config/Store";
 import { Row, Col } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
 import TButton from "../../components/button/TButton";
+import Preview from "../preview/Preview";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
 import getForm from "../../methods/getForm";
@@ -22,6 +23,7 @@ const App: React.FC = () => {
   const [isVisible, setVisibility] = useVisibility({
     menuComponent: false,
     menuIcon: false,
+    preview: false,
   });
 
   const [form, inputs, inputList] = getForm(menuItemIndex);
@@ -66,7 +68,7 @@ const App: React.FC = () => {
   console.log(inputs);
   console.log(inputList);
 
-  return (
+  return !isVisible.preview ? (
     <div className="container">
       <Row className="mt-4" />
       <Row>
@@ -148,12 +150,18 @@ const App: React.FC = () => {
             }
             type="preview"
             content="podgląd"
-            onClick={() => console.log("clicked")}
+            onClick={() => setVisibility("preview", true)}
           />
         </Col>
         <Col xl={1} xs={4} />
       </Row>
     </div>
+  ) : (
+    <Preview
+      inputs={inputs}
+      inputList={inputList}
+      closePreview={() => setVisibility("preview", !isVisible.preview)}
+    />
   );
 };
 
