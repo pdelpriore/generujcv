@@ -128,7 +128,7 @@ const App: React.FC = () => {
             disabled={
               inputs.userData.name.length === 0 ||
               inputs.userData.surname.length === 0 ||
-              Object.values(inputs.userData.birthday).includes("") ||
+              Object.values(inputs.userData.birthday).includes("" || 0) ||
               inputs.userData.citizenship.length === 0 ||
               inputs.userData.address.street.length === 0 ||
               inputs.userData.address.streetNumber.length === 0 ||
