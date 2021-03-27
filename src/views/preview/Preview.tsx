@@ -11,7 +11,7 @@ interface PreviewProps {
   inputs: FormInputTypes;
   inputList: FormInputListType;
   isPageLoading: boolean;
-  setLoader: TSetLoader;
+  setPageLoader: TSetLoader;
   closePreview: TOnclick;
 }
 
@@ -19,13 +19,13 @@ const Preview: React.FC<PreviewProps> = ({
   inputs,
   inputList,
   isPageLoading,
-  setLoader,
+  setPageLoader,
   closePreview,
 }) => {
   useEffect(() => {
-    setLoader(false);
-    return () => setLoader(true);
-  }, [setLoader]);
+    setPageLoader(false);
+    return () => setPageLoader(true);
+  }, [setPageLoader]);
 
   return isPageLoading ? (
     <div className="loadingContainer">

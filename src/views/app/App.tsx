@@ -167,7 +167,7 @@ const App: React.FC = () => {
       inputs={inputs}
       inputList={inputList}
       isPageLoading={isLoading}
-      setLoader={setLoader}
+      setPageLoader={setLoader}
       closePreview={handleClosePreview}
     />
   );
