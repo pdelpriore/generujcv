@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Row, Col, Spinner, Image } from "react-bootstrap";
 import TButton from "../../components/button/TButton";
 import "./preview.css";
 
@@ -34,7 +34,22 @@ const Preview: React.FC<PreviewProps> = ({
   ) : (
     <div className="previewContainer">
       <div className="previewSections">
-        <section className="userData"></section>
+        <section className="user">
+          {inputs.photo && (
+            <div className="user__photo">
+              <Image
+                className="user__photo-img"
+                src={inputs.photo || ""}
+                roundedCircle
+              />
+            </div>
+          )}
+          <div
+            className={`${
+              inputs.photo ? "user__data" : "user__data user__data--noPhoto"
+            }`}
+          ></div>
+        </section>
         <section className="diploma"></section>
         <section className="competence"></section>
         <section className="experience"></section>
@@ -42,6 +57,7 @@ const Preview: React.FC<PreviewProps> = ({
         <section className="language"></section>
       </div>
       <div className="previewButtons">
+        <Row className="mt-3" />
         <Row>
           <Col xs={4} />
           <Col xs={4} className="justify-right">

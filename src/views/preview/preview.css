@@ -1,9 +1,15 @@
+:root {
+  --width: 100vw;
+  --height: 100vh;
+  --size: 1vw;
+}
+
 .previewContainer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: var(--width);
+  height: var(--height);
   overflow: hidden;
 }
 
@@ -11,8 +17,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: var(--width);
+  height: var(--height);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -21,4 +27,34 @@
 
 .justify-right {
   text-align: right;
+}
+
+.user {
+  display: flex;
+  width: var(--width);
+  height: calc(var(--height) / 4);
+  background: linear-gradient(to bottom, #052531, #094457);
+}
+
+.user__photo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: var(--size);
+}
+
+.user__photo-img {
+  width: 10vw;
+  height: 10vw;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.user__data {
+  flex: 2;
+}
+
+.user__data--noPhoto {
+  flex: 1;
 }
