@@ -71,6 +71,7 @@
   height: 1.7vw;
   border-radius: 50%;
   background-color: #0986a7;
+  border: 1px solid black;
 }
 
 .user__photo-grayCircle {
@@ -81,6 +82,7 @@
   height: 1.5vw;
   border-radius: 50%;
   background-color: #99b3bb;
+  border: 1px solid black;
 }
 
 .user__data {
