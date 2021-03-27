@@ -13,17 +13,6 @@ code {
 }
 
 @font-face {
-  font-family: "Lato-Regular";
-  src: local("Lato-Regular"),
-    url("./fonts/lato/Lato-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Lato-Bold";
-  src: local("Lato-Bold"), url("./fonts/lato/Lato-Bold.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Nunito-Regular";
   src: local("Nunito-Regular"),
     url("./fonts/nunito/Nunito-Regular.ttf") format("truetype");
@@ -57,4 +46,22 @@ code {
   font-family: "OpenSans-SemiBold";
   src: local("OpenSans-SemiBold"),
     url("./fonts/openSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: local("Roboto-Regular"),
+    url("./fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: local("Roboto-Light"),
+    url("./fonts/roboto/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: local("Roboto-Thin"),
+    url("./fonts/roboto/Roboto-Thin.ttf") format("truetype");
 }

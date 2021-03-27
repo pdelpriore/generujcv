@@ -2,6 +2,7 @@
   --width: 100vw;
   --height: 100vh;
   --size: 1vw;
+  --font-family: "Roboto-Regular";
 }
 
 .previewContainer {
@@ -87,6 +88,20 @@
 
 .user__data {
   flex: 2;
+}
+
+.user__data-info {
+  font-family: "Roboto-Light";
+  font-size: var(--size);
+}
+
+.user__data-info--name {
+  font-size: 2vw;
+  color: #53717c;
+}
+
+.user__data-info--surname {
+  color: #b3c3c6;
 }
 
 .user__data--noPhoto {

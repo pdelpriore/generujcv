@@ -50,7 +50,17 @@ const Preview: React.FC<PreviewProps> = ({
             className={`${
               inputs.photo ? "user__data" : "user__data user__data--noPhoto"
             }`}
-          ></div>
+          >
+            <span className="user__data-info user__data-info--name">
+              {`${inputs.userData.name} `}
+            </span>
+            <span className="user__data-info user__data-info--name user__data-info--surname">
+              {inputs.userData.surname}
+            </span>
+            <span className="user__data-info"></span>
+            <span className="user__data-info"></span>
+            <span className="user__data-info"></span>
+          </div>
         </section>
         <section className="diploma"></section>
         <section className="competence"></section>
