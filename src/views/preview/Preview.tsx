@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import TButton from "../../components/button/TButton";
 import "./preview.css";
 
@@ -22,9 +22,16 @@ const Preview: React.FC<PreviewProps> = ({
   setLoader,
   closePreview,
 }) => {
-  useEffect(() => setLoader(false), [setLoader]);
+  useEffect(() => {
+    setLoader(false);
+    return () => setLoader(true);
+  }, [setLoader]);
 
-  return (
+  return isPageLoading ? (
+    <div className="loadingContainer">
+      <Spinner animation="border" role="status" />
+    </div>
+  ) : (
     <div className="previewContainer">
       <Row>
         <Col xs={4} />
