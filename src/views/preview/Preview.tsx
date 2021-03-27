@@ -42,6 +42,8 @@ const Preview: React.FC<PreviewProps> = ({
                 src={inputs.photo || ""}
                 roundedCircle
               />
+              <div className="user__photo-blueCircle"></div>
+              <div className="user__photo-grayCircle"></div>
             </div>
           )}
           <div
@@ -57,7 +59,6 @@ const Preview: React.FC<PreviewProps> = ({
         <section className="language"></section>
       </div>
       <div className="previewButtons">
-        <Row className="mt-3" />
         <Row>
           <Col xs={4} />
           <Col xs={4} className="justify-right">

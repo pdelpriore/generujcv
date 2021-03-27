@@ -25,6 +25,17 @@
   align-items: center;
 }
 
+.previewSections {
+  width: var(--width);
+  height: calc(var(--height) - 10vh);
+}
+
+.previewButtons {
+  width: var(--width);
+  height: calc(var(--height) - 90vh);
+  padding: 1.5vw;
+}
+
 .justify-right {
   text-align: right;
 }
@@ -32,13 +43,14 @@
 .user {
   display: flex;
   width: var(--width);
-  height: calc(var(--height) / 4);
+  height: calc((var(--height) - 10vh) / 4);
   background: linear-gradient(to bottom, #052531, #094457);
 }
 
 .user__photo {
   display: flex;
   flex: 1;
+  position: relative;
   justify-content: center;
   align-items: center;
   padding: var(--size);
@@ -49,6 +61,26 @@
   height: 10vw;
   object-fit: cover;
   border: 1px solid black;
+}
+
+.user__photo-blueCircle {
+  position: absolute;
+  bottom: 9%;
+  left: 38%;
+  width: 1.7vw;
+  height: 1.7vw;
+  border-radius: 50%;
+  background-color: #0986a7;
+}
+
+.user__photo-grayCircle {
+  position: absolute;
+  bottom: 2%;
+  right: 44%;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 50%;
+  background-color: #99b3bb;
 }
 
 .user__data {
