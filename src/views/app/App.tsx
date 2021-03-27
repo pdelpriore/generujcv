@@ -11,6 +11,7 @@ import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
 import getForm from "../../methods/getForm";
 import useVisibility from "../../hooks/visibility/useVisibility";
+import useLoader from "../../hooks/loading/useLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./app.css";
@@ -25,6 +26,7 @@ const App: React.FC = () => {
     menuIcon: false,
     preview: false,
   });
+  const [isLoading, setLoader] = useLoader(true);
 
   const [form, inputs, inputList] = getForm(menuItemIndex);
 
@@ -164,6 +166,8 @@ const App: React.FC = () => {
     <Preview
       inputs={inputs}
       inputList={inputList}
+      isPageLoading={isLoading}
+      setLoader={setLoader}
       closePreview={handleClosePreview}
     />
   );
