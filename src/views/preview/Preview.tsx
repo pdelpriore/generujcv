@@ -61,6 +61,7 @@ const Preview: React.FC<PreviewProps> = ({
             <span className="user__data-info"></span>
             <span className="user__data-info"></span>
           </div>
+          <div className="user__contact"></div>
         </section>
         <section className="diploma"></section>
         <section className="competence"></section>
