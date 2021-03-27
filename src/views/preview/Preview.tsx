@@ -33,13 +33,23 @@ const Preview: React.FC<PreviewProps> = ({
     </div>
   ) : (
     <div className="previewContainer">
-      <Row>
-        <Col xs={4} />
-        <Col xs={4}>
-          <TButton type="cancel" content="zamknij" onClick={closePreview} />
-        </Col>
-        <Col xs={4} />
-      </Row>
+      <div className="previewSections">
+        <section className="userData"></section>
+        <section className="diploma"></section>
+        <section className="competence"></section>
+        <section className="experience"></section>
+        <section className="hobby"></section>
+        <section className="language"></section>
+      </div>
+      <div className="previewButtons">
+        <Row>
+          <Col xs={4} />
+          <Col xs={4} className="justify-right">
+            <TButton type="cancel" content="zamknij" onClick={closePreview} />
+          </Col>
+          <Col xs={4} />
+        </Row>
+      </div>
     </div>
   );
 };

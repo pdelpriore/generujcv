@@ -142,18 +142,18 @@ const App: React.FC = () => {
         <Col xl={3} xs={4} className="justify-center">
           <TButton
             className="preview-btn"
-            disabled={
-              inputs.userData.name.length === 0 ||
-              inputs.userData.surname.length === 0 ||
-              Object.values(inputs.userData.birthday).includes("" || 0) ||
-              inputs.userData.citizenship.length === 0 ||
-              inputs.userData.address.street.length === 0 ||
-              inputs.userData.address.streetNumber.length === 0 ||
-              inputs.userData.address.postCode.length === 0 ||
-              inputs.userData.address.city.length === 0 ||
-              inputs.userData.contact.email.length === 0 ||
-              inputs.userData.contact.tel.length === 0
-            }
+            // disabled={
+            //   inputs.userData.name.length === 0 ||
+            //   inputs.userData.surname.length === 0 ||
+            //   Object.values(inputs.userData.birthday).includes("" || 0) ||
+            //   inputs.userData.citizenship.length === 0 ||
+            //   inputs.userData.address.street.length === 0 ||
+            //   inputs.userData.address.streetNumber.length === 0 ||
+            //   inputs.userData.address.postCode.length === 0 ||
+            //   inputs.userData.address.city.length === 0 ||
+            //   inputs.userData.contact.email.length === 0 ||
+            //   inputs.userData.contact.tel.length === 0
+            // }
             type="preview"
             content="podgląd"
             onClick={handleOpenPreview}
