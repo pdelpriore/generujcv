@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
 import { Row, Col, Spinner, Image } from "react-bootstrap";
 import TButton from "../../components/button/TButton";
+import ContactItem from "../../components/preview/contactItem/ContactItem";
+import { contactIcons } from "../../shared/menuElements";
 import "./preview.css";
 
 type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -44,6 +46,23 @@ const Preview: React.FC<PreviewProps> = ({
           </div>
           <div className="firstColumn__item">
             <span className="firstColumn__item-span">KONTAKT</span>
+            <>
+              {contactIcons.map((icon, index) => {
+                const contacts: string[] = [
+                  inputs.userData.contact.tel,
+                  inputs.userData.contact.email,
+                  `${inputs.userData.address.street} ${inputs.userData.address.streetNumber} / ${inputs.userData.address.flatNumber}, ${inputs.userData.address.postCode} ${inputs.userData.address.city}`,
+                  inputs.userData.contact.linkedinUrl,
+                ];
+                return (
+                  <ContactItem
+                    key={index}
+                    icon={icon}
+                    content={contacts[index]}
+                  />
+                );
+              })}
+            </>
           </div>
           <div className="firstColumn__item"></div>
           <div className="firstColumn__item"></div>

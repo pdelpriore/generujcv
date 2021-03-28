@@ -52,14 +52,14 @@
 }
 
 .secondColumn {
-  flex: 2;
+  flex: 3;
   background-color: var(--primary-color);
 }
 
 .firstColumn__item {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: baseline;
+  flex-direction: column;
   flex: 1;
   padding: var(--size);
 }
@@ -69,6 +69,7 @@
   height: 10vw;
   object-fit: cover;
   border: 2px solid var(--primary-color);
+  align-self: center;
 }
 
 .firstColumn__item-span {
@@ -77,4 +78,6 @@
   border-top: 2px solid var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   color: var(--primary-color);
+  align-self: stretch;
+  text-align: center;
 }

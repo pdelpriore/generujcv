@@ -10,7 +10,11 @@ import {
   faFileWord,
   faWindowMaximize,
   faAddressCard,
+  faPhoneAlt,
+  faEnvelope,
+  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 interface MenuElements {
   icon: IconDefinition;
@@ -55,3 +59,10 @@ export const languageLevelValue: LanguageLevelValue = languagelevels.reduce(
   (accumulator, current, index) => ({ ...accumulator, [current]: index + 1 }),
   {}
 );
+
+export const contactIcons: IconDefinition[] = [
+  faPhoneAlt,
+  faEnvelope,
+  faMapMarkerAlt,
+  faLinkedin,
+];

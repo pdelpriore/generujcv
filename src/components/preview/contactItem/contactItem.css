@@ -1,0 +1,29 @@
+:root {
+  --element-color: #f3f3f3;
+  --size: 1vw;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.5vw;
+}
+
+.contact__icon {
+  width: 1.5vw;
+  flex: 1;
+}
+
+.contact__icon-ico {
+  font-size: var(--size);
+  color: var(--element-color);
+}
+
+.contact__content {
+  flex: 1;
+  font-size: var(--size);
+  color: var(--element-color);
+  font-family: "Roboto-Light";
+  white-space: nowrap;
+}
