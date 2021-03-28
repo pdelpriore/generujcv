@@ -38,13 +38,15 @@ const Preview: React.FC<PreviewProps> = ({
     <div className="previewContainer">
       <div className="previewSections">
         <div className="firstColumn">
-          <div className="firstColumn__item">
-            <Image
-              className="firstColumn__item-photo"
-              src={inputs.photo}
-              roundedCircle
-            />
-          </div>
+          {inputs.photo.length > 0 && (
+            <div className="firstColumn__item">
+              <Image
+                className="firstColumn__item-photo"
+                src={inputs.photo}
+                roundedCircle
+              />
+            </div>
+          )}
           <div className="firstColumn__item">
             <span className="firstColumn__item-span">KONTAKT</span>
             <>
