@@ -2,8 +2,8 @@
   --width: 100vw;
   --height: 100vh;
   --size: 1vw;
-  --font-family: "Roboto-Regular";
-  --border-color: #1c4c59;
+  --roboto-light: "Roboto-Light";
+  --primary-color: #f3f3f3;
 }
 
 .previewContainer {
@@ -28,90 +28,53 @@
 }
 
 .previewSections {
+  display: flex;
+  flex-direction: row;
   width: var(--width);
-  height: calc(var(--height) - 10vh);
+  height: calc(var(--height) - 5vh);
 }
 
 .previewButtons {
   width: var(--width);
-  height: calc(var(--height) - 90vh);
-  padding: 1.5vw;
+  height: calc(var(--height) - 95vh);
+  padding: 0.2vw;
 }
 
 .justify-right {
   text-align: right;
 }
 
-.user {
+.firstColumn {
   display: flex;
-  width: var(--width);
-  height: calc((var(--height) - 10vh) / 4);
-  background: linear-gradient(to bottom, #052531, #094457);
+  flex-direction: column;
+  flex: 1;
+  background-color: #2d2d2d;
 }
 
-.user__photo {
+.secondColumn {
+  flex: 2;
+  background-color: var(--primary-color);
+}
+
+.firstColumn__item {
   display: flex;
-  flex: 1;
-  position: relative;
   justify-content: center;
   align-items: center;
+  flex: 1;
   padding: var(--size);
 }
 
-.user__photo-img {
+.firstColumn__item-photo {
   width: 10vw;
   height: 10vw;
   object-fit: cover;
-  border: 1px solid black;
+  border: 2px solid var(--primary-color);
 }
 
-.user__photo-blueCircle {
-  position: absolute;
-  bottom: 5%;
-  left: 30%;
-  width: 1.7vw;
-  height: 1.7vw;
-  border-radius: 50%;
-  background-color: #0986a7;
-  border: 1px solid black;
-}
-
-.user__photo-grayCircle {
-  position: absolute;
-  bottom: 2%;
-  right: 40%;
-  width: 1.5vw;
-  height: 1.5vw;
-  border-radius: 50%;
-  background-color: #99b3bb;
-  border: 1px solid black;
-}
-
-.user__data {
-  flex: 2;
-  border-right: 1px solid var(--border-color);
-  padding: var(--size);
-}
-
-.user__contact {
-  flex: 2;
-}
-
-.user__data-info {
-  font-family: "Roboto-Light";
+.firstColumn__item-span {
   font-size: var(--size);
-}
-
-.user__data-info--name {
-  font-size: 2.2vw;
-  color: #53717c;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.user__data-info--surname {
-  color: #b3c3c6;
-}
-
-.user__data--noPhoto {
-  flex: 1;
+  font-family: var(--roboto-light);
+  border-top: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }

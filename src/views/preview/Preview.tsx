@@ -34,40 +34,23 @@ const Preview: React.FC<PreviewProps> = ({
   ) : (
     <div className="previewContainer">
       <div className="previewSections">
-        <section className="user">
-          {inputs.photo && (
-            <div className="user__photo">
-              <Image
-                className="user__photo-img"
-                src={inputs.photo || ""}
-                roundedCircle
-              />
-              <div className="user__photo-blueCircle"></div>
-              <div className="user__photo-grayCircle"></div>
-            </div>
-          )}
-          <div
-            className={`${
-              inputs.photo ? "user__data" : "user__data user__data--noPhoto"
-            }`}
-          >
-            <span className="user__data-info user__data-info--name">
-              {`${inputs.userData.name} `}
-            </span>
-            <span className="user__data-info user__data-info--name user__data-info--surname">
-              {inputs.userData.surname}
-            </span>
-            <span className="user__data-info"></span>
-            <span className="user__data-info"></span>
-            <span className="user__data-info"></span>
+        <div className="firstColumn">
+          <div className="firstColumn__item">
+            <Image
+              className="firstColumn__item-photo"
+              src={inputs.photo}
+              roundedCircle
+            />
           </div>
-          <div className="user__contact"></div>
-        </section>
-        <section className="diploma"></section>
-        <section className="competence"></section>
-        <section className="experience"></section>
-        <section className="hobby"></section>
-        <section className="language"></section>
+          <div className="firstColumn__item">
+            <span className="firstColumn__item-span">KONTAKT</span>
+          </div>
+          <div className="firstColumn__item"></div>
+          <div className="firstColumn__item"></div>
+          <div className="firstColumn__item"></div>
+          <div className="firstColumn__item"></div>
+        </div>
+        <div className="secondColumn"></div>
       </div>
       <div className="previewButtons">
         <Row>
