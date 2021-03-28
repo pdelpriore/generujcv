@@ -47,7 +47,13 @@ const Preview: React.FC<PreviewProps> = ({
               />
             </div>
           )}
-          <div className="firstColumn__item">
+          <div
+            className={`${
+              inputs.photo.length > 0
+                ? "firstColumn__item"
+                : "firstColumn__item firstColumn__item--noPhoto"
+            }`}
+          >
             <span className="firstColumn__item-span">KONTAKT</span>
             <>
               {contactIcons.map((icon, index) => {
@@ -77,10 +83,34 @@ const Preview: React.FC<PreviewProps> = ({
               })}
             </>
           </div>
-          <div className="firstColumn__item"></div>
-          <div className="firstColumn__item"></div>
-          <div className="firstColumn__item"></div>
-          <div className="firstColumn__item"></div>
+          <div
+            className={`${
+              inputs.photo.length > 0
+                ? "firstColumn__item"
+                : "firstColumn__item firstColumn__item--noPhoto"
+            }`}
+          ></div>
+          <div
+            className={`${
+              inputs.photo.length > 0
+                ? "firstColumn__item"
+                : "firstColumn__item firstColumn__item--noPhoto"
+            }`}
+          ></div>
+          <div
+            className={`${
+              inputs.photo.length > 0
+                ? "firstColumn__item"
+                : "firstColumn__item firstColumn__item--noPhoto"
+            }`}
+          ></div>
+          <div
+            className={`${
+              inputs.photo.length > 0
+                ? "firstColumn__item"
+                : "firstColumn__item firstColumn__item--noPhoto"
+            }`}
+          ></div>
         </div>
         <div className="secondColumn"></div>
       </div>

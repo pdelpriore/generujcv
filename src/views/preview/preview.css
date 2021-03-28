@@ -64,6 +64,10 @@
   padding: var(--size);
 }
 
+.firstColumn__item--noPhoto {
+  padding: 2vw;
+}
+
 .firstColumn__item-photo {
   width: 10vw;
   height: 10vw;
