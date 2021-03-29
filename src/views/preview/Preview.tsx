@@ -52,8 +52,8 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           <section className={firstColumnSectionClassName}>
-            <span className="firstColumn__section-span">KONTAKT</span>
             <>
+              <span className="firstColumn__section-span">KONTAKT</span>
               {contactIcons.map((icon, index) => {
                 const contacts: string[] = [
                   inputs.userData.contact.tel,
