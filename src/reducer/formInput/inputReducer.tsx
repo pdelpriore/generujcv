@@ -187,7 +187,7 @@ const inputReducer = (
           [action.payload.targetName]:
             action.payload.targetName === "schoolName"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\d\s]/g, "")
+                  action.payload.targetValue.replace(/[^a-zA-Z\d\s.]/g, "")
                 )
               : action.payload.targetName === "faculty" ||
                 action.payload.targetName === "degree"
