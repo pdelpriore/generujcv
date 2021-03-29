@@ -1,4 +1,4 @@
-const onlyLetters = /[a-zA-Z]/;
+const smallLetters = /[a-z]/;
 
 export const capitalize = (text: string): string =>
   text
@@ -13,5 +13,5 @@ export const capitalizeFirst = (text: string): string =>
 export const capitalizeLetters = (text: string): string =>
   text
     .split("")
-    .map((char) => (onlyLetters.test(char) ? char.toUpperCase() : char))
+    .map((char) => (smallLetters.test(char) ? char.toUpperCase() : char))
     .join("");
