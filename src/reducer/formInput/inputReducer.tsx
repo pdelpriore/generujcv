@@ -35,6 +35,7 @@ import {
   InputFormActions,
 } from "./inputActionTypes";
 import { FormInputTypes } from "../../hooks/form/formTypes";
+import { capitalize, capitalizeLetters } from "../../methods/capitalize";
 
 const inputReducer = (
   inputs: FormInputTypes,
@@ -62,9 +63,13 @@ const inputReducer = (
             ...inputs.userData.address,
             [action.payload.targetName]:
               action.payload.targetName === "street"
-                ? action.payload.targetValue.replace(/[^a-zA-Z]/g, "")
+                ? capitalize(
+                    action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                  )
                 : action.payload.targetName === "streetNumber"
-                ? action.payload.targetValue.replace(/[^a-zA-Z\d]/g, "")
+                ? capitalizeLetters(
+                    action.payload.targetValue.replace(/[^a-zA-Z\d]/g, "")
+                  )
                 : action.payload.targetName === "flatNumber"
                 ? action.payload.targetValue.replace(/[^\d]/g, "")
                 : action.payload.targetName === "postCode"
@@ -73,7 +78,9 @@ const inputReducer = (
                     ""
                   )
                 : action.payload.targetName === "city"
-                ? action.payload.targetValue.replace(/[^a-zA-Z]/g, "")
+                ? capitalize(
+                    action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                  )
                 : action.payload.targetValue,
           },
         },
