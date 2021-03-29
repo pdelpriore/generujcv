@@ -51,7 +51,7 @@ const inputReducer = (
         ...inputs,
         userData: {
           ...inputs.userData,
-          [action.payload.targetName]: action.payload.targetValue,
+          [action.payload.targetName]: capitalize(action.payload.targetValue),
         },
       };
     case CHANGE_ADDRESS:
