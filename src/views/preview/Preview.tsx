@@ -25,6 +25,11 @@ const Preview: React.FC<PreviewProps> = ({
   setPageLoader,
   closePreview,
 }) => {
+  const firstColumnSectionClassName =
+    inputs.photo.length > 0
+      ? "firstColumn__section"
+      : "firstColumn__section firstColumn__section--noPhoto";
+
   useEffect(() => {
     setPageLoader(false);
     return () => setPageLoader(true);
@@ -36,25 +41,19 @@ const Preview: React.FC<PreviewProps> = ({
     </div>
   ) : (
     <div className="previewContainer">
-      <div className="previewSections">
+      <div className="previewColumns">
         <div className="firstColumn">
           {inputs.photo.length > 0 && (
-            <div className="firstColumn__item">
+            <section className="firstColumn__section">
               <Image
-                className="firstColumn__item-photo"
+                className="firstColumn__section-photo"
                 src={inputs.photo}
                 roundedCircle
               />
-            </div>
+            </section>
           )}
-          <div
-            className={`${
-              inputs.photo.length > 0
-                ? "firstColumn__item"
-                : "firstColumn__item firstColumn__item--noPhoto"
-            }`}
-          >
-            <span className="firstColumn__item-span">KONTAKT</span>
+          <section className={firstColumnSectionClassName}>
+            <span className="firstColumn__section-span">KONTAKT</span>
             <>
               {contactIcons.map((icon, index) => {
                 const contacts: string[] = [
@@ -82,35 +81,11 @@ const Preview: React.FC<PreviewProps> = ({
                 );
               })}
             </>
-          </div>
-          <div
-            className={`${
-              inputs.photo.length > 0
-                ? "firstColumn__item"
-                : "firstColumn__item firstColumn__item--noPhoto"
-            }`}
-          ></div>
-          <div
-            className={`${
-              inputs.photo.length > 0
-                ? "firstColumn__item"
-                : "firstColumn__item firstColumn__item--noPhoto"
-            }`}
-          ></div>
-          <div
-            className={`${
-              inputs.photo.length > 0
-                ? "firstColumn__item"
-                : "firstColumn__item firstColumn__item--noPhoto"
-            }`}
-          ></div>
-          <div
-            className={`${
-              inputs.photo.length > 0
-                ? "firstColumn__item"
-                : "firstColumn__item firstColumn__item--noPhoto"
-            }`}
-          ></div>
+          </section>
+          <section className={firstColumnSectionClassName}></section>
+          <section className={firstColumnSectionClassName}></section>
+          <section className={firstColumnSectionClassName}></section>
+          <section className={firstColumnSectionClassName}></section>
         </div>
         <div className="secondColumn"></div>
       </div>
