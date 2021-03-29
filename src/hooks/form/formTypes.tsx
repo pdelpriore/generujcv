@@ -12,12 +12,6 @@ type contact = {
   linkedinUrl: string;
 };
 
-type birthday = {
-  day: string;
-  month: string;
-  year: number;
-};
-
 export type period = {
   month: string;
   year: number;
@@ -28,11 +22,7 @@ type userdata = {
   surname: string;
   address: address;
   contact: contact;
-  birthday: birthday;
-  citizenship: string;
-  drivingLicence: string[];
-  maritalStatus: string;
-  disability: string;
+  workplace: string;
 };
 
 export type language = {

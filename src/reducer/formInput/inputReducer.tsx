@@ -4,7 +4,6 @@ import {
   CHANGE_USER_DATA,
   CHANGE_ADDRESS,
   CHANGE_CONTACT,
-  CHANGE_BIRTHDAY,
   CHANGE_LANGUAGE,
   CLEAR_LANGUAGE,
   SEND_LANGUAGE,
@@ -51,15 +50,7 @@ const inputReducer = (
         ...inputs,
         userData: {
           ...inputs.userData,
-          [action.payload.targetName]:
-            action.payload.targetName === "drivingLicence"
-              ? action.payload.targetValue
-                  .replace(
-                    /^[^ABCDEMT12]|(A{2,})|(B{2,})|(C{2,})|(D{2,})|(E{2,})|(M{2,})|(T{2,})|(1{2,})|(2{2,})|(,{2,})|(\+){2,}$/g,
-                    ""
-                  )
-                  .split(",")
-              : action.payload.targetValue,
+          [action.payload.targetName]: action.payload.targetValue,
         },
       };
     case CHANGE_ADDRESS:
@@ -98,17 +89,6 @@ const inputReducer = (
               action.payload.targetName === "tel"
                 ? action.payload.targetValue.replace(/[^\d]/g, "")
                 : action.payload.targetValue,
-          },
-        },
-      };
-    case CHANGE_BIRTHDAY:
-      return {
-        ...inputs,
-        userData: {
-          ...inputs.userData,
-          birthday: {
-            ...inputs.userData.birthday,
-            [action.payload.targetName]: action.payload.targetValue,
           },
         },
       };

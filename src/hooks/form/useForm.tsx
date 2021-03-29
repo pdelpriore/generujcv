@@ -33,7 +33,6 @@ import {
   CHANGE_USER_DATA,
   CHANGE_ADDRESS,
   CHANGE_CONTACT,
-  CHANGE_BIRTHDAY,
   CHANGE_LANGUAGE,
   CLEAR_LANGUAGE,
   SEND_LANGUAGE,
@@ -103,14 +102,6 @@ const useForm = (initialState: FormInputTypes) => {
     e.persist();
     dispatchInput({
       type: CHANGE_CONTACT,
-      payload: { targetName: e.target.name, targetValue: e.target.value },
-    });
-  };
-
-  const handleOnChangeBirthday = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.persist();
-    dispatchInput({
-      type: CHANGE_BIRTHDAY,
       payload: { targetName: e.target.name, targetValue: e.target.value },
     });
   };
@@ -815,7 +806,6 @@ const useForm = (initialState: FormInputTypes) => {
     handleOnChangeUserData,
     handleOnChangeAddress,
     handleOnChangeContact,
-    handleOnChangeBirthday,
     handleOnChangeLanguage,
     handleAddLanguage,
     handleSendLanguageToEdit,

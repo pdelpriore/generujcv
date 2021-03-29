@@ -32,7 +32,6 @@ const GetForm = (
     handleOnChangeUserData,
     handleOnChangeAddress,
     handleOnChangeContact,
-    handleOnChangeBirthday,
     handleOnChangeLanguage,
     handleAddLanguage,
     handleSendLanguageToEdit,
@@ -94,6 +93,7 @@ const GetForm = (
     userData: {
       name: "",
       surname: "",
+      workplace: "",
       address: {
         street: "",
         streetNumber: "",
@@ -106,11 +106,6 @@ const GetForm = (
         tel: "",
         linkedinUrl: "",
       },
-      birthday: { day: "", month: "", year: 0 },
-      citizenship: "",
-      drivingLicence: [],
-      maritalStatus: "",
-      disability: "",
     },
     language: {
       name: "",
@@ -150,11 +145,7 @@ const GetForm = (
       loading={loading}
       photo={inputs.photo}
     />,
-    <UserDataForm
-      inputs={inputs}
-      onchange={handleOnChangeUserData}
-      onchangeBirthday={handleOnChangeBirthday}
-    />,
+    <UserDataForm inputs={inputs} onchange={handleOnChangeUserData} />,
     <ContactForm
       inputs={inputs}
       onchangeAddress={handleOnChangeAddress}

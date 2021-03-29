@@ -1,11 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/config/Store";
 import { FormInputTypes } from "../../../hooks/form/formTypes";
 import { Form } from "react-bootstrap";
 import { capitalize } from "../../../methods/capitalize";
-import { days, months, birthdayYear } from "../../../shared/dateElements";
-import { maritalStatus, disabilityLevel } from "../../../shared/menuElements";
 import "./userDataForm.css";
 
 type THandleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,16 +9,9 @@ type THandleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => void;
 interface UserDataFormProps {
   inputs: FormInputTypes;
   onchange: THandleOnchange;
-  onchangeBirthday: THandleOnchange;
 }
 
-const UserDataForm: React.FC<UserDataFormProps> = ({
-  inputs,
-  onchange,
-  onchangeBirthday,
-}) => {
-  const { viewport } = useSelector((state: RootState) => state.viewportState);
-
+const UserDataForm: React.FC<UserDataFormProps> = ({ inputs, onchange }) => {
   return (
     <Form className="formUserData">
       <Form.Group controlId="formUserDataName">
@@ -51,138 +40,18 @@ const UserDataForm: React.FC<UserDataFormProps> = ({
           placeholder="nazwisko"
         />
       </Form.Group>
-      <Form.Group controlId="formUserDataBirthday">
+      <Form.Group controlId="formUserDataWorkplace">
         <Form.Label className="formUserData__label">
-          {capitalize("data urodzenia *")}
-        </Form.Label>
-        <div className="formUserData__control-wrap">
-          <Form.Control
-            className="formUserData__control"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              onchangeBirthday(e)
-            }
-            value={inputs.userData.birthday.day || ""}
-            name="day"
-            as="select"
-          >
-            <option className="formUserData__option" disabled={true} value="">
-              {viewport <= 768 ? "d." : "dzień"}
-            </option>
-            {days.map((day, index) => (
-              <option className="formUserData__option" key={index}>
-                {day}
-              </option>
-            ))}
-          </Form.Control>
-          <Form.Control
-            className="formUserData__control"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              onchangeBirthday(e)
-            }
-            value={inputs.userData.birthday.month || ""}
-            name="month"
-            as="select"
-          >
-            <option className="formUserData__option" disabled={true} value="">
-              {viewport <= 768
-                ? "m."
-                : viewport > 769 && viewport < 1024
-                ? "mies."
-                : "miesiąc"}
-            </option>
-            {months.map((month, index) => (
-              <option className="formUserData__option" key={index}>
-                {month}
-              </option>
-            ))}
-          </Form.Control>
-          <Form.Control
-            className="formUserData__control"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              onchangeBirthday(e)
-            }
-            value={inputs.userData.birthday.year || ""}
-            name="year"
-            as="select"
-          >
-            <option className="formUserData__option" disabled={true} value="">
-              {viewport < 768 ? "r." : "rok"}
-            </option>
-            {birthdayYear.map((year, index) => (
-              <option className="formUserData__option" key={index}>
-                {year}
-              </option>
-            ))}
-          </Form.Control>
-        </div>
-      </Form.Group>
-      <Form.Group controlId="formUserDataCitizenship">
-        <Form.Label className="formUserData__label">
-          {capitalize("obywatelstwo *")}
+          {capitalize("stanowisko *")}
         </Form.Label>
         <Form.Control
           className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
-          value={inputs.userData.citizenship || ""}
-          name="citizenship"
+          value={inputs.userData.workplace || ""}
+          name="workplace"
           type="text"
-          placeholder="obywatelstwo"
+          placeholder="stanowisko"
         />
-      </Form.Group>
-      <Form.Group controlId="formUserDataDrivingLicence">
-        <Form.Label className="formUserData__label">
-          {capitalize("prawo jazdy")}
-        </Form.Label>
-        <Form.Control
-          className="formUserData__control"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
-          value={inputs.userData.drivingLicence || ""}
-          name="drivingLicence"
-          type="text"
-          placeholder="A,B,C+E,..."
-        />
-      </Form.Group>
-      <Form.Group controlId="formUserDataMaritalStatus">
-        <Form.Label className="formUserData__label">
-          {capitalize("stan cywilny")}
-        </Form.Label>
-        <Form.Control
-          className="formUserData__control"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
-          value={inputs.userData.maritalStatus || ""}
-          name="maritalStatus"
-          as="select"
-        >
-          <option className="formUserData__option" disabled={true} value="">
-            stan cywilny
-          </option>
-          {maritalStatus.map((status, index) => (
-            <option className="formUserData__option" key={index}>
-              {status}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
-      <Form.Group controlId="formUserDataDisability">
-        <Form.Label className="formUserData__label">
-          {capitalize("niepełnosprawność")}
-        </Form.Label>
-        <Form.Control
-          className="formUserData__control"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
-          value={inputs.userData.disability || ""}
-          name="disability"
-          as="select"
-        >
-          <option className="formUserData__option" disabled={true} value="">
-            {viewport < 414 ? "niepełnosprawn." : "niepełnosprawność"}
-          </option>
-          {disabilityLevel.map((level, index) => (
-            <option className="formUserData__option" key={index}>
-              {level}
-            </option>
-          ))}
-        </Form.Control>
       </Form.Group>
     </Form>
   );

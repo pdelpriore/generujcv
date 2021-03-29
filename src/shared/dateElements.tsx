@@ -47,15 +47,3 @@ const schoolYearFn = (): number[] => {
 };
 
 export const schoolYear: number[] = schoolYearFn();
-
-const birthdayYearFn = (): number[] => {
-  const yearArray: number[] = [];
-
-  for (let i = yearNow; i >= yearNow - 60; i--) {
-    yearArray.push(i);
-  }
-
-  return yearArray;
-};
-
-export const birthdayYear: number[] = birthdayYearFn();

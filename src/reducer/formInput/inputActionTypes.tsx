@@ -12,7 +12,6 @@ export const DELETE_PHOTO = "delete_photo";
 export const CHANGE_USER_DATA = "change_user_data";
 export const CHANGE_ADDRESS = "change_address";
 export const CHANGE_CONTACT = "change_contact";
-export const CHANGE_BIRTHDAY = "change_birthday";
 
 export const CHANGE_LANGUAGE = "change_language";
 export const CLEAR_LANGUAGE = "add_language";
@@ -76,11 +75,6 @@ interface ChangeUserAddressAction {
 
 interface ChangeUserContactAction {
   type: typeof CHANGE_CONTACT;
-  payload: TChange;
-}
-
-interface ChangeUserBirthdayAction {
-  type: typeof CHANGE_BIRTHDAY;
   payload: TChange;
 }
 
@@ -230,7 +224,6 @@ export type InputFormActions =
   | ChangeUserDataAction
   | ChangeUserAddressAction
   | ChangeUserContactAction
-  | ChangeUserBirthdayAction
   | ChangeUserLanguageAction
   | ClearLanguageAction
   | SendUserLanguageAction
