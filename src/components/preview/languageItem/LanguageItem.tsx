@@ -29,6 +29,7 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ level, content }) => {
     if (progressCircle.current)
       progressCircle.current.style.strokeDasharray = `${setProgress(
         languageLevelValue[level],
+        Object.keys(languageLevelValue).length,
         circumference
       )}`;
   }, [progressRadius, level]);
