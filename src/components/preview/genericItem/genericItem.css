@@ -3,23 +3,22 @@
   --size: 1vw;
 }
 
-.contact {
+.generic {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
   padding: 0.5vw;
 }
 
-.contact__icon {
-  width: 1.5vw;
+.generic__icon {
+  width: 0.5vw;
+  height: 0.5vw;
+  margin-right: 0.5vw;
+  border-radius: 50%;
+  background-color: var(--element-color);
 }
 
-.contact__icon-ico {
-  font-size: var(--size);
-  color: var(--element-color);
-}
-
-.contact__content {
+.generic__content {
   font-size: var(--size);
   color: var(--element-color);
   font-family: "Roboto-Light";

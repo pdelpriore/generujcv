@@ -3,6 +3,7 @@ import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
 import { Row, Col, Spinner, Image } from "react-bootstrap";
 import TButton from "../../components/button/TButton";
 import ContactItem from "../../components/preview/contactItem/ContactItem";
+import GenericItem from "../../components/preview/genericItem/GenericItem";
 import { contactIcons } from "../../shared/menuElements";
 import "./preview.css";
 
@@ -82,8 +83,26 @@ const Preview: React.FC<PreviewProps> = ({
               })}
             </>
           </section>
-          <section className={firstColumnSectionClassName}></section>
-          <section className={firstColumnSectionClassName}></section>
+          {inputList.strengths.length > 0 && (
+            <section className={firstColumnSectionClassName}>
+              <>
+                <span className="firstColumn__section-span">MOCNE STRONY</span>
+                {inputList.strengths.map((strength, index) => (
+                  <GenericItem key={index} content={strength} />
+                ))}
+              </>
+            </section>
+          )}
+          {inputList.competences.length > 0 && (
+            <section className={firstColumnSectionClassName}>
+              <>
+                <span className="firstColumn__section-span">KOMPETENCJE</span>
+                {inputList.competences.map((competence, index) => (
+                  <GenericItem key={index} content={competence} />
+                ))}
+              </>
+            </section>
+          )}
           <section className={firstColumnSectionClassName}></section>
           <section className={firstColumnSectionClassName}></section>
         </div>
