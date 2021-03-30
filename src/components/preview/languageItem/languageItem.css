@@ -1,0 +1,12 @@
+.language__track {
+  stroke: lightgrey;
+  fill: none;
+}
+
+.language__progress {
+  fill: none;
+  stroke: #f3f3f3;
+  stroke-width: 3;
+  stroke-dasharray: 630;
+  stroke-dashoffset: 0;
+}

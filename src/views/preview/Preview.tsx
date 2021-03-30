@@ -4,6 +4,7 @@ import { Row, Col, Spinner, Image } from "react-bootstrap";
 import TButton from "../../components/button/TButton";
 import ContactItem from "../../components/preview/contactItem/ContactItem";
 import GenericItem from "../../components/preview/genericItem/GenericItem";
+import LanguageItem from "../../components/preview/languageItem/LanguageItem";
 import { contactIcons } from "../../shared/menuElements";
 import "./preview.css";
 
@@ -103,7 +104,18 @@ const Preview: React.FC<PreviewProps> = ({
               </div>
             </section>
           )}
-          <section className={firstColumnSectionClassName}></section>
+          <section className={firstColumnSectionClassName}>
+            <span className="firstColumn__section-span">JĘZYKI</span>
+            <div className="firstColumn__section-list">
+              {inputList.languages.map((language, index) => (
+                <LanguageItem
+                  key={index}
+                  level={language.level}
+                  content={language.name}
+                />
+              ))}
+            </div>
+          </section>
           <section className={firstColumnSectionClassName}></section>
         </div>
         <div className="secondColumn"></div>

@@ -115,9 +115,12 @@ const inputReducer = (
         ...inputs,
         language: {
           ...inputs.language,
-          [action.payload.targetName]: capitalizeFirst(
-            action.payload.targetValue.replace(/[^a-zA-Z]/g, "")
-          ),
+          [action.payload.targetName]:
+            action.payload.targetName === "name"
+              ? capitalizeFirst(
+                  action.payload.targetValue.replace(/[^a-zA-Z]/g, "")
+                )
+              : action.payload.targetValue,
         },
       };
     case CLEAR_LANGUAGE:
