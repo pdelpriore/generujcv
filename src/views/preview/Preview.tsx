@@ -85,22 +85,22 @@ const Preview: React.FC<PreviewProps> = ({
           </section>
           {inputList.strengths.length > 0 && (
             <section className={firstColumnSectionClassName}>
-              <>
-                <span className="firstColumn__section-span">MOCNE STRONY</span>
+              <span className="firstColumn__section-span">MOCNE STRONY</span>
+              <div className="firstColumn__section-list">
                 {inputList.strengths.map((strength, index) => (
                   <GenericItem key={index} content={strength} />
                 ))}
-              </>
+              </div>
             </section>
           )}
           {inputList.competences.length > 0 && (
             <section className={firstColumnSectionClassName}>
-              <>
-                <span className="firstColumn__section-span">KOMPETENCJE</span>
+              <span className="firstColumn__section-span">KOMPETENCJE</span>
+              <div className="firstColumn__section-list firstColumn__section-list--competence">
                 {inputList.competences.map((competence, index) => (
                   <GenericItem key={index} content={competence} />
                 ))}
-              </>
+              </div>
             </section>
           )}
           <section className={firstColumnSectionClassName}></section>

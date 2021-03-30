@@ -1,6 +1,5 @@
 :root {
   --element-color: #f3f3f3;
-  --size: 1vw;
 }
 
 .generic {
@@ -11,15 +10,15 @@
 }
 
 .generic__icon {
-  width: 0.5vw;
-  height: 0.5vw;
+  width: 0.4vw;
+  height: 0.4vw;
   margin-right: 0.5vw;
   border-radius: 50%;
   background-color: var(--element-color);
 }
 
 .generic__content {
-  font-size: var(--size);
+  font-size: 0.8vw;
   color: var(--element-color);
   font-family: "Roboto-Light";
   white-space: nowrap;

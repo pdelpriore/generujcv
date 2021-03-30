@@ -1,6 +1,5 @@
 :root {
   --element-color: #f3f3f3;
-  --size: 1vw;
 }
 
 .contact {
@@ -11,16 +10,16 @@
 }
 
 .contact__icon {
-  width: 1.5vw;
+  width: 1.3vw;
 }
 
 .contact__icon-ico {
-  font-size: var(--size);
+  font-size: 0.8;
   color: var(--element-color);
 }
 
 .contact__content {
-  font-size: var(--size);
+  font-size: 0.8vw;
   color: var(--element-color);
   font-family: "Roboto-Light";
   white-space: nowrap;
