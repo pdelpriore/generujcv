@@ -99,7 +99,7 @@ const LanguageForm: React.FC = () => {
                   disabled={
                     inputs.language.name.length === 0 ||
                     inputs.language.level.length === 0 ||
-                    inputList.languages.length === 5
+                    inputList.languages.length === 3
                   }
                   type="add"
                   content="dodaj"
