@@ -104,18 +104,20 @@ const Preview: React.FC<PreviewProps> = ({
               </div>
             </section>
           )}
-          <section className={firstColumnSectionClassName}>
-            <span className="firstColumn__section-span">JĘZYKI</span>
-            <div className="firstColumn__section-list">
-              {inputList.languages.map((language, index) => (
-                <LanguageItem
-                  key={index}
-                  level={language.level}
-                  name={language.name}
-                />
-              ))}
-            </div>
-          </section>
+          {inputList.languages.length > 0 && (
+            <section className={firstColumnSectionClassName}>
+              <span className="firstColumn__section-span">JĘZYKI</span>
+              <div className="firstColumn__section-list">
+                {inputList.languages.map((language, index) => (
+                  <LanguageItem
+                    key={index}
+                    level={language.level}
+                    name={language.name}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
           <section className={firstColumnSectionClassName}></section>
         </div>
         <div className="secondColumn"></div>
