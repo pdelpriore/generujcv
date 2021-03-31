@@ -111,7 +111,7 @@ const Preview: React.FC<PreviewProps> = ({
                 <LanguageItem
                   key={index}
                   level={language.level}
-                  content={language.name}
+                  name={language.name}
                 />
               ))}
             </div>

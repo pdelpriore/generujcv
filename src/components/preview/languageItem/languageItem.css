@@ -1,12 +1,25 @@
-.language__track {
+.language {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language__shape-track {
   stroke: lightgrey;
   fill: none;
 }
 
-.language__progress {
+.language__shape-progress {
   fill: none;
   stroke: #f3f3f3;
   stroke-width: 3;
   transform: rotate(-90deg);
   transform-origin: center;
+}
+
+.language__flag {
+  position: absolute;
+  width: 1.2vw;
+  height: 1.2vw;
 }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { languageLevelValue } from "../../../shared/menuElements";
+import { Image } from "react-bootstrap";
+import { languageLevelValue, countryCode } from "../../../shared/menuElements";
 import { setProgress } from "../../../methods/setProgress";
 import "./languageItem.css";
 
 interface LanguageItemProps {
   level: string;
-  content: string;
+  name: string;
 }
 
-const LanguageItem: React.FC<LanguageItemProps> = ({ level, content }) => {
+const LanguageItem: React.FC<LanguageItemProps> = ({ level, name }) => {
   const progressCircle = useRef<SVGCircleElement>(null);
 
   const [progressRadius, setProgressRadius] = useState<number>(0);
@@ -37,16 +38,27 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ level, content }) => {
   }, [progressRadius, level]);
 
   return (
-    <svg width="70" height="70" className="language">
-      <circle className="language__track" cx="35" cy="35" r="20"></circle>
-      <circle
-        ref={progressCircle}
-        className="language__progress"
-        cx="35"
-        cy="35"
-        r="20"
-      ></circle>
-    </svg>
+    <div className="language">
+      <svg width="70" height="70" className="language__shape">
+        <circle
+          className="language__shape-track"
+          cx="35"
+          cy="35"
+          r="20"
+        ></circle>
+        <circle
+          ref={progressCircle}
+          className="language__shape-progress"
+          cx="35"
+          cy="35"
+          r="20"
+        ></circle>
+      </svg>
+      <Image
+        className="language__flag"
+        src={`https://www.countryflags.io/${countryCode[name]}/flat/64.png`}
+      />
+    </div>
   );
 };
 

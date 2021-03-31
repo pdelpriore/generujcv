@@ -25,6 +25,10 @@ interface LanguageLevelValue {
   [key: string]: number;
 }
 
+interface CountryCode {
+  [key: string]: string;
+}
+
 export const menuElements: MenuElements[] = [
   { icon: faPortrait, content: "zdjęcie" },
   { icon: faAddressCard, content: "dane osobowe" },
@@ -51,3 +55,32 @@ export const contactIcons: IconDefinition[] = [
   faMapMarkerAlt,
   faLinkedin,
 ];
+
+export const countryCode: CountryCode = {
+  Polski: "PL",
+  Czeski: "CZ",
+  Słowacki: "SK",
+  Słoweński: "SI",
+  Węgierski: "HU",
+  Rumuński: "RO",
+  Bułgarski: "BG",
+  Białoruski: "BY",
+  Rosyjski: "RU",
+  Angielski: "GB",
+  Niemiecki: "DE",
+  Francuski: "FR",
+  Włoski: "IT",
+  Hiszpański: "ES",
+  Portugalski: "PT",
+  Holenderski: "NL",
+  Niderlandzki: "NL",
+  Szwedzki: "SE",
+  Norweski: "NO",
+  Islandzki: "IS",
+  Grecki: "GR",
+  Japoński: "JP",
+  Chiński: "CN",
+  Mandaryński: "CN",
+  Wietnamski: "VN",
+  Koreański: "KR",
+};
