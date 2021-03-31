@@ -7,4 +7,6 @@
   fill: none;
   stroke: #f3f3f3;
   stroke-width: 3;
+  transform: rotate(-90deg);
+  transform-origin: center;
 }
