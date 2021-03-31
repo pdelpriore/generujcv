@@ -4,13 +4,15 @@
 
 .contact {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: row;
   padding: 0.5vw;
 }
 
 .contact__icon {
-  width: 1.3vw;
+  width: 1vw;
+  height: 1vw;
+  margin-right: 0.5vw;
 }
 
 .contact__icon-ico {
