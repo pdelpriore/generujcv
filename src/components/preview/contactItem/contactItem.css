@@ -4,7 +4,7 @@
 
 .contact {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: row;
   padding: 0.5vw;
 }
@@ -16,7 +16,8 @@
 }
 
 .contact__icon-ico {
-  font-size: 0.8;
+  display: block;
+  font-size: 0.9vw;
   color: var(--element-color);
 }
 
