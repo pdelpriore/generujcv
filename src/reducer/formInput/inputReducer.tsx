@@ -117,7 +117,7 @@ const inputReducer = (
           ...inputs.language,
           [action.payload.targetName]:
             action.payload.targetName === "name"
-              ? action.payload.targetValue.replace(/[^a-zA-Z]/g, "")
+              ? action.payload.targetValue.replace(/[^\p{L}]/u, "")
               : action.payload.targetValue,
         },
       };
