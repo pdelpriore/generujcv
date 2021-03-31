@@ -65,6 +65,7 @@ export const countryCode: CountryCode = {
   Rumuński: "RO",
   Bułgarski: "BG",
   Białoruski: "BY",
+  Ukraiński: "UA",
   Rosyjski: "RU",
   Angielski: "GB",
   Niemiecki: "DE",
