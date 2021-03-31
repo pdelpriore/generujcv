@@ -26,12 +26,14 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ level, content }) => {
 
   useEffect(() => {
     const circumference = 2 * Math.PI * progressRadius;
-    if (progressCircle.current)
-      progressCircle.current.style.strokeDasharray = `${setProgress(
+    if (progressCircle.current) {
+      progressCircle.current.style.strokeDasharray = `${circumference}`;
+      progressCircle.current.style.strokeDashoffset = `${setProgress(
         languageLevelValue[level],
         Object.keys(languageLevelValue).length,
         circumference
       )}`;
+    }
   }, [progressRadius, level]);
 
   return (
