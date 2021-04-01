@@ -91,7 +91,7 @@
 
 .firstColumn__section-label {
   font-size: 0.8vw;
-  font-family: "Poppins-Regular";
+  font-family: "Poppins-Light";
   border-top: 2px solid var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   color: var(--primary-color);
