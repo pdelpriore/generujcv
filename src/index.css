@@ -49,6 +49,12 @@ code {
 }
 
 @font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"),
+    url("./fonts/poppins/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Poppins-Regular";
   src: local("Poppins-Regular"),
     url("./fonts/poppins/Poppins-Regular.ttf") format("truetype");

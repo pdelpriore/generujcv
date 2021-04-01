@@ -29,7 +29,7 @@ const Preview: React.FC<PreviewProps> = ({
   closePreview,
 }) => {
   const section =
-    inputs.photo.length === 0 ? "section section--noPhoto" : "section";
+    inputs.photo.length === 0 ? "section section--nophoto" : "section";
   const userPhoto =
     sectionVolume > 0 && sectionVolume <= 3
       ? "section__photo"
@@ -142,7 +142,13 @@ const Preview: React.FC<PreviewProps> = ({
         <div className="secondColumn">
           <section className={section}>
             <span className="section__label section__label--secondcolumn section__label--name">
-              {inputs.userData.name}
+              {inputs.userData.name.toUpperCase()}
+            </span>
+            <span className="section__label section__label--secondcolumn section__label--name">
+              {inputs.userData.surname.toUpperCase()}
+            </span>
+            <span className="section__label section__label--secondcolumn section__label--name section__label--jobposition">
+              {inputs.userData.jobPosition.toUpperCase()}
             </span>
           </section>
         </div>

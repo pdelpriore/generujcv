@@ -52,7 +52,7 @@
 }
 
 .secondColumn {
-  flex: 3;
+  flex: 2;
   background-color: var(--primary-color);
 }
 
@@ -64,7 +64,7 @@
   padding: 0.5vw;
 }
 
-.section--noPhoto {
+.section--nophoto {
   padding: var(--size);
 }
 
@@ -105,4 +105,16 @@
 
 .section__label--secondcolumn {
   color: var(--secondary-color);
+}
+
+.section__label--name {
+  text-align: left;
+  font-size: 3.5vw;
+  font-family: "Poppins-Medium", sans-serif;
+  padding-left: 3vw;
+}
+
+.section__label--jobposition {
+  font-size: 1.5vw;
+  font-family: "Poppins-Regular", sans-serif;
 }
