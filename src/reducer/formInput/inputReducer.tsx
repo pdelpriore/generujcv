@@ -60,7 +60,7 @@ const inputReducer = (
             action.payload.targetName === "surname" ||
             action.payload.targetName === "jobPosition"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                  action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
                 )
               : action.payload.targetValue,
         },
@@ -75,11 +75,11 @@ const inputReducer = (
             [action.payload.targetName]:
               action.payload.targetName === "street"
                 ? capitalize(
-                    action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                    action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
                   )
                 : action.payload.targetName === "streetNumber"
                 ? capitalizeLetters(
-                    action.payload.targetValue.replace(/[^a-zA-Z\d]/g, "")
+                    action.payload.targetValue.replace(/[^\p{L}\d]/u, "")
                   )
                 : action.payload.targetName === "flatNumber"
                 ? action.payload.targetValue.replace(/[^\d]/g, "")
@@ -90,7 +90,7 @@ const inputReducer = (
                   )
                 : action.payload.targetName === "city"
                 ? capitalize(
-                    action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                    action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
                   )
                 : action.payload.targetValue,
           },
@@ -135,7 +135,7 @@ const inputReducer = (
       return {
         ...inputs,
         [action.payload.targetName]: capitalize(
-          action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+          action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
         ),
       };
     case CLEAR_STRENGTH:
@@ -146,7 +146,7 @@ const inputReducer = (
       return {
         ...inputs,
         [action.payload.targetName]: capitalize(
-          action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+          action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
         ),
       };
     case CLEAR_HOBBY:
@@ -188,12 +188,12 @@ const inputReducer = (
           [action.payload.targetName]:
             action.payload.targetName === "schoolName"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\d\s.]/g, "")
+                  action.payload.targetValue.replace(/[^\p{L}\s.]/u, "")
                 )
               : action.payload.targetName === "faculty" ||
                 action.payload.targetName === "degree"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                  action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
                 )
               : action.payload.targetName === "description"
               ? capitalizeFirst(action.payload.targetValue)
@@ -240,11 +240,11 @@ const inputReducer = (
             action.payload.targetName === "jobPosition" ||
             action.payload.targetName === "city"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+                  action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
                 )
               : action.payload.targetName === "company"
               ? capitalize(
-                  action.payload.targetValue.replace(/[^a-zA-Z\d\s]/g, "")
+                  action.payload.targetValue.replace(/[^\p{L}\d\s]/u, "")
                 )
               : action.payload.targetName === "description"
               ? capitalizeFirst(action.payload.targetValue)
@@ -259,7 +259,7 @@ const inputReducer = (
       return {
         ...inputs,
         [action.payload.targetName]: capitalize(
-          action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
+          action.payload.targetValue.replace(/[^\p{L}\s]/u, "")
         ),
       };
     case CLEAR_COMPETENCE:
