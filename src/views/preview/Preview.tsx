@@ -28,14 +28,12 @@ const Preview: React.FC<PreviewProps> = ({
   setPageLoader,
   closePreview,
 }) => {
-  const firstColumnSection =
-    inputs.photo.length === 0
-      ? "firstColumn__section firstColumn__section--noPhoto"
-      : "firstColumn__section";
+  const section =
+    inputs.photo.length === 0 ? "section section--noPhoto" : "section";
   const userPhoto =
     sectionVolume > 0 && sectionVolume <= 3
-      ? "firstColumn__section-photo"
-      : "firstColumn__section-photo firstColumn__section-photo--volume";
+      ? "section__photo"
+      : "section__photo section__photo--volume";
 
   useEffect(() => {
     setPageLoader(false);
@@ -51,13 +49,13 @@ const Preview: React.FC<PreviewProps> = ({
       <div className="previewColumns">
         <div className="firstColumn">
           {inputs.photo.length > 0 && (
-            <section className={firstColumnSection}>
+            <section className={section}>
               <Image className={userPhoto} src={inputs.photo} roundedCircle />
             </section>
           )}
-          <section className={firstColumnSection}>
+          <section className={section}>
             <>
-              <span className="firstColumn__section-label">KONTAKT</span>
+              <span className="section__label">KONTAKT</span>
               {contactIcons.map((icon, index) => {
                 const contacts: string[] = [
                   inputs.userData.contact.tel,
@@ -87,9 +85,9 @@ const Preview: React.FC<PreviewProps> = ({
             </>
           </section>
           {inputList.strengths.length > 0 && (
-            <section className={firstColumnSection}>
-              <span className="firstColumn__section-label">MOCNE STRONY</span>
-              <div className="firstColumn__section-list">
+            <section className={section}>
+              <span className="section__label">MOCNE STRONY</span>
+              <div className="section__list">
                 {inputList.strengths.map((strength, index) => (
                   <GenericItem key={index} content={strength} />
                 ))}
@@ -97,9 +95,9 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.competences.length > 0 && (
-            <section className={firstColumnSection}>
-              <span className="firstColumn__section-label">KOMPETENCJE</span>
-              <div className="firstColumn__section-list firstColumn__section-list--competence">
+            <section className={section}>
+              <span className="section__label">KOMPETENCJE</span>
+              <div className="section__list section__list--competence">
                 {inputList.competences.map((competence, index) => (
                   <GenericItem key={index} content={competence} />
                 ))}
@@ -107,9 +105,9 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.languages.length > 0 && (
-            <section className={firstColumnSection}>
-              <span className="firstColumn__section-label">JĘZYKI OBCE</span>
-              <div className="firstColumn__section-list">
+            <section className={section}>
+              <span className="section__label">JĘZYKI OBCE</span>
+              <div className="section__list">
                 {inputList.languages.map((language, index) => (
                   <LanguageItem
                     key={index}
@@ -121,11 +119,9 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.hobbies.length > 0 && (
-            <section className={firstColumnSection}>
-              <span className="firstColumn__section-label">
-                ZAINTERESOWANIA
-              </span>
-              <div className="firstColumn__section-list">
+            <section className={section}>
+              <span className="section__label">ZAINTERESOWANIA</span>
+              <div className="section__list">
                 {inputList.hobbies.map((hobby, index) => (
                   <GenericItem key={index} content={hobby} />
                 ))}

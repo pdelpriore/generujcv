@@ -55,7 +55,7 @@
   background-color: var(--primary-color);
 }
 
-.firstColumn__section {
+.section {
   display: flex;
   align-items: baseline;
   flex-direction: column;
@@ -63,20 +63,20 @@
   padding: 0.5vw;
 }
 
-.firstColumn__section--noPhoto {
+.section--noPhoto {
   padding: var(--size);
 }
 
-.firstColumn__section-list {
+.section__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.firstColumn__section-list--competence {
+.section__list--competence {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.firstColumn__section-photo {
+.section__photo {
   width: 11vw;
   height: 11vw;
   object-fit: cover;
@@ -84,12 +84,12 @@
   align-self: center;
 }
 
-.firstColumn__section-photo--volume {
+.section__photo--volume {
   width: 9vw;
   height: 9vw;
 }
 
-.firstColumn__section-label {
+.section__label {
   font-size: 0.8vw;
   font-family: "Poppins-Light", sans-serif;
   border-top: 2px solid var(--primary-color);
