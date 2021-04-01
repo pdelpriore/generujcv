@@ -64,6 +64,14 @@
   padding: 0.5vw;
 }
 
+.firstColumn__section--volume {
+  flex: 4;
+}
+
+.firstColumn__section--noPhoto {
+  padding: var(--size);
+}
+
 .firstColumn__section-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,10 +79,6 @@
 
 .firstColumn__section-list--competence {
   grid-template-columns: repeat(4, 1fr);
-}
-
-.firstColumn__section--noPhoto {
-  padding: 1vw;
 }
 
 .firstColumn__section-photo {

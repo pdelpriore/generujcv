@@ -28,11 +28,13 @@ const Preview: React.FC<PreviewProps> = ({
   setPageLoader,
   closePreview,
 }) => {
-  const firstColumnSectionClassName =
-    inputs.photo.length > 0
-      ? "firstColumn__section"
-      : "firstColumn__section firstColumn__section--noPhoto";
-  const userPhotoClassName =
+  const firstColumnSection =
+    sectionVolume === 0 && inputs.photo.length > 0
+      ? "firstColumn__section firstColumn__section--volume"
+      : sectionVolume > 0 && inputs.photo.length === 0
+      ? "firstColumn__section firstColumn__section--noPhoto"
+      : "firstColumn__section";
+  const userPhoto =
     sectionVolume > 0 && sectionVolume <= 3
       ? "firstColumn__section-photo"
       : "firstColumn__section-photo firstColumn__section-photo--volume";
@@ -52,14 +54,10 @@ const Preview: React.FC<PreviewProps> = ({
         <div className="firstColumn">
           {inputs.photo.length > 0 && (
             <section className="firstColumn__section">
-              <Image
-                className={userPhotoClassName}
-                src={inputs.photo}
-                roundedCircle
-              />
+              <Image className={userPhoto} src={inputs.photo} roundedCircle />
             </section>
           )}
-          <section className={firstColumnSectionClassName}>
+          <section className={firstColumnSection}>
             <>
               <span className="firstColumn__section-span">KONTAKT</span>
               {contactIcons.map((icon, index) => {
@@ -91,7 +89,7 @@ const Preview: React.FC<PreviewProps> = ({
             </>
           </section>
           {inputList.strengths.length > 0 && (
-            <section className={firstColumnSectionClassName}>
+            <section className={firstColumnSection}>
               <span className="firstColumn__section-span">MOCNE STRONY</span>
               <div className="firstColumn__section-list">
                 {inputList.strengths.map((strength, index) => (
@@ -101,7 +99,7 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.competences.length > 0 && (
-            <section className={firstColumnSectionClassName}>
+            <section className={firstColumnSection}>
               <span className="firstColumn__section-span">KOMPETENCJE</span>
               <div className="firstColumn__section-list firstColumn__section-list--competence">
                 {inputList.competences.map((competence, index) => (
@@ -111,7 +109,7 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.languages.length > 0 && (
-            <section className={firstColumnSectionClassName}>
+            <section className={firstColumnSection}>
               <span className="firstColumn__section-span">JĘZYKI OBCE</span>
               <div className="firstColumn__section-list">
                 {inputList.languages.map((language, index) => (
@@ -125,7 +123,7 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.hobbies.length > 0 && (
-            <section className={firstColumnSectionClassName}>
+            <section className={firstColumnSection}>
               <span className="firstColumn__section-span">ZAINTERESOWANIA</span>
               <div className="firstColumn__section-list">
                 {inputList.hobbies.map((hobby, index) => (
