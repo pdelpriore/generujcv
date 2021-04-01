@@ -151,6 +151,13 @@ const Preview: React.FC<PreviewProps> = ({
               {inputs.userData.jobPosition.toUpperCase()}
             </span>
           </section>
+          {inputList.diplomas.length > 0 && (
+            <section className={section}>
+              <span className="section__label section__label--secondcolumn">
+                EDUKACJA
+              </span>
+            </section>
+          )}
         </div>
       </div>
       <div className="previewButtons">
