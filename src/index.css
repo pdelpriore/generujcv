@@ -65,3 +65,21 @@ code {
   src: local("Roboto-Thin"),
     url("./fonts/roboto/Roboto-Thin.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: local("Poppins-Regular"),
+    url("./fonts/poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins-Light";
+  src: local("Poppins-Light"),
+    url("./fonts/poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins-Thin";
+  src: local("Poppins-Thin"),
+    url("./fonts/poppins/Poppins-Thin.ttf") format("truetype");
+}
