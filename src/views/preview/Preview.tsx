@@ -14,6 +14,7 @@ type TSetLoader = (value: boolean) => void;
 interface PreviewProps {
   inputs: FormInputTypes;
   inputList: FormInputListType;
+  sectionVolume: number;
   isPageLoading: boolean;
   setPageLoader: TSetLoader;
   closePreview: TOnclick;
@@ -22,6 +23,7 @@ interface PreviewProps {
 const Preview: React.FC<PreviewProps> = ({
   inputs,
   inputList,
+  sectionVolume,
   isPageLoading,
   setPageLoader,
   closePreview,
@@ -30,6 +32,10 @@ const Preview: React.FC<PreviewProps> = ({
     inputs.photo.length > 0
       ? "firstColumn__section"
       : "firstColumn__section firstColumn__section--noPhoto";
+  const userPhotoClassName =
+    sectionVolume > 0 && sectionVolume <= 3
+      ? "firstColumn__section-photo"
+      : "firstColumn__section-photo firstColumn__section-photo--volume";
 
   useEffect(() => {
     setPageLoader(false);
@@ -47,7 +53,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputs.photo.length > 0 && (
             <section className="firstColumn__section">
               <Image
-                className="firstColumn__section-photo"
+                className={userPhotoClassName}
                 src={inputs.photo}
                 roundedCircle
               />
@@ -118,7 +124,16 @@ const Preview: React.FC<PreviewProps> = ({
               </div>
             </section>
           )}
-          <section className={firstColumnSectionClassName}></section>
+          {inputList.hobbies.length > 0 && (
+            <section className={firstColumnSectionClassName}>
+              <span className="firstColumn__section-span">ZAINTERESOWANIA</span>
+              <div className="firstColumn__section-list">
+                {inputList.hobbies.map((hobby, index) => (
+                  <GenericItem key={index} content={hobby} />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
         <div className="secondColumn"></div>
       </div>

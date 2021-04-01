@@ -9,6 +9,7 @@ import TButton from "../../components/button/TButton";
 import Preview from "../preview/Preview";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
+import { countListElements } from "../../methods/countListElements";
 import getForm from "../../methods/getForm";
 import useVisibility from "../../hooks/visibility/useVisibility";
 import useLoader from "../../hooks/loading/useLoader";
@@ -70,9 +71,6 @@ const App: React.FC = () => {
       ? setVisibility("menuIcon", true)
       : setVisibility("menuIcon", false);
   }, [viewport, setVisibility]);
-
-  console.log(inputs);
-  console.log(inputList);
 
   return !isVisible.preview ? (
     <div className="container">
@@ -165,6 +163,7 @@ const App: React.FC = () => {
     <Preview
       inputs={inputs}
       inputList={inputList}
+      sectionVolume={countListElements(inputList)}
       isPageLoading={isLoading}
       setPageLoader={setLoader}
       closePreview={handleClosePreview}
