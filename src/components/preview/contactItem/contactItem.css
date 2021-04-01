@@ -24,6 +24,6 @@
 .contact__content {
   font-size: 0.8vw;
   color: var(--element-color);
-  font-family: "Poppins-ExtraLight";
+  font-family: "Poppins-ExtraLight", sans-serif;
   white-space: nowrap;
 }
