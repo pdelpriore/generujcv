@@ -2,7 +2,6 @@
   --width: 100vw;
   --height: 100vh;
   --size: 1vw;
-  --roboto-light: "Roboto-Light";
   --primary-color: #f3f3f3;
 }
 
@@ -92,7 +91,7 @@
 
 .firstColumn__section-span {
   font-size: 0.8vw;
-  font-family: var(--roboto-light);
+  font-family: "Roboto-Regular";
   border-top: 2px solid var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   color: var(--primary-color);
