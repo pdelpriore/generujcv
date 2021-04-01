@@ -89,7 +89,7 @@
   height: 9vw;
 }
 
-.firstColumn__section-span {
+.firstColumn__section-label {
   font-size: 0.8vw;
   font-family: "Roboto-Regular";
   border-top: 2px solid var(--primary-color);

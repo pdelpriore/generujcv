@@ -58,7 +58,7 @@ const inputReducer = (
           [action.payload.targetName]:
             action.payload.targetName === "name" ||
             action.payload.targetName === "surname" ||
-            action.payload.targetName === "workplace"
+            action.payload.targetName === "jobPosition"
               ? capitalize(
                   action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")
                 )
@@ -237,7 +237,7 @@ const inputReducer = (
         experience: {
           ...inputs.experience,
           [action.payload.targetName]:
-            action.payload.targetName === "workplace" ||
+            action.payload.targetName === "jobPosition" ||
             action.payload.targetName === "city"
               ? capitalize(
                   action.payload.targetValue.replace(/[^a-zA-Z\s]/g, "")

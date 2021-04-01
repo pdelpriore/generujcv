@@ -521,7 +521,7 @@ const useForm = (initialState: FormInputTypes) => {
       payload: {
         startPeriod: { month: "", year: 0 },
         endPeriod: { month: "", year: 0 },
-        workplace: "",
+        jobPosition: "",
         company: "",
         city: "",
         description: "",
@@ -560,7 +560,7 @@ const useForm = (initialState: FormInputTypes) => {
       payload: {
         startPeriod: { month: "", year: 0 },
         endPeriod: { month: "", year: 0 },
-        workplace: "",
+        jobPosition: "",
         company: "",
         city: "",
         description: "",
@@ -580,7 +580,7 @@ const useForm = (initialState: FormInputTypes) => {
       payload: {
         startPeriod: { month: "", year: 0 },
         endPeriod: { month: "", year: 0 },
-        workplace: "",
+        jobPosition: "",
         company: "",
         city: "",
         description: "",
@@ -605,7 +605,7 @@ const useForm = (initialState: FormInputTypes) => {
       payload: {
         startPeriod: { month: "", year: 0 },
         endPeriod: { month: "", year: 0 },
-        workplace: "",
+        jobPosition: "",
         company: "",
         city: "",
         description: "",

@@ -93,7 +93,7 @@ const GetForm = (
     userData: {
       name: "",
       surname: "",
-      workplace: "",
+      jobPosition: "",
       address: {
         street: "",
         streetNumber: "",
@@ -124,7 +124,7 @@ const GetForm = (
     experience: {
       startPeriod: { month: "", year: 0 },
       endPeriod: { month: "", year: 0 },
-      workplace: "",
+      jobPosition: "",
       company: "",
       city: "",
       description: "",

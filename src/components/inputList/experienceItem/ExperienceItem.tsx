@@ -8,7 +8,7 @@ import "./experienceItem.css";
 interface ExperienceItemProps {
   companyStart: period;
   companyEnd: period;
-  workplace: string;
+  jobPosition: string;
   company: string;
   city: string;
   description: string;
@@ -18,7 +18,7 @@ interface ExperienceItemProps {
 const ExperienceItem: React.FC<ExperienceItemProps> = ({
   companyStart,
   companyEnd,
-  workplace,
+  jobPosition,
   company,
   city,
   description,
@@ -38,7 +38,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
               ? `${companyEnd.month}/${companyEnd.year}`
               : "nadal pracuję"
           }`}</span>
-          <span className="experienceItem-item__content">{workplace}</span>
+          <span className="experienceItem-item__content">{jobPosition}</span>
           <span className="experienceItem-item__content">{company}</span>
           <span className="experienceItem-item__content">{city}</span>
           <span className="experienceItem-item__content">

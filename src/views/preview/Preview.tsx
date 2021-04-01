@@ -57,7 +57,7 @@ const Preview: React.FC<PreviewProps> = ({
           )}
           <section className={firstColumnSection}>
             <>
-              <span className="firstColumn__section-span">KONTAKT</span>
+              <span className="firstColumn__section-label">KONTAKT</span>
               {contactIcons.map((icon, index) => {
                 const contacts: string[] = [
                   inputs.userData.contact.tel,
@@ -88,7 +88,7 @@ const Preview: React.FC<PreviewProps> = ({
           </section>
           {inputList.strengths.length > 0 && (
             <section className={firstColumnSection}>
-              <span className="firstColumn__section-span">MOCNE STRONY</span>
+              <span className="firstColumn__section-label">MOCNE STRONY</span>
               <div className="firstColumn__section-list">
                 {inputList.strengths.map((strength, index) => (
                   <GenericItem key={index} content={strength} />
@@ -98,7 +98,7 @@ const Preview: React.FC<PreviewProps> = ({
           )}
           {inputList.competences.length > 0 && (
             <section className={firstColumnSection}>
-              <span className="firstColumn__section-span">KOMPETENCJE</span>
+              <span className="firstColumn__section-label">KOMPETENCJE</span>
               <div className="firstColumn__section-list firstColumn__section-list--competence">
                 {inputList.competences.map((competence, index) => (
                   <GenericItem key={index} content={competence} />
@@ -108,7 +108,7 @@ const Preview: React.FC<PreviewProps> = ({
           )}
           {inputList.languages.length > 0 && (
             <section className={firstColumnSection}>
-              <span className="firstColumn__section-span">JĘZYKI OBCE</span>
+              <span className="firstColumn__section-label">JĘZYKI OBCE</span>
               <div className="firstColumn__section-list">
                 {inputList.languages.map((language, index) => (
                   <LanguageItem
@@ -122,7 +122,9 @@ const Preview: React.FC<PreviewProps> = ({
           )}
           {inputList.hobbies.length > 0 && (
             <section className={firstColumnSection}>
-              <span className="firstColumn__section-span">ZAINTERESOWANIA</span>
+              <span className="firstColumn__section-label">
+                ZAINTERESOWANIA
+              </span>
               <div className="firstColumn__section-list">
                 {inputList.hobbies.map((hobby, index) => (
                   <GenericItem key={index} content={hobby} />

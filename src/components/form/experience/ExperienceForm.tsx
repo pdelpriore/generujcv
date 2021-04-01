@@ -149,7 +149,7 @@ const ExperienceForm: React.FC = () => {
             checked={isFieldChecked}
           />
         </Form.Group>
-        <Form.Group controlId="formExperienceWorkplace">
+        <Form.Group controlId="formExperienceJobPosition">
           <Form.Label className="formExperience__label">
             {capitalize("stanowisko")}
           </Form.Label>
@@ -158,8 +158,8 @@ const ExperienceForm: React.FC = () => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               onChangeExperience(e)
             }
-            value={inputs.experience.workplace || ""}
-            name="workplace"
+            value={inputs.experience.jobPosition || ""}
+            name="jobPosition"
             type="text"
             placeholder="stanowisko"
           />
@@ -236,7 +236,7 @@ const ExperienceForm: React.FC = () => {
                   ((inputs.experience.endPeriod.month.length === 0 ||
                     inputs.experience.endPeriod.year === 0) &&
                     !isFieldChecked) ||
-                  inputs.experience.workplace.length === 0 ||
+                  inputs.experience.jobPosition.length === 0 ||
                   inputs.experience.company.length === 0 ||
                   inputs.experience.city.length === 0 ||
                   inputs.experience.description.length === 0 ||
@@ -258,7 +258,7 @@ const ExperienceForm: React.FC = () => {
                 key={index}
                 companyStart={experience.startPeriod}
                 companyEnd={experience.endPeriod}
-                workplace={experience.workplace}
+                jobPosition={experience.jobPosition}
                 company={experience.company}
                 city={experience.city}
                 description={experience.description}

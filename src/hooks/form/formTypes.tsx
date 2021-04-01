@@ -22,7 +22,7 @@ type userdata = {
   surname: string;
   address: address;
   contact: contact;
-  workplace: string;
+  jobPosition: string;
 };
 
 export type language = {
@@ -42,7 +42,7 @@ export type diploma = {
 export type experience = {
   startPeriod: period;
   endPeriod: period;
-  workplace: string;
+  jobPosition: string;
   company: string;
   city: string;
   description: string;

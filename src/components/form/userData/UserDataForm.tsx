@@ -40,15 +40,15 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ inputs, onchange }) => {
           placeholder="nazwisko"
         />
       </Form.Group>
-      <Form.Group controlId="formUserDataWorkplace">
+      <Form.Group controlId="formUserDataJobPosition">
         <Form.Label className="formUserData__label">
           {capitalize("stanowisko *")}
         </Form.Label>
         <Form.Control
           className="formUserData__control"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onchange(e)}
-          value={inputs.userData.workplace || ""}
-          name="workplace"
+          value={inputs.userData.jobPosition || ""}
+          name="jobPosition"
           type="text"
           placeholder="stanowisko"
         />

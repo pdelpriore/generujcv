@@ -143,7 +143,7 @@ const App: React.FC = () => {
             // disabled={
             //   inputs.userData.name.length === 0 ||
             //   inputs.userData.surname.length === 0 ||
-            //   inputs.userData.workplace.length === 0 ||
+            //   inputs.userData.jobPosition.length === 0 ||
             //   inputs.userData.address.street.length === 0 ||
             //   inputs.userData.address.streetNumber.length === 0 ||
             //   inputs.userData.address.postCode.length === 0 ||
