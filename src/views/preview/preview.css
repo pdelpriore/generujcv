@@ -64,10 +64,6 @@
   padding: 0.5vw;
 }
 
-.firstColumn__section--volume {
-  flex: 4;
-}
-
 .firstColumn__section--noPhoto {
   padding: var(--size);
 }
