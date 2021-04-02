@@ -140,26 +140,6 @@ const Preview: React.FC<PreviewProps> = ({
               {inputs.userData.jobPosition.toUpperCase()}
             </span>
           </section>
-          {inputList.diplomas.length > 0 && (
-            <section className={section}>
-              <span className="section__label section__label--secondcolumn">
-                {`edukacja`.toUpperCase()}
-              </span>
-              <div className="section__list-secondcolumn">
-                {inputList.diplomas.map((diploma, index) => (
-                  <DiplomaItem
-                    key={index}
-                    schoolStart={diploma.startPeriod}
-                    schoolEnd={diploma.endPeriod}
-                    schoolName={diploma.schoolName}
-                    faculty={diploma.faculty}
-                    degree={diploma.degree}
-                    description={diploma.description}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
           {inputList.experiences.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--secondcolumn">
@@ -175,6 +155,26 @@ const Preview: React.FC<PreviewProps> = ({
                     company={experience.company}
                     city={experience.city}
                     description={experience.description}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+          {inputList.diplomas.length > 0 && (
+            <section className={section}>
+              <span className="section__label section__label--secondcolumn">
+                {`edukacja`.toUpperCase()}
+              </span>
+              <div className="section__list-secondcolumn">
+                {inputList.diplomas.map((diploma, index) => (
+                  <DiplomaItem
+                    key={index}
+                    schoolStart={diploma.startPeriod}
+                    schoolEnd={diploma.endPeriod}
+                    schoolName={diploma.schoolName}
+                    faculty={diploma.faculty}
+                    degree={diploma.degree}
+                    description={diploma.description}
                   />
                 ))}
               </div>

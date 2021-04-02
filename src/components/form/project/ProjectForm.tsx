@@ -120,8 +120,7 @@ const ProjectForm: React.FC = () => {
                 disabled={
                   inputs.project.name.length === 0 ||
                   inputs.project.url.length === 0 ||
-                  inputs.project.description.length === 0 ||
-                  inputList.projects.length === 5
+                  inputList.projects.length === 3
                 }
                 type="add"
                 content="dodaj"
