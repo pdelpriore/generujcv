@@ -6,6 +6,7 @@ import ContactItem from "../../components/preview/contactItem/ContactItem";
 import GenericItem from "../../components/preview/genericItem/GenericItem";
 import LanguageItem from "../../components/preview/languageItem/LanguageItem";
 import DiplomaItem from "../../components/preview/diplomaItem/DiplomaItem";
+import ExperienceItem from "../../components/preview/experienceItem/ExperienceItem";
 import { contactIcons } from "../../shared/menuElements";
 import { getContacts } from "../../methods/getContacts";
 import "./preview.css";
@@ -58,7 +59,7 @@ const Preview: React.FC<PreviewProps> = ({
           <section className={section}>
             <>
               <span className="section__label section__label--firstcolumn">
-                KONTAKT
+                {`kontakt`.toUpperCase()}
               </span>
               {contactIcons.map((icon, index) => {
                 const contacts: string[] = getContacts(inputs);
@@ -77,7 +78,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputList.strengths.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--firstcolumn">
-                MOCNE STRONY
+                {`mocne strony`.toUpperCase()}
               </span>
               <div className="section__list-firstcolumn">
                 {inputList.strengths.map((strength, index) => (
@@ -89,7 +90,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputList.competences.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--firstcolumn">
-                KOMPETENCJE
+                {`kompetencje`.toUpperCase()}
               </span>
               <div className="section__list-firstcolumn section__list-firstcolumn--competence">
                 {inputList.competences.map((competence, index) => (
@@ -101,7 +102,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputList.languages.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--firstcolumn">
-                JĘZYKI OBCE
+                {`języki obce`.toUpperCase()}
               </span>
               <div className="section__list-firstcolumn">
                 {inputList.languages.map((language, index) => (
@@ -117,7 +118,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputList.hobbies.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--firstcolumn">
-                ZAINTERESOWANIA
+                {`zainteresowania`.toUpperCase()}
               </span>
               <div className="section__list-firstcolumn">
                 {inputList.hobbies.map((hobby, index) => (
@@ -142,7 +143,7 @@ const Preview: React.FC<PreviewProps> = ({
           {inputList.diplomas.length > 0 && (
             <section className={section}>
               <span className="section__label section__label--secondcolumn">
-                EDUKACJA
+                {`edukacja`.toUpperCase()}
               </span>
               <div className="section__list-secondcolumn">
                 {inputList.diplomas.map((diploma, index) => (
@@ -154,6 +155,26 @@ const Preview: React.FC<PreviewProps> = ({
                     faculty={diploma.faculty}
                     degree={diploma.degree}
                     description={diploma.description}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+          {inputList.experiences.length > 0 && (
+            <section className={section}>
+              <span className="section__label section__label--secondcolumn">
+                {`doświadczenie zawodowe`.toUpperCase()}
+              </span>
+              <div className="section__list-secondcolumn">
+                {inputList.experiences.map((experience, index) => (
+                  <ExperienceItem
+                    key={index}
+                    companyStart={experience.startPeriod}
+                    companyEnd={experience.endPeriod}
+                    jobPosition={experience.jobPosition}
+                    company={experience.company}
+                    city={experience.city}
+                    description={experience.description}
                   />
                 ))}
               </div>
