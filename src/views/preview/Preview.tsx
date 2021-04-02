@@ -5,6 +5,7 @@ import TButton from "../../components/button/TButton";
 import ContactItem from "../../components/preview/contactItem/ContactItem";
 import GenericItem from "../../components/preview/genericItem/GenericItem";
 import LanguageItem from "../../components/preview/languageItem/LanguageItem";
+import DiplomaItem from "../../components/preview/diplomaItem/DiplomaItem";
 import { contactIcons } from "../../shared/menuElements";
 import { getContacts } from "../../methods/getContacts";
 import "./preview.css";
@@ -78,7 +79,7 @@ const Preview: React.FC<PreviewProps> = ({
               <span className="section__label section__label--firstcolumn">
                 MOCNE STRONY
               </span>
-              <div className="section__list">
+              <div className="section__list-firstcolumn">
                 {inputList.strengths.map((strength, index) => (
                   <GenericItem key={index} content={strength} />
                 ))}
@@ -90,7 +91,7 @@ const Preview: React.FC<PreviewProps> = ({
               <span className="section__label section__label--firstcolumn">
                 KOMPETENCJE
               </span>
-              <div className="section__list section__list--competence">
+              <div className="section__list-firstcolumn section__list-firstcolumn--competence">
                 {inputList.competences.map((competence, index) => (
                   <GenericItem key={index} content={competence} />
                 ))}
@@ -102,7 +103,7 @@ const Preview: React.FC<PreviewProps> = ({
               <span className="section__label section__label--firstcolumn">
                 JĘZYKI OBCE
               </span>
-              <div className="section__list">
+              <div className="section__list-firstcolumn">
                 {inputList.languages.map((language, index) => (
                   <LanguageItem
                     key={index}
@@ -118,7 +119,7 @@ const Preview: React.FC<PreviewProps> = ({
               <span className="section__label section__label--firstcolumn">
                 ZAINTERESOWANIA
               </span>
-              <div className="section__list">
+              <div className="section__list-firstcolumn">
                 {inputList.hobbies.map((hobby, index) => (
                   <GenericItem key={index} content={hobby} />
                 ))}
@@ -143,6 +144,19 @@ const Preview: React.FC<PreviewProps> = ({
               <span className="section__label section__label--secondcolumn">
                 EDUKACJA
               </span>
+              <div className="section__list-secondcolumn">
+                {inputList.diplomas.map((diploma, index) => (
+                  <DiplomaItem
+                    key={index}
+                    schoolStart={diploma.startPeriod}
+                    schoolEnd={diploma.endPeriod}
+                    schoolName={diploma.schoolName}
+                    faculty={diploma.faculty}
+                    degree={diploma.degree}
+                    description={diploma.description}
+                  />
+                ))}
+              </div>
             </section>
           )}
         </div>

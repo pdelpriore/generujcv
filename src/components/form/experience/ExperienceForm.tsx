@@ -240,7 +240,7 @@ const ExperienceForm: React.FC = () => {
                   inputs.experience.company.length === 0 ||
                   inputs.experience.city.length === 0 ||
                   inputs.experience.description.length === 0 ||
-                  inputList.experiences.length === 5
+                  inputList.experiences.length === 4
                 }
                 type="add"
                 content="dodaj"

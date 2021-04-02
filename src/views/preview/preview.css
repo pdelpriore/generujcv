@@ -58,9 +58,9 @@
 
 .section {
   display: flex;
-  align-items: baseline;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
+  align-items: baseline;
   padding: 0.5vw;
 }
 
@@ -68,12 +68,12 @@
   padding: var(--size);
 }
 
-.section__list {
+.section__list-firstcolumn {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.section__list--competence {
+.section__list-firstcolumn--competence {
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -92,19 +92,20 @@
 
 .section__label {
   font-size: 0.8vw;
-  font-family: "Poppins-Light", sans-serif;
   align-self: stretch;
   text-align: center;
 }
 
 .section__label--firstcolumn {
   color: var(--primary-color);
+  font-family: "Poppins-Light", sans-serif;
   border-top: 2px solid var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
 }
 
 .section__label--secondcolumn {
   color: var(--secondary-color);
+  font-family: "Poppins-Medium", sans-serif;
   border-top: 2px solid var(--secondary-color);
   border-bottom: 2px solid var(--secondary-color);
 }
