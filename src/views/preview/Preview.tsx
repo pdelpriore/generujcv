@@ -135,9 +135,7 @@ const Preview: React.FC<PreviewProps> = ({
         <div className="secondColumn">
           <section className={section}>
             <span className="section__label section__label--secondcolumn section__label--name">
-              {inputs.userData.name.toUpperCase()}
-            </span>
-            <span className="section__label section__label--secondcolumn section__label--name">
+              {inputs.userData.name.toUpperCase()}{" "}
               {inputs.userData.surname.toUpperCase()}
             </span>
             <span className="section__label section__label--secondcolumn section__label--name section__label--jobposition">
