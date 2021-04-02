@@ -133,7 +133,7 @@ const Preview: React.FC<PreviewProps> = ({
           )}
         </div>
         <div className="secondColumn">
-          <section className={section}>
+          <section className="section">
             <span className="section__label section__label--secondcolumn section__label--name">
               {inputs.userData.name.toUpperCase()}{" "}
               {inputs.userData.surname.toUpperCase()}
@@ -143,7 +143,7 @@ const Preview: React.FC<PreviewProps> = ({
             </span>
           </section>
           {inputList.experiences.length > 0 && (
-            <section className={section}>
+            <section className="section">
               <span className="section__label section__label--secondcolumn">
                 {`doświadczenie zawodowe`.toUpperCase()}
               </span>
@@ -163,7 +163,7 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.diplomas.length > 0 && (
-            <section className={section}>
+            <section className="section">
               <span className="section__label section__label--secondcolumn">
                 {`edukacja`.toUpperCase()}
               </span>
@@ -183,7 +183,7 @@ const Preview: React.FC<PreviewProps> = ({
             </section>
           )}
           {inputList.projects.length > 0 && (
-            <section className={section}>
+            <section className="section">
               <span className="section__label section__label--secondcolumn">
                 {`projekty`.toUpperCase()}
               </span>
