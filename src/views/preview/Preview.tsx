@@ -6,6 +6,7 @@ import ContactItem from "../../components/preview/contactItem/ContactItem";
 import GenericItem from "../../components/preview/genericItem/GenericItem";
 import LanguageItem from "../../components/preview/languageItem/LanguageItem";
 import { contactIcons } from "../../shared/menuElements";
+import { getContacts } from "../../methods/getContacts";
 import "./preview.css";
 
 type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -59,21 +60,7 @@ const Preview: React.FC<PreviewProps> = ({
                 KONTAKT
               </span>
               {contactIcons.map((icon, index) => {
-                const contacts: string[] = [
-                  inputs.userData.contact.tel,
-                  inputs.userData.contact.email,
-                  `${inputs.userData.address.street} ${
-                    inputs.userData.address.streetNumber
-                  }${
-                    inputs.userData.address.flatNumber > 0
-                      ? `/${inputs.userData.address.flatNumber}`
-                      : ""
-                  }, ${inputs.userData.address.postCode} ${
-                    inputs.userData.address.city
-                  }`,
-                  inputs.userData.contact.linkedinUrl,
-                ];
-
+                const contacts: string[] = getContacts(inputs);
                 return (
                   contacts[index].length > 0 && (
                     <ContactItem
