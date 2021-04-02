@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
 import { Row, Col, Spinner, Image } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import TButton from "../../components/button/TButton";
 import ContactItem from "../../components/preview/contactItem/ContactItem";
 import GenericItem from "../../components/preview/genericItem/GenericItem";
 import LanguageItem from "../../components/preview/languageItem/LanguageItem";
 import DiplomaItem from "../../components/preview/diplomaItem/DiplomaItem";
 import ExperienceItem from "../../components/preview/experienceItem/ExperienceItem";
+import ProjectItem from "../../components/preview/projectItem/ProjectItem";
 import { contactIcons } from "../../shared/menuElements";
 import { getContacts } from "../../methods/getContacts";
 import "./preview.css";
@@ -175,6 +178,36 @@ const Preview: React.FC<PreviewProps> = ({
                     faculty={diploma.faculty}
                     degree={diploma.degree}
                     description={diploma.description}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+          {inputList.projects.length > 0 && (
+            <section className={section}>
+              <span className="section__label section__label--secondcolumn">
+                {`projekty`.toUpperCase()}
+              </span>
+              <div className="section__list-secondcolumn">
+                {inputs.githubUrl.length > 0 && (
+                  <div className="section__github">
+                    <div className="github__icon">
+                      <FontAwesomeIcon
+                        className="github__icon-ico"
+                        icon={faGithub}
+                      />
+                    </div>
+                    <span className="section__github-url">
+                      {inputs.githubUrl}
+                    </span>
+                  </div>
+                )}
+                {inputList.projects.map((project, index) => (
+                  <ProjectItem
+                    key={index}
+                    name={project.name}
+                    url={project.url}
+                    description={project.description}
                   />
                 ))}
               </div>

@@ -1,0 +1,26 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.project__content {
+  font-size: 1vw;
+  font-family: "Poppins-Light", sans-serif;
+  color: #2d2d2d;
+  white-space: nowrap;
+}
+
+.project__content--name {
+  font-family: "Poppins-Medium", sans-serif;
+}
+
+.project__content--description {
+  font-size: 0.8vw;
+  text-align: justify;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
