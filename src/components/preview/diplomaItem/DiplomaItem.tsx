@@ -34,9 +34,11 @@ const DiplomaItem: React.FC<DiplomaItemProps> = ({
           ? `${schoolEnd.month}/${schoolEnd.year}`
           : "nadal studiuję"
       }`}</span>
-      <span className="diploma__content diploma__content--description">
-        {description}
-      </span>
+      {description.length > 0 && (
+        <span className="diploma__content diploma__content--description">
+          {description}
+        </span>
+      )}
     </div>
   );
 };
