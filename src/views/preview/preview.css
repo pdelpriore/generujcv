@@ -158,9 +158,11 @@
   white-space: nowrap;
 }
 
-.secondColumn__rodo {
-  padding-left: 2vw;
-  padding-right: 2vw;
+.section--rodo {
+  align-items: center;
+}
+
+.section__rodo {
   font-size: 0.8vw;
   font-family: "Poppins-Light", sans-serif;
   color: #2d2d2d;

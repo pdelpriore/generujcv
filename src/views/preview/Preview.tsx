@@ -214,7 +214,9 @@ const Preview: React.FC<PreviewProps> = ({
               </div>
             </section>
           )}
-          <span className="secondColumn__rodo">{getRodo()}</span>
+          <section className="section section--rodo">
+            <span className="section__rodo">{getRodo()}</span>
+          </section>
         </div>
       </div>
       <div className="previewButtons">
