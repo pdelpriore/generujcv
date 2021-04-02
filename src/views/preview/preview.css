@@ -64,6 +64,11 @@
   padding: 0.5vw;
 }
 
+.section--photo {
+  align-items: center;
+  justify-content: center;
+}
+
 .section--nophoto {
   padding: var(--size);
 }
@@ -82,7 +87,6 @@
   height: 11vw;
   object-fit: cover;
   border: 2px solid var(--primary-color);
-  align-self: center;
 }
 
 .section__photo--volume {

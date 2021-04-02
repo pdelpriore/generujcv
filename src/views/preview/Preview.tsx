@@ -51,7 +51,7 @@ const Preview: React.FC<PreviewProps> = ({
       <div className="previewColumns">
         <div className="firstColumn">
           {inputs.photo.length > 0 && (
-            <section className={section}>
+            <section className="section section--photo">
               <Image className={userPhoto} src={inputs.photo} roundedCircle />
             </section>
           )}
