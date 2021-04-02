@@ -66,7 +66,7 @@ const HobbyForm: React.FC = () => {
                 <TButton
                   className="formHobby__btn"
                   disabled={
-                    inputs.hobby.length === 0 || inputList.hobbies.length === 5
+                    inputs.hobby.length === 0 || inputList.hobbies.length === 6
                   }
                   type="add"
                   content="dodaj"

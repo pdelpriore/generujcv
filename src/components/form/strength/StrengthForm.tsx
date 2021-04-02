@@ -70,7 +70,7 @@ const StrengthForm: React.FC = () => {
                   className="formStrength__btn"
                   disabled={
                     inputs.strength.length === 0 ||
-                    inputList.strengths.length === 5
+                    inputList.strengths.length === 6
                   }
                   type="add"
                   content="dodaj"
