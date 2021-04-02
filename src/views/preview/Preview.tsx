@@ -189,16 +189,14 @@ const Preview: React.FC<PreviewProps> = ({
               </span>
               <div className="section__list-secondcolumn">
                 {inputs.githubUrl.length > 0 && (
-                  <div className="section__github">
+                  <div className="github">
                     <div className="github__icon">
                       <FontAwesomeIcon
                         className="github__icon-ico"
                         icon={faGithub}
                       />
                     </div>
-                    <span className="section__github-url">
-                      {inputs.githubUrl}
-                    </span>
+                    <span className="github__url">{inputs.githubUrl}</span>
                   </div>
                 )}
                 {inputList.projects.map((project, index) => (

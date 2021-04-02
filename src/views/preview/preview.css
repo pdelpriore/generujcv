@@ -129,7 +129,7 @@
   font-family: "Poppins-Regular", sans-serif;
 }
 
-.section__github {
+.github {
   display: flex;
   align-items: flex-end;
   flex-direction: row;
@@ -151,7 +151,7 @@
   color: var(--secondary-color);
 }
 
-.section__github-url {
+.github__url {
   font-size: 0.8vw;
   font-family: "Poppins-Light", sans-serif;
   color: #2d2d2d;
