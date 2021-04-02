@@ -12,6 +12,7 @@ import ExperienceItem from "../../components/preview/experienceItem/ExperienceIt
 import ProjectItem from "../../components/preview/projectItem/ProjectItem";
 import { contactIcons } from "../../shared/menuElements";
 import { getContacts } from "../../methods/getContacts";
+import { getRodo } from "../../methods/getRodo";
 import "./preview.css";
 
 type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -213,6 +214,7 @@ const Preview: React.FC<PreviewProps> = ({
               </div>
             </section>
           )}
+          <span className="secondColumn__rodo">{getRodo()}</span>
         </div>
       </div>
       <div className="previewButtons">

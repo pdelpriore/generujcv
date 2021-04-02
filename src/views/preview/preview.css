@@ -140,8 +140,8 @@
 }
 
 .github__icon {
-  width: 1vw;
-  height: 1vw;
+  width: var(--size);
+  height: var(--size);
   margin-right: 0.3vw;
 }
 
@@ -152,8 +152,19 @@
 }
 
 .section__github-url {
-  font-size: 1vw;
+  font-size: var(--size);
   font-family: "Poppins-Medium", sans-serif;
   color: #2d2d2d;
   white-space: nowrap;
+}
+
+.secondColumn__rodo {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 0.8vw;
+  font-family: "Poppins-Light", sans-serif;
+  color: #2d2d2d;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
