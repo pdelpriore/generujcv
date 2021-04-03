@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { period } from "../../../hooks/form/formTypes";
 import "./experienceItem.css";
 
@@ -19,6 +19,17 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   city,
   description,
 }) => {
+  const descriptionSpan = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const pointedDigits = /\d\./;
+    if (descriptionSpan.current)
+      descriptionSpan.current.innerHTML = descriptionSpan.current.innerText
+        .split(" ")
+        .map((word) => (word.match(pointedDigits) ? word.bold() : word))
+        .join(" ");
+  }, []);
+
   return (
     <div className="experience">
       <span className="experience__content experience__content--jobposition">
@@ -35,7 +46,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
           : "nadal pracuję"
       }`}</span>
       {description.length > 0 && (
-        <span className="experience__content experience__content--description">
+        <span
+          ref={descriptionSpan}
+          className="experience__content experience__content--description"
+        >
           {description}
         </span>
       )}
