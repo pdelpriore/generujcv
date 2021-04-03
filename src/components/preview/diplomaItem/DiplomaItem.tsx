@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { period } from "../../../hooks/form/formTypes";
 import "./diplomaItem.css";
 
@@ -19,6 +19,17 @@ const DiplomaItem: React.FC<DiplomaItemProps> = ({
   degree,
   description,
 }) => {
+  const descriptionSpan = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const pointedDigits = /\d\./;
+    if (descriptionSpan.current)
+      descriptionSpan.current.innerHTML = descriptionSpan.current.innerText
+        .split(" ")
+        .map((word) => (word.match(pointedDigits) ? word.bold() : word))
+        .join(" ");
+  }, []);
+
   return (
     <div className="diploma">
       <span className="diploma__content diploma__content--degree">
@@ -35,7 +46,10 @@ const DiplomaItem: React.FC<DiplomaItemProps> = ({
           : "nadal studiuję"
       }`}</span>
       {description.length > 0 && (
-        <span className="diploma__content diploma__content--description">
+        <span
+          ref={descriptionSpan}
+          className="diploma__content diploma__content--description"
+        >
           {description}
         </span>
       )}
