@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { period } from "../../../hooks/form/formTypes";
+import { boldPointedDigits } from "../../../methods/boldPointedDigits";
 import "./experienceItem.css";
 
 interface ExperienceItemProps {
@@ -22,12 +23,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   const descriptionSpan = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const pointedDigits = /\d\./;
     if (descriptionSpan.current)
-      descriptionSpan.current.innerHTML = descriptionSpan.current.innerText
-        .split(" ")
-        .map((word) => (word.match(pointedDigits) ? word.bold() : word))
-        .join(" ");
+      descriptionSpan.current.innerHTML = boldPointedDigits(
+        descriptionSpan.current.innerText
+      );
   }, []);
 
   return (
