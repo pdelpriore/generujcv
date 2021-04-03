@@ -223,7 +223,7 @@ const DiplomaForm: React.FC = () => {
                   inputs.diploma.schoolName.length === 0 ||
                   inputs.diploma.faculty.length === 0 ||
                   inputs.diploma.degree.length === 0 ||
-                  inputList.diplomas.length === 3
+                  inputList.diplomas.length === 4
                 }
                 type="add"
                 content="dodaj"

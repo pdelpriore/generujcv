@@ -19,8 +19,8 @@
 }
 
 .experience__content--description {
-  font-size: 0.8vw;
+  font-size: 0.7vw;
   text-align: justify;
   word-wrap: break-word;
-  white-space: pre-wrap;
+  white-space: normal;
 }
