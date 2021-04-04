@@ -60,8 +60,11 @@ const App: React.FC = () => {
   const handleGenerateCV = async (cvDocument: HTMLDivElement) => {
     const canvas = await html2canvas(cvDocument);
     const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPdf();
-    pdf.addImage(imgData, "png", 10, 78, 12, 15);
+    const pdf = new jsPdf({ orientation: "portrait" });
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    pdf.addImage(imgData, "png", 0, 0, pdfWidth, pdfHeight, "NONE");
     pdf.save(
       `${inputs.userData.name.toLowerCase()}_${underscoreName(
         inputs.userData.surname.toLowerCase()
