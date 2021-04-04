@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
 import { Row, Col, Spinner, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,7 @@ import "./preview.css";
 
 type TOnclick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 type TSetLoader = (value: boolean) => void;
+type TGenerate = (cvDocument: HTMLDivElement) => void;
 
 interface PreviewProps {
   inputs: FormInputTypes;
@@ -25,6 +26,7 @@ interface PreviewProps {
   isPageLoading: boolean;
   setPageLoader: TSetLoader;
   closePreview: TOnclick;
+  generatecv: TGenerate;
 }
 
 const Preview: React.FC<PreviewProps> = ({
@@ -34,6 +36,7 @@ const Preview: React.FC<PreviewProps> = ({
   isPageLoading,
   setPageLoader,
   closePreview,
+  generatecv,
 }) => {
   const section =
     inputs.photo.length === 0 ? "section section--nophoto" : "section";
@@ -41,6 +44,8 @@ const Preview: React.FC<PreviewProps> = ({
     sectionVolume > 0 && sectionVolume <= 3
       ? "section__photo"
       : "section__photo section__photo--volume";
+
+  const cvDocument = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setPageLoader(false);
@@ -53,7 +58,7 @@ const Preview: React.FC<PreviewProps> = ({
     </div>
   ) : (
     <div className="previewContainer">
-      <div className="previewColumns">
+      <div ref={cvDocument} className="previewColumns">
         <div className="firstColumn">
           {inputs.photo.length > 0 && (
             <section className="section section--photo">
@@ -220,6 +225,11 @@ const Preview: React.FC<PreviewProps> = ({
           <Col xs={4} />
           <Col xs={4} className="justify-right">
             <TButton type="cancel" content="zamknij" onClick={closePreview} />
+            <TButton
+              type="add"
+              content="generuj cv"
+              onClick={() => generatecv(cvDocument.current as HTMLDivElement)}
+            />
           </Col>
           <Col xs={4} />
         </Row>
