@@ -142,86 +142,90 @@ const Preview: React.FC<PreviewProps> = ({
           )}
         </div>
         <div className="secondColumn">
-          <section className="section">
-            <span className="section__label section__label--secondcolumn section__label--name">
-              {inputs.userData.name.toUpperCase()}{" "}
-              {inputs.userData.surname.toUpperCase()}
-            </span>
-            <span className="section__label section__label--secondcolumn section__label--name section__label--jobposition">
-              {inputs.userData.jobPosition.toUpperCase()}
-            </span>
-          </section>
-          {inputList.experiences.length > 0 && (
+          <div className="secondColumn__firstsection">
             <section className="section">
-              <span className="section__label section__label--secondcolumn">
-                {`doświadczenie zawodowe`.toUpperCase()}
+              <span className="section__label section__label--secondcolumn section__label--name">
+                {inputs.userData.name.toUpperCase()}{" "}
+                {inputs.userData.surname.toUpperCase()}
               </span>
-              <div className="section__list-secondcolumn">
-                {inputList.experiences.map((experience, index) => (
-                  <ExperienceItem
-                    key={index}
-                    companyStart={experience.startPeriod}
-                    companyEnd={experience.endPeriod}
-                    jobPosition={experience.jobPosition}
-                    company={experience.company}
-                    city={experience.city}
-                    description={experience.description}
-                  />
-                ))}
-              </div>
+              <span className="section__label section__label--secondcolumn section__label--name section__label--jobposition">
+                {inputs.userData.jobPosition.toUpperCase()}
+              </span>
             </section>
-          )}
-          {inputList.diplomas.length > 0 && (
-            <section className="section">
-              <span className="section__label section__label--secondcolumn">
-                {`edukacja`.toUpperCase()}
-              </span>
-              <div className="section__list-secondcolumn">
-                {inputList.diplomas.map((diploma, index) => (
-                  <DiplomaItem
-                    key={index}
-                    schoolStart={diploma.startPeriod}
-                    schoolEnd={diploma.endPeriod}
-                    schoolName={diploma.schoolName}
-                    faculty={diploma.faculty}
-                    degree={diploma.degree}
-                    description={diploma.description}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-          {inputList.projects.length > 0 && (
-            <section className="section">
-              <span className="section__label section__label--secondcolumn">
-                {`projekty`.toUpperCase()}
-              </span>
-              <div className="section__list-secondcolumn">
-                {inputs.githubUrl.length > 0 && (
-                  <div className="github">
-                    <div className="github__icon">
-                      <FontAwesomeIcon
-                        className="github__icon-ico"
-                        icon={faGithub}
-                      />
+            {inputList.experiences.length > 0 && (
+              <section className="section">
+                <span className="section__label section__label--secondcolumn">
+                  {`doświadczenie zawodowe`.toUpperCase()}
+                </span>
+                <div className="section__list-secondcolumn">
+                  {inputList.experiences.map((experience, index) => (
+                    <ExperienceItem
+                      key={index}
+                      companyStart={experience.startPeriod}
+                      companyEnd={experience.endPeriod}
+                      jobPosition={experience.jobPosition}
+                      company={experience.company}
+                      city={experience.city}
+                      description={experience.description}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+            {inputList.diplomas.length > 0 && (
+              <section className="section">
+                <span className="section__label section__label--secondcolumn">
+                  {`edukacja`.toUpperCase()}
+                </span>
+                <div className="section__list-secondcolumn">
+                  {inputList.diplomas.map((diploma, index) => (
+                    <DiplomaItem
+                      key={index}
+                      schoolStart={diploma.startPeriod}
+                      schoolEnd={diploma.endPeriod}
+                      schoolName={diploma.schoolName}
+                      faculty={diploma.faculty}
+                      degree={diploma.degree}
+                      description={diploma.description}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+            {inputList.projects.length > 0 && (
+              <section className="section">
+                <span className="section__label section__label--secondcolumn">
+                  {`projekty`.toUpperCase()}
+                </span>
+                <div className="section__list-secondcolumn">
+                  {inputs.githubUrl.length > 0 && (
+                    <div className="github">
+                      <div className="github__icon">
+                        <FontAwesomeIcon
+                          className="github__icon-ico"
+                          icon={faGithub}
+                        />
+                      </div>
+                      <span className="github__url">{inputs.githubUrl}</span>
                     </div>
-                    <span className="github__url">{inputs.githubUrl}</span>
-                  </div>
-                )}
-                {inputList.projects.map((project, index) => (
-                  <ProjectItem
-                    key={index}
-                    name={project.name}
-                    url={project.url}
-                    description={project.description}
-                  />
-                ))}
-              </div>
+                  )}
+                  {inputList.projects.map((project, index) => (
+                    <ProjectItem
+                      key={index}
+                      name={project.name}
+                      url={project.url}
+                      description={project.description}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+          <div className="secondColumn__secondsection">
+            <section className="section section--rodo">
+              <span className="section__rodo">{getRodo()}</span>
             </section>
-          )}
-          <section className="section section--rodo">
-            <span className="section__rodo">{getRodo()}</span>
-          </section>
+          </div>
         </div>
       </div>
       <div className="previewButtons">
