@@ -227,7 +227,7 @@ const Preview: React.FC<PreviewProps> = ({
       <div className="previewButtons">
         <Row>
           <Col xs={7} />
-          <Col xs={3} className="justify-right">
+          <Col xs={3}>
             <div className="previewButtons__wrap">
               <TButton
                 loading={loading}

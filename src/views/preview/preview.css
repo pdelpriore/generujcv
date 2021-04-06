@@ -41,20 +41,15 @@
   padding: 0.2vw;
 }
 
-.justify-right {
-  text-align: right;
-}
-
 .previewButtons__wrap {
   display: flex;
   justify-content: space-evenly;
 }
 
 .previewButtons__error {
-  font-size: var(--size);
+  font-size: 0.8vw;
   font-family: "OpenSans-Regular";
   color: #dc3545;
-  text-align: center;
 }
 
 .firstColumn {
