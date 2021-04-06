@@ -1,5 +1,6 @@
 import {
   LOADING,
+  PDF_RETRIEVED,
   ERROR,
   CLEAR,
   PdfDispatchTypes,
@@ -21,7 +22,9 @@ const pdfReducer = (
 ): PdfStateInterface => {
   switch (action.type) {
     case LOADING:
-      return { ...state, error: "", loading: action.payload };
+      return { ...state, loading: action.payload };
+    case PDF_RETRIEVED:
+      return (state = initialState);
     case ERROR:
       return { ...state, loading: false, error: action.payload };
     case CLEAR:

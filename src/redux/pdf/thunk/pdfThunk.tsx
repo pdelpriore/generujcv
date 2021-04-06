@@ -1,6 +1,7 @@
 import { Dispatch } from "redux";
 import {
   LOADING,
+  PDF_RETRIEVED,
   ERROR,
   CLEAR,
   PdfDispatchTypes,
@@ -21,7 +22,7 @@ export const getPdf = (data: string, title: string) => {
       });
       const pdf = await response.blob();
       if (pdf.size > 0) {
-        dispatch({ type: LOADING, payload: false });
+        dispatch({ type: PDF_RETRIEVED });
         saveAs(pdf, `${title}`);
       }
     } catch (err) {
