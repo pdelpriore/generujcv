@@ -55,6 +55,23 @@
   font-family: "OpenSans-Regular";
 }
 
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer__content {
+  font-size: var(--font-size);
+  color: var(--color);
+  font-family: "OpenSans-Regular";
+}
+
+.footer__icon:hover {
+  transform: scale(1.1);
+}
+
 @media (max-width: 1024px) {
   .logo-content {
     font-size: 4vw;

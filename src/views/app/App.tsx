@@ -4,7 +4,7 @@ import { setViewport } from "../../redux/viewport/thunk/viewportThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { getPdf, clearErrorState } from "../../redux/pdf/thunk/pdfThunk";
 import { RootState } from "../../redux/config/Store";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Nav } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
 import TButton from "../../components/button/TButton";
 import Preview from "../preview/Preview";
@@ -17,6 +17,7 @@ import useVisibility from "../../hooks/visibility/useVisibility";
 import useLoader from "../../hooks/loading/useLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "./app.css";
 
 const App: React.FC = () => {
@@ -175,6 +176,23 @@ const App: React.FC = () => {
           />
         </Col>
         <Col xl={1} xs={4} />
+      </Row>
+      <Row>
+        <Col xs={1} />
+        <Col xs={10}>
+          <div className="footer">
+            <span className="footer__content">
+              &#169; {new Date().getFullYear()} Paweł Del Priore
+            </span>
+            <Nav.Link
+              href="http://www.linkedin.com/in/pawe%C5%82-del-priore-b55bbb1a8"
+              target="_blank"
+            >
+              <FontAwesomeIcon className="footer__icon" icon={faLinkedin} />
+            </Nav.Link>
+          </div>
+        </Col>
+        <Col xs={1} />
       </Row>
     </div>
   ) : (
