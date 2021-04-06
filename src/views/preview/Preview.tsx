@@ -226,17 +226,23 @@ const Preview: React.FC<PreviewProps> = ({
       </div>
       <div className="previewButtons">
         <Row>
-          <Col xs={4} />
-          <Col xs={4} className="justify-right">
-            <TButton type="cancel" content="zamknij" onClick={closePreview} />
-            <TButton
-              loading={loading}
-              type="add"
-              content="generuj cv"
-              onClick={() => generatecv(cvDocument.current as HTMLDivElement)}
-            />
+          <Col xs={7} />
+          <Col xs={3} className="justify-right">
+            <div className="previewButtons__wrap">
+              <TButton
+                loading={loading}
+                type="preview"
+                content="generuj cv"
+                onClick={() => generatecv(cvDocument.current as HTMLDivElement)}
+              />
+              <TButton type="add" content="zamknij" onClick={closePreview} />
+            </div>
           </Col>
-          <Col xs={4} />
+          <Col xs={2}>
+            {error.length > 0 && (
+              <span className="previewButtons__error">{error}</span>
+            )}
+          </Col>
         </Row>
       </div>
     </div>

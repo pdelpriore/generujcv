@@ -45,6 +45,18 @@
   text-align: right;
 }
 
+.previewButtons__wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.previewButtons__error {
+  font-size: var(--size);
+  font-family: "OpenSans-Regular";
+  color: #dc3545;
+  text-align: center;
+}
+
 .firstColumn {
   display: flex;
   flex-direction: column;

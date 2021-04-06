@@ -1,6 +1,12 @@
 import { Dispatch } from "redux";
-import { LOADING, ERROR, PdfDispatchTypes } from "../type/pdfDispatchTypes";
+import {
+  LOADING,
+  ERROR,
+  CLEAR,
+  PdfDispatchTypes,
+} from "../type/pdfDispatchTypes";
 import { url } from "../../url/Url";
+import { saveAs } from "file-saver";
 
 export const getPdf = (data: string, title: string) => {
   return async (dispatch: Dispatch<PdfDispatchTypes>) => {
@@ -13,9 +19,11 @@ export const getPdf = (data: string, title: string) => {
         },
         body: JSON.stringify({ data: data, title: title }),
       });
-      const responseData = await response.json();
-      dispatch({ type: LOADING, payload: false });
-      console.log(responseData);
+      const pdf = await response.blob();
+      if (pdf.size > 0) {
+        dispatch({ type: LOADING, payload: false });
+        saveAs(pdf, `${title}`);
+      }
     } catch (err) {
       if (err)
         dispatch({
@@ -23,5 +31,11 @@ export const getPdf = (data: string, title: string) => {
           payload: "Problem z siecią. Spróbuj ponownie.",
         });
     }
+  };
+};
+
+export const clearErrorState = () => {
+  return (dispatch: Dispatch<PdfDispatchTypes>) => {
+    dispatch({ type: CLEAR });
   };
 };
