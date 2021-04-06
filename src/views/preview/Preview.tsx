@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { FormInputTypes, FormInputListType } from "../../hooks/form/formTypes";
 import { Row, Col, Spinner, Image } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/config/Store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import TButton from "../../components/button/TButton";
@@ -46,6 +48,8 @@ const Preview: React.FC<PreviewProps> = ({
       : "section__photo section__photo--volume";
 
   const cvDocument = useRef<HTMLDivElement>(null);
+
+  const { loading, error } = useSelector((state: RootState) => state.pdfState);
 
   useEffect(() => {
     setPageLoader(false);
@@ -226,6 +230,7 @@ const Preview: React.FC<PreviewProps> = ({
           <Col xs={4} className="justify-right">
             <TButton type="cancel" content="zamknij" onClick={closePreview} />
             <TButton
+              loading={loading}
               type="add"
               content="generuj cv"
               onClick={() => generatecv(cvDocument.current as HTMLDivElement)}

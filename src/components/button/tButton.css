@@ -2,3 +2,13 @@
   font-size: 1vw;
   font-family: "OpenSans-Regular";
 }
+
+.button-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.button-wrap__content {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}

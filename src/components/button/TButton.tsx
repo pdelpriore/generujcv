@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { capitalizeFirst } from "../../methods/capitalize";
 import "./tButton.css";
 
@@ -9,6 +9,7 @@ type TOnclick = (
 ) => void;
 
 interface TButtonProps {
+  loading?: boolean;
   className?: string;
   disabled?: boolean;
   type: string;
@@ -30,6 +31,7 @@ const buttonTypes: buttonType = {
 };
 
 const TButton: React.FC<TButtonProps> = ({
+  loading,
   className,
   disabled,
   type,
@@ -46,7 +48,26 @@ const TButton: React.FC<TButtonProps> = ({
         onClick(e, index as number)
       }
     >
-      {capitalizeFirst(content)}
+      <div className="button-wrap">
+        {loading && (
+          <Spinner
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          />
+        )}
+        {loading ? (
+          <span className="button-wrap__content">
+            {capitalizeFirst("generuję ...")}
+          </span>
+        ) : (
+          <span className="button-wrap__content">
+            {capitalizeFirst(content)}
+          </span>
+        )}
+      </div>
     </Button>
   );
 };

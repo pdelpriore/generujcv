@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ScrollArea from "react-scrollbar";
 import { setViewport } from "../../redux/viewport/thunk/viewportThunk";
 import { useDispatch, useSelector } from "react-redux";
+import { getPdf } from "../../redux/pdf/thunk/pdfThunk";
 import { RootState } from "../../redux/config/Store";
 import { Row, Col } from "react-bootstrap";
 import MenuItem from "../../components/menu/MenuItem";
@@ -55,13 +56,15 @@ const App: React.FC = () => {
 
   const handleClosePreview = () => setVisibility("preview", !isVisible.preview);
 
-  const handleGenerateCV = async (cvDocument: HTMLDivElement) => {
-    //  pdf.save(
-    //    `cv_${inputs.userData.name.toLowerCase()}_${underscoreName(
-    //      inputs.userData.surname.toLowerCase()
-    //    )}_${underscoreName(inputs.userData.jobPosition.toLowerCase())}.pdf`
-    //  );
-    console.log(JSON.stringify(cvDocument.innerHTML));
+  const handleGenerateCV = (cvDocument: HTMLDivElement) => {
+    dispatch(
+      getPdf(
+        cvDocument.innerHTML,
+        `cv_${inputs.userData.name.toLowerCase()}_${underscoreWord(
+          inputs.userData.surname.toLowerCase()
+        )}_${underscoreWord(inputs.userData.jobPosition.toLowerCase())}.pdf`
+      )
+    );
   };
 
   useEffect(() => {
