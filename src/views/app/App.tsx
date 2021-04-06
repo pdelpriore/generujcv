@@ -4,15 +4,13 @@ import { setViewport } from "../../redux/viewport/thunk/viewportThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/config/Store";
 import { Row, Col } from "react-bootstrap";
-import html2canvas from "html2canvas";
-import jsPdf from "jspdf";
 import MenuItem from "../../components/menu/MenuItem";
 import TButton from "../../components/button/TButton";
 import Preview from "../preview/Preview";
 import { menuElements } from "../../shared/menuElements";
 import { capitalize } from "../../methods/capitalize";
 import { countListElements } from "../../methods/countListElements";
-import { underscoreName } from "../../methods/underscoreName";
+import { underscoreWord } from "../../methods/underscoreWord";
 import getForm from "../../methods/getForm";
 import useVisibility from "../../hooks/visibility/useVisibility";
 import useLoader from "../../hooks/loading/useLoader";
@@ -58,18 +56,12 @@ const App: React.FC = () => {
   const handleClosePreview = () => setVisibility("preview", !isVisible.preview);
 
   const handleGenerateCV = async (cvDocument: HTMLDivElement) => {
-    const canvas = await html2canvas(cvDocument);
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPdf({ orientation: "portrait" });
-    const imgProps = pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-    pdf.addImage(imgData, "png", 0, 0, pdfWidth, pdfHeight, "NONE");
-    pdf.save(
-      `${inputs.userData.name.toLowerCase()}_${underscoreName(
-        inputs.userData.surname.toLowerCase()
-      )}_cv.pdf`
-    );
+    //  pdf.save(
+    //    `cv_${inputs.userData.name.toLowerCase()}_${underscoreName(
+    //      inputs.userData.surname.toLowerCase()
+    //    )}_${underscoreName(inputs.userData.jobPosition.toLowerCase())}.pdf`
+    //  );
+    console.log(JSON.stringify(cvDocument.innerHTML));
   };
 
   useEffect(() => {
