@@ -101,15 +101,15 @@
 }
 
 .section__photo {
-  width: 11vw;
-  height: 11vw;
+  width: 14vw;
+  height: 14vw;
   object-fit: cover;
   border: 2px solid var(--primary-color);
 }
 
 .section__photo--volume {
-  width: 9vw;
-  height: 9vw;
+  width: 11vw;
+  height: 11vw;
 }
 
 .section__label {
