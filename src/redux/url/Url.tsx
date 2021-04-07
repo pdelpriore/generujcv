@@ -3,5 +3,5 @@ interface Url {
 }
 
 export const url: Readonly<Url> = Object.freeze({
-  GET_PDF: "http://127.0.0.1:4000/getpdf",
+  GET_PDF: "http://generujcv.herokuapp.com/getpdf",
 });
