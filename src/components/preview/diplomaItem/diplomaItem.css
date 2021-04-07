@@ -24,3 +24,43 @@
   word-wrap: break-word;
   white-space: normal;
 }
+
+@media (max-width: 320px) {
+  .diploma__content {
+    font-size: 1.2vw;
+  }
+
+  .diploma__content--description {
+    font-size: 1.1vw;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .diploma__content {
+    font-size: 1.3vw;
+  }
+
+  .diploma__content--description {
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  .diploma__content {
+    font-size: 1vw;
+  }
+
+  .diploma__content--description {
+    font-size: 1vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .diploma__content {
+    font-size: 1.1vw;
+  }
+
+  .diploma__content--description {
+    font-size: 1vw;
+  }
+}

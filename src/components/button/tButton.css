@@ -1,6 +1,7 @@
 .button-wrap__content {
   font-size: 1vw;
   font-family: "OpenSans-Regular";
+  white-space: nowrap;
 }
 
 .button-wrap {

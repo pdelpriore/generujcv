@@ -30,3 +30,63 @@
   font-family: "Poppins-ExtraLight", sans-serif;
   white-space: nowrap;
 }
+
+@media (max-width: 320px) {
+  .generic__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .generic__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .generic__content {
+    font-size: 2vw;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .generic__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .generic__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .generic__content {
+    font-size: 1.8vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  .generic__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .generic__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .generic__content {
+    font-size: 1.6vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .generic__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .generic__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .generic__content {
+    font-size: 1.4vw;
+  }
+}

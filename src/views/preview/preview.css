@@ -193,13 +193,197 @@
 }
 
 @media (max-width: 320px) {
+  .previewButtons__wrap {
+    justify-content: space-around;
+  }
+
+  .section__photo {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .section__photo--volume {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .section__label {
+    font-size: 2.2vw;
+  }
+
+  .section__label--name {
+    font-size: 4vw;
+  }
+
+  .section__label--jobposition {
+    font-size: 2.8vw;
+  }
+
+  .section__list-firstcolumn,
+  .section__list-firstcolumn--competence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .github__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .github__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .github__url {
+    font-size: 2vw;
+  }
+
+  .section__rodo {
+    font-size: 1.6vw;
+  }
 }
 
 @media (min-width: 321px) and (max-width: 414px) {
+  .previewButtons__wrap {
+    justify-content: space-around;
+  }
+
+  .section__photo {
+    width: 24vw;
+    height: 24vw;
+  }
+
+  .section__photo--volume {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .section__label {
+    font-size: 2.2vw;
+  }
+
+  .section__label--name {
+    font-size: 4vw;
+  }
+
+  .section__label--jobposition {
+    font-size: 2.8vw;
+  }
+
+  .section__list-firstcolumn,
+  .section__list-firstcolumn--competence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .github__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .github__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .github__url {
+    font-size: 2vw;
+  }
+
+  .section__rodo {
+    font-size: 1.8vw;
+  }
 }
 
 @media (min-width: 415px) and (max-width: 768px) {
+  .previewButtons__wrap {
+    justify-content: space-around;
+  }
+
+  .section__photo {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .section__photo--volume {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .section__label {
+    font-size: 2.1vw;
+  }
+
+  .section__label--name {
+    font-size: 3.8vw;
+  }
+
+  .section__label--jobposition {
+    font-size: 2.6vw;
+  }
+
+  .section__list-firstcolumn,
+  .section__list-firstcolumn--competence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .github__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .github__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .github__url {
+    font-size: 1.1vw;
+  }
+
+  .section__rodo {
+    font-size: 1.1vw;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  .section__photo {
+    width: 24vw;
+    height: 24vw;
+  }
+
+  .section__photo--volume {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .section__label {
+    font-size: 2.1vw;
+  }
+
+  .section__label--name {
+    font-size: 3.8vw;
+  }
+
+  .section__label--jobposition {
+    font-size: 2.6vw;
+  }
+
+  .section__list-firstcolumn,
+  .section__list-firstcolumn--competence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .github__icon {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .github__icon-ico {
+    font-size: 1.9vw;
+  }
+
+  .github__url {
+    font-size: 1.1vw;
+  }
+
+  .section__rodo {
+    font-size: 1.1vw;
+  }
 }

@@ -24,3 +24,43 @@
   word-wrap: break-word;
   white-space: normal;
 }
+
+@media (max-width: 320px) {
+  .experience__content {
+    font-size: 1.2vw;
+  }
+
+  .experience__content--description {
+    font-size: 1.1vw;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .experience__content {
+    font-size: 1.3vw;
+  }
+
+  .experience__content--description {
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  .experience__content {
+    font-size: 1vw;
+  }
+
+  .experience__content--description {
+    font-size: 1vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .experience__content {
+    font-size: 1.1vw;
+  }
+
+  .experience__content--description {
+    font-size: 1vw;
+  }
+}

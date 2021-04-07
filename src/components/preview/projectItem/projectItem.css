@@ -24,3 +24,43 @@
   word-wrap: break-word;
   white-space: normal;
 }
+
+@media (max-width: 320px) {
+  .project__content {
+    font-size: 1.2vw;
+  }
+
+  .project__content--description {
+    font-size: 1.1vw;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .project__content {
+    font-size: 1.3vw;
+  }
+
+  .project__content--description {
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  .project__content {
+    font-size: 1vw;
+  }
+
+  .project__content--description {
+    font-size: 1vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project__content {
+    font-size: 1.1vw;
+  }
+
+  .project__content--description {
+    font-size: 1vw;
+  }
+}
