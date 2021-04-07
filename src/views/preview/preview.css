@@ -68,7 +68,7 @@
 }
 
 .secondColumn__firstsection {
-  flex-grow: 8;
+  flex: 23;
 }
 
 .secondColumn__secondsection {
