@@ -41,7 +41,9 @@ const TButton: React.FC<TButtonProps> = ({
 }) => {
   return (
     <Button
-      className={className && className.length > 0 ? className : "button"}
+      className={
+        className && className.length > 0 ? className : "button-wrap__content"
+      }
       disabled={disabled ? disabled : false}
       variant={buttonTypes[type]}
       onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
@@ -59,11 +61,23 @@ const TButton: React.FC<TButtonProps> = ({
           />
         )}
         {loading ? (
-          <span className="button-wrap__content">
+          <span
+            className={
+              className && className.length > 0
+                ? className
+                : "button-wrap__content"
+            }
+          >
             {capitalizeFirst("generuję ...")}
           </span>
         ) : (
-          <span className="button-wrap__content">
+          <span
+            className={
+              className && className.length > 0
+                ? className
+                : "button-wrap__content"
+            }
+          >
             {capitalizeFirst(content)}
           </span>
         )}

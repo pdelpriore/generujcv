@@ -1,4 +1,4 @@
-.button {
+.button-wrap__content {
   font-size: 1vw;
   font-family: "OpenSans-Regular";
 }
@@ -8,7 +8,26 @@
   align-items: center;
 }
 
-.button-wrap__content {
-  font-size: var(--font-size);
-  font-family: var(--font-family);
+@media (max-width: 320px) {
+  .button-wrap__content {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .button-wrap__content {
+    font-size: 2.2vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  .button-wrap__content {
+    font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .button-wrap__content {
+    font-size: 2.5vw;
+  }
 }

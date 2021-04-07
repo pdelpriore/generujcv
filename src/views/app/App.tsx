@@ -158,7 +158,6 @@ const App: React.FC = () => {
         <Col xl={8} xs={4} />
         <Col xl={3} xs={4} className="justify-center">
           <TButton
-            className="preview-btn"
             disabled={
               inputs.userData.name.length === 0 ||
               inputs.userData.surname.length === 0 ||
