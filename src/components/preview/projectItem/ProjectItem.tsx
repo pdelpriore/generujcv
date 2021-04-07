@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { boldPointedDigits } from "../../../methods/boldPointedDigits";
 import "./projectItem.css";
 
 interface ProjectItemProps {
@@ -12,12 +13,24 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   url,
   description,
 }) => {
+  const descriptionSpan = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (descriptionSpan.current)
+      descriptionSpan.current.innerHTML = boldPointedDigits(
+        descriptionSpan.current.innerText
+      );
+  }, []);
+
   return (
     <div className="project">
       <span className="project__content project__content--name">{name}</span>
       <span className="project__content">{url}</span>
       {description.length > 0 && (
-        <span className="project__content project__content--description">
+        <span
+          ref={descriptionSpan}
+          className="project__content project__content--description"
+        >
           {description}
         </span>
       )}

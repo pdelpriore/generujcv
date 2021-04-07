@@ -8,7 +8,7 @@
 }
 
 .diploma__content {
-  font-size: 0.8vw;
+  font-size: 0.6vw;
   font-family: "Poppins-Light", sans-serif;
   color: #2d2d2d;
   white-space: nowrap;
@@ -19,7 +19,7 @@
 }
 
 .diploma__content--description {
-  font-size: 0.7vw;
+  font-size: 0.5vw;
   text-align: justify;
   word-wrap: break-word;
   white-space: normal;
