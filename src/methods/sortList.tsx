@@ -55,14 +55,13 @@ export const sortList = (
 
   let differenceElementAFromNow = endElementA.isSame(now)
     ? endElementA.diff(startElementA, "days")
-    : moment(endElementA.diff(startElementA, "days")).add(
-        moment(now).diff(endElementA, "days")
-      );
+    : endElementA.diff(startElementA, "days") +
+      moment(now).diff(endElementA, "days");
+
   let differenceElementBFromNow = endElementB.isSame(now)
     ? endElementB.diff(startElementB, "days")
-    : moment(endElementB.diff(startElementB, "days")).add(
-        moment(now).diff(endElementB, "days")
-      );
+    : endElementB.diff(startElementB, "days") +
+      moment(now).diff(endElementB, "days");
 
   return differenceElementAFromNow < differenceElementBFromNow ? -1 : 1;
 };

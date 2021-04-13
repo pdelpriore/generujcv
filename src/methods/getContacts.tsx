@@ -8,5 +8,5 @@ export const getContacts = (inputs: FormInputTypes): string[] => [
       ? `/${inputs.userData.address.flatNumber}`
       : ""
   }, ${inputs.userData.address.postCode} ${inputs.userData.address.city}`,
-  inputs.userData.contact.linkedinUrl,
+  decodeURI(inputs.userData.contact.linkedinUrl),
 ];
