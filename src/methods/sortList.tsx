@@ -25,7 +25,7 @@ export const sortList = (
             elementA.endPeriod.month.startsWith("0")
               ? elementA.endPeriod.month.substr(1)
               : elementA.endPeriod.month
-          ),
+          ) - 1,
           1,
         ]
   );
@@ -48,7 +48,7 @@ export const sortList = (
             elementB.endPeriod.month.startsWith("0")
               ? elementB.endPeriod.month.substr(1)
               : elementB.endPeriod.month
-          ),
+          ) - 1,
           1,
         ]
   );
