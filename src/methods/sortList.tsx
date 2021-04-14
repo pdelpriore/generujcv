@@ -13,7 +13,7 @@ export const sortList = (
       elementA.startPeriod.month.startsWith("0")
         ? elementA.startPeriod.month.substr(1)
         : elementA.startPeriod.month
-    ),
+    ) - 1,
     1,
   ]);
   let endElementA = moment(
@@ -36,7 +36,7 @@ export const sortList = (
       elementB.startPeriod.month.startsWith("0")
         ? elementB.startPeriod.month.substr(1)
         : elementB.startPeriod.month
-    ),
+    ) - 1,
     1,
   ]);
   let endElementB = moment(
